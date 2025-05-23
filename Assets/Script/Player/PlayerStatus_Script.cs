@@ -13,13 +13,13 @@ public class PlayerStatus_Script : MonoBehaviour
     [Tooltip("会心ダメ率")] public float player_Critical_Damage = 150;
 
 
-    [Header("初期ステータス"), Tooltip("初期最大体力")] public float D_player_MaxHealth = 500;
-    [Tooltip("初期スタミナ")] public float D_player_MaxSutamina = 500;
-    [Tooltip("初期攻撃力")] public float D_player_Attack_Power = 10;
-    [Tooltip("初期防御力")] public float D_player_Defense = 10;
-    [Tooltip("初期移動速度")] public float D_player_Speed = 5;
-    [Tooltip("初期会心率"), Range(0, 100)] public float D_player_Critical = 0;
-    [Tooltip("初期会心ダメ率")] public float D_player_Critical_Damage = 150;
+    [Header("初期ステータス"), Tooltip("初期最大体力")] public float D_player_MaxHealth;
+    [Tooltip("初期スタミナ")] public float D_player_MaxSutamina;
+    [Tooltip("初期攻撃力")] public float D_player_Attack_Power;
+    [Tooltip("初期防御力")] public float D_player_Defense;
+    [Tooltip("初期移動速度")] public float D_player_Speed;
+    [Tooltip("初期会心率"), Range(0, 100)] public float D_player_Critical;
+    [Tooltip("初期会心ダメ率")] public float D_player_Critical_Damage;
 
     [Header("追加ステータス"), Tooltip("追加最大体力")] public float add_Player_MaxHealth = 0;
     [Tooltip("追加スタミナ")] public float add_Player_MaxSutamina = 0;
@@ -30,8 +30,12 @@ public class PlayerStatus_Script : MonoBehaviour
     [Tooltip("追加会心ダメ率")] public float add_Player_Critical_Damage = 0;
 
     [HideInInspector] public int enemyDeathCount;//倒したモンスターの数を保持
+
+    [SerializeField] CSVReader statusLoad;
     void Start()
     {
+        statusLoad.LoadingPlayerStatus();
+
         enemyDeathCount = 0;
     }
 

@@ -8,14 +8,26 @@ public class CSVReader : MonoBehaviour
     TextAsset csvFile; // CSVファイル
 
     string playerStatusCSV = "Status/PlayerStatusCSV";  //プレイヤー初期ステータスのCSVのパス
+    string enemyStatusCSV = "Status/EnemyStatusCSV";    //エネミー初期ステータスのCSVのパス
 
     List<string[]> playerStatusDatas = new List<string[]>();    //プレイヤーデータCSVの中身を入れるリスト
+    List<string[]> enemyStatusDatas = new List<string[]>();     //エネミーデータCSVの中身を入れるリスト
 
-    public PlayerStatus_Script playerStatus_Script;
+    [SerializeField, Header("代入するプレイヤーステータススクリプト")] PlayerStatus_Script playerStatus_Script;
+    [SerializeField, Header("代入するエネミーステータススクリプト")] EnemyStatus_Script enemyStatus_Script;
 
     int playerNo = 1;
 
-
+    /// <summary>
+    /// 名前 = 1,
+    /// 最大体力 = 2,
+    /// 最大スタミナ = 3,
+    /// 攻撃力 = 4,
+    /// 防御力 = 5,
+    /// スピード = 6,
+    /// 会心率 = 7,
+    /// 会心ダメ = 8,
+    /// </summary>
     enum CSVPlayerStatus
     {
         NAME = 1,
@@ -28,14 +40,27 @@ public class CSVReader : MonoBehaviour
         D_CRITICAL_DAMAGE
     }
 
+    /// <summary>
+    /// 敵の種類(タイプ) = 0,
+    /// 名前 = 1,
+    /// 最大体力 = 2,
+    /// 攻撃力 = 4,
+    /// 防御力 = 5,
+    /// スピード = 6,
+    /// </summary>
+    enum CSVEnemyStatus
+    {
+        TYPE = 0,
+        NAME,
+        D_MAX_HEALTH,
+        D_ATTACK_POWER,
+        D_DEFENCE,
+        D_SPEED
+    }
 
     void Start()
     {
-    }
 
-    void Update()
-    {
-        
     }
 
 
@@ -56,6 +81,7 @@ public class CSVReader : MonoBehaviour
         }
     }
 
+
     public void LoadingPlayerStatus()
     {
         //データ読み込み
@@ -73,5 +99,12 @@ public class CSVReader : MonoBehaviour
     }
 
 
+    public void LoadingEnemyStatus(int typeNo)
+    {
+        enemyStatus_Script.enemy_MaxHealth = float.Parse(enemyStatusDatas[typeNo][(int)CSVEnemyStatus.D_MAX_HEALTH]);
+        enemyStatus_Script.enemy_Attack_Power = float.Parse(enemyStatusDatas[typeNo][(int)CSVEnemyStatus.D_ATTACK_POWER]);
+        enemyStatus_Script.enemy_Defense = float.Parse(enemyStatusDatas[typeNo][(int)CSVEnemyStatus.D_DEFENCE]);
+        enemyStatus_Script.enemy_Speed = float.Parse(enemyStatusDatas[typeNo][(int)CSVEnemyStatus.D_SPEED]);
+    }
 
 }

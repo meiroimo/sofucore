@@ -37004,6 +37004,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1433892288}
   m_CullTransparentMesh: 1
+--- !u!1 &1491116646
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1491116648}
+  - component: {fileID: 1491116647}
+  m_Layer: 0
+  m_Name: CSVLoad
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1491116647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491116646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71103eb6d5c61d04f82ea522ca3ac3fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStatus_Script: {fileID: 1958699684}
+--- !u!4 &1491116648
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491116646}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1499996802
 GameObject:
   m_ObjectHideFlags: 0
@@ -39384,13 +39429,13 @@ MonoBehaviour:
   player_Speed: 5
   player_Critical: 41.5
   player_Critical_Damage: 150
-  D_player_MaxHealth: 500
-  D_player_MaxSutamina: 500
-  D_player_Attack_Power: 10
-  D_player_Defense: 10
-  D_player_Speed: 5
+  D_player_MaxHealth: 0
+  D_player_MaxSutamina: 0
+  D_player_Attack_Power: 0
+  D_player_Defense: 0
+  D_player_Speed: 0
   D_player_Critical: 0
-  D_player_Critical_Damage: 150
+  D_player_Critical_Damage: 0
   add_Player_MaxHealth: 0
   add_Player_MaxSutamina: 0
   add_Player_Attack_Power: 0
@@ -39399,6 +39444,7 @@ MonoBehaviour:
   add_Player_Critical: 0
   add_Player_Critical_Damage: 0
   enemyDeathCount: 0
+  statusLoad: {fileID: 1491116647}
 --- !u!1 &1980059414
 GameObject:
   m_ObjectHideFlags: 0
@@ -40257,3 +40303,4 @@ SceneRoots:
   - {fileID: 468965891}
   - {fileID: 810242482}
   - {fileID: 3604268713019339540}
+  - {fileID: 1491116648}

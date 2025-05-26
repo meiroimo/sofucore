@@ -11,11 +11,9 @@
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 <<<<<<< HEAD
-/RENA/
+/Assets/RENA/
 /MEI/
 *.log
-
-#変更テスト
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data

@@ -31576,7 +31576,8 @@ MonoBehaviour:
   minSpawn: {fileID: 444119043}
   maxSpawn: {fileID: 1918261490}
   checkPerFrame: 1
-  spawnFlg: 0
+  spawnFlg: 1
+  CSVLoad: {fileID: 1491116647}
 --- !u!1 &508119012
 GameObject:
   m_ObjectHideFlags: 0

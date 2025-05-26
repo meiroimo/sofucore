@@ -60,7 +60,7 @@ public class CSVReader : MonoBehaviour
 
     void Start()
     {
-
+        CsvRead(enemyStatusCSV, enemyStatusDatas);
     }
 
 

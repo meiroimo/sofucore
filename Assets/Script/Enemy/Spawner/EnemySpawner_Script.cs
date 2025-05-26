@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class EnemySpawner_Script : MonoBehaviour
 {
+    //スポーンするOBJ
     public GameObject enemyToSpawn;
 
+    //スポーンする間隔
     public float timeToSpown;
+    
     private float spownCounter;
 
     public Transform minSpawn, maxSpawn;
@@ -24,6 +27,8 @@ public class EnemySpawner_Script : MonoBehaviour
 
     public bool spawnFlg;
 
+    [SerializeField] CSVReader CSVLoad;
+
     void Start()
     {
         spownCounter = timeToSpown;
@@ -36,6 +41,8 @@ public class EnemySpawner_Script : MonoBehaviour
         }
 
         despawnDistance = Vector3.Distance(transform.position, maxSpawn.position) + 4f;
+
+        spawnFlg = true;
 
     }
 
@@ -81,9 +88,13 @@ public class EnemySpawner_Script : MonoBehaviour
     public void EnemySpown()
     {
         spownCounter -= Time.deltaTime;
+        
         if (spownCounter <= 0 && spawnFlg)
         {
             spownCounter = timeToSpown;
+
+            CSVLoad.LoadingEnemyStatus(1);
+
 
             GameObject newEnemy = Instantiate(enemyToSpawn, SelectSpawnPoint(), transform.rotation);
 

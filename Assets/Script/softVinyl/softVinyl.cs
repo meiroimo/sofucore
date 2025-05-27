@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class softVinyl : MonoBehaviour
 {
-       [Header("名前")] public  Name  sofviName;//このソフビの画像
+       [Header("名前")] public  Name  sofviName;//このソフビの名前
 
     [Header("画像")] public Sprite sofviImage;//このソフビの画像
     [Header("テーマ")] public themeNuｍ theme;//このソフビのテーマ
     [Header("スキル")] public SKILLNUM skill;//このソフビのスキル
+    [Header("レア度")] public Raritynum rarity;//このソフビのスキル
+
     [Header("コスト")] public int  cost;//このソフビのコスト
     [Header("ナンバー")] public int　ListNumber;//このソフビの番号
                       
@@ -196,6 +198,17 @@ public class softVinyl : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// テーマのイーナム
+    /// </summary>
+    public enum Raritynum
+    {
+        NULL = 0,
+       NOMAL,
+       RARE,
+       SUPARRARE,
+        MAX,
+    }
 
 
     void Start()

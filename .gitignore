@@ -13,7 +13,10 @@
 <<<<<<< HEAD
 /Assets/RENA/
 /Assets/MEI/
+<<<<<<< HEAD
 /Assets/KOME/
+=======
+>>>>>>> testMei
 *.log
 
 # MemoryCaptures can get excessive in size.

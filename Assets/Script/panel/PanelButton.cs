@@ -78,8 +78,8 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
                 PoptextWindowObj.SetActive(false);
             }
         }
-       
 
+        Debug.Log("‰Ÿ‚³‚ê‚½");
     }
     public void OnPointerEnter(PointerEventData eventData)
     {

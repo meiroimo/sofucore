@@ -364,6 +364,7 @@ MonoBehaviour:
   sofviImage: {fileID: 2096421878, guid: 3a866669515b3334eae733bb38047aef, type: 3}
   theme: 1
   skill: 1
+  rarity: 0
   cost: 3
   ListNumber: 0
   buffMainstatus: 0
@@ -507,10 +508,10 @@ RectTransform:
   - {fileID: 1457205891}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 154, y: -84.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &26234545
 MonoBehaviour:
@@ -543,6 +544,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -726,10 +728,10 @@ RectTransform:
   - {fileID: 614161189}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 154, y: -1110.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &28759768
 MonoBehaviour:
@@ -762,6 +764,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -1058,6 +1061,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 54275723}
   m_CullTransparentMesh: 1
+--- !u!1 &66386264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 66386265}
+  - component: {fileID: 66386266}
+  m_Layer: 0
+  m_Name: SceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &66386265
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66386264}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &66386266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66386264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2298a26752faafd46b0f152000054d41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIManagerObject: {fileID: 270009841}
+  CameraManegerObject: {fileID: 1599910789}
 --- !u!1 &69648759
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,10 +1144,10 @@ RectTransform:
   - {fileID: 424468089}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 278, y: -483.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &69648761
 MonoBehaviour:
@@ -1131,6 +1180,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -1563,6 +1613,7 @@ MonoBehaviour:
   sofviImage: {fileID: 960547880, guid: 3a866669515b3334eae733bb38047aef, type: 3}
   theme: 4
   skill: 4
+  rarity: 0
   cost: 4
   ListNumber: 0
   buffMainstatus: 0
@@ -1771,6 +1822,7 @@ MonoBehaviour:
   sofviImage: {fileID: -944963832, guid: 3a866669515b3334eae733bb38047aef, type: 3}
   theme: 1
   skill: 1
+  rarity: 0
   cost: 3
   ListNumber: 0
   buffMainstatus: 0
@@ -1914,10 +1966,10 @@ RectTransform:
   - {fileID: 1175634927}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 92, y: -1167.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &113185861
 MonoBehaviour:
@@ -1950,6 +2002,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -2212,10 +2265,10 @@ RectTransform:
   - {fileID: 18881477}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 278, y: -1167.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &138670223
 MonoBehaviour:
@@ -2248,6 +2301,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -2427,6 +2481,7 @@ MonoBehaviour:
   sofviImage: {fileID: 1931634286, guid: 3a866669515b3334eae733bb38047aef, type: 3}
   theme: 1
   skill: 1
+  rarity: 0
   cost: 3
   ListNumber: 0
   buffMainstatus: 0
@@ -2720,10 +2775,10 @@ RectTransform:
   - {fileID: 1000300412}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -711.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &183324775
 MonoBehaviour:
@@ -2756,6 +2811,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -2937,9 +2993,9 @@ RectTransform:
   m_Father: {fileID: 1191870710}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 0}
+  m_SizeDelta: {x: 20, y: -17}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &189098104
 MonoBehaviour:
@@ -3238,6 +3294,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -3417,28 +3474,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 270009843}
-  - component: {fileID: 270009842}
+  - component: {fileID: 270009844}
   m_Layer: 0
-  m_Name: panelUIcontroller
+  m_Name: UIManeger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &270009842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 270009841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38a87a957ccbd634d8cab0c7a601be46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PanelUIBox: {fileID: 289938990}
-  PlayingUIBox: {fileID: 725496141}
 --- !u!4 &270009843
 Transform:
   m_ObjectHideFlags: 0
@@ -3454,6 +3497,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &270009844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270009841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d3cae6286454f4f92c71ffdbd2ae12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameMainCanvas: {fileID: 511044805}
+  SetCanvas: {fileID: 0}
 --- !u!1 &288195241
 GameObject:
   m_ObjectHideFlags: 0
@@ -3491,10 +3548,10 @@ RectTransform:
   - {fileID: 1931782368}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 92, y: -996.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &288195243
 MonoBehaviour:
@@ -3527,6 +3584,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -3691,7 +3749,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &289938991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3774,6 +3832,8 @@ MonoBehaviour:
   ofsetx: 0
   ofsety: 0
   MousePos: {x: 0, y: 0}
+  MouseViewPort: {x: 0, y: 0}
+  MousePointPos: {x: 0, y: 0}
   selectSofvi: {fileID: 436420275}
   popupTextOBJ: {fileID: 523803341}
   selectSofviText: {fileID: 1202650177}
@@ -19932,10 +19992,10 @@ RectTransform:
   - {fileID: 1744110755}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 278, y: -84.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &323521182
 MonoBehaviour:
@@ -19968,6 +20028,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -20226,10 +20287,10 @@ RectTransform:
   - {fileID: 1615584343}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 154, y: -882.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &329027746
 MonoBehaviour:
@@ -20262,6 +20323,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -20445,10 +20507,10 @@ RectTransform:
   - {fileID: 964933586}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -1167.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &331199595
 MonoBehaviour:
@@ -20481,6 +20543,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -20907,10 +20970,10 @@ RectTransform:
   - {fileID: 427140691}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 278, y: -996.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &358518182
 MonoBehaviour:
@@ -20943,6 +21006,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -21126,10 +21190,10 @@ RectTransform:
   - {fileID: 1296537692}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -483.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &365540252
 MonoBehaviour:
@@ -21162,6 +21226,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -22180,10 +22245,10 @@ RectTransform:
   - {fileID: 2120740171}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 216, y: -84.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &432334094
 MonoBehaviour:
@@ -22216,6 +22281,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -22410,6 +22476,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -22618,10 +22685,10 @@ RectTransform:
   - {fileID: 2074529604}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 154, y: -996.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &452218432
 MonoBehaviour:
@@ -22654,6 +22721,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -22833,6 +22901,7 @@ MonoBehaviour:
   sofviImage: {fileID: 1587139392, guid: 3a866669515b3334eae733bb38047aef, type: 3}
   theme: 1
   skill: 1
+  rarity: 0
   cost: 3
   ListNumber: 0
   buffMainstatus: 0
@@ -23152,75 +23221,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1749160450402418689, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1749160450402418689, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1749160450402418689, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1749160450402418689, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1749160450402418689, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 270
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1749160450402418689, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1873655233802640958, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1873655233802640958, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1930823200182335002, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1930823200182335002, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1930823200182335002, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1930823200182335002, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1930823200182335002, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 160
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1930823200182335002, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1965088291707925380, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1965088291707925380, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2492023522783601467, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2492023522783601467, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2789634132993736242, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_Pivot.x
@@ -23308,47 +23377,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2945914954151776402, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3526847691614904289, guid: a3793152491611b4c954e4565c0b9827, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3526847691614904289, guid: a3793152491611b4c954e4565c0b9827, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3526847691614904289, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3526847691614904289, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 150
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3526847691614904289, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3526847691614904289, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 133
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3526847691614904289, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -12.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3736364513871807127, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3736364513871807127, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4021155329531563146, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4021155329531563146, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4213766947669560996, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.x
@@ -23364,35 +23433,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4261933452003417257, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4261933452003417257, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4261933452003417257, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 150
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4261933452003417257, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4261933452003417257, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 307
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4261933452003417257, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -12.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5717985032722994552, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5717985032722994552, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5792180259020070095, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.x
@@ -23408,171 +23477,171 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5822558046938881315, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5822558046938881315, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5822558046938881315, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5822558046938881315, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5822558046938881315, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5822558046938881315, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6670635420559439845, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6670635420559439845, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6670635420559439845, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6670635420559439845, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6670635420559439845, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 215
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6670635420559439845, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6696256208881433883, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6696256208881433883, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6696256208881433883, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 150
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6696256208881433883, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6696256208881433883, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 249
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6696256208881433883, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -12.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7838624383012119424, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7838624383012119424, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7838624383012119424, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 150
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7838624383012119424, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7838624383012119424, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 191
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7838624383012119424, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -12.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7854904405531192752, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7854904405531192752, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8499146228658922114, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8499146228658922114, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8825206062730664178, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8825206062730664178, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8825206062730664178, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8825206062730664178, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8825206062730664178, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 105
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8825206062730664178, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9038665764591943370, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9038665764591943370, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9041579923603193478, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9041579923603193478, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9041579923603193478, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 150
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9041579923603193478, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9041579923603193478, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9041579923603193478, guid: a3793152491611b4c954e4565c0b9827, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -12.5
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23612,6 +23681,7 @@ MonoBehaviour:
   sofviImage: {fileID: -206089231, guid: 3a866669515b3334eae733bb38047aef, type: 3}
   theme: 1
   skill: 1
+  rarity: 0
   cost: 3
   ListNumber: 0
   buffMainstatus: 0
@@ -23680,10 +23750,10 @@ RectTransform:
   - {fileID: 1999394713}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 216, y: -939.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &505205555
 MonoBehaviour:
@@ -23716,6 +23786,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -23899,10 +23970,10 @@ RectTransform:
   - {fileID: 735223279}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 92, y: -369.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &507887345
 MonoBehaviour:
@@ -23935,6 +24006,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -24094,7 +24166,7 @@ GameObject:
   - component: {fileID: 511044807}
   - component: {fileID: 511044806}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: GameMainCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24296,10 +24368,10 @@ RectTransform:
   - {fileID: 715292316}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 154, y: -198.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &519575822
 MonoBehaviour:
@@ -24332,6 +24404,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -24683,10 +24756,10 @@ RectTransform:
   - {fileID: 2007834672}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 154, y: -426.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &525908184
 MonoBehaviour:
@@ -24719,6 +24792,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -24913,10 +24987,10 @@ RectTransform:
   - {fileID: 2135163519}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 216, y: -654.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &533339021
 MonoBehaviour:
@@ -24949,6 +25023,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -25582,10 +25657,10 @@ RectTransform:
   - {fileID: 1211261194}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 216, y: -483.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &560555663
 MonoBehaviour:
@@ -25618,6 +25693,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -25934,10 +26010,10 @@ RectTransform:
   - {fileID: 351849623}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -312.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &563013643
 MonoBehaviour:
@@ -25970,6 +26046,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -26153,10 +26230,10 @@ RectTransform:
   - {fileID: 1496311427}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 92, y: -939.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &567419855
 MonoBehaviour:
@@ -26189,6 +26266,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -26522,6 +26600,7 @@ MonoBehaviour:
   sofviImage: {fileID: -1490004962, guid: 3a866669515b3334eae733bb38047aef, type: 3}
   theme: 1
   skill: 1
+  rarity: 0
   cost: 3
   ListNumber: 0
   buffMainstatus: 0
@@ -27011,10 +27090,10 @@ RectTransform:
   - {fileID: 2075999130}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -198.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &626224541
 MonoBehaviour:
@@ -27047,6 +27126,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -27431,10 +27511,10 @@ RectTransform:
   - {fileID: 1069549670}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 154, y: -1167.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &672153738
 MonoBehaviour:
@@ -27467,6 +27547,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -27650,10 +27731,10 @@ RectTransform:
   - {fileID: 445662506}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 92, y: -882.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &675325438
 MonoBehaviour:
@@ -27686,6 +27767,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -28246,10 +28328,10 @@ RectTransform:
   - {fileID: 1609871517}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 216, y: -768.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &708499290
 MonoBehaviour:
@@ -28282,6 +28364,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -28503,11 +28586,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 715292315}
   m_CullTransparentMesh: 1
---- !u!1 &725496141 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2945914954151776402, guid: a3793152491611b4c954e4565c0b9827, type: 3}
-  m_PrefabInstance: {fileID: 490864833}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &727948096
 GameObject:
   m_ObjectHideFlags: 0
@@ -29503,9 +29581,9 @@ RectTransform:
   m_Father: {fileID: 1191870710}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -17, y: -17}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &732114541
 MonoBehaviour:
@@ -30107,6 +30185,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -30160,10 +30239,10 @@ RectTransform:
   - {fileID: 551756048}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 92, y: -426.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &786901472
 MonoBehaviour:
@@ -30196,6 +30275,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -30375,6 +30455,7 @@ MonoBehaviour:
   sofviImage: {fileID: 1052538419, guid: 3a866669515b3334eae733bb38047aef, type: 3}
   theme: 1
   skill: 1
+  rarity: 0
   cost: 3
   ListNumber: 0
   buffMainstatus: 0
@@ -30856,10 +30937,10 @@ RectTransform:
   - {fileID: 102683989}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -1110.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &824816425
 MonoBehaviour:
@@ -30892,6 +30973,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -31150,10 +31232,10 @@ RectTransform:
   - {fileID: 1565061490}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 278, y: -1053.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &849202126
 MonoBehaviour:
@@ -31186,6 +31268,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -31406,6 +31489,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -31455,6 +31539,7 @@ MonoBehaviour:
   sofviImage: {fileID: -1424928693, guid: 3a866669515b3334eae733bb38047aef, type: 3}
   theme: 1
   skill: 1
+  rarity: 0
   cost: 3
   ListNumber: 0
   buffMainstatus: 0
@@ -31644,10 +31729,10 @@ RectTransform:
   - {fileID: 537401497}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 278, y: -768.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &913452099
 MonoBehaviour:
@@ -31680,6 +31765,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -31900,6 +31986,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -31953,10 +32040,10 @@ RectTransform:
   - {fileID: 444524441}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -141.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &924453835
 MonoBehaviour:
@@ -31989,6 +32076,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -32168,6 +32256,7 @@ MonoBehaviour:
   sofviImage: {fileID: -369844342, guid: 3a866669515b3334eae733bb38047aef, type: 3}
   theme: 1
   skill: 1
+  rarity: 0
   cost: 3
   ListNumber: 0
   buffMainstatus: 0
@@ -32605,10 +32694,10 @@ RectTransform:
   - {fileID: 988340762}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 154, y: -27.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &971845694
 MonoBehaviour:
@@ -32641,6 +32730,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -32899,10 +32989,10 @@ RectTransform:
   - {fileID: 702814085}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 92, y: -711.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &975235084
 MonoBehaviour:
@@ -32935,6 +33025,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -33118,10 +33209,10 @@ RectTransform:
   - {fileID: 1517675345}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 216, y: -369.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &985791617
 MonoBehaviour:
@@ -33154,6 +33245,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -33806,10 +33898,10 @@ RectTransform:
   - {fileID: 1130371140}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 278, y: -1110.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1031995746
 MonoBehaviour:
@@ -33842,6 +33934,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -34025,10 +34118,10 @@ RectTransform:
   - {fileID: 1121524927}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 216, y: -1053.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1041575755
 MonoBehaviour:
@@ -34061,6 +34154,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -34244,10 +34338,10 @@ RectTransform:
   - {fileID: 180128287}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 216, y: -1167.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1044372063
 MonoBehaviour:
@@ -34280,6 +34374,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -34459,6 +34554,7 @@ MonoBehaviour:
   sofviImage: {fileID: -913673536, guid: 3a866669515b3334eae733bb38047aef, type: 3}
   theme: 1
   skill: 1
+  rarity: 0
   cost: 1
   ListNumber: 0
   buffMainstatus: 1
@@ -34527,10 +34623,10 @@ RectTransform:
   - {fileID: 54275724}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 278, y: -654.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1054996064
 MonoBehaviour:
@@ -34563,6 +34659,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -34742,6 +34839,7 @@ MonoBehaviour:
   sofviImage: {fileID: -1462566633, guid: 3a866669515b3334eae733bb38047aef, type: 3}
   theme: 1
   skill: 1
+  rarity: 0
   cost: 3
   ListNumber: 0
   buffMainstatus: 0
@@ -34880,8 +34978,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1186291221}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.00000017881393, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -34960,10 +35058,10 @@ RectTransform:
   - {fileID: 1534364513}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -939.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1082511920
 MonoBehaviour:
@@ -34996,6 +35094,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -35340,10 +35439,10 @@ RectTransform:
   - {fileID: 621144574}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -1053.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1111644984
 MonoBehaviour:
@@ -35376,6 +35475,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -35559,10 +35659,10 @@ RectTransform:
   - {fileID: 1786301863}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 92, y: -198.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1121113088
 MonoBehaviour:
@@ -35595,6 +35695,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -36160,10 +36261,10 @@ RectTransform:
   - {fileID: 1405351846}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 278, y: -369.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1149083100
 MonoBehaviour:
@@ -36196,6 +36297,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -36379,10 +36481,10 @@ RectTransform:
   - {fileID: 511752531}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 278, y: -426.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1166385945
 MonoBehaviour:
@@ -36415,6 +36517,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -36843,10 +36946,10 @@ RectTransform:
   - {fileID: 1594607276}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 154, y: -711.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1176435624
 MonoBehaviour:
@@ -36879,6 +36982,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -37302,10 +37406,10 @@ RectTransform:
   - {fileID: 689177145}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 216, y: -882.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1206821272
 MonoBehaviour:
@@ -37338,6 +37442,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -37750,10 +37855,10 @@ RectTransform:
   - {fileID: 1093818489}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -255.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1223081972
 MonoBehaviour:
@@ -37786,6 +37891,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -37969,10 +38075,10 @@ RectTransform:
   - {fileID: 268598955}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -27.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1225676023
 MonoBehaviour:
@@ -38120,6 +38226,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -38188,10 +38295,10 @@ RectTransform:
   - {fileID: 77426961}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 216, y: -711.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1241204113
 MonoBehaviour:
@@ -38224,6 +38331,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -38444,6 +38552,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -38568,6 +38677,7 @@ MonoBehaviour:
   sofviImage: {fileID: 1637344972, guid: 3a866669515b3334eae733bb38047aef, type: 3}
   theme: 1
   skill: 1
+  rarity: 0
   cost: 3
   ListNumber: 0
   buffMainstatus: 0
@@ -38636,10 +38746,10 @@ RectTransform:
   - {fileID: 2103457424}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 154, y: -654.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1283615869
 MonoBehaviour:
@@ -38672,6 +38782,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -38855,10 +38966,10 @@ RectTransform:
   - {fileID: 10442872}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 154, y: -939.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1286273050
 MonoBehaviour:
@@ -38891,6 +39002,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -39190,6 +39302,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -39504,10 +39617,10 @@ RectTransform:
   - {fileID: 522114292}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 216, y: -996.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1331017679
 MonoBehaviour:
@@ -39540,6 +39653,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -39723,10 +39837,10 @@ RectTransform:
   - {fileID: 842368257}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 278, y: -939.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1332769063
 MonoBehaviour:
@@ -39759,6 +39873,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -40058,6 +40173,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -40234,10 +40350,10 @@ RectTransform:
   - {fileID: 628393016}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 92, y: -312.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1381316810
 MonoBehaviour:
@@ -40270,6 +40386,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -40453,10 +40570,10 @@ RectTransform:
   - {fileID: 2114391442}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 154, y: -312.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1403833831
 MonoBehaviour:
@@ -40489,6 +40606,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -40747,10 +40865,10 @@ RectTransform:
   - {fileID: 2040022584}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 278, y: -825.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1415209919
 MonoBehaviour:
@@ -40783,6 +40901,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -41091,10 +41210,10 @@ RectTransform:
   - {fileID: 1714956107}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 278, y: -882.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1455729677
 MonoBehaviour:
@@ -41127,6 +41246,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -41460,10 +41580,10 @@ RectTransform:
   - {fileID: 2030994942}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 216, y: -825.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1466440888
 MonoBehaviour:
@@ -41496,6 +41616,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -41679,10 +41800,10 @@ RectTransform:
   - {fileID: 34822838}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 216, y: -597.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1471765199
 MonoBehaviour:
@@ -41715,6 +41836,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -42123,10 +42245,10 @@ RectTransform:
   - {fileID: 403211291}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 92, y: -27.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1489060822
 MonoBehaviour:
@@ -42159,6 +42281,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -42475,10 +42598,10 @@ RectTransform:
   - {fileID: 619320279}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 216, y: -198.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1494102424
 MonoBehaviour:
@@ -42511,6 +42634,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -42840,6 +42964,7 @@ MonoBehaviour:
   sofviImage: {fileID: 888573450, guid: 3a866669515b3334eae733bb38047aef, type: 3}
   theme: 3
   skill: 3
+  rarity: 0
   cost: 3
   ListNumber: 0
   buffMainstatus: 3
@@ -42904,6 +43029,7 @@ MonoBehaviour:
   sofviImage: {fileID: -1103434622, guid: 3a866669515b3334eae733bb38047aef, type: 3}
   theme: 1
   skill: 1
+  rarity: 0
   cost: 3
   ListNumber: 0
   buffMainstatus: 0
@@ -43047,10 +43173,10 @@ RectTransform:
   - {fileID: 551195956}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 278, y: -255.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1530030746
 MonoBehaviour:
@@ -43083,6 +43209,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -43570,10 +43697,10 @@ RectTransform:
   - {fileID: 327864424}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 92, y: -654.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1548982240
 MonoBehaviour:
@@ -43606,6 +43733,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -43789,10 +43917,10 @@ RectTransform:
   - {fileID: 579749439}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 92, y: -141.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1549079437
 MonoBehaviour:
@@ -43825,6 +43953,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -44160,10 +44289,10 @@ RectTransform:
   - {fileID: 157974891}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 278, y: -141.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1567878812
 MonoBehaviour:
@@ -44196,6 +44325,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -44458,10 +44588,10 @@ RectTransform:
   - {fileID: 936870572}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 92, y: -483.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1575016404
 MonoBehaviour:
@@ -44494,6 +44624,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -44752,10 +44883,10 @@ RectTransform:
   - {fileID: 1987267166}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 154, y: -369.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1590204934
 MonoBehaviour:
@@ -44788,6 +44919,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -45046,10 +45178,10 @@ RectTransform:
   - {fileID: 1436594105}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 278, y: -27.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1599835053
 MonoBehaviour:
@@ -45082,6 +45214,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -45228,6 +45361,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1599835051}
   m_CullTransparentMesh: 1
+--- !u!1 &1599910789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1599910791}
+  - component: {fileID: 1599910790}
+  m_Layer: 0
+  m_Name: CameraManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1599910790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599910789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe6d7977005f7a24abf92586ffabc280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
+  SetCamera: {fileID: 0}
+--- !u!4 &1599910791
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599910789}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 23448.709, y: -7692.749, z: -14529.287}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1600454290
 GameObject:
   m_ObjectHideFlags: 0
@@ -45265,10 +45444,10 @@ RectTransform:
   - {fileID: 159158549}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 216, y: -255.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1600454292
 MonoBehaviour:
@@ -45301,6 +45480,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -45804,6 +45984,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -45857,10 +46038,10 @@ RectTransform:
   - {fileID: 374830543}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -882.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1631190582
 MonoBehaviour:
@@ -45893,6 +46074,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -46076,10 +46258,10 @@ RectTransform:
   - {fileID: 1174602806}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 278, y: -540.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1633040275
 MonoBehaviour:
@@ -46112,6 +46294,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -46445,10 +46628,10 @@ RectTransform:
   - {fileID: 727948097}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 154, y: -255.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1666007584
 MonoBehaviour:
@@ -46481,6 +46664,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -46750,10 +46934,10 @@ RectTransform:
   - {fileID: 1460166438}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 278, y: -312.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1678324207
 MonoBehaviour:
@@ -46786,6 +46970,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -46969,10 +47154,10 @@ RectTransform:
   - {fileID: 1547471641}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -996.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1686219553
 MonoBehaviour:
@@ -47005,6 +47190,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -47188,10 +47374,10 @@ RectTransform:
   - {fileID: 1927618854}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 92, y: -1053.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1696413529
 MonoBehaviour:
@@ -47224,6 +47410,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -47644,10 +47831,10 @@ RectTransform:
   - {fileID: 421139519}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 216, y: -1110.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1736111498
 MonoBehaviour:
@@ -47680,6 +47867,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -47949,10 +48137,10 @@ RectTransform:
   - {fileID: 1921527513}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -369.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1753907769
 MonoBehaviour:
@@ -47985,6 +48173,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -48164,6 +48353,7 @@ MonoBehaviour:
   sofviImage: {fileID: 41999624, guid: 3a866669515b3334eae733bb38047aef, type: 3}
   theme: 1
   skill: 1
+  rarity: 0
   cost: 3
   ListNumber: 0
   buffMainstatus: 0
@@ -48341,10 +48531,10 @@ RectTransform:
   - {fileID: 819320950}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -426.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1779521715
 MonoBehaviour:
@@ -48377,6 +48567,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -48681,10 +48872,10 @@ RectTransform:
   - {fileID: 1501501293}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 216, y: -27.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1785027972
 MonoBehaviour:
@@ -48717,6 +48908,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -48975,10 +49167,10 @@ RectTransform:
   - {fileID: 1819955603}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 154, y: -825.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1799000109
 MonoBehaviour:
@@ -49011,6 +49203,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -49194,10 +49387,10 @@ RectTransform:
   - {fileID: 1472474459}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 216, y: -312.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1801684657
 MonoBehaviour:
@@ -49230,6 +49423,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -49413,10 +49607,10 @@ RectTransform:
   - {fileID: 397137425}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 92, y: -768.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1809269676
 MonoBehaviour:
@@ -49449,6 +49643,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -49707,10 +49902,10 @@ RectTransform:
   - {fileID: 1588184007}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 154, y: -483.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1823906847
 MonoBehaviour:
@@ -49743,6 +49938,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -49926,10 +50122,10 @@ RectTransform:
   - {fileID: 879849149}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 216, y: -426.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1828478669
 MonoBehaviour:
@@ -49962,6 +50158,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -50143,9 +50340,9 @@ RectTransform:
   m_Father: {fileID: 1191870710}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 20}
+  m_SizeDelta: {x: -17, y: 20}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1834039915
 MonoBehaviour:
@@ -50190,8 +50387,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1079303382}
   m_HandleRect: {fileID: 1079303381}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.9999999
+  m_Value: 1
+  m_Size: 0.9999998
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -50271,10 +50468,10 @@ RectTransform:
   - {fileID: 1019561064}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 278, y: -711.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1834916424
 MonoBehaviour:
@@ -50307,6 +50504,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -50490,10 +50688,10 @@ RectTransform:
   - {fileID: 1251395168}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 154, y: -768.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1839332202
 MonoBehaviour:
@@ -50526,6 +50724,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -50705,6 +50904,7 @@ MonoBehaviour:
   sofviImage: {fileID: -795440399, guid: 3a866669515b3334eae733bb38047aef, type: 3}
   theme: 1
   skill: 1
+  rarity: 0
   cost: 3
   ListNumber: 0
   buffMainstatus: 0
@@ -50773,10 +50973,10 @@ RectTransform:
   - {fileID: 750606876}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 154, y: -141.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1853388330
 MonoBehaviour:
@@ -50809,6 +51009,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -51003,10 +51204,10 @@ RectTransform:
   - {fileID: 804112483}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -597.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1856499116
 MonoBehaviour:
@@ -51039,6 +51240,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -51655,10 +51857,10 @@ RectTransform:
   - {fileID: 1329911159}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -825.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1883287423
 MonoBehaviour:
@@ -51691,6 +51893,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -51874,10 +52077,10 @@ RectTransform:
   - {fileID: 1712771549}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 92, y: -825.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1896676358
 MonoBehaviour:
@@ -51910,6 +52113,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -52247,10 +52451,10 @@ RectTransform:
   - {fileID: 1325430623}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 216, y: -141.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1904342162
 MonoBehaviour:
@@ -52283,6 +52487,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -52466,10 +52671,10 @@ RectTransform:
   - {fileID: 549014786}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 216, y: -540.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1906458115
 MonoBehaviour:
@@ -52502,6 +52707,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -52681,6 +52887,7 @@ MonoBehaviour:
   sofviImage: {fileID: -839704057, guid: 3a866669515b3334eae733bb38047aef, type: 3}
   theme: 2
   skill: 2
+  rarity: 0
   cost: 2
   ListNumber: 0
   buffMainstatus: 2
@@ -52828,10 +53035,10 @@ RectTransform:
   - {fileID: 1900998026}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -84.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1915236411
 MonoBehaviour:
@@ -52864,6 +53071,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -53310,6 +53518,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -53601,8 +53810,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 810771337}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.6906667}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -53681,10 +53890,10 @@ RectTransform:
   - {fileID: 366966210}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 92, y: -540.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1970078543
 MonoBehaviour:
@@ -53717,6 +53926,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -53896,6 +54106,7 @@ MonoBehaviour:
   sofviImage: {fileID: 504039771, guid: 3a866669515b3334eae733bb38047aef, type: 3}
   theme: 1
   skill: 1
+  rarity: 0
   cost: 3
   ListNumber: 0
   buffMainstatus: 0
@@ -53964,10 +54175,10 @@ RectTransform:
   - {fileID: 395297970}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -768.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1972832149
 MonoBehaviour:
@@ -54000,6 +54211,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -54183,10 +54395,10 @@ RectTransform:
   - {fileID: 240425811}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 92, y: -255.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1983669350
 MonoBehaviour:
@@ -54219,6 +54431,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -54552,10 +54765,10 @@ RectTransform:
   - {fileID: 798779523}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -540.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2001984560
 MonoBehaviour:
@@ -54588,6 +54801,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -54883,6 +55097,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -54936,10 +55151,10 @@ RectTransform:
   - {fileID: 1656890296}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 278, y: -198.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2009625809
 MonoBehaviour:
@@ -54972,6 +55187,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -55155,10 +55371,10 @@ RectTransform:
   - {fileID: 617386628}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 154, y: -1053.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2018770559
 MonoBehaviour:
@@ -55191,6 +55407,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -55374,10 +55591,10 @@ RectTransform:
   - {fileID: 1220843835}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 92, y: -1110.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2023944993
 MonoBehaviour:
@@ -55410,6 +55627,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -55664,6 +55882,7 @@ MonoBehaviour:
   sofviImage: {fileID: 1263867965, guid: 3a866669515b3334eae733bb38047aef, type: 3}
   theme: 1
   skill: 1
+  rarity: 0
   cost: 3
   ListNumber: 0
   buffMainstatus: 0
@@ -55882,10 +56101,10 @@ RectTransform:
   - {fileID: 973711667}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 278, y: -597.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2049189068
 MonoBehaviour:
@@ -55918,6 +56137,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -56101,10 +56321,10 @@ RectTransform:
   - {fileID: 546191666}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 154, y: -597.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2069322656
 MonoBehaviour:
@@ -56137,6 +56357,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -56773,10 +56994,10 @@ RectTransform:
   - {fileID: 1661558964}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 92, y: -597.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2121998639
 MonoBehaviour:
@@ -56809,6 +57030,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -56992,10 +57214,10 @@ RectTransform:
   - {fileID: 1088224875}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 92, y: -84.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2123276282
 MonoBehaviour:
@@ -57028,6 +57250,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -57286,10 +57509,10 @@ RectTransform:
   - {fileID: 553322134}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -654.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2143639367
 MonoBehaviour:
@@ -57322,6 +57545,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -57505,10 +57729,10 @@ RectTransform:
   - {fileID: 803122861}
   m_Father: {fileID: 370231210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 154, y: -540.5}
+  m_SizeDelta: {x: 60, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2145709691
 MonoBehaviour:
@@ -57541,6 +57765,7 @@ MonoBehaviour:
   sofviImage: {fileID: 0}
   theme: 0
   skill: 0
+  rarity: 0
   cost: 0
   ListNumber: 0
   buffMainstatus: 0
@@ -57696,9 +57921,11 @@ SceneRoots:
   - {fileID: 1860654410}
   - {fileID: 349928285}
   - {fileID: 511044809}
-  - {fileID: 270009843}
   - {fileID: 101907250}
   - {fileID: 1425726920}
   - {fileID: 1567850199}
   - {fileID: 212395102}
   - {fileID: 1345426639}
+  - {fileID: 270009843}
+  - {fileID: 1599910791}
+  - {fileID: 66386265}

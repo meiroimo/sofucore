@@ -51514,6 +51514,8 @@ MonoBehaviour:
   add_Player_Speed: 0
   add_Player_Critical: 0
   add_Player_Critical_Damage: 0
+  enemyDeathCount: 0
+  statusLoad: {fileID: 0}
 --- !u!114 &1860654412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51530,6 +51532,7 @@ MonoBehaviour:
   cursor: {fileID: 0}
   dir: {x: 0, y: 0, z: 0}
   angle_m: 0
+  slashObj: {fileID: 0}
   shouldknockBackFlf: 0
   meleeRange: 2
   normalDamage: 4

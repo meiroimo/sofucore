@@ -21,7 +21,7 @@ public class loadingScript : MonoBehaviour
     bool isLoading;
     int nextLoadingSceneNo;
 
-    async void Start()
+     void Start()
     {
         if (!transitionOBJ.activeSelf) transitionOBJ.SetActive(true);
         if (loadPanel.activeSelf) loadPanel.SetActive(false);

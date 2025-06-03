@@ -58,9 +58,8 @@ public class CSVReader : MonoBehaviour
         D_SPEED
     }
 
-    void Start()
+    void Awake()
     {
-        playerStatus_Script = GetComponent<PlayerStatus_Script>();
         enemyStatus_Script = GetComponent<EnemyStatus_Script>();
         CsvRead(enemyStatusCSV, enemyStatusDatas);
     }

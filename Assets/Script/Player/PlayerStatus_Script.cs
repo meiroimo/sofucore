@@ -31,9 +31,10 @@ public class PlayerStatus_Script : MonoBehaviour
 
     [HideInInspector] public int enemyDeathCount;//“|‚µ‚½ƒ‚ƒ“ƒXƒ^[‚Ì”‚ğ•Û
 
-    [SerializeField] CSVReader statusLoad;
+    [SerializeField]CSVReader statusLoad;
     void Start()
     {
+
         statusLoad.LoadingPlayerStatus();
 
         enemyDeathCount = 0;

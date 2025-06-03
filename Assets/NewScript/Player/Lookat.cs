@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//テラシュール：https://tsubakit1.hateblo.jp/entry/2017/07/02/232453
 public class Lookat : MonoBehaviour
 {
     Plane plane = new Plane();
     float distance = 0;
+    Vector3 lookPoint;
+
+    public float Distance { get => distance; set => distance = value; }
+    public Vector3 LookPoint { get => lookPoint; set => lookPoint = value; }
 
     void Update()
     {
@@ -16,10 +21,14 @@ public class Lookat : MonoBehaviour
         plane.SetNormalAndPosition(Vector3.up, transform.localPosition);
         if (plane.Raycast(ray, out distance))
         {
+            //if (Input.GetKeyDown(KeyCode.I))
+            {
+                // 距離を元に交点を算出して、交点の方を向く
+                //var lookPoint = ray.GetPoint(distance);
+                lookPoint = ray.GetPoint(distance);
+                transform.LookAt(lookPoint);
 
-            // 距離を元に交点を算出して、交点の方を向く
-            var lookPoint = ray.GetPoint(distance);
-            transform.LookAt(lookPoint);
+            }
         }
     }
 }

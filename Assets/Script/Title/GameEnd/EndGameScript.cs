@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExitGame_Script : MonoBehaviour
+public class EndGameScript : MonoBehaviour
 {
     /// <summary>
     /// ƒQ[ƒ€‚ğI—¹‚·‚é

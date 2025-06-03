@@ -9,18 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScene_Mei.unity
     guid: 30ea007932757a343a7377bb0511706c
   - enabled: 1
-    path: Assets/Scenes/LoadScene.unity
-    guid: a39af2ded9ddbcd40bde2ad74045b85e
-  - enabled: 1
     path: Assets/Scenes/masterScene.unity
     guid: 37a0db0553f298742a18f34846fbb444
-  - enabled: 1
-    path: Assets/Scenes/SampleScene_MM.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/RENA/testPlayScene.unity
     guid: adfe048a9f272cc488993d25d33d2458
   - enabled: 1
     path: Assets/RENA/testScenn.unity
     guid: c18bf9ee744b83544b152f63e3505fbb
+  - enabled: 1
+    path: Assets/Scenes/TutorialScene.unity
+    guid: ab5f9d21d90a129438bb5a717925cdc7
+  - enabled: 1
+    path: Assets/Scenes/GameMainScene.unity
+    guid: 77f14b61784058c488f901b3599ba633
   m_configObjects: {}

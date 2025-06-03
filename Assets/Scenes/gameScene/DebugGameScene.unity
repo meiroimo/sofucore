@@ -333,6 +333,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveForce: 10
   rotationSpeed: 10
+<<<<<<< HEAD
+=======
+  <MoveInput>k__BackingField: {x: 0, y: 0}
+  <Rigid>k__BackingField: {fileID: 0}
+  <trans>k__BackingField: {fileID: 0}
+  isInvincible: 0
+>>>>>>> rena
 --- !u!23 &463089871
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -835,6 +842,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveForce: 10
   rotationSpeed: 10
+<<<<<<< HEAD
+=======
+  <MoveInput>k__BackingField: {x: 0, y: 0}
+  <Rigid>k__BackingField: {fileID: 0}
+  <trans>k__BackingField: {fileID: 0}
+  isInvincible: 0
+>>>>>>> rena
 --- !u!4 &1001212246 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d2117f7bba6b56c47a3b63fd4363ebd7, type: 3}
@@ -1046,7 +1060,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1001212246}
+<<<<<<< HEAD
   offset: {x: 10, y: 10, z: -10}
+=======
+  cameraPos: {x: 0, y: 10, z: -10}
+>>>>>>> rena
   followSpeed: 5
 --- !u!1 &1770068757
 GameObject:

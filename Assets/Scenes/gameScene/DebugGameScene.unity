@@ -1608,10 +1608,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveForce: 10
   rotationSpeed: 10
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 1497522984}
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   attackRange: 100
 --- !u!1 &1869425028
 GameObject:

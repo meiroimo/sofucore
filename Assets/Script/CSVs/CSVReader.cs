@@ -60,6 +60,8 @@ public class CSVReader : MonoBehaviour
 
     void Start()
     {
+        playerStatus_Script = GetComponent<PlayerStatus_Script>();
+        enemyStatus_Script = GetComponent<EnemyStatus_Script>();
         CsvRead(enemyStatusCSV, enemyStatusDatas);
     }
 

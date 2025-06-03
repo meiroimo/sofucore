@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class StaminaSliderScript : MonoBehaviour
 {
     [SerializeField, Header("スタミナバー")] Slider staminaSlider;
+    [SerializeField, Header("最大体力テキスト")] Text maxStaminaText;
+
 
     PlayerStatus_Script playerStatus_Script;
 
@@ -35,6 +37,8 @@ public class StaminaSliderScript : MonoBehaviour
     {
         maxStamina = h_maxHealth;
 
+        setHealthText();
+
         SetStaminaUI();
     }
 
@@ -56,4 +60,12 @@ public class StaminaSliderScript : MonoBehaviour
     {
         return nowStamina;
     }
+
+    void setHealthText()
+    {
+        float addStamina = maxStamina - initMaxStamina;
+
+        maxStaminaText.text = maxStamina + "(" + addStamina + ")";
+    }
+
 }

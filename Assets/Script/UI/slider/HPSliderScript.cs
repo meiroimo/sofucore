@@ -6,19 +6,22 @@ using UnityEngine.UI;
 public class HPSliderScript : MonoBehaviour
 {
     [SerializeField, Header("HPバー")] Slider HPSlider;
+    [SerializeField, Header("最大体力テキスト")] Text maxhealthText;
 
     PlayerStatus_Script playerStatus_Script;
 
+    float initMaxHealth;    //初期体力
     float maxHealth;        //現在の最大体力
     float nowHealth;        //現在の体力
-    
 
     void Start()
     {
         playerStatus_Script = GetComponent<PlayerStatus_Script>();
         maxHealth = playerStatus_Script.player_MaxHealth;
+        initMaxHealth = maxHealth;
         nowHealth = maxHealth;
         SetHealthUI();
+        setHealthText();
 
     }
 
@@ -34,7 +37,7 @@ public class HPSliderScript : MonoBehaviour
     public void SetMaxHealth(float h_maxHealth)
     {
         maxHealth = h_maxHealth;
-
+        setHealthText();
         SetHealthUI();
     }
 
@@ -57,4 +60,10 @@ public class HPSliderScript : MonoBehaviour
         return nowHealth;
     }
 
+    void setHealthText()
+    {
+        float addHealth = maxHealth - initMaxHealth;
+
+        maxhealthText.text = maxHealth + "(" + addHealth + ")";
+    }
 }

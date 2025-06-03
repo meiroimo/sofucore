@@ -34,7 +34,21 @@ public class testValueScript : MonoBehaviour
             nowStamina -= 20;
             staminaSliderScript.SetNowStamina(nowStamina);
         }
-    
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            maxHealth = hpSliderScript.GetMaxHealth();
+
+            maxHealth += 20;
+            hpSliderScript.SetMaxHealth(maxHealth);
+        }
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            maxStamina = staminaSliderScript.GetMaxStamina();
+
+            maxStamina += 20;
+            staminaSliderScript.SetMaxStamina(maxStamina);
+        }
+
 
     }
 }

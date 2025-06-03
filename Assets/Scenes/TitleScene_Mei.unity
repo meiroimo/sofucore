@@ -1202,7 +1202,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 559578403}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 238.20793, y: 136.58656, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2108,6 +2108,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7169fcacf9ccda840a13d4efca6d0fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changePanel:
+  - {fileID: 792190694}
+  - {fileID: 1626780067}
+  - {fileID: 1674561513}
+  - {fileID: 1269560588}
 --- !u!114 &907127190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2120,6 +2125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51af4f94c9d1ac44dba8ad815c1fb908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startOBJ: {fileID: 616796431}
 --- !u!4 &907127191
 Transform:
   m_ObjectHideFlags: 0
@@ -3168,7 +3174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxScale: 15
-  addScale: 0.08
+  addScale: 0.1
   isFadein: 0
   unmaskTransform: {fileID: 1682595510}
   Loading: {fileID: 559578404}
@@ -5788,8 +5794,8 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 559578405}
-  - {fileID: 666931553}
-  - {fileID: 907127191}
   - {fileID: 537441459}
   - {fileID: 1882325659}
+  - {fileID: 666931553}
+  - {fileID: 559578405}
+  - {fileID: 907127191}

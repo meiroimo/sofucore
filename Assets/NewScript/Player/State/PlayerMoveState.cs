@@ -6,7 +6,7 @@ public class PlayerMoveState : PlayerState
 
     public override void Enter()
     {
-        //Debug.Log("Entered Move State");
+        Debug.Log("Entered Move State");
     }
 
     public override void Update()
@@ -36,6 +36,6 @@ public class PlayerMoveState : PlayerState
 
     public override void Exit()
     {
-        //Debug.Log("Exited Move State");
+        Debug.Log("Exited Move State");
     }
 }

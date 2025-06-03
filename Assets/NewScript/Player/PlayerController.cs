@@ -8,22 +8,25 @@ public class PlayerController : MonoBehaviour
     public float moveForce = 10f;
     public float rotationSpeed = 10f;
 
+    public Camera mainCamera;
+    public LayerMask enemyLayer;
+    public float attackRange = 100f;
+
     private FlowerGuard2 inputActions;
     private PlayerState currentState;
 
     public Vector2 MoveInput { get; private set; }
     public Rigidbody Rigid { get; private set; }
-    public Transform trans { get; private set; }
 
     private void Awake()
     {
         inputActions = new FlowerGuard2();
         Rigid = GetComponent<Rigidbody>();
-        trans = GetComponent<Transform>();
 
         inputActions.Player.Move.performed += ctx => MoveInput = ctx.ReadValue<Vector2>();
         inputActions.Player.Move.canceled += ctx => MoveInput = Vector2.zero;
         inputActions.Player.Avoid.performed += ctx => OnAvoid();
+        inputActions.Player.NomalAttack.performed += cxt => OnLightAttack();
     }
 
     //Enable : GameObject Ç™óLå¯Ç…Ç»Ç¡ÇΩÇ∆Ç´
@@ -80,5 +83,23 @@ public class PlayerController : MonoBehaviour
         {
             ChangeState(new PlayerAvoidState(this));
         }
+    }
+
+    public void OnLightAttack()
+    {
+        ChangeState(new PlayerLightAttackState(this));
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, 5f); // îºåaÇ…çáÇÌÇπÇƒí≤êÆ
+
+        Vector3 left = Quaternion.Euler(0, -30f, 0) * transform.forward;
+        Vector3 right = Quaternion.Euler(0, 30f, 0) * transform.forward;
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawRay(transform.position, left * 5f);
+        Gizmos.DrawRay(transform.position, right * 5f);
     }
 }

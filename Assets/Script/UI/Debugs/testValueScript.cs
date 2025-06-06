@@ -6,11 +6,14 @@ public class testValueScript : MonoBehaviour
 {
     [SerializeField]HPSliderScript hpSliderScript;
     [SerializeField]StaminaSliderScript staminaSliderScript;
+    [SerializeField] PlayerSkillSlider skillSlider;
 
     float maxHealth;
     float nowHealth;
     float maxStamina;
     float nowStamina;
+
+    float nowSkillPoint;
 
     void Start()
     {
@@ -48,7 +51,14 @@ public class testValueScript : MonoBehaviour
             maxStamina += 20;
             staminaSliderScript.SetMaxStamina(maxStamina);
         }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            if (!skillSlider.isUseSkill()) return;
+            nowSkillPoint = skillSlider.getNowSkillPoint();
+            nowSkillPoint = 0;
+            skillSlider.setNowPoint(nowSkillPoint);
 
+        }
 
     }
 }

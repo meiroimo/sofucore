@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class PlayerStatus_Script : MonoBehaviour
 {
-    [Header("ステータス"),Tooltip("最大体力")] public float player_MaxHealth = 500;
-    [Tooltip("スタミナ")] public float player_MaxSutamina = 500;
-    [Tooltip("攻撃力")] public float player_Attack_Power = 10;
-    [Tooltip("防御力")] public float player_Defense = 10;
-    [Tooltip("移動速度")] public float player_Speed = 5;
-    [Tooltip("会心率"), Range(0, 100)] public float player_Critical = 0;
-    [Tooltip("会心ダメ率")] public float player_Critical_Damage = 150;
+    [Header("ステータス"),Tooltip("最大体力")] public float player_MaxHealth;
+    [Tooltip("スタミナ")] public float player_MaxSutamina;
+    [Tooltip("攻撃力")] public float player_Attack_Power;
+    [Tooltip("防御力")] public float player_Defense;
+    [Tooltip("移動速度")] public float player_Speed;
+    [Tooltip("会心率"), Range(0, 100)] public float player_Critical;
+    [Tooltip("会心ダメ率")] public float player_Critical_Damage;
+    [Tooltip("スキルポイント")] public float player_Skill_Point;
+    [Tooltip("スキルチャージ")] public float player_Skill_Charge;
 
 
     [Header("初期ステータス"), Tooltip("初期最大体力")] public float D_player_MaxHealth;
@@ -20,6 +22,8 @@ public class PlayerStatus_Script : MonoBehaviour
     [Tooltip("初期移動速度")] public float D_player_Speed;
     [Tooltip("初期会心率"), Range(0, 100)] public float D_player_Critical;
     [Tooltip("初期会心ダメ率")] public float D_player_Critical_Damage;
+    [Tooltip("初期スキルポイント")] public float D_player_Skill_Point;
+    [Tooltip("スキルチャージ")] public float D_player_Skill_Charge;
 
     [Header("追加ステータス"), Tooltip("追加最大体力")] public float add_Player_MaxHealth = 0;
     [Tooltip("追加スタミナ")] public float add_Player_MaxSutamina = 0;
@@ -35,7 +39,7 @@ public class PlayerStatus_Script : MonoBehaviour
     void Start()
     {
 
-        statusLoad.LoadingPlayerStatus();
+       // statusLoad.LoadingPlayerStatus();
 
         enemyDeathCount = 0;
     }
@@ -54,6 +58,7 @@ public class PlayerStatus_Script : MonoBehaviour
         player_Critical = D_player_Critical + add_Player_Critical;
         player_Critical_Damage = D_player_Critical_Damage + add_Player_Critical_Damage;
         player_MaxSutamina = D_player_MaxSutamina + add_Player_MaxSutamina;
-      
+        player_Skill_Point = D_player_Skill_Point;
+        player_Skill_Charge = D_player_Skill_Charge;
     }
 }

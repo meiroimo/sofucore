@@ -27,6 +27,8 @@ public class CSVReader : MonoBehaviour
     /// スピード = 6,
     /// 会心率 = 7,
     /// 会心ダメ = 8,
+    /// スキルポイント= 9,
+    /// スキルチャージ = 10
     /// </summary>
     enum CSVPlayerStatus
     {
@@ -37,7 +39,9 @@ public class CSVReader : MonoBehaviour
         D_DEFENCE,
         D_SPEED,
         D_CRITICAL,
-        D_CRITICAL_DAMAGE
+        D_CRITICAL_DAMAGE,
+        D_SKILL_POINT,
+        D_SKILL_CHARGE
     }
 
     /// <summary>
@@ -58,8 +62,10 @@ public class CSVReader : MonoBehaviour
         D_SPEED
     }
 
-    void Start()
+    void Awake()
     {
+        LoadingPlayerStatus();
+        enemyStatus_Script = GetComponent<EnemyStatus_Script>();
         CsvRead(enemyStatusCSV, enemyStatusDatas);
     }
 
@@ -95,6 +101,8 @@ public class CSVReader : MonoBehaviour
         playerStatus_Script.D_player_Speed = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_SPEED]);
         playerStatus_Script.D_player_Critical = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_CRITICAL]);
         playerStatus_Script.D_player_Critical_Damage = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_CRITICAL_DAMAGE]);
+        playerStatus_Script.D_player_Skill_Point = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_SKILL_POINT]);
+        playerStatus_Script.D_player_Skill_Charge = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_SKILL_CHARGE]);
 
     }
 

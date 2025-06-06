@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 MoveInput { get; private set; }
     public Rigidbody Rigid { get; private set; }
 
+
     private void Awake()
     {
         inputActions = new FlowerGuard2();
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
         inputActions.Player.Move.canceled += ctx => MoveInput = Vector2.zero;
         inputActions.Player.Avoid.performed += ctx => OnAvoid();
         inputActions.Player.NomalAttack.performed += cxt => OnLightAttack();
+        inputActions.Player.BarettaAttack.performed += cxt => OnSkillAttack();
     }
 
     //Enable : GameObject ‚ª—LŒø‚É‚È‚Á‚½‚Æ‚«
@@ -90,6 +92,11 @@ public class PlayerController : MonoBehaviour
         ChangeState(new PlayerLightAttackState(this));
     }
 
+    public void OnSkillAttack()
+    {
+        ChangeState(new PlayerSkillAttackState(this));
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
@@ -101,5 +108,13 @@ public class PlayerController : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawRay(transform.position, left * 5f);
         Gizmos.DrawRay(transform.position, right * 5f);
+
+        Vector3 left2 = Quaternion.Euler(0, -25f, 0) * transform.forward;
+        Vector3 right2 = Quaternion.Euler(0, 25f, 0) * transform.forward;
+
+        Gizmos.color = Color.black;
+        Gizmos.DrawRay(transform.position, left2 * 5f);
+        Gizmos.DrawRay(transform.position, right2 * 5f);
+
     }
 }

@@ -1,0 +1,80 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
+using UnityEngine;
+using UnityEngine.UI;
+public class PlayerSkillSlider : MonoBehaviour
+{
+    [SerializeField, Header("skillスライダー")] Slider skillSlider;
+    PlayerStatus_Script playerStatus_Script;
+
+    float maxSkillPoint;    //たまるスキルポイント
+    float nowSkillPoint;    //現在のスキルポイント
+    float skillChargePoint; //1秒間にたまるスキルポイントの量
+
+    bool isSkillCharge;//チャージするか true:チャージする false:チャージしない
+
+    float nowTime;
+    void Start()
+    {
+        Application.targetFrameRate = 30;
+
+        playerStatus_Script = GetComponent<PlayerStatus_Script>();
+
+
+        maxSkillPoint = playerStatus_Script.D_player_Skill_Point;
+        nowSkillPoint = maxSkillPoint;
+        skillChargePoint = playerStatus_Script.D_player_Skill_Charge;
+
+        isSkillCharge = false;
+
+    }
+
+    void Update()
+    {
+        if (!isSkillCharge) return;
+        skillPointUICharge();
+    }
+
+    //チャージする
+    void skillPointUICharge()
+    {
+        nowSkillPoint += skillChargePoint / Application.targetFrameRate;
+
+        skillSet();
+
+        if (isUseSkill()) isSkillCharge = false;
+    }
+
+    //UIに反映
+    void skillSet()
+    {
+        float nowValue = nowSkillPoint / maxSkillPoint;
+
+
+        skillSlider.value = nowValue;
+
+    }
+
+    //スキルを使えるか
+    public bool isUseSkill()
+    {
+        if (nowSkillPoint >= maxSkillPoint) return true;
+        else return false;
+    }
+
+    //使ったら0を入れる
+    public void setNowPoint(float h_nowSkillPoint)
+    {
+        nowSkillPoint = h_nowSkillPoint;
+        if (nowSkillPoint < maxSkillPoint) isSkillCharge = true;
+        skillSet();
+    }
+
+    //ゲッター現在のポイントを返す
+    public float getNowSkillPoint()
+    {
+        return nowSkillPoint;
+    }
+
+}

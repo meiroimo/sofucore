@@ -16,7 +16,8 @@ public class PlayerLightAttackState : PlayerState
 
     public override void Enter()
     {
-        Debug.Log("Entered LightAttack State");
+        //Debug.Log("Entered LightAttack State");
+
     }
 
     public override void Update()
@@ -49,7 +50,7 @@ public class PlayerLightAttackState : PlayerState
 
     public override void Exit()
     {
-        Debug.Log("Exited LightAttack State");
+        //Debug.Log("Exited LightAttack State");
     }
 
     private void PlayerLAttack()

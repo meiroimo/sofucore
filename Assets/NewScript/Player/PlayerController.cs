@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnSkillAttack()
     {
-        ChangeState(new PlayerSkillAttackState(this));
+       // ChangeState(new PlayerSkillAttackState(this));
     }
 
     private void OnDrawGizmosSelected()

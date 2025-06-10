@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     private FlowerGuard2 inputActions;
     private PlayerState currentState;
+    Animator animator;
 
     public Vector2 MoveInput { get; private set; }
     public Rigidbody Rigid { get; private set; }
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
     {
         inputActions = new FlowerGuard2();
         Rigid = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
 
         inputActions.Player.Move.performed += ctx => MoveInput = ctx.ReadValue<Vector2>();
         inputActions.Player.Move.canceled += ctx => MoveInput = Vector2.zero;
@@ -90,6 +92,7 @@ public class PlayerController : MonoBehaviour
     public void OnLightAttack()
     {
         ChangeState(new PlayerLightAttackState(this));
+        animator.SetTrigger("Attack");
     }
 
     public void OnSkillAttack()

@@ -49,14 +49,11 @@ public class PanelUIController : MonoBehaviour
         SetCanvas.SetActive(true);
         GameMainCanvas.SetActive(false);
     }
-
     public void UIClose()//İ’uƒV[ƒ“UI‚ğ•Â‚¶‚éŠÖ”
     {
         SetUIFlg = true;
         SetCanvas.SetActive(false);
         GameMainCanvas.SetActive(true);
-
-
     }
 
 }

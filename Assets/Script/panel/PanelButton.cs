@@ -135,6 +135,9 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
     }
     private void setselectSofviData()
     {
+
+        selectSofviDeta.sofvimodel = SetSofvidata.sofvimodel;
+
         selectSofviDeta.sofviName = SetSofvidata.sofviName;
 
         selectSofviDeta.sofviImage = SetSofvidata.sofviImage;

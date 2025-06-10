@@ -78,8 +78,8 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
                 PoptextWindowObj.SetActive(false);
             }
         }
-       
 
+        Debug.Log("‰Ÿ‚³‚ê‚½");
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -135,6 +135,9 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
     }
     private void setselectSofviData()
     {
+
+        selectSofviDeta.sofvimodel = SetSofvidata.sofvimodel;
+
         selectSofviDeta.sofviName = SetSofvidata.sofviName;
 
         selectSofviDeta.sofviImage = SetSofvidata.sofviImage;

@@ -16,6 +16,8 @@ public class PanelWindowBox : MonoBehaviour
     public int ofsetx;
     public int ofsety;
     public Vector2 MousePos;
+    public Vector2 MouseViewPort;
+    public Vector2 MousePointPos;
     public softVinyl selectSofvi;//セレクト中のソフビのデータ
     public GameObject popupTextOBJ;//ポップアップウィンドウテキストオブジェ
     private RectTransform popupTextRectTrs;
@@ -42,13 +44,9 @@ public class PanelWindowBox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 MouseViewportPoint = cam.ScreenToViewportPoint(Input.mousePosition);
-        MousePos.x = (Basepanel.sizeDelta.x * MouseViewportPoint.x) + ofsetx;
-        MousePos.y = (Basepanel.sizeDelta.y * MouseViewportPoint.y) + ofsety;
-        ImageRectTrs.anchoredPosition = new Vector2(MousePos.x, MousePos.y);
-        MousePos_Window.x = (Basepanel.sizeDelta.x * MouseViewportPoint.x) + WindowOfsetx;
-        MousePos_Window.y = (Basepanel.sizeDelta.y * MouseViewportPoint.y) + WindowOfsety;
-        popupTextRectTrs.anchoredPosition = new Vector2(MousePos_Window.x, MousePos_Window.y);
+        MousePointPos = Input.mousePosition;//画面上のマウスの位置を取得
+        ImageRectTrs.position = new Vector2(MousePointPos.x, MousePointPos.y);//レンダーモードがoberlayだとそのままマウスの位置を代入する事ができる
+        popupTextRectTrs.anchoredPosition = new Vector2(MousePos.x, MousePos.y);
 
         debugText.text = "\n" + ofsetx+ "\n" + ofsety;
 

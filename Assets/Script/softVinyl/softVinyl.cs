@@ -1,37 +1,39 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class softVinyl : MonoBehaviour
 {
-       [Header("–¼‘O")] public  Name  sofviName;//‚±‚Ìƒ\ƒtƒr‚Ì‰æ‘œ
+    [Header("ï¼“Ããƒ¢ãƒ‡ãƒ«ãƒ—ãƒ¬ãƒãƒ–")] public GameObject sofvimodel;//ã“ã®ã‚½ãƒ•ãƒ“ã®ï¼“ï½„ãƒ¢ãƒ‡ãƒ«ãƒ—ãƒ¬ãƒãƒ–
+    [Header("åå‰")] public  Name  sofviName;//ã“ã®ã‚½ãƒ•ãƒ“ã®åå‰
+    [Header("ç”»åƒ")] public Sprite sofviImage;//ã“ã®ã‚½ãƒ•ãƒ“ã®
+    [Header("ãƒ†ãƒ¼ãƒ")] public themeNuï½ theme;//ã“ã®ã‚½ãƒ•ãƒ“ã®ãƒ†ãƒ¼ãƒ
+    [Header("ã‚¹ã‚­ãƒ«")] public SKILLNUM skill;//ã“ã®ã‚½ãƒ•ãƒ“ã®ã‚¹ã‚­ãƒ«
+    [Header("ãƒ¬ã‚¢åº¦")] public Raritynum rarity;//ã“ã®ã‚½ãƒ•ãƒ“ã®ã‚¹ã‚­ãƒ«
 
-    [Header("‰æ‘œ")] public Sprite sofviImage;//‚±‚Ìƒ\ƒtƒr‚Ì‰æ‘œ
-    [Header("ƒe[ƒ}")] public themeNu‚ theme;//‚±‚Ìƒ\ƒtƒr‚Ìƒe[ƒ}
-    [Header("ƒXƒLƒ‹")] public SKILLNUM skill;//‚±‚Ìƒ\ƒtƒr‚ÌƒXƒLƒ‹
-    [Header("ƒRƒXƒg")] public int  cost;//‚±‚Ìƒ\ƒtƒr‚ÌƒRƒXƒg
-    [Header("ƒiƒ“ƒo[")] public int@ListNumber;//‚±‚Ìƒ\ƒtƒr‚Ì”Ô†
+    [Header("ã‚³ã‚¹ãƒˆ")] public int  cost;//ã“ã®ã‚½ãƒ•ãƒ“ã®ã‚³ã‚¹ãƒˆ
+    [Header("ãƒŠãƒ³ãƒãƒ¼")] public intã€€ListNumber;//ã“ã®ã‚½ãƒ•ãƒ“ã®ç•ªå·
                       
 
-    [Header("ƒoƒtƒƒCƒ“ƒXƒe[ƒ^ƒX")] public BUFFSTATUSNUM buffMainstatus;//ƒƒCƒ“ƒXƒe
-    [Header("ƒoƒtƒTƒuƒXƒe[ƒ^ƒX‚P")] public BUFFSTATUSNUM buffSubstatus1;//ƒTƒuƒXƒe‚P
-    [Header("ƒoƒtƒTƒuƒXƒe[ƒ^ƒX‚Q")] public BUFFSTATUSNUM buffSubstatus2;//ƒTƒuƒXƒe‚Q
-    [Header("ƒoƒtƒTƒuƒXƒe[ƒ^ƒX‚R")] public BUFFSTATUSNUM buffSubstatus3;//ƒTƒuƒXƒe‚R
+    [Header("ãƒãƒ•ãƒ¡ã‚¤ãƒ³ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹")] public BUFFSTATUSNUM buffMainstatus;//ãƒ¡ã‚¤ãƒ³ã‚¹ãƒ†
+    [Header("ãƒãƒ•ã‚µãƒ–ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ï¼‘")] public BUFFSTATUSNUM buffSubstatus1;//ã‚µãƒ–ã‚¹ãƒ†ï¼‘
+    [Header("ãƒãƒ•ã‚µãƒ–ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ï¼’")] public BUFFSTATUSNUM buffSubstatus2;//ã‚µãƒ–ã‚¹ãƒ†ï¼’
+    [Header("ãƒãƒ•ã‚µãƒ–ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ï¼“")] public BUFFSTATUSNUM buffSubstatus3;//ã‚µãƒ–ã‚¹ãƒ†ï¼“
 
-    [Header("ƒoƒtƒƒCƒ“ƒXƒe[ƒ^ƒXƒpƒ‰ƒ[ƒ^[")] public int Buffparameter;//ƒƒCƒ“ƒXƒe
-    [Header("ƒoƒtƒTƒuƒXƒe[ƒ^ƒXƒpƒ‰ƒ[ƒ^[‚P")] public int Buffparameter1;//ƒTƒuƒXƒe‚P
-    [Header("ƒoƒtƒTƒuƒXƒe[ƒ^ƒXƒpƒ‰ƒ[ƒ^[‚Q")] public int Buffparameter2;//ƒTƒuƒXƒe‚Q
-    [Header("ƒoƒtƒTƒuƒXƒe[ƒ^ƒXƒpƒ‰ƒ[ƒ^[‚R")] public int Buffparameter3;//ƒTƒuƒXƒe‚R
+    [Header("ãƒãƒ•ãƒ¡ã‚¤ãƒ³ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãƒ¼")] public int Buffparameter;//ãƒ¡ã‚¤ãƒ³ã‚¹ãƒ†
+    [Header("ãƒãƒ•ã‚µãƒ–ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãƒ¼ï¼‘")] public int Buffparameter1;//ã‚µãƒ–ã‚¹ãƒ†ï¼‘
+    [Header("ãƒãƒ•ã‚µãƒ–ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãƒ¼ï¼’")] public int Buffparameter2;//ã‚µãƒ–ã‚¹ãƒ†ï¼’
+    [Header("ãƒãƒ•ã‚µãƒ–ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãƒ¼ï¼“")] public int Buffparameter3;//ã‚µãƒ–ã‚¹ãƒ†ï¼“
 
-    [Header("ƒƒCƒ“–¼‘O")] public new string buffName;@ //ƒƒCƒ“ƒXƒe–¼‘O
-    [Header("ƒTƒu‚P–¼‘O")] public  string buffName1;@@//ƒTƒu–¼‘O‚P
-    [Header("ƒTƒu‚Q–¼‘O")] public string buffName2;@@//ƒTƒu–¼‘O‚Q
-    [Header("ƒTƒu‚R–¼‘O")] public  string buffName3;@//ƒTƒu–¼‘O‚R
+    [Header("ãƒ¡ã‚¤ãƒ³åå‰")] public new string buffName;ã€€ //ãƒ¡ã‚¤ãƒ³ã‚¹ãƒ†åå‰
+    [Header("ã‚µãƒ–ï¼‘åå‰")] public  string buffName1;ã€€ã€€//ã‚µãƒ–åå‰ï¼‘
+    [Header("ã‚µãƒ–ï¼’åå‰")] public string buffName2;ã€€ã€€//ã‚µãƒ–åå‰ï¼’
+    [Header("ã‚µãƒ–ï¼“åå‰")] public  string buffName3;ã€€//ã‚µãƒ–åå‰ï¼“
 
     public bool selectCheck;
-    public GameObject selectButton;//ƒZƒŒƒNƒg’†‚Ìƒ{ƒ^ƒ“
-                                   //‚±‚±‚b‚r‚u‚ÅŠÇ—‚Å‚«‚½‚ç‚¢‚¢‚Ë
+    public GameObject selectButton;//ã‚»ãƒ¬ã‚¯ãƒˆä¸­ã®ãƒœã‚¿ãƒ³
+                                   //ã“ã“ï¼£ï¼³ï¼¶ã§ç®¡ç†ã§ããŸã‚‰ã„ã„ã­
 
 
 
@@ -142,9 +144,9 @@ public class softVinyl : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒe[ƒ}‚ÌƒC[ƒiƒ€
+    /// ãƒ†ãƒ¼ãƒã®ã‚¤ãƒ¼ãƒŠãƒ 
     /// </summary>
-    public enum themeNu‚
+    public enum themeNuï½
     {
         NULL=0,
         theme1,
@@ -170,7 +172,7 @@ public class softVinyl : MonoBehaviour
         MAX,
     }
     /// <summary>
-    /// ƒXƒLƒ‹‚ÌƒC[ƒiƒ€
+    /// ã‚¹ã‚­ãƒ«ã®ã‚¤ãƒ¼ãƒŠãƒ 
     /// </summary>
     public enum SKILLNUM
     {
@@ -196,6 +198,17 @@ public class softVinyl : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// ãƒ†ãƒ¼ãƒã®ã‚¤ãƒ¼ãƒŠãƒ 
+    /// </summary>
+    public enum Raritynum
+    {
+        NULL = 0,
+       NOMAL,
+       RARE,
+       SUPARRARE,
+        MAX,
+    }
 
 
     void Start()

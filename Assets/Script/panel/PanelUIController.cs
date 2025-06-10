@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class PanelUIController : MonoBehaviour
 {
-    [SerializeField] private GameObject PanelUIBox;//パネルUIOBJ
-    [SerializeField] private GameObject PlayingUIBox;//プレイングUIOBJ
+
+    [SerializeField] private GameObject GameMainCanvas;//ゲームメインシーンキャンパス
+    [SerializeField] private GameObject SetCanvas;//設置シーンキャンパス
+
+    //[SerializeField] private GameObject PanelUIBox;//パネルUIOBJ
+    //[SerializeField] private GameObject PlayingUIBox;//プレイングUIOBJ
 
 
 
-    bool panelUIFlg;//開いているか判定
+    bool SetUIFlg;//開いているか判定
     void Start()
     {
-        panelUIFlg = true;
-        PanelUIBox.SetActive(false);
+        SetCanvas = GameObject.Find("SetSceneCanvas");
+
+        SetUIFlg = true;
+        SetCanvas.SetActive(false);//初めはセットシーンのUIは非表示
        
     }
 
@@ -26,7 +32,7 @@ public class PanelUIController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab) )//tab押したら
         {
-            if (panelUIFlg)
+            if (SetUIFlg)
             {
                 UIOpen();
                
@@ -37,22 +43,17 @@ public class PanelUIController : MonoBehaviour
             }
         }
     }
-    private void UIOpen()//パネルウィンドウを開く関数
+    public void UIOpen()//設置シーンUIを開く関数
     {
-        panelUIFlg = false;
-        Time.timeScale = 0;  // 時間停止
-        PanelUIBox.SetActive(true);
-        PlayingUIBox.SetActive(false);
+        SetUIFlg = false;
+        SetCanvas.SetActive(true);
+        GameMainCanvas.SetActive(false);
     }
-
-    public void UIClose()//パネルウィンドウを閉じる関数
+    public void UIClose()//設置シーンUIを閉じる関数
     {
-        panelUIFlg = true;
-        Time.timeScale = 1;  // 再開
-        PanelUIBox.SetActive(false);
-        PlayingUIBox.SetActive(true);
-
-
+        SetUIFlg = true;
+        SetCanvas.SetActive(false);
+        GameMainCanvas.SetActive(true);
     }
 
 }

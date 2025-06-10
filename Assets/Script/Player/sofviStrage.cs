@@ -13,7 +13,7 @@ public class sofviStrage : MonoBehaviour
      
 
     }
-    public void addMagicCircle(softVinyl softVinyldata)
+    public void addSofvi(softVinyl softVinyldata)
     {
         sofviStrageList.Add(softVinyldata);
       
@@ -21,6 +21,8 @@ public class sofviStrage : MonoBehaviour
     }
     void Start()
     {
+        ////設置画面シーンでStorageのデータを横むためシーン遷移してもはかいされないようにしてます。
+        //DontDestroyOnLoad(this);
         sofviStrageListConut = 0;
         setTestData();
     }
@@ -36,7 +38,7 @@ public class sofviStrage : MonoBehaviour
     {
         for (int i = 0; i < testdata.gameObject.transform.childCount; i++)
         {
-            addMagicCircle(testdata.gameObject.transform.GetChild(i).gameObject.GetComponent<softVinyl>());
+            addSofvi(testdata.gameObject.transform.GetChild(i).gameObject.GetComponent<softVinyl>());
         }
 
 

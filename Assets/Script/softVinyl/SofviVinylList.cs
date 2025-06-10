@@ -48,8 +48,9 @@ public class SofviVinylList : MonoBehaviour
             //個数分ボタンにソフビデータをセット
             if (i < sofviStrage.sofviStrageListConut)
             {
-               
 
+                childrensoftVinyl[i].name = sofviStrage.sofviStrageList[i].name;
+                childrensoftVinyl[i].sofvimodel = sofviStrage.sofviStrageList[i].sofvimodel;
                 childrensoftVinyl[i].skill = sofviStrage.sofviStrageList[i].skill;
                 childrensoftVinyl[i].theme = sofviStrage.sofviStrageList[i].theme;
                 childrensoftVinyl[i].sofviImage = sofviStrage.sofviStrageList[i].sofviImage;

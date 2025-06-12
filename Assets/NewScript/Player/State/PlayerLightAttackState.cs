@@ -69,12 +69,12 @@ public class PlayerLightAttackState : PlayerState
             if (angle < attackAngle / 2f)
             {
                 Debug.Log($"{col.name} ‚ÉUŒ‚‚ª–½’†‚µ‚Ü‚µ‚½I");
-                //Enemy enemy = col.GetComponent<Enemy>();
-                //if (enemy != null)
-                //{
-                //    enemy.TakeDamage(attackDamage);
-                //    
-                //}
+                EnemyController enemy = col.GetComponent<EnemyController>();
+                if (enemy != null)
+                {
+                    enemy.OnHit();
+
+                }
             }
         }
     }

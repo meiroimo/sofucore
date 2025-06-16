@@ -66,4 +66,16 @@ public class HPSliderScript : MonoBehaviour
 
         maxhealthText.text = maxHealth + "(" + addHealth + ")";
     }
+
+    //public void TakeDamage(int damage)
+    //{
+    //    currentHP -= damage;
+    //    Debug.Log($"Player took {damage} damage. HP: {currentHP}");
+
+    //    if (currentHP <= 0)
+    //    {
+    //        Debug.Log("Player died");
+    //        // Ž€–Sˆ—
+    //    }
+    //}
 }

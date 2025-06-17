@@ -36,7 +36,7 @@ public class PanelWindowBox : MonoBehaviour
         ImageRectTrs = ImageOBJ.gameObject.GetComponent<RectTransform>();
         WindowOfsetx = -150;
         WindowOfsety = 150;
-        popupTextRectTrs = popupTextOBJ.gameObject.GetComponent<RectTransform>();
+    //    popupTextRectTrs = popupTextOBJ.gameObject.GetComponent<RectTransform>();
 
         selectImage = ImageOBJ.GetComponent<Image>();
     }
@@ -46,7 +46,7 @@ public class PanelWindowBox : MonoBehaviour
     {
         MousePointPos = Input.mousePosition;//画面上のマウスの位置を取得
         ImageRectTrs.position = new Vector2(MousePointPos.x, MousePointPos.y);//レンダーモードがoberlayだとそのままマウスの位置を代入する事ができる
-        popupTextRectTrs.anchoredPosition = new Vector2(MousePos.x, MousePos.y);
+      //  popupTextRectTrs.anchoredPosition = new Vector2(MousePos.x, MousePos.y);
 
         debugText.text = "\n" + ofsetx+ "\n" + ofsety;
 

@@ -19,6 +19,16 @@ public class sofviStrage : MonoBehaviour
       
 
     }
+
+    void setTestData()
+    {
+        for (int i = 0; i < testdata.gameObject.transform.childCount; i++)
+        {
+            addSofvi(testdata.gameObject.transform.GetChild(i).gameObject.GetComponent<softVinyl>());
+        }
+
+
+    }
     void Start()
     {
         ////設置画面シーンでStorageのデータを横むためシーン遷移してもはかいされないようにしてます。
@@ -34,13 +44,5 @@ public class sofviStrage : MonoBehaviour
 
 
     }
-    void setTestData()
-    {
-        for (int i = 0; i < testdata.gameObject.transform.childCount; i++)
-        {
-            addSofvi(testdata.gameObject.transform.GetChild(i).gameObject.GetComponent<softVinyl>());
-        }
-
-
-    }
+  
 }

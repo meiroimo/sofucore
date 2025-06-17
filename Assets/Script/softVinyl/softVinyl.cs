@@ -26,11 +26,14 @@ public class softVinyl : MonoBehaviour
     [Header("バフサブステータスパラメーター２")] public int Buffparameter2;//サブステ２
     [Header("バフサブステータスパラメーター３")] public int Buffparameter3;//サブステ３
 
-    [Header("メイン名前")] public new string buffName;　 //メインステ名前
+    [Header("メイン名前")] public  string buffName;　 //メインステ名前
     [Header("サブ１名前")] public  string buffName1;　　//サブ名前１
     [Header("サブ２名前")] public string buffName2;　　//サブ名前２
-    [Header("サブ３名前")] public  string buffName3;　//サブ名前３
-
+    [Header("サブ３名前")] public string buffName3;　//サブ名前３
+    /// <summary>
+    ///設置ポジション用ソフビが置かれていたら判定 
+    /// </summary>
+    public bool checksetpotion=false; 
     public bool selectCheck;
     public GameObject selectButton;//セレクト中のボタン
                                    //ここＣＳＶで管理できたらいいね

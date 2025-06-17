@@ -9,7 +9,10 @@ public class EnemyController : MonoBehaviour
     private NavMeshAgent agent;
 
     private EnemyState currentState;
+    private EnemyStatus_Script enemyStatus;
     private EnemyHealth enemyHealth;
+
+    private float enemy_Power;
 
     private bool isHit = false;
     public event System.Action OnDeath; // 死亡イベント
@@ -19,6 +22,7 @@ public class EnemyController : MonoBehaviour
 
     public bool IsHit { get => isHit; set => isHit = value; }
     public NavMeshAgent Agent { get => agent; set => agent = value; }
+    public float Enemy_Power { get => enemy_Power; set => enemy_Power = value; }
 
     // プレイヤーを設定する用の関数
     public void SetPlayer(Transform playerTransform)
@@ -30,6 +34,8 @@ public class EnemyController : MonoBehaviour
     {
         enemyHealth = GetComponent<EnemyHealth>();
         agent = GetComponent<NavMeshAgent>();
+        enemyStatus = GetComponent<EnemyStatus_Script>();
+        enemy_Power = enemyStatus.enemy_Attack_Power;
         ChangeState(new ChaseState());
     }
 

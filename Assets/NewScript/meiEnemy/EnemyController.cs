@@ -9,6 +9,10 @@ public class EnemyController : MonoBehaviour
     private NavMeshAgent agent;
 
     private EnemyState currentState;
+    private EnemyStatus_Script enemyStatus;
+    private EnemyHealth enemyHealth;
+
+    private float enemy_Power;
 
     private bool isHit = false;
     public event System.Action OnDeath; // 死亡イベント
@@ -18,6 +22,7 @@ public class EnemyController : MonoBehaviour
 
     public bool IsHit { get => isHit; set => isHit = value; }
     public NavMeshAgent Agent { get => agent; set => agent = value; }
+    public float Enemy_Power { get => enemy_Power; set => enemy_Power = value; }
 
     // プレイヤーを設定する用の関数
     public void SetPlayer(Transform playerTransform)
@@ -27,7 +32,10 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
+        enemyHealth = GetComponent<EnemyHealth>();
         agent = GetComponent<NavMeshAgent>();
+        enemyStatus = GetComponent<EnemyStatus_Script>();
+        enemy_Power = enemyStatus.enemy_Attack_Power;
         ChangeState(new ChaseState());
     }
 
@@ -48,17 +56,12 @@ public class EnemyController : MonoBehaviour
         return Vector3.Distance(transform.position, player.position) < 2f;
     }
 
-    public void AttackPlayer()
-    {
-        //Debug.Log("Attack!");
-        // ここに攻撃のアニメーションやダメージ処理を追加
-    }
-
-    public void OnHit()
+    public void OnHit(PlayerController _player)
     {
         isHit = true;
         agent.ResetPath();   // 移動を即停止 ResetPath:停止
         ChangeState(null);   // 状態を一旦解除（もしくは専用のHitStateに切り替え）
+        enemyHealth.TakeDamage((int)_player.Attack_Power);
 
         // 例: 一定時間後に移動再開
         StartCoroutine(RecoverFromHit());

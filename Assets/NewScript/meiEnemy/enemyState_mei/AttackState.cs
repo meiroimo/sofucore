@@ -7,7 +7,6 @@ public class AttackState : EnemyState
 {
     public float attackRange = 2f;
     public float attackCooldown = 1.5f;
-    public int damage = 10;
 
     private float lastAttackTime;
     private Quaternion fixedRotation; // 攻撃中の固定向き
@@ -16,7 +15,7 @@ public class AttackState : EnemyState
     public override void Enter(EnemyController enemy)
     {
         enemy.Agent.ResetPath();  // 攻撃中は移動停止
-        enemy.AttackPlayer();     // 攻撃処理（ここは適宜実装）
+        //enemy.AttackPlayer();     // 攻撃処理（ここは適宜実装）
 
         // 向きをプレイヤーに固定
         Vector3 direction = (enemy.player.position - enemy.transform.position).normalized;
@@ -52,7 +51,7 @@ public class AttackState : EnemyState
         if (enemy.DistanceToPlayer <= attackRange + 0.5f)
         {
             //Debug.Log("Hit player!"); // ここでプレイヤーのダメージ処理を呼び出せる
-            enemy.player.GetComponent<PlayerController>()?.TakeDamage(1);
+            enemy.player.GetComponent<PlayerController>()?.TakeDamage((int)enemy.Enemy_Power);
         }
     }
 }

@@ -57,7 +57,7 @@ public class SkillBox : MonoBehaviour
                 EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
                 if (enemy != null)
                 {
-                    enemy.TakeDamageKnockBack(playerAttack.normalDamage, playerAttack.shouldknockBackFlf);
+                    //enemy.TakeDamageKnockBack(playerAttack.normalDamage, playerAttack.shouldknockBackFlf);
                 }
             }
         }

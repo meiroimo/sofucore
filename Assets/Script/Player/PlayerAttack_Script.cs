@@ -132,7 +132,7 @@ public class PlayerAttack_Script : MonoBehaviour
                     EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
                     if(enemy != null)
                     {
-                        enemy.TakeDamageKnockBack(normalDamage, shouldknockBackFlf);
+                        //enemy.TakeDamageKnockBack(normalDamage, shouldknockBackFlf);
                     }
                 }
             }
@@ -179,7 +179,7 @@ public class PlayerAttack_Script : MonoBehaviour
                     EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
                     if (enemy != null)
                     {
-                        enemy.TakeDamageKnockBack(normalDamage, shouldknockBackFlf);
+                        //enemy.TakeDamageKnockBack(normalDamage, shouldknockBackFlf);
                     }
                 }
             }

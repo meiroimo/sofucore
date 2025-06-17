@@ -27,7 +27,8 @@ public class PlayerSkillSlider : MonoBehaviour
         skillChargePoint = playerStatus_Script.D_player_Skill_Charge;
 
         isSkillCharge = false;
-
+        //InvokeRepeating("メソッド名", 開始までの遅延時間, 繰り返し間隔);
+        //InvokeRepeating(nameof(skillPointUICharge), 1.0f, 1.0f);
     }
 
     void Update()

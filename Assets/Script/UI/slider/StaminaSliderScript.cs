@@ -22,6 +22,8 @@ public class StaminaSliderScript : MonoBehaviour
         maxStamina = playerStatus_Script.player_MaxSutamina;
         nowStamina = maxStamina;
         SetStaminaUI();
+        //InvokeRepeating("ƒƒ\ƒbƒh–¼", ŠJŽn‚Ü‚Å‚Ì’x‰„ŽžŠÔ, ŒJ‚è•Ô‚µŠÔŠu);
+        InvokeRepeating(nameof(HealStamina), 1.0f, 1.0f);
     }
 
     //UI(slider)‚É”½‰f
@@ -68,4 +70,14 @@ public class StaminaSliderScript : MonoBehaviour
         maxStaminaText.text = maxStamina + "(" + addStamina + ")";
     }
 
+    void HealStamina()
+    {
+        float currentStamina = GetNowStamina();
+        currentStamina += 3;
+        if(currentStamina > maxStamina)
+        {
+            currentStamina = maxStamina;
+        }
+        SetNowStamina(currentStamina);
+    }
 }

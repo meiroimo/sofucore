@@ -20,6 +20,7 @@ public class PlayerAvoidState : PlayerState
 
         timer = 0f;
 
+        player.TakeAvoid(30);
         // 無敵状態ON（必要なら）
         //player.SetInvincible(true);
     }

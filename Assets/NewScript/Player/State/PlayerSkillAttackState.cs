@@ -7,7 +7,7 @@ using UnityEngine.Windows;
 public class PlayerSkillAttackState : PlayerState
 {
     private int attackCount = 0;                // 今までのひっかき回数
-    private float attackInterval = 0.3f;        // 各ひっかきの間隔（秒）
+    private float attackInterval = 0.5f;        // 各ひっかきの間隔（秒）
     private float timer = 0f;                   // 経過時間
     private int maxAttacks = 8;                 // 最大ひっかき回数（8回）
 
@@ -83,7 +83,7 @@ public class PlayerSkillAttackState : PlayerState
         if (timer >= attackInterval)
         {
             timer = 0f;
-            Debug.Log($"ひっかき攻撃{attackCount + 1}回目");
+            //Debug.Log($"ひっかき攻撃{attackCount + 1}回目");
             DoClawAttack();
         }
 

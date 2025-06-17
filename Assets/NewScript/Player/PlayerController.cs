@@ -6,7 +6,7 @@ using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveForce = 10f;
+    public float moveForce = 10f;//移動速度
     public float rotationSpeed = 10f;
 
     private float comboInputWindow = 0.6f; // 次の攻撃を受け付ける猶予時間
@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 fixedAttackDirection; // 攻撃中の向き（固定）
     private bool isAttack = false;
 
+    private float attack_Power;
     private float attackRadius = 5f;
     private float attackAngle = 60f;
 
@@ -23,7 +24,10 @@ public class PlayerController : MonoBehaviour
 
     private FlowerGuard2 inputActions;
     private PlayerState currentState;
+    private PlayerStatus_Script playerStatus_Script;
     private HPSliderScript hpSliderScript;
+    private StaminaSliderScript staminaSliderScript;
+    private PlayerSkillSlider playerSkillSlider;
     Animator animator;
 
     public Vector2 MoveInput { get; private set; }
@@ -38,7 +42,13 @@ public class PlayerController : MonoBehaviour
         inputActions = new FlowerGuard2();
         Rigid = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        playerStatus_Script = GetComponent<PlayerStatus_Script>();
         hpSliderScript = GetComponent<HPSliderScript>();
+        staminaSliderScript = GetComponent<StaminaSliderScript>();
+        playerSkillSlider = GetComponent<PlayerSkillSlider>();
+
+        moveForce = playerStatus_Script.D_player_Speed;
+        attack_Power = playerStatus_Script.D_player_Attack_Power;
 
         inputActions.Player.Move.performed += ctx => MoveInput = ctx.ReadValue<Vector2>();
         inputActions.Player.Move.canceled += ctx => MoveInput = Vector2.zero;
@@ -78,6 +88,10 @@ public class PlayerController : MonoBehaviour
         receivedNextAttack = true;
     }
 
+    /// <summary>
+    /// プレイヤーの回転処理
+    /// </summary>
+    /// <param name="direction"></param>
     public void RotateTowards(Vector3 direction)
     {
         if (direction.sqrMagnitude < 0.01f) return; // 入力が小さいときは回転しない
@@ -90,23 +104,47 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
-    // 指定された方向に指定速度で移動させる
+    /// <summary>
+    /// 指定された方向に指定速度で移動させる関数
+    /// </summary>
+    /// <param name="direction"></param>
+    /// <param name="speed"></param>
     public void MoveCharacter(Vector3 direction, float speed)
     {
+        //sqrMagnitude:ベクトルの長さ（magnitude）の2乗を表す
+        if (direction.sqrMagnitude < 0.01f)
+        {
+            // 入力が無いとき、横移動速度だけ止める
+            Rigid.velocity = new Vector3(0, Rigid.velocity.y, 0);
+            return;
+        }
+
         Rigid.velocity = direction.normalized * speed + new Vector3(0, Rigid.velocity.y, 0);
         RotateTowards(direction);
     }
 
+    /// <summary>
+    /// 通常移動用の関数
+    /// </summary>
+    /// <param name="direction"></param>
+    /// <param name="speed"></param>
     public void MoveInDirection(Vector3 direction, float speed)
     {
         Rigid.velocity = direction.normalized * speed;
     }
 
+    /// <summary>
+    /// 回避用の移動処理
+    /// </summary>
+    /// <param name="velocity"></param>
     public void MoveInstant(Vector2 velocity)
     {
         Rigid.velocity = velocity;
     }
 
+    /// <summary>
+    /// プレイヤーの攻撃関数
+    /// </summary>
     public void PlayerLAttack()
     {
         PlayerCurrentDirection();
@@ -135,6 +173,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// マウスの位置にプレイヤーを向ける関数
+    /// </summary>
     private void PlayerCurrentDirection()
     {
         //マウス位置へのRayを取得
@@ -157,6 +198,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 攻撃のダメージ判定関数
+    /// </summary>
+    /// <param name="damage"></param>
     public void TakeDamage(int damage)
     {
         float currentHP = hpSliderScript.GetNowHealth();
@@ -170,6 +215,14 @@ public class PlayerController : MonoBehaviour
             // 死亡処理
         }
 
+    }
+
+    public void TakeAvoid(float stamina)
+    {
+        float currentStamina = staminaSliderScript.GetNowStamina();
+        if (currentStamina <= stamina) return;
+        currentStamina -= stamina;
+        staminaSliderScript.SetNowStamina(currentStamina);
     }
 
     //public float FacingDirection => transform.localScale.x;
@@ -186,9 +239,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnLightAttack()
     {
-        //ChangeState(new PlayerLightAttackState(this));
-        //ChangeState(new AttackOneState(this));
-        // Idle中ならAttack1へ
+        // Idle中又はMoveならAttackOneへ
         if (currentState is PlayerIdleState)
         {
             ChangeState(new AttackOneState(this));
@@ -208,7 +259,11 @@ public class PlayerController : MonoBehaviour
     public void OnSkillAttack()
     {
         //必要なスキルポイントがあるかの判定を作る
-        ChangeState(new PlayerSkillAttackState(this));
+        if(playerSkillSlider.isUseSkill())
+        {
+            playerSkillSlider.setNowPoint(0);
+            ChangeState(new PlayerSkillAttackState(this));
+        }
     }
 
     private void OnDrawGizmosSelected()

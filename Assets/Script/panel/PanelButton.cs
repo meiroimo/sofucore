@@ -5,8 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandler
-{
+public class PanelButton : MonoBehaviour{
     [SerializeField] private GameObject PanelImage;//パネルイメージOBJ
     [SerializeField] private GameObject PanelUI;//パネルウィンドウUI
     [SerializeField] private softVinyl SetSofvidata;//設置ソフビデータ
@@ -36,8 +35,8 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
 
         outline = gameObject.GetComponent<Outline>();
         outline.enabled = false;
-        PopTextSelect =PoptextWindowObj.transform.GetChild(0).gameObject.GetComponent<Text>();
-        PopTextonpointar = PoptextWindowObj.transform.GetChild(1).gameObject.GetComponent<Text>();
+  //      PopTextSelect =PoptextWindowObj.transform.GetChild(0).gameObject.GetComponent<Text>();
+       // PopTextonpointar = PoptextWindowObj.transform.GetChild(1).gameObject.GetComponent<Text>();
         themeText = new string[21];
         skillText = new string[5];
         nameText = new string[102];
@@ -67,7 +66,7 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
             setselectSofviData();
             selectPanel = true;
             outline.enabled = true;
-            PoptextWindowObj.SetActive(false);
+       //     PoptextWindowObj.SetActive(false);
         }
         else
         {
@@ -75,32 +74,32 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
             if (selectSofviDeta.selectButton==this.gameObject)
             {
                 againClick();
-                PoptextWindowObj.SetActive(false);
+            //    PoptextWindowObj.SetActive(false);
             }
         }
 
         Debug.Log("押された");
     }
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        if (selectSofviDeta.selectButton != this.gameObject&& selectSofviDeta.selectCheck)
-        {
-            setTextPopTextWindow();
+    //public void OnPointerEnter(PointerEventData eventData)
+    //{
+    //    if (selectSofviDeta.selectButton != this.gameObject&& selectSofviDeta.selectCheck)
+    //    {
+    //        setTextPopTextWindow();
 
-            PoptextWindowObj.SetActive(true);
-        }
-        else
-        {
-            PoptextWindowObj.SetActive(false);
-        }
+    //        PoptextWindowObj.SetActive(true);
+    //    }
+    //    else
+    //    {
+    //        PoptextWindowObj.SetActive(false);
+    //    }
 
 
-    }
+    //}
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        PoptextWindowObj.SetActive(false);
-    }
+    //public void OnPointerExit(PointerEventData eventData)
+    //{
+    //    PoptextWindowObj.SetActive(false);
+    //}
 
     void setImage()
     {

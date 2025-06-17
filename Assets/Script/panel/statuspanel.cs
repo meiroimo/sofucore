@@ -6,14 +6,19 @@ using UnityEngine.UI;
 public class statuspanel : MonoBehaviour
 {
     [Header ("ソフビステータスのテキスト")]public Text statusText;
-    [Header("セレクトソフビデータ参照")] public softVinyl SelectsoftVinyldata;
+    [Header("デバックテキストobj")] public GameObject debagTextobj;
 
+    [Header("デバックテキスト")] public Text debagText;
+
+    [Header("セレクトソフビデータ参照")] public softVinyl SelectsoftVinyldata;
+    
     public string[] themeText;//themeの文字列配列
     public string[] skillText;//skillの文字列配列
-
+    public PlayerStatus_Script debagstatus;
 
     void Start()
     {
+        debagText = debagTextobj.GetComponent<Text>();
         themeText = new string[21];
         skillText = new string[5]; 
         themeTextset();
@@ -22,6 +27,7 @@ public class statuspanel : MonoBehaviour
         //子オブジェクトのテキストコンポーネントを取得
         statusText = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Text>();
 
+        debagstatus = GameObject.Find("lough_model").GetComponent<PlayerStatus_Script>();//  直接名前検索しているのでプレイヤーobjの名前が変わるとここも変更させる
 
     }
 
@@ -29,7 +35,7 @@ public class statuspanel : MonoBehaviour
     void Update()
     {
         settext();
-
+        setdebagtext();
     }
 
     //テキストをセット
@@ -38,6 +44,19 @@ public class statuspanel : MonoBehaviour
         statusText.text =
        themeText[(int)SelectsoftVinyldata.theme] + "\nコスト" + SelectsoftVinyldata.cost + "\n"+skillText[(int)SelectsoftVinyldata.skill]
        + "\n"+ SelectsoftVinyldata.ListNumber;
+
+    }
+    void setdebagtext()
+    {
+       
+        debagText.text = "デバック用テキスト\n" +
+       "追加最大体力" + debagstatus.add_Player_MaxHealth + "\n"
+        +"追加スタミナ" + debagstatus.add_Player_MaxSutamina + "\n"
+        + "追加攻撃力" + debagstatus.add_Player_Attack_Power + "\n"
+        + "追加防御力" + debagstatus.add_Player_Defense + "\n"
+        + "追加移動速度" + debagstatus.add_Player_Speed + "\n"
+        + "追加会心率" + debagstatus.add_Player_Critical + "\n"
+        + "追加会心ダメ率" + debagstatus.add_Player_Critical_Damage + "\n";
 
     }
     void themeTextset()//テーマテキストをセット

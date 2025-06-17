@@ -2,6 +2,7 @@ using System;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Experimental.GraphView.GraphView;
 using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class PlayerController : MonoBehaviour
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour
     public bool ReceivedNextAttack { get => receivedNextAttack; set => receivedNextAttack = value; }
     public bool IsAttack { get => isAttack; set => isAttack = value; }
     public Vector3 FixedAttackDirection { get => fixedAttackDirection; set => fixedAttackDirection = value; }
+    public float Attack_Power { get => attack_Power; set => attack_Power = value; }
 
     private void Awake()
     {
@@ -119,7 +121,8 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        Rigid.velocity = direction.normalized * speed + new Vector3(0, Rigid.velocity.y, 0);
+        Vector3 moveVelocity = direction.normalized * speed;
+        Rigid.velocity = new Vector3(moveVelocity.x, Rigid.velocity.y, moveVelocity.z);
         RotateTowards(direction);
     }
 
@@ -166,8 +169,7 @@ public class PlayerController : MonoBehaviour
                 EnemyController enemy = col.GetComponent<EnemyController>();
                 if (enemy != null)
                 {
-                    enemy.OnHit();
-
+                    enemy.OnHit(this);
                 }
             }
         }

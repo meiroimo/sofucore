@@ -18,6 +18,11 @@ public class CSVReader : MonoBehaviour
 
     int playerNo = 1;
 
+    public void SetEnemyStatusScript(EnemyStatus_Script script)
+    {
+        this.enemyStatus_Script = script;
+    }
+
     /// <summary>
     /// –¼‘O = 1,
     /// Å‘å‘Ì—Í = 2,

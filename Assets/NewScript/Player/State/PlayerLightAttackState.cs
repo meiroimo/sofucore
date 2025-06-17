@@ -72,7 +72,7 @@ public class PlayerLightAttackState : PlayerState
                 EnemyController enemy = col.GetComponent<EnemyController>();
                 if (enemy != null)
                 {
-                    enemy.OnHit();
+                    enemy.OnHit(player);
 
                 }
             }

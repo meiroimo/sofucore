@@ -16,7 +16,7 @@ public class AttackState : EnemyState
     public override void Enter(EnemyController enemy)
     {
         enemy.Agent.ResetPath();  // 攻撃中は移動停止
-        enemy.AttackPlayer();     // 攻撃処理（ここは適宜実装）
+        //enemy.AttackPlayer();     // 攻撃処理（ここは適宜実装）
 
         // 向きをプレイヤーに固定
         Vector3 direction = (enemy.player.position - enemy.transform.position).normalized;

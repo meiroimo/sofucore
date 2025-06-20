@@ -2089,26 +2089,34 @@ MonoBehaviour:
   player_MaxHealth: 500
   player_MaxSutamina: 500
   player_Attack_Power: 10
-  player_Defense: 10
   player_Speed: 5
-  player_Critical: 0
-  player_Critical_Damage: 150
   player_Skill_Point: 0
   player_Skill_Charge: 0
+  player_Size: 0
+  player_Attack_Range: 0
+  player_Critical: 0
+  player_Critical_Damage: 150
+  player_Defense: 10
   D_player_MaxHealth: 0
   D_player_MaxSutamina: 0
   D_player_Attack_Power: 0
-  D_player_Defense: 0
   D_player_Speed: 0
-  D_player_Critical: 0
-  D_player_Critical_Damage: 0
   D_player_Skill_Point: 0
   D_player_Skill_Charge: 0
+  D_player_Size: 0
+  D_player_Attack_Range: 0
+  D_player_Defense: 0
+  D_player_Critical: 0
+  D_player_Critical_Damage: 0
   add_Player_MaxHealth: 0
   add_Player_MaxSutamina: 0
   add_Player_Attack_Power: 0
-  add_Player_Defense: 0
   add_Player_Speed: 0
+  add_Player_Skill_Point: 0
+  add_Player_Skill_Charge: 0
+  add_Player_Size: 0
+  add_Player_Attack_Range: 0
+  add_Player_Defense: 0
   add_Player_Critical: 0
   add_Player_Critical_Damage: 0
   enemyDeathCount: 0
@@ -2261,6 +2269,7 @@ MonoBehaviour:
   - {fileID: 1471991709}
   spawnInterval: 5
   maxEnemies: 10
+  enemyTypeNo: 1
 --- !u!4 &1814842749
 Transform:
   m_ObjectHideFlags: 0

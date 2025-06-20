@@ -35,11 +35,11 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(float damagToTake)
     {
         //「Random.value」意味:0〜1.0までの浮動小数点(float)を得る
-        if (Random.value * 100 <= _status.player_Critical)
-        {
-            criticalFlg = true;
-            damagToTake = damagToTake * (1 + (_status.player_Critical_Damage * 0.01f));
-        }
+        //if (Random.value * 100 <= _status.player_Critical)
+        //{
+        //    criticalFlg = true;
+        //    damagToTake = damagToTake * (1 + (_status.player_Critical_Damage * 0.01f));
+        //}
         damagToTake = (damagToTake * 0.5f) - (_enemy_status.enemy_Defense * 0.25f);
         if (damagToTake <= 0) damagToTake = Random.Range(1, 2);
         health_Enemy -= (int)damagToTake;

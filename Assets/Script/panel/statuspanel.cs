@@ -35,7 +35,7 @@ public class statuspanel : MonoBehaviour
     void Update()
     {
         settext();
-        setdebagtext();
+     //   setdebagtext();
     }
 
     //テキストをセット

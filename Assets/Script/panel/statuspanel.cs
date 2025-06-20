@@ -14,7 +14,7 @@ public class statuspanel : MonoBehaviour
     
     public string[] themeText;//themeの文字列配列
     public string[] skillText;//skillの文字列配列
-    public PlayerStatus_Script debagstatus;
+    public PlayerStatus_Script PleyerStatus;
 
     void Start()
     {
@@ -27,7 +27,7 @@ public class statuspanel : MonoBehaviour
         //子オブジェクトのテキストコンポーネントを取得
         statusText = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Text>();
 
-        debagstatus = GameObject.Find("lough_model").GetComponent<PlayerStatus_Script>();//  直接名前検索しているのでプレイヤーobjの名前が変わるとここも変更させる
+        PleyerStatus = GameObject.Find("lough_model").GetComponent<PlayerStatus_Script>();//  直接名前検索しているのでプレイヤーobjの名前が変わるとここも変更させる
 
     }
 
@@ -40,23 +40,26 @@ public class statuspanel : MonoBehaviour
 
     //テキストをセット
     void settext()
-    {
+    {// HP 100     攻撃力 100     スタミナ 100   サイズ   普通
+      //  攻撃範囲  スキルポイント 100 スキルチャージ100
         statusText.text =
-       themeText[(int)SelectsoftVinyldata.theme] + "\nコスト" + SelectsoftVinyldata.cost + "\n"+skillText[(int)SelectsoftVinyldata.skill]
-       + "\n"+ SelectsoftVinyldata.ListNumber;
+      " HP  " + PleyerStatus.player_MaxHealth+ "    攻撃力  " + PleyerStatus.player_Attack_Power + "    スタミナ  " + PleyerStatus.player_MaxSutamina + "    サイズ  " + PleyerStatus.player_Size +"\n"+
+       "  攻撃範囲 " + PleyerStatus.D_player_Attack_Range + " スキルポイント " + PleyerStatus.player_Skill_Point + " スキルチャージ " + PleyerStatus.player_Skill_Charge;
 
     }
     void setdebagtext()
     {
        
         debagText.text = "デバック用テキスト\n" +
-       "追加最大体力" + debagstatus.add_Player_MaxHealth + "\n"
-        +"追加スタミナ" + debagstatus.add_Player_MaxSutamina + "\n"
-        + "追加攻撃力" + debagstatus.add_Player_Attack_Power + "\n"
-        + "追加防御力" + debagstatus.add_Player_Defense + "\n"
-        + "追加移動速度" + debagstatus.add_Player_Speed + "\n"
-        + "追加会心率" + debagstatus.add_Player_Critical + "\n"
-        + "追加会心ダメ率" + debagstatus.add_Player_Critical_Damage + "\n";
+       "追加最大体力" + PleyerStatus.add_Player_MaxHealth + "\n"
+        +"追加スタミナ" + PleyerStatus.add_Player_MaxSutamina + "\n"
+        + "追加攻撃力" + PleyerStatus.add_Player_Attack_Power + "\n"
+        //+ "追加防御力" + PleyerStatus.add_Player_Defense + "\n"
+        //+
+        //"追加移動速度" + PleyerStatus.add_Player_Speed + "\n"
+        //+ "追加会心率" + PleyerStatus.add_Player_Critical + "\n"
+        //+ "追加会心ダメ率" + PleyerStatus.add_Player_Critical_Damage +
+        ;
 
     }
     void themeTextset()//テーマテキストをセット

@@ -482,8 +482,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe6d7977005f7a24abf92586ffabc280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
-  SetCamera: {fileID: 0}
 --- !u!4 &459039475
 Transform:
   m_ObjectHideFlags: 0
@@ -1105,8 +1103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d3cae6286454f4f92c71ffdbd2ae12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameMainCanvas: {fileID: 815250637}
-  SetCanvas: {fileID: 0}
 --- !u!4 &1091569322
 Transform:
   m_ObjectHideFlags: 0
@@ -2053,7 +2049,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1811719089}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1c0e51cae6a77145988ef4115c78a2e, type: 3}
   m_Name: 
@@ -2067,7 +2063,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1811719089}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7fd427402c7b774581a2bfad2aa30fd, type: 3}
   m_Name: 
@@ -2208,7 +2204,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1811719089}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2db46eab919c630439b9da2f7542afac, type: 3}
   m_Name: 
@@ -2227,7 +2223,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1811719089}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75ab7441dc0007f448b0c033247fb71f, type: 3}
   m_Name: 
@@ -2427,8 +2423,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2298a26752faafd46b0f152000054d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerObject: {fileID: 0}
-  CameraManegerObject: {fileID: 0}
 --- !u!4 &1934855911
 Transform:
   m_ObjectHideFlags: 0

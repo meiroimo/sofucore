@@ -85,10 +85,10 @@ public class PlayerController : MonoBehaviour
         currentState.Enter();
     }
 
-    public void OnAttackInput()
-    {
-        receivedNextAttack = true;
-    }
+    //public void OnAttackInput()
+    //{
+    //    receivedNextAttack = true;
+    //}
 
     /// <summary>
     /// ƒvƒŒƒCƒ„[‚Ì‰ñ“]ˆ—

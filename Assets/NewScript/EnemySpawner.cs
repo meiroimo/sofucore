@@ -46,7 +46,7 @@ public class EnemySpawner : MonoBehaviour
         if (enemyStatus != null)
         {
             csvReader.SetEnemyStatusScript(enemyStatus);
-            csvReader.LoadingEnemyStatus(enemyTypeNo);                // CSVからステータス読み込み
+            csvReader.LoadingEnemyStatus(enemyTypeNo);// CSVからステータス読み込み
         }
         else
         {

@@ -4,6 +4,9 @@ using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.Windows;
 
+/// <summary>
+/// UŒ‚‚P’iŠK–Ú
+/// </summary>
 public class AttackOneState : PlayerState
 {
     private float timer = 0f;

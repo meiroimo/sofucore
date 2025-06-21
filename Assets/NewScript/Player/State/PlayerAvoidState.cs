@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
+/// <summary>
+/// ƒvƒŒƒCƒ„[‚Ì‰ñ”ğó‘Ô
+/// </summary>
 public class PlayerAvoidState : PlayerState
 {
     private Vector3 dodgeDirection;

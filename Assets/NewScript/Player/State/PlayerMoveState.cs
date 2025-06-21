@@ -1,12 +1,15 @@
 using UnityEngine;
 
+/// <summary>
+/// ƒvƒŒƒCƒ„[‚ÌˆÚ“®ó‘Ô
+/// </summary>
 public class PlayerMoveState : PlayerState
 {
     public PlayerMoveState(PlayerController player) : base(player) { }
 
     public override void Enter()
     {
-        //Debug.Log("Entered Move State");
+
     }
 
     public override void Update()
@@ -19,15 +22,12 @@ public class PlayerMoveState : PlayerState
             return;
         }
 
-        // “ü—Í‚É‰‚¶‚Ä—Í‚ğ‰Á‚¦‚é
-        //Vector3 force = new Vector3(input.x, 0, input.y) * player.moveForce;
-
         Vector3 moveDirection = new Vector3(input.x, 0, input.y); // Z•ûŒüˆÚ“®
         player.MoveCharacter(moveDirection, player.moveForce);
     }
 
     public override void Exit()
     {
-        //Debug.Log("Exited Move State");
+
     }
 }

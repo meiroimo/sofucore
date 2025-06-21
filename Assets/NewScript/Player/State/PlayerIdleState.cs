@@ -1,12 +1,15 @@
 using UnityEngine;
 
+/// <summary>
+/// ƒvƒŒƒCƒ„[‚Ì—§‚¿ó‘Ô
+/// </summary>
 public class PlayerIdleState : PlayerState
 {
     public PlayerIdleState(PlayerController player) : base(player) { }
 
     public override void Enter()
     {
-        //Debug.Log("Entered Idle State");
+
     }
 
     public override void Update()
@@ -26,6 +29,6 @@ public class PlayerIdleState : PlayerState
 
     public override void Exit()
     {
-        //Debug.Log("Exited Idle State");
+
     }
 }

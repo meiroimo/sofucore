@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour
     private EnemyHealth enemyHealth;
 
     private float enemy_Power;
+    private float enemy_Speed;
 
     private bool isHit = false;
     public event System.Action OnDeath; // 死亡イベント
@@ -36,7 +37,9 @@ public class EnemyController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         enemyStatus = GetComponent<EnemyStatus_Script>();
         enemy_Power = enemyStatus.enemy_Attack_Power;
-        ChangeState(new ChaseState());
+        enemy_Speed = enemyStatus.enemy_Speed;
+        agent.speed = enemy_Speed;
+        ChangeState(new EnemyChaseState());
     }
 
     void Update()
@@ -56,6 +59,10 @@ public class EnemyController : MonoBehaviour
         return Vector3.Distance(transform.position, player.position) < 2f;
     }
 
+    /// <summary>
+    /// プレイヤーに攻撃された時の処理
+    /// </summary>
+    /// <param name="_player"></param>
     public void OnHit(PlayerController _player)
     {
         isHit = true;
@@ -67,20 +74,24 @@ public class EnemyController : MonoBehaviour
         StartCoroutine(RecoverFromHit());
     }
 
+    /// <summary>
+    /// 動きを止める処理
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator RecoverFromHit()
     {
         yield return new WaitForSeconds(1.0f); // 1秒硬直
         isHit = false;
-        ChangeState(new ChaseState()); // 硬直後に追跡再開
+        ChangeState(new EnemyChaseState()); // 硬直後に追跡再開
     }
 
-    public void Die()
-    {
-        Debug.Log("敵が死んだ");
+    //public void Die()
+    //{
+    //    Debug.Log("敵が死んだ");
 
-        // イベント通知：登録されていれば呼び出す
-        OnDeath?.Invoke();
+    //    // イベント通知：登録されていれば呼び出す
+    //    OnDeath?.Invoke();
 
-        Destroy(gameObject);
-    }
+    //    Destroy(gameObject);
+    //}
 }

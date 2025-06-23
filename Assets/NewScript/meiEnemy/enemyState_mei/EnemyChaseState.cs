@@ -14,7 +14,7 @@ public class EnemyChaseState : EnemyState
         // UŒ‚”ÍˆÍ‚É“ü‚Á‚½‚çUŒ‚ó‘Ô‚Ö
         if (enemy.IsPlayerInAttackRange())
         {
-            enemy.ChangeState(new AttackState());
+            enemy.ChangeState(new EnemyAttackState());
         }
     }
 

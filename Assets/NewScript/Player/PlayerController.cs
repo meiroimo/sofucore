@@ -170,6 +170,12 @@ public class PlayerController : MonoBehaviour
                 if (enemy != null)
                 {
                     enemy.OnHit(this);
+                    return;
+                }
+                BossController boss = col.GetComponent<BossController>();
+                if(boss != null)
+                {
+                    boss.OnHit(this);
                 }
             }
         }

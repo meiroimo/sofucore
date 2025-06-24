@@ -129,7 +129,7 @@ public class PlayerSkillAttackState : PlayerState
                 //Enemy enemy = col.GetComponent<Enemy>();
                 //if (enemy != null)
                 //{
-                //    enemy.TakeDamage(attackDamage);
+                //    enemy.EnemtTakeDamage(attackDamage);
                 //    
                 //}
             }

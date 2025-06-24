@@ -31,7 +31,7 @@ public class EnemyTakeDamege_Script : MonoBehaviour
     //    {
     //        if (player)
     //        {
-    //            player.TakeDamage(100);
+    //            player.EnemtTakeDamage(100);
 
     //            hitCounter = 0;
     //        }

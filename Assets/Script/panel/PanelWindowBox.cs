@@ -27,9 +27,15 @@ public class PanelWindowBox : MonoBehaviour
     public int WindowOfsetx;
     public int WindowOfsety;
     public Vector2 MousePos_Window;
+    public GameObject ImgStrage;//イメージ画像ストレージスクリプト
+    ImgStrageScript ImgStrageScriptdata;//イメージ画像データストレージ
+
 
     void Start()
     {
+        ImgStrage = GameObject.Find("ImgStrage");
+        ImgStrageScriptdata = ImgStrage.GetComponent<ImgStrageScript>();
+
         cam = Camera.main;
         ofsetx = 30;
         ofsety = -30;
@@ -52,7 +58,7 @@ public class PanelWindowBox : MonoBehaviour
 
         if(selectSofvi.selectCheck)
         {
-            selectImage.sprite = selectSofvi.sofviImage;
+            selectImage.sprite = ImgStrageScriptdata.sprites[(int)selectSofvi.sofviImage];
             ImageOBJ.SetActive(true);
         }
         else

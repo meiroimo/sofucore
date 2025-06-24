@@ -29,7 +29,7 @@ public class setposition : MonoBehaviour
     {
         if(checkSetDeta)
         {
-            PanelImage.GetComponent<Image>().sprite = setSoftVinylData.sofviImage;
+          //  PanelImage.GetComponent<Image>().sprite = setSoftVinylData.sofviImage;
             if(!checkBuffStatus)
             {
                 statusup();
@@ -69,7 +69,7 @@ public class setposition : MonoBehaviour
             SofviVinylListobj.childrenPanelScript[selectSoftVinylData.ListNumber].selectCheck = false;
             SofviVinylListobj.childrensoftVinyl[selectSoftVinylData.ListNumber].skill = softVinyl.SKILLNUM.NULL;
             SofviVinylListobj.childrensoftVinyl[selectSoftVinylData.ListNumber].theme = softVinyl.themeNuÇç.NULL;
-            SofviVinylListobj.childrensoftVinyl[selectSoftVinylData.ListNumber].sofviImage = null;
+            SofviVinylListobj.childrensoftVinyl[selectSoftVinylData.ListNumber].sofviImage = 0;
             SofviVinylListobj.childrensoftVinyl[selectSoftVinylData.ListNumber].cost = 0;
 
             SofviVinylListobj.childrensoftVinyl[selectSoftVinylData.ListNumber].buffMainstatus = softVinyl.BUFFSTATUSNUM.NULL;
@@ -89,7 +89,7 @@ public class setposition : MonoBehaviour
 
 
             selectSoftVinylData.skill = softVinyl.SKILLNUM.NULL;
-            selectSoftVinylData.sofviImage = null;
+            selectSoftVinylData.sofviImage = 0;
             selectSoftVinylData.theme = softVinyl.themeNuÇç.NULL;
             selectSoftVinylData.cost = 0;
 

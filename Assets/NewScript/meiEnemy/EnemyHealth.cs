@@ -12,6 +12,11 @@ public class EnemyHealth : MonoBehaviour
     // 死亡イベント（他スクリプトと連携できる）
     public event System.Action OnDeath;
 
+
+
+    //20250621 kome変更点
+    sofviStrage sofviStrageScript;//ストレージスクリプト
+  public  softVinyl softVinyldata;//ドロップするソフビデータ
     private void Awake()
     {
         enemyStatus_Script = GetComponent<EnemyStatus_Script>();
@@ -19,12 +24,14 @@ public class EnemyHealth : MonoBehaviour
 
     private void Start()
     {
+        sofviStrageScript = GameObject.Find("Storage").gameObject.GetComponent<sofviStrage>();
+        softVinyldata = gameObject.transform.GetChild(0).gameObject.GetComponent<softVinyl>();
         maxHP = enemyStatus_Script.enemy_MaxHealth;
         currentHP = maxHP;
         Debug.Log(currentHP);
     }
 
-    public void TakeDamage(int damage)
+    public void EnemtTakeDamage(int damage)
     {
         currentHP -= damage;
         Debug.Log($"{gameObject.name} は {damage} ダメージを受けた！ 残りHP: {currentHP}");
@@ -39,6 +46,12 @@ public class EnemyHealth : MonoBehaviour
     {
         Debug.Log($"{gameObject.name} は倒された！");
         OnDeath?.Invoke(); // 死亡イベントを発火（スコア加算やエフェクト再生など）
+
+        //kome変更点
+        Debug.Log(softVinyldata.Buffparameter);
+        sofviStrageScript.addSofvi(softVinyldata);
+
         Destroy(gameObject); // 敵オブジェクトを消去
+        
     }
 }

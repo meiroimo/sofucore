@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Mesh;
 
 public class sofviStrage : MonoBehaviour
 {
@@ -31,9 +32,9 @@ public class sofviStrage : MonoBehaviour
     }
     void Start()
     {
-        ////設置画面シーンでStorageのデータを横むためシーン遷移してもはかいされないようにしてます。
-        //DontDestroyOnLoad(this);
         sofviStrageListConut = 0;
+
+        testdata = GameObject.Find("testdeta");
         setTestData();
     }
 

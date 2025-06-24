@@ -22,11 +22,11 @@ public class ResultController : MonoBehaviour
 
     public void GoToMainGameScene()
     {
-        SceneManager.LoadScene(sceneName[0]);
+        SceneManager.LoadScene(sceneName[1]);
     }
 
     public void GotToTitleScene()
     {
-        SceneManager.LoadScene(sceneName[1]);
+        SceneManager.LoadScene(sceneName[0]);
     }
 }

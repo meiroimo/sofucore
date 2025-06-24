@@ -18,6 +18,11 @@ public class CSVReader : MonoBehaviour
 
     int playerNo = 1;
 
+    public void SetPlayerStatusScript(PlayerStatus_Script script)
+    {
+        this.playerStatus_Script = script;
+    }
+
     public void SetEnemyStatusScript(EnemyStatus_Script script)
     {
         this.enemyStatus_Script = script;
@@ -72,6 +77,8 @@ public class CSVReader : MonoBehaviour
         LoadingPlayerStatus();
         enemyStatus_Script = GetComponent<EnemyStatus_Script>();
         CsvRead(enemyStatusCSV, enemyStatusDatas);
+        ResetToBaseStatus();
+        ApplyPlayerStatusToSaveData();
     }
 
 
@@ -108,7 +115,7 @@ public class CSVReader : MonoBehaviour
         playerStatus_Script.D_player_Critical_Damage = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_CRITICAL_DAMAGE]);
         playerStatus_Script.D_player_Skill_Point = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_SKILL_POINT]);
         playerStatus_Script.D_player_Skill_Charge = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_SKILL_CHARGE]);
-
+        Debug.Log("攻撃力：" + playerStatus_Script.D_player_Attack_Power);
     }
 
 
@@ -120,4 +127,42 @@ public class CSVReader : MonoBehaviour
         enemyStatus_Script.enemy_Speed = float.Parse(enemyStatusDatas[typeNo][(int)CSVEnemyStatus.D_SPEED]);
     }
 
+    public void ApplyPlayerStatusToSaveData()
+    {
+        if (DataManager.Instance == null)
+        {
+            Debug.Log("jspnがないよ");
+            return;
+        }
+
+        var data = DataManager.Instance.data;
+
+        float atk = playerStatus_Script.D_player_Attack_Power;
+        float hp = playerStatus_Script.D_player_MaxHealth;
+        float spd = playerStatus_Script.D_player_Speed;
+
+        data.attackPower = atk;
+        data.maxHealth = hp;
+        data.player_Speed = spd;
+
+        // 初期値としても保存
+        data.base_attackPower = atk;
+        data.base_maxHealth = hp;
+        data.base_player_Speed = spd;
+
+        DataManager.Instance.SaveNow(); // 保存 
+    }
+
+    public void ResetToBaseStatus()
+    {
+        if (DataManager.Instance == null) return;
+
+        var data = DataManager.Instance.data;
+
+        data.attackPower = data.base_attackPower;
+        data.maxHealth = data.base_maxHealth;
+        data.player_Speed = data.base_player_Speed;
+
+        DataManager.Instance.SaveNow(); // 必要なら
+    }
 }

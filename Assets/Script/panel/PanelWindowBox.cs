@@ -44,7 +44,7 @@ public class PanelWindowBox : MonoBehaviour
         WindowOfsety = 150;
     //    popupTextRectTrs = popupTextOBJ.gameObject.GetComponent<RectTransform>();
 
-        selectImage = ImageOBJ.GetComponent<Image>();
+        selectImage = ImageOBJ.transform.GetChild(0).GetComponent<Image>();
     }
 
     // Update is called once per frame

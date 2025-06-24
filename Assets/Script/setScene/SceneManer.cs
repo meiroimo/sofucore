@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneManer : MonoBehaviour
 {
@@ -12,15 +13,24 @@ public class SceneManer : MonoBehaviour
     bool SetFlg=false;//開いているか判定
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        OnLoadSceneAdditive();
+
+    }
     void Start()
     {
         UIManagerObject = GameObject.Find("UIManeger");
         UIManegeScript = UIManagerObject.GetComponent<UIManager>();
         CameraManegerObject = GameObject.Find("CameraManager");
         CameraManegerScript = CameraManegerObject.GetComponent<CameraManager>();
-
+      
     }
-
+    public void OnLoadSceneAdditive()
+    {
+        //SceneBを加算ロード。現在のシーンは残ったままで、シーンBが追加される
+        SceneManager.LoadScene("SetSofviScene", LoadSceneMode.Additive);
+    }
     // Update is called once per frame
     void Update()
     {

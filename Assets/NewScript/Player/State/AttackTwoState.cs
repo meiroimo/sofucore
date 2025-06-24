@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
+/// <summary>
+/// UŒ‚‚Ì‚Q’iŠK–Ú
+/// </summary>
 public class AttackTwoState : PlayerState
 {
     private float timer = 0f;

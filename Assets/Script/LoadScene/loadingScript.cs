@@ -55,6 +55,7 @@ public class loadingScript : MonoBehaviour
         ////　コルーチンを開始
         //StartCoroutine("LoadData");
     }
+
     /*コルーチン使う　読み込み速すぎて意味をなしてないので一旦保留
     IEnumerator LoadData()
     {

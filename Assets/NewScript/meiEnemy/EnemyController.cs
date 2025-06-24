@@ -61,7 +61,7 @@ public class EnemyController : MonoBehaviour
         isHit = true;
         agent.ResetPath();   // ˆÚ“®‚ğ‘¦’â~ ResetPath:’â~
         ChangeState(null);   // ó‘Ô‚ğˆê’U‰ğœi‚à‚µ‚­‚Íê—p‚ÌHitState‚ÉØ‚è‘Ö‚¦j
-        enemyHealth.TakeDamage((int)_player.Attack_Power);
+        enemyHealth.EnemtTakeDamage((int)_player.Attack_Power);
 
         // —á: ˆê’èŠÔŒã‚ÉˆÚ“®ÄŠJ
         StartCoroutine(RecoverFromHit());

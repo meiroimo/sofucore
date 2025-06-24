@@ -22,15 +22,19 @@ public class PanelButton : MonoBehaviour{
     public string[] themeText;//themeの文字列配列
     public string[] skillText;//skillの文字列配列
     public string[] nameText;//nameの文字列配列
-
-
+    public int Number;//ボタン番号
+    public GameObject ImgStrage;//イメージ画像ストレージスクリプト
+    ImgStrageScript ImgStrageScriptdata;//イメージ画像データストレージ
     // Start is called before the first frame update
     void Start()
     {
-        
+        ImgStrage = GameObject.Find("ImgStrage");
+        ImgStrageScriptdata = ImgStrage.GetComponent<ImgStrageScript>();
+
         selectPanel = false;
         PanelImage = gameObject.transform.GetChild(0).gameObject;
-        SetSofvidata = this.gameObject.GetComponent<softVinyl>();
+        SetSofvidata = this.gameObject.GetComponent<softVinyl>();//自身のソフビスクリプトを掴む
+        //Debug.Log(SetSofvidata);
         selectSofviDeta = selectSofviOBJ.GetComponent<softVinyl>();
 
         outline = gameObject.GetComponent<Outline>();
@@ -103,13 +107,16 @@ public class PanelButton : MonoBehaviour{
 
     void setImage()
     {
-        PanelImage.GetComponent<Image>().sprite = SetSofvidata.sofviImage;
+
+
+
+        PanelImage.GetComponent<Image>().sprite = ImgStrageScriptdata.sprites[(int)SetSofvidata.sofviImage];
 
 
     }
     void againClick()
     {
-        selectSofviDeta.sofviImage = null;
+        selectSofviDeta.sofviImage = 0;
         selectSofviDeta.cost = 0;
         selectSofviDeta.skill = softVinyl.SKILLNUM.NULL;
         selectSofviDeta.theme =softVinyl.themeNuｍ.NULL;
@@ -135,6 +142,10 @@ public class PanelButton : MonoBehaviour{
     private void setselectSofviData()
     {
 
+
+        // selectSofviDeta = SetSofvidata;
+     //   Debug.Log(selectSofviDeta);
+
         selectSofviDeta.sofvimodel = SetSofvidata.sofvimodel;
 
         selectSofviDeta.sofviName = SetSofvidata.sofviName;
@@ -158,7 +169,7 @@ public class PanelButton : MonoBehaviour{
         selectSofviDeta.buffName3 = SetSofvidata.buffName3;
         selectSofviDeta.selectButton = this.gameObject;
         selectSofviDeta.selectCheck =true;
-
+     //   Debug.Log(selectSofviDeta.Buffparameter);
 
     }
     void setTextPopTextWindow()//ポップアップウィンドウのテキストをセット

@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class softVinyl : MonoBehaviour
 {
-    [Header("３Ðモデルプレハブ")] public GameObject sofvimodel;//このソフビの３ｄモデルプレハブ
-    [Header("名前")] public  Name  sofviName;//このソフビの名前
-    [Header("画像")] public Sprite sofviImage;//このソフビの
+    [Header("３Ðモデルプレハブ")] public SOFVIMODEL sofvimodel;//このソフビの３ｄモデルプレハブ
+    [Header("名前")] public Name sofviName;//このソフビの名前
+    [Header("画像")] public IMAGE sofviImage;//このソフビの
     [Header("テーマ")] public themeNuｍ theme;//このソフビのテーマ
     [Header("スキル")] public SKILLNUM skill;//このソフビのスキル
     [Header("レア度")] public Raritynum rarity;//このソフビのスキル
 
-    [Header("コスト")] public int  cost;//このソフビのコスト
-    [Header("ナンバー")] public int　ListNumber;//このソフビの番号
-                      
+    [Header("コスト")] public int cost;//このソフビのコスト
+    [Header("ナンバー")] public int ListNumber;//このソフビの番号
+
 
     [Header("バフメインステータス")] public BUFFSTATUSNUM buffMainstatus;//メインステ
     [Header("バフサブステータス１")] public BUFFSTATUSNUM buffSubstatus1;//サブステ１
@@ -26,14 +26,14 @@ public class softVinyl : MonoBehaviour
     [Header("バフサブステータスパラメーター２")] public int Buffparameter2;//サブステ２
     [Header("バフサブステータスパラメーター３")] public int Buffparameter3;//サブステ３
 
-    [Header("メイン名前")] public  string buffName;　 //メインステ名前
-    [Header("サブ１名前")] public  string buffName1;　　//サブ名前１
+    [Header("メイン名前")] public string buffName;　 //メインステ名前
+    [Header("サブ１名前")] public string buffName1;　　//サブ名前１
     [Header("サブ２名前")] public string buffName2;　　//サブ名前２
     [Header("サブ３名前")] public string buffName3;　//サブ名前３
     /// <summary>
     ///設置ポジション用ソフビが置かれていたら判定 
     /// </summary>
-    public bool checksetpotion=false; 
+    public bool checksetpotion = false;
     public bool selectCheck;
     public GameObject selectButton;//セレクト中のボタン
                                    //ここＣＳＶで管理できたらいいね
@@ -151,7 +151,7 @@ public class softVinyl : MonoBehaviour
     /// </summary>
     public enum themeNuｍ
     {
-        NULL=0,
+        NULL = 0,
         theme1,
         theme2,
         theme3,
@@ -179,13 +179,32 @@ public class softVinyl : MonoBehaviour
     /// </summary>
     public enum SKILLNUM
     {
-        NULL=0,
+        NULL = 0,
         SKILL1,
         SKILL2,
         SKILL3,
         SKILL4,
         MAX,
     }
+    public enum IMAGE
+    {
+        NULL = 0,
+        IMAGE1,
+        IMAGE2,
+        IMAGE3,
+        IMAGE4,
+        MAX,
+    }
+    public enum SOFVIMODEL
+    {
+        NULL = 0,
+        MODEL1,
+        MODEL2,
+        MODEL3,
+        MODEL4,
+        MAX,
+    }
+
 
 
     public enum BUFFSTATUSNUM

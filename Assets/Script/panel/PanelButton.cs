@@ -169,7 +169,7 @@ public class PanelButton : MonoBehaviour{
         selectSofviDeta.buffName3 = SetSofvidata.buffName3;
         selectSofviDeta.selectButton = this.gameObject;
         selectSofviDeta.selectCheck =true;
-        Debug.Log(selectSofviDeta.ListNumber);
+        Debug.Log(selectSofviDeta.selectButton);
 
     }
     void setTextPopTextWindow()//ポップアップウィンドウのテキストをセット

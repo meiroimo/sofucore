@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     bool SetUIFlg;//ŠJ‚¢‚Ä‚¢‚é‚©”»’è
     void Start()
     {
+        GameMainCanvas= GameObject.Find("Canvas");
         SetCanvas = GameObject.Find("SetSceneCanvas");
 
         SetUIFlg = true;

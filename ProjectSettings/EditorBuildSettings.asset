@@ -26,7 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene_MM.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/MEI/DebugScene.unity
     guid: f1121148f534ba84ea697f9cede65807
   m_configObjects: {}

@@ -49,9 +49,6 @@ public class PlayerController : MonoBehaviour
         staminaSliderScript = GetComponent<StaminaSliderScript>();
         playerSkillSlider = GetComponent<PlayerSkillSlider>();
 
-        moveForce = playerStatus_Script.D_player_Speed;
-        attack_Power = playerStatus_Script.D_player_Attack_Power;
-
         inputActions.Player.Move.performed += ctx => MoveInput = ctx.ReadValue<Vector2>();
         inputActions.Player.Move.canceled += ctx => MoveInput = Vector2.zero;
         inputActions.Player.Avoid.performed += ctx => OnAvoid();
@@ -69,6 +66,9 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        moveForce = playerStatus_Script.D_player_Speed;
+        attack_Power = playerStatus_Script.D_player_Attack_Power;
+
         ChangeState(new PlayerIdleState(this));
     }
 
@@ -120,7 +120,6 @@ public class PlayerController : MonoBehaviour
             Rigid.velocity = new Vector3(0, Rigid.velocity.y, 0);
             return;
         }
-
         Vector3 moveVelocity = direction.normalized * speed;
         Rigid.velocity = new Vector3(moveVelocity.x, Rigid.velocity.y, moveVelocity.z);
         RotateTowards(direction);

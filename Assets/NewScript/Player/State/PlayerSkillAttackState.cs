@@ -126,12 +126,18 @@ public class PlayerSkillAttackState : PlayerState
             if (angle < attackAngle / 2f)
             {
                 Debug.Log($"{col.name} ‚ÉUŒ‚‚ª–½’†‚µ‚Ü‚µ‚½I");
-                //Enemy enemy = col.GetComponent<Enemy>();
-                //if (enemy != null)
-                //{
-                //    enemy.EnemtTakeDamage(attackDamage);
-                //    
-                //}
+                EnemyController enemy = col.GetComponent<EnemyController>();
+                if (enemy != null)
+                {
+                    enemy.OnHit(player);
+                    return;
+                }
+                BossController boss = col.GetComponent<BossController>();
+                if (boss != null)
+                {
+                    boss.OnHit(player);
+                }
+
             }
         }
     }

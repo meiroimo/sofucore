@@ -2859,6 +2859,10 @@ PrefabInstance:
       propertyPath: statusLoad
       value: 
       objectReference: {fileID: 353583777}
+    - target: {fileID: 2721313083501407699, guid: 6d91697c206cb2443be00de2b9993123, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5765587249858982798, guid: 6d91697c206cb2443be00de2b9993123, type: 3}
       propertyPath: mainCamera
       value: 

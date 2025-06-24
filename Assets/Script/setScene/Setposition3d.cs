@@ -51,6 +51,7 @@ public class Setposition3d : MonoBehaviour
         checkmodelset = false;//生成するクリック判定をfalse
         ColloderOff();//設置場所のコライダーオフ再度クリックされないように
         softVinylData.checksetpotion = true;//セットされたかの判定をオンに
+        //Debug.Log(softVinylData.Buffparameter);
         SetSofviManeger.statusup();
 
       //  if (!Physics.Raycast(ray, out hit)||)//レイに当たっている時

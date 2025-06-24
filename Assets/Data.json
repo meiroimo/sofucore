@@ -1,0 +1,22 @@
+{
+    "maxHealth": 500.0,
+    "currentHealth": 0.0,
+    "attackPower": 10.0,
+    "player_Speed": 5.0,
+    "maxStamina": 0.0,
+    "currentStamina": 0.0,
+    "staminaRecoverySpeed": 0.0,
+    "attackRange": 0.0,
+    "maxSkillPoint": 0.0,
+    "skillRecoverySpeed": 0.0,
+    "base_maxHealth": 500.0,
+    "base_currentHealth": 0.0,
+    "base_attackPower": 10.0,
+    "base_player_Speed": 5.0,
+    "base_maxStamina": 0.0,
+    "base_currentStamina": 0.0,
+    "base_staminaRecoverySpeed": 0.0,
+    "base_attackRange": 0.0,
+    "base_maxSkillPoint": 0.0,
+    "base_skillRecoverySpeed": 0.0
+}

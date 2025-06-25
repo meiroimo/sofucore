@@ -572,7 +572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1497522981}
-  SetCamera: {fileID: 0}
+  SetCamera: {fileID: 1497522981}
 --- !u!4 &459039475
 Transform:
   m_ObjectHideFlags: 0

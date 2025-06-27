@@ -27,7 +27,7 @@ public class statuspanel : MonoBehaviour
         //子オブジェクトのテキストコンポーネントを取得
         statusText = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Text>();
 
-        PleyerStatus = GameObject.Find("lough_model").GetComponent<PlayerStatus_Script>();//  直接名前検索しているのでプレイヤーobjの名前が変わるとここも変更させる
+        PleyerStatus = GameObject.Find("stand").GetComponent<PlayerStatus_Script>();//  直接名前検索しているのでプレイヤーobjの名前が変わるとここも変更させる
 
     }
 

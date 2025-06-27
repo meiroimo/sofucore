@@ -9,13 +9,17 @@ public class CameraManager : MonoBehaviour
     
     void Start()
     {
-
-        // 各カメラオブジェクトを取得
-        mainCamera = GameObject.Find("Main Camera");
-        SetCamera = GameObject.Find("SetSceneCamera");
-
-        // サブカメラはデフォルトで無効にしておく
-        SetCamera.SetActive(false);
+        var gameObject = GameObject.Find("SetSceneCamera");
+        if (gameObject != null)
+        {
+            // 各カメラオブジェクトを取得
+            mainCamera = GameObject.Find("Main Camera");
+            SetCamera = GameObject.Find("SetSceneCamera");
+            Debug.Log("カメラスタート");
+            // サブカメラはデフォルトで無効にしておく
+            SetCamera.SetActive(false);
+        }
+          
     }
 
     // Update is called once per frame

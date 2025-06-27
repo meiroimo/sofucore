@@ -15,11 +15,20 @@ public class SceneManer : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        OnLoadSceneAdditive();
+        Scene sceneB = SceneManager.GetSceneByName("SetSofviScene");
+        Debug.LogFormat("sceneB ={0}", sceneB.IsValid());
+        //var gameObject = GameObject.Find("SetSceneCanvas");
+        if (sceneB.IsValid()==false)
+        {
+            OnLoadSceneAdditive();
+            Debug.Log("設置シーン読み込み");
+        }
+
 
     }
     void Start()
     {
+        
         UIManagerObject = GameObject.Find("UIManeger");
         UIManegeScript = UIManagerObject.GetComponent<UIManager>();
         CameraManegerObject = GameObject.Find("CameraManager");
@@ -28,6 +37,7 @@ public class SceneManer : MonoBehaviour
     }
     public void OnLoadSceneAdditive()
     {
+        
         //SceneBを加算ロード。現在のシーンは残ったままで、シーンBが追加される
         SceneManager.LoadScene("SetSofviScene", LoadSceneMode.Additive);
     }

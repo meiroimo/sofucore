@@ -34,8 +34,8 @@ public class sofviStrage : MonoBehaviour
     {
         sofviStrageListConut = 0;
 
-        testdata = GameObject.Find("testdeta");
-        setTestData();
+        //testdata = GameObject.Find("testdeta");
+        //setTestData();
     }
 
     

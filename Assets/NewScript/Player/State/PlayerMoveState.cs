@@ -7,8 +7,11 @@ public class PlayerMoveState : PlayerState
 {
     public PlayerMoveState(PlayerController player) : base(player) { }
 
+
     public override void Enter()
     {
+        player.animator.SetBool("isWalk", true);
+        player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.SMOKE);
 
     }
 
@@ -28,6 +31,8 @@ public class PlayerMoveState : PlayerState
 
     public override void Exit()
     {
+        player.animator.SetBool("isWalk", false);
+        player.PlayerEffectScript.StopEffect((int)playerEffectScript.EffectName.SMOKE);
 
     }
 }

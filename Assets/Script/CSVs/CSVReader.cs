@@ -74,7 +74,6 @@ public class CSVReader : MonoBehaviour
 
     void Awake()
     {
-        LoadingPlayerStatus();
         enemyStatus_Script = GetComponent<EnemyStatus_Script>();
         CsvRead(enemyStatusCSV, enemyStatusDatas);
         ResetToBaseStatus();
@@ -115,7 +114,7 @@ public class CSVReader : MonoBehaviour
         playerStatus_Script.D_player_Critical_Damage = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_CRITICAL_DAMAGE]);
         playerStatus_Script.D_player_Skill_Point = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_SKILL_POINT]);
         playerStatus_Script.D_player_Skill_Charge = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_SKILL_CHARGE]);
-        Debug.Log("çUåÇóÕÅF" + playerStatus_Script.D_player_Attack_Power);
+
     }
 
 

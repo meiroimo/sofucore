@@ -54,9 +54,13 @@ public class PlayerStatus_Script : MonoBehaviour
     void Start()
     {
 
-       // statusLoad.LoadingPlayerStatus();
+    }
 
+    public void Init()
+    {
+        statusLoad.LoadingPlayerStatus();
         enemyDeathCount = 0;
+        StatusUp();
     }
 
     void Update()

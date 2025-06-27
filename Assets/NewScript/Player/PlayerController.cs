@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public Camera mainCamera;
     public LayerMask enemyLayer;
     public float attackRange = 100f;
+    public GameObject effectOBJ;
 
     private FlowerGuard2 inputActions;
     private PlayerState currentState;
@@ -27,7 +28,8 @@ public class PlayerController : MonoBehaviour
     private HPSliderScript hpSliderScript;
     private StaminaSliderScript staminaSliderScript;
     private PlayerSkillSlider playerSkillSlider;
-    Animator animator;
+    public playerEffectScript PlayerEffectScript;
+    public Animator animator;
 
     public Vector2 MoveInput { get; private set; }
     public Rigidbody Rigid { get; private set; }
@@ -40,12 +42,19 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         inputActions = new FlowerGuard2();
-        Rigid = GetComponent<Rigidbody>();
+        Rigid = gameObject.transform.parent.gameObject.GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         playerStatus_Script = GetComponent<PlayerStatus_Script>();
+        playerStatus_Script.Init();
         hpSliderScript = GetComponent<HPSliderScript>();
+        hpSliderScript.Init();
         staminaSliderScript = GetComponent<StaminaSliderScript>();
+        staminaSliderScript.Init();
         playerSkillSlider = GetComponent<PlayerSkillSlider>();
+        playerSkillSlider.Init();
+        PlayerEffectScript = effectOBJ.GetComponent<playerEffectScript>();
+
+        animator = GetComponent<Animator>();
 
         inputActions.Player.Move.performed += ctx => MoveInput = ctx.ReadValue<Vector2>();
         inputActions.Player.Move.canceled += ctx => MoveInput = Vector2.zero;
@@ -73,6 +82,10 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         currentState?.Update();
+        if(hpSliderScript.GetNowHealth() <= 0)
+        {
+            animator.SetBool("isDeth", true);
+        }
     }
 
     //ó‘Ô•ÏX‚Ì‚½‚ß‚ÌŠÖ”

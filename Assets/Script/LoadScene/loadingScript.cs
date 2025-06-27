@@ -34,7 +34,7 @@ public class loadingScript : MonoBehaviour
         nowTime += Time.deltaTime;
         //loadSlider.value = nowTime / waiteTime;
         if (nowTime < waiteTime) return;
-        SceneManager.LoadSceneAsync(sceneName[nextLoadingSceneNo]);
+        SceneManager.LoadScene(sceneName[nextLoadingSceneNo]);
     }
 
     public void setFadeIn(int sceneNo)

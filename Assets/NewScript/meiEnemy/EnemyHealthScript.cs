@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealthScript : MonoBehaviour
 {
     [Header("体力")]
     public float maxHP;
@@ -16,7 +16,7 @@ public class EnemyHealth : MonoBehaviour
 
     //20250621 kome変更点
     sofviStrage sofviStrageScript;//ストレージスクリプト
-  public  softVinyl softVinyldata;//ドロップするソフビデータ
+    public softVinyl softVinyldata;//ドロップするソフビデータ
     private void Awake()
     {
         enemyStatus_Script = GetComponent<EnemyStatus_Script>();
@@ -52,6 +52,6 @@ public class EnemyHealth : MonoBehaviour
         sofviStrageScript.addSofvi(softVinyldata);
 
         Destroy(gameObject); // 敵オブジェクトを消去
-        
+
     }
 }

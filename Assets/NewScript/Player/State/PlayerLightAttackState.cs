@@ -17,7 +17,7 @@ public class PlayerLightAttackState : PlayerState
     public override void Enter()
     {
         //Debug.Log("Entered LightAttack State");
-
+        player.animator.SetBool("isAttack", true);
     }
 
     public override void Update()
@@ -51,6 +51,7 @@ public class PlayerLightAttackState : PlayerState
     public override void Exit()
     {
         //Debug.Log("Exited LightAttack State");
+        player.animator.SetBool("isAttack", false);
     }
 
     private void PlayerLAttack()

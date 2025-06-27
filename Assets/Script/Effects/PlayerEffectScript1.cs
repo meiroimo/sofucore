@@ -39,13 +39,8 @@ public class playerEffectScript : MonoBehaviour
 
     }
 
-    public void StopSmokeEffect()
+    public void StopEffect(int effectNo)
     {
-        playerEffect[(int)EffectName.SMOKE].SetActive(false);
-    }
-
-    public void StopAvoidanceEffect()
-    {
-        playerEffect[(int)EffectName.AVOIDANCE].SetActive(false);
+        playerEffect[effectNo].SetActive(false);
     }
 }

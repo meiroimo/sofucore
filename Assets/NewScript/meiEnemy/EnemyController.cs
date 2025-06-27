@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour
 
     private EnemyState currentState;
     private EnemyStatus_Script enemyStatus;
-    private EnemyHealth enemyHealth;
+    private EnemyHealthScript enemyHealth;
 
     private float enemy_Power;
     private float enemy_Speed;
@@ -33,7 +33,7 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        enemyHealth = GetComponent<EnemyHealth>();
+        enemyHealth = GetComponent<EnemyHealthScript>();
         agent = GetComponent<NavMeshAgent>();
         enemyStatus = GetComponent<EnemyStatus_Script>();
         enemy_Power = enemyStatus.enemy_Attack_Power;

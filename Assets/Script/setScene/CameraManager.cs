@@ -26,14 +26,7 @@ public class CameraManager : MonoBehaviour
     void Update()
     {
 
-        // もしSpaceキーが押されたならば、
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            // 各カメラオブジェクトの有効フラグを逆転(true→false,false→true)させる
-            mainCamera.SetActive(!mainCamera.activeSelf);
-
-            SetCamera.SetActive(!SetCamera.activeSelf);
-        }
+       
     }
     public void changeCamera(GameObject ToCamera)
     {

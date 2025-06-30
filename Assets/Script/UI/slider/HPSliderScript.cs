@@ -14,7 +14,8 @@ public class HPSliderScript : MonoBehaviour
     float maxHealth;        //Œ»İ‚ÌÅ‘å‘Ì—Í
     float nowHealth;        //Œ»İ‚Ì‘Ì—Í
 
-    void Start()
+
+    public void Init()
     {
         playerStatus_Script = GetComponent<PlayerStatus_Script>();
         maxHealth = playerStatus_Script.player_MaxHealth;

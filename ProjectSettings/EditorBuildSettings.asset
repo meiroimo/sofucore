@@ -9,27 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScene_Mei.unity
     guid: 30ea007932757a343a7377bb0511706c
   - enabled: 1
-    path: Assets/Scenes/LoadScene.unity
-    guid: a39af2ded9ddbcd40bde2ad74045b85e
-  - enabled: 1
-    path: Assets/Scenes/GameMainScene.unity
-    guid: 77f14b61784058c488f901b3599ba633
+    path: Assets/Scenes/SetSofviScene.unity
+    guid: 71ab88118e9708e4d98778aa04344c0c
   - enabled: 1
     path: Assets/Scenes/gameScene/DebugGameScene.unity
     guid: 66e2d513188cfec4fa04eb7eec8a383b
   - enabled: 1
-    path: Assets/Scenes/SetSofviScene.unity
-    guid: 71ab88118e9708e4d98778aa04344c0c
-  - enabled: 1
     path: Assets/Scenes/ResultScene.unity
     guid: ac87e1631373ef24db6f1b802fa59d1b
-  - enabled: 1
-    path: Assets/Scenes/masterScene.unity
-    guid: 37a0db0553f298742a18f34846fbb444
-  - enabled: 1
-    path: Assets/Scenes/SampleScene_MM.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
-    path: Assets/MEI/DebugScene.unity
-    guid: f1121148f534ba84ea697f9cede65807
   m_configObjects: {}

@@ -17,12 +17,11 @@ public class PlayerAvoidState : PlayerState
 
     public override void Enter()
     {
-
+        player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.AVOIDANCE);
         // 入力方向がなければ向いている方向に回避
         dodgeDirection = player.transform.forward;
 
         timer = 0f;
-
         player.TakeAvoid(30);
         // 無敵状態ON（必要なら）
         //player.SetInvincible(true);
@@ -43,5 +42,7 @@ public class PlayerAvoidState : PlayerState
         }
     }
 
-    public override void Exit() { }
+    public override void Exit() {
+        player.PlayerEffectScript.StopEffect((int)playerEffectScript.EffectName.AVOIDANCE);
+    }
 }

@@ -15,15 +15,16 @@ public class StaminaSliderScript : MonoBehaviour
     float maxStamina;
     float nowStamina;
 
-    void Start()
+    public void Init()
     {
         playerStatus_Script = GetComponent<PlayerStatus_Script>();
-        initMaxStamina = playerStatus_Script.player_MaxSutamina; 
+        initMaxStamina = playerStatus_Script.player_MaxSutamina;
         maxStamina = playerStatus_Script.player_MaxSutamina;
         nowStamina = maxStamina;
         SetStaminaUI();
         //InvokeRepeating("ƒƒ\ƒbƒh–¼", ŠJn‚Ü‚Å‚Ì’x‰„ŠÔ, ŒJ‚è•Ô‚µŠÔŠu);
         InvokeRepeating(nameof(HealStamina), 1.0f, 1.0f);
+
     }
 
     //UI(slider)‚É”½‰f

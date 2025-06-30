@@ -15,7 +15,7 @@ public class PlayerSkillSlider : MonoBehaviour
     bool isSkillCharge;//チャージするか true:チャージする false:チャージしない
 
     float nowTime;
-    void Start()
+    public void Init()
     {
         Application.targetFrameRate = 30;
 
@@ -29,6 +29,7 @@ public class PlayerSkillSlider : MonoBehaviour
         isSkillCharge = false;
         //InvokeRepeating("メソッド名", 開始までの遅延時間, 繰り返し間隔);
         //InvokeRepeating(nameof(skillPointUICharge), 1.0f, 1.0f);
+
     }
 
     void Update()

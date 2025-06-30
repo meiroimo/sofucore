@@ -27,7 +27,7 @@ public class SetSofviManeger : MonoBehaviour
         checkBuffStatus = false;
         selectSofviDeta = selectSofviOBJ.GetComponent<softVinyl>();
         setTestData();
-        PlayerStatus_Script= GameObject.Find("lough_model").GetComponent<PlayerStatus_Script>();//  直接名前検索しているのでプレイヤーobjの名前が変わるとここも変更させる
+        PlayerStatus_Script= GameObject.Find("stand").GetComponent<PlayerStatus_Script>();//  直接名前検索しているのでプレイヤーobjの名前が変わるとここも変更させる
     }
 
     // Update is called once per frame

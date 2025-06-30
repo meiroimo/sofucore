@@ -19288,6 +19288,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InstallationStands
       objectReference: {fileID: 0}
+    - target: {fileID: 1839459615856694320, guid: fc83bf4c68259c24e8e3f72e26016ed7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2978099581262650850, guid: fc83bf4c68259c24e8e3f72e26016ed7, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.06

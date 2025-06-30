@@ -15,6 +15,8 @@ public class AttackOneState : PlayerState
 
     public override void Enter()
     {
+        player.animator.SetBool("isAttack", true);
+        player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.SLASH);
         Debug.Log("UŒ‚Fˆê’iŠK–ÚI");
         player.ReceivedNextAttack = false;
         player.IsAttack = true;
@@ -47,5 +49,8 @@ public class AttackOneState : PlayerState
     public override void Exit()
     {
         player.IsAttack = false;
+        player.animator.SetBool("isAttack", false);
+        player.PlayerEffectScript.StopEffect((int)playerEffectScript.EffectName.SLASH);
+
     }
 }

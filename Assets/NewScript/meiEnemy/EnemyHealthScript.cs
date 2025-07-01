@@ -48,7 +48,7 @@ public class EnemyHealthScript : MonoBehaviour
         OnDeath?.Invoke(); // 死亡イベントを発火（スコア加算やエフェクト再生など）
 
         //kome変更点
-        Debug.Log(softVinyldata.Buffparameter);
+      
         sofviStrageScript.addSofvi(softVinyldata);
 
         Destroy(gameObject); // 敵オブジェクトを消去

@@ -36,7 +36,7 @@ public class SofviVinylList : MonoBehaviour
         {
             children[i] = Parent.GetChild(i).gameObject;
             children[i].gameObject.GetComponent<PanelButton>().Number = i;
-          //  childrensoftVinyl[i] = children[i].gameObject.GetComponent<softVinyl>();
+            childrensoftVinyl[i] = children[i].gameObject.GetComponent<softVinyl>();
             childrenPanelScript[i] = children[i].gameObject.GetComponent<PanelButton>();
         }
     }
@@ -53,28 +53,28 @@ public class SofviVinylList : MonoBehaviour
             if (i < softVinylData.Count)
             {
 
-                // childrensoftVinyl[i] = softVinylData[i];
+                 childrensoftVinyl[i] = softVinylData[i];
 
 
-                children[i].gameObject.GetComponent<softVinyl>().name = softVinylData[i].name;
-                children[i].gameObject.GetComponent<softVinyl>().sofvimodel = softVinylData[i].sofvimodel;
-                children[i].gameObject.GetComponent<softVinyl>().skill = softVinylData[i].skill;
-                children[i].gameObject.GetComponent<softVinyl>().theme = softVinylData[i].theme;
-                children[i].gameObject.GetComponent<softVinyl>().sofviImage = softVinylData[i].sofviImage;
-                children[i].gameObject.GetComponent<softVinyl>().sofviImage = softVinylData[i].sofviImage;
-                children[i].gameObject.GetComponent<softVinyl>().sofviName = softVinylData[i].sofviName;
-                children[i].gameObject.GetComponent<softVinyl>().buffMainstatus = softVinylData[i].buffMainstatus;
-                children[i].gameObject.GetComponent<softVinyl>().buffSubstatus1 = softVinylData[i].buffSubstatus1;
-                children[i].gameObject.GetComponent<softVinyl>().buffSubstatus2 = softVinylData[i].buffSubstatus2;
-                children[i].gameObject.GetComponent<softVinyl>().buffSubstatus3 = softVinylData[i].buffSubstatus3;
-                children[i].gameObject.GetComponent<softVinyl>().Buffparameter = softVinylData[i].Buffparameter;
-                children[i].gameObject.GetComponent<softVinyl>().Buffparameter1 = softVinylData[i].Buffparameter1;
-                children[i].gameObject.GetComponent<softVinyl>().Buffparameter2 = softVinylData[i].Buffparameter2;
-                children[i].gameObject.GetComponent<softVinyl>().Buffparameter3 = softVinylData[i].Buffparameter3;
-                children[i].gameObject.GetComponent<softVinyl>().buffName = softVinylData[i].buffName;
-                children[i].gameObject.GetComponent<softVinyl>().buffName1 = softVinylData[i].buffName1;
-                children[i].gameObject.GetComponent<softVinyl>().buffName2 = softVinylData[i].buffName2;
-                children[i].gameObject.GetComponent<softVinyl>().buffName3 = softVinylData[i].buffName3;
+                //children[i].gameObject.GetComponent<softVinyl>().name = softVinylData[i].name;
+                //children[i].gameObject.GetComponent<softVinyl>().sofvimodel = softVinylData[i].sofvimodel;
+                //children[i].gameObject.GetComponent<softVinyl>().skill = softVinylData[i].skill;
+                //children[i].gameObject.GetComponent<softVinyl>().theme = softVinylData[i].theme;
+                //children[i].gameObject.GetComponent<softVinyl>().sofviImage = softVinylData[i].sofviImage;
+                //children[i].gameObject.GetComponent<softVinyl>().sofviImage = softVinylData[i].sofviImage;
+                //children[i].gameObject.GetComponent<softVinyl>().sofviName = softVinylData[i].sofviName;
+                //children[i].gameObject.GetComponent<softVinyl>().buffMainstatus = softVinylData[i].buffMainstatus;
+                //children[i].gameObject.GetComponent<softVinyl>().buffSubstatus1 = softVinylData[i].buffSubstatus1;
+                //children[i].gameObject.GetComponent<softVinyl>().buffSubstatus2 = softVinylData[i].buffSubstatus2;
+                //children[i].gameObject.GetComponent<softVinyl>().buffSubstatus3 = softVinylData[i].buffSubstatus3;
+                //children[i].gameObject.GetComponent<softVinyl>().Buffparameter = softVinylData[i].Buffparameter;
+                //children[i].gameObject.GetComponent<softVinyl>().Buffparameter1 = softVinylData[i].Buffparameter1;
+                //children[i].gameObject.GetComponent<softVinyl>().Buffparameter2 = softVinylData[i].Buffparameter2;
+                //children[i].gameObject.GetComponent<softVinyl>().Buffparameter3 = softVinylData[i].Buffparameter3;
+                //children[i].gameObject.GetComponent<softVinyl>().buffName = softVinylData[i].buffName;
+                //children[i].gameObject.GetComponent<softVinyl>().buffName1 = softVinylData[i].buffName1;
+                //children[i].gameObject.GetComponent<softVinyl>().buffName2 = softVinylData[i].buffName2;
+                //children[i].gameObject.GetComponent<softVinyl>().buffName3 = softVinylData[i].buffName3;
 
                 //childrensoftVinyl[i].name = softVinylData[i].name;
                 //childrensoftVinyl[i].sofvimodel = softVinylData[i].sofvimodel;
@@ -99,7 +99,7 @@ public class SofviVinylList : MonoBehaviour
 
 
 
-                children[i].gameObject.GetComponent<softVinyl>().ListNumber = i;//îzóÒî‘çÜÇïtó^
+                childrensoftVinyl[i].ListNumber = i;//îzóÒî‘çÜÇïtó^
 
                // childrensoftVinyl[i].ListNumber = i;//îzóÒî‘çÜÇïtó^
 

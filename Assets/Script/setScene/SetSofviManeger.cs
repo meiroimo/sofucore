@@ -27,7 +27,7 @@ public class SetSofviManeger : MonoBehaviour
         checkBuffStatus = false;
         selectSofviDeta = selectSofviOBJ.GetComponent<softVinyl>();
         setTestData();
-        PlayerStatus_Script= GameObject.Find("stand").GetComponent<PlayerStatus_Script>();//  直接名前検索しているのでプレイヤーobjの名前が変わるとここも変更させる
+        PlayerStatus_Script= GameObject.FindWithTag("Player").GetComponent<PlayerStatus_Script>();//  直接名前検索しているのでプレイヤーobjの名前が変わるとここも変更させる
     }
 
     // Update is called once per frame
@@ -35,7 +35,7 @@ public class SetSofviManeger : MonoBehaviour
     {
         setSofuvi();
     //    testchangeMaterial();
-        test();
+        SofviPreview();
         //if (checkSetDeta)
         //{
         //    if (!checkBuffStatus)
@@ -64,7 +64,7 @@ public class SetSofviManeger : MonoBehaviour
 
 
     }
-    void test()
+    void SofviPreview()
     {
         if (selectSofviDeta.selectCheck)//ソフビがセレクトされていたら
         {
@@ -77,16 +77,14 @@ public class SetSofviManeger : MonoBehaviour
                 {
                     if (hit.collider.GetComponent<Setposition3d>().translucentflg == false)//もし半透明表示がされていなけらば半透明ソフビを生成
                     {
-                        // hit.collider.GetComponent<softVinyl>().sofvimodel = selectSofviDeta.sofvimodel;
                         softVinyl softVinylTest;
                         softVinylTest = hit.collider.GetComponent<softVinyl>();
-                        softVinylTest = selectSofviDeta;
-                      //  Debug.Log(softVinylTest.Buffparameter);
-                        hit.collider.GetComponent<Setposition3d>().TranslucentSofviIns();
+                        softVinylTest = selectSofviDeta;//セレクト中のソフビデータを設置場所に渡す。表示モデルのデータが入っているため。
+                        hit.collider.GetComponent<Setposition3d>().TranslucentSofviIns();//半透明モデルのインスタンス関数をよびだし
                     }
 
-                    hit.collider.GetComponent<Setposition3d>().rathit = true;
-                    for (int i = 0; i < MAXSETPOSITION; i++)
+                    hit.collider.GetComponent<Setposition3d>().rathit = true;//レイが当たってる判定をtrue
+                    for (int i = 0; i < MAXSETPOSITION; i++)//レイの当たっていない場所の判定をfalseに
                     {
                         if (hit.collider.GetComponent<Setposition3d>().setpotionNumber == i) continue;
                         setposition3Ds[i].rathit = false;
@@ -94,7 +92,7 @@ public class SetSofviManeger : MonoBehaviour
                     }
 
                 }
-                else
+                else//レイがどこの設置場所にもあたっていない場合はすべでのレイの当たった判定をfalse
                 {
                     for(int i=0;i< MAXSETPOSITION;i++)
                     {
@@ -104,68 +102,32 @@ public class SetSofviManeger : MonoBehaviour
                     }
                 }
 
-                // 例: オブジェクトを光らせる
-                // hit.collider.GetComponent<Renderer>().material.color = Color.red;
             }
         }
 
     }
-    void testchangeMaterial()
-    {
-        if (selectSofviDeta.selectCheck)//ソフビがセレクトされていたら
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);//レイを飛ばす
-            RaycastHit hit;//レイに当たったまたオブジェクトのデータの保存先
-
-            if (Physics.Raycast(ray, out hit))//レイに当たっている時
-            {
-                if (hit.transform.tag == "SetPosition" && hit.collider.GetComponent<Setposition3d>().checkmodelset == false)//セットポジションに当たっているかつ何も置かれていない場合
-                {
-
-                    if (hit.collider.GetComponent<Setposition3d>().translucentflg == false)//もし半透明表示がされていなけらば半透明ソフビを生成
-                    {
-                        hit.collider.GetComponent<softVinyl>().sofvimodel = selectSofviDeta.sofvimodel;
-
-                        hit.collider.GetComponent<Setposition3d>().TranslucentSofviIns();
-                    }
-                    // Debug.Log("Hit: " + hit.collider.name);
-
-                }
-
-                // 例: オブジェクトを光らせる
-                // hit.collider.GetComponent<Renderer>().material.color = Color.red;
-            }
-        }
-
-
-
-
-    }
-        void setSofuvi()
+   
+    void setSofuvi()
 
     {
-        if(selectSofviDeta.selectCheck)
+        if(selectSofviDeta.selectCheck&& Input.GetMouseButtonDown(0))//ソフビ選択されてたらかつ左クリック時
         {
-            if (Input.GetMouseButtonDown(0)) // 左クリック時
+           
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);//レイ飛ばす
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "SetPosition")//レイが当たったオブジェクトへアクセスかつ設置場所だったら
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
+                // Debug.Log("Hit: " + hit.collider.name);
+                // hit.collider.GetComponent<softVinyl>().sofvimodel = selectSofviDeta.sofvimodel;//先にモデルを渡す
+                softVinyl softVinylTest;
+                softVinylTest = hit.collider.GetComponent<softVinyl>();
+                softVinylTest = selectSofviDeta;//ソフビデータを渡す
 
-                if (Physics.Raycast(ray, out hit))
-                {
-                    Debug.Log("Hit: " + hit.collider.name);
-                    hit.collider.GetComponent<softVinyl>().sofvimodel = selectSofviDeta.sofvimodel;
-                    softVinyl softVinylTest;
-                    softVinylTest = hit.collider.GetComponent<softVinyl>();
-                    softVinylTest = selectSofviDeta;
+                hit.collider.GetComponent<Setposition3d>().checkmodelset =true;//設置場所の設置判定をtrue
 
-                    hit.collider.GetComponent<Setposition3d>().checkmodelset =true;
-
-                    // 例: オブジェクトを光らせる
-                   // hit.collider.GetComponent<Renderer>().material.color = Color.red;
-                }
             }
-
+           
         }
     }
     //この関数はセットポジションでよくね？

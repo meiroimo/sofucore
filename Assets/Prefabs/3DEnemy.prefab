@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6496726814131520782}
   - component: {fileID: 2708666223577402570}
   m_Layer: 6
-  m_Name: GameObject
+  m_Name: sofvidata
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01d7dad586a608549be90ed83e779f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sofvimodel: 0
+  sofvimodel: 1
   sofviName: 38
-  sofviImage: 0
+  sofviImage: 4
   theme: 20
   skill: 4
   rarity: 3

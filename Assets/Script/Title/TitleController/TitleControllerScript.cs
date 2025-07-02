@@ -12,6 +12,7 @@ public class TitleControllerScript : MonoBehaviour
         RIGHT,      //右クリック
         MIDDLE
     }
+
     void Start()
     {
         if (!startOBJ.activeSelf) startOBJ.SetActive(true);//タイトル画面を付ける

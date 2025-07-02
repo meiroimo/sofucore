@@ -4204,7 +4204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxScale: 22
-  addScale: -0.5
+  addScale: 0.5
   isFadein: 0
   unmaskTransform: {fileID: 1682595510}
   Loading: {fileID: 559578404}

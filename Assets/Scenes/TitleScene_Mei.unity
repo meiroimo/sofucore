@@ -1241,7 +1241,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1150042771}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SlidePanelMoveScript, Assembly-CSharp
         m_MethodName: retunSlideBotton
         m_Mode: 1
@@ -2290,7 +2290,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1150042771}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SlidePanelMoveScript, Assembly-CSharp
         m_MethodName: nextSlideBotton
         m_Mode: 1
@@ -3794,8 +3794,6 @@ GameObject:
   - component: {fileID: 1150042767}
   - component: {fileID: 1150042769}
   - component: {fileID: 1150042768}
-  - component: {fileID: 1150042771}
-  - component: {fileID: 1150042772}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -3866,38 +3864,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1150042766}
   m_CullTransparentMesh: 1
---- !u!114 &1150042771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1150042766}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c762437cb34ea09429713bb0e49421c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 40
-  generatorScript: {fileID: 0}
---- !u!114 &1150042772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1150042766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 537337329c5ae434297b59bf71b6666b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelPrefabOBJ: {fileID: 1629134849993755072, guid: 75d4572f53cd1c74d9d508f05db03833, type: 3}
-  panelCount: 1
-  parent: {fileID: 1150042767}
-  panelSize: 1920
-  generatedPanels:
-  - {fileID: 2009865734}
 --- !u!1 &1155764785
 GameObject:
   m_ObjectHideFlags: 0

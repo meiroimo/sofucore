@@ -11,6 +11,7 @@ public class BossController : MonoBehaviour
     private BossState currentState;
     private EnemyStatus_Script bossStatus;
     private BossHealth bossHealth;
+    private BossSEBox boss_SE;
 
     private float boss_Power;
     private float boss_Speed;
@@ -23,6 +24,7 @@ public class BossController : MonoBehaviour
     public bool IsHit { get => isHit; set => isHit = value; }
     public NavMeshAgent Agent { get => agent; set => agent = value; }
     public float Boss_Power { get => boss_Power; set => boss_Power = value; }
+    public BossSEBox Boss_SE { get => boss_SE; set => boss_SE = value; }
 
     // プレイヤーを設定する用の関数
     public void SetPlayer(Transform playerTransform)
@@ -35,6 +37,7 @@ public class BossController : MonoBehaviour
         bossHealth = GetComponent<BossHealth>();
         agent = GetComponent<NavMeshAgent>();
         bossStatus = GetComponent<EnemyStatus_Script>();
+        boss_SE = GetComponent<BossSEBox>();
     }
 
     void Start()

@@ -12,7 +12,8 @@ public class PlayerMoveState : PlayerState
     {
         player.animator.SetBool("isWalk", true);
         player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.SMOKE);
-
+        //        bird_Audio.PlayOneShot(jump_SE);
+        player.SeBox.PlayPlayerSE(PlayerSEBox.SENAME.MOVE);
     }
 
     public override void Update()
@@ -33,6 +34,6 @@ public class PlayerMoveState : PlayerState
     {
         player.animator.SetBool("isWalk", false);
         player.PlayerEffectScript.StopEffect((int)playerEffectScript.EffectName.SMOKE);
-
+        player.SeBox.StopPlayerSE();
     }
 }

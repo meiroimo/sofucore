@@ -13,7 +13,8 @@ public class BossDefeatedState : BossState
     {
         boss.Agent.isStopped = true;
         Debug.Log("bossを倒した！");
-
+        ResultClear.Instance.isGameClear = true;
+        BGMManager.Instance.StopBGM();
         //ここにやられた時のアニメーション
 
         // スロー演出（任意）
@@ -28,6 +29,7 @@ public class BossDefeatedState : BossState
         if (elapsed >= delayBeforeResult)
         {
             Time.timeScale = 1f;
+            // ここでクリアフラグを保存
             SceneManager.LoadScene("ResultScene");
         }
     }

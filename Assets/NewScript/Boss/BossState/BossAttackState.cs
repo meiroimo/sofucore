@@ -64,12 +64,15 @@ public class BossAttackState : BossState
         isDelaying = false;
     }
 
-    private void PerformAttack(BossController boss)
+    IEnumerator PerformAttack(BossController boss)
     {
+        boss.Boss_SE.PlayBossSE(BossSEBox.SENAME.ATTACK);
+        yield return new WaitForSeconds(0.7f);
         // 攻撃判定：攻撃範囲内のプレイヤーを確認
         if (boss.DistanceToPlayer <= attackRange + 0.5f)
         {
             //Debug.Log("Hit player!"); // ここでプレイヤーのダメージ処理を呼び出せる
+            boss.Boss_SE.PlayBossSE(BossSEBox.SENAME.HIT);
             boss.player.GetComponent<PlayerController>()?.TakeDamage((int)boss.Boss_Power);
         }
     }

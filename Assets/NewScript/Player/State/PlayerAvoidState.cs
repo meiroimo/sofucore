@@ -20,7 +20,7 @@ public class PlayerAvoidState : PlayerState
         player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.AVOIDANCE);
         // 入力方向がなければ向いている方向に回避
         dodgeDirection = player.transform.forward;
-
+        player.SeBox.PlayPlayerSE(PlayerSEBox.SENAME.AVOID);
         timer = 0f;
         player.TakeAvoid(30);
         // 無敵状態ON（必要なら）

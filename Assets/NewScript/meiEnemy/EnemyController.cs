@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     private EnemyState currentState;
     private EnemyStatus_Script enemyStatus;
     private EnemyHealthScript enemyHealth;
+    private EnemySEBox enemy_SE;
 
     private float enemy_Power;
     private float enemy_Speed;
@@ -24,6 +25,7 @@ public class EnemyController : MonoBehaviour
     public bool IsHit { get => isHit; set => isHit = value; }
     public NavMeshAgent Agent { get => agent; set => agent = value; }
     public float Enemy_Power { get => enemy_Power; set => enemy_Power = value; }
+    public EnemySEBox Enemy_SE { get => enemy_SE; set => enemy_SE = value; }
 
     // プレイヤーを設定する用の関数
     public void SetPlayer(Transform playerTransform)
@@ -33,12 +35,21 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
+        //GetComponent
+        #region
         enemyHealth = GetComponent<EnemyHealthScript>();
         agent = GetComponent<NavMeshAgent>();
         enemyStatus = GetComponent<EnemyStatus_Script>();
+        enemy_SE = GetComponent<EnemySEBox>();
+        #endregion
+
+        //初期化
+        #region
         enemy_Power = enemyStatus.enemy_Attack_Power;
         enemy_Speed = enemyStatus.enemy_Speed;
         agent.speed = enemy_Speed;
+        #endregion
+
         ChangeState(new EnemyChaseState());
     }
 

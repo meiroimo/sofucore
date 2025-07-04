@@ -7,6 +7,7 @@ public class PlayerSkillSlider : MonoBehaviour
 {
     [SerializeField, Header("skillスライダー")] Slider skillSlider;
     PlayerStatus_Script playerStatus_Script;
+    PlayerSEBox seBox;
 
     float maxSkillPoint;    //たまるスキルポイント
     float nowSkillPoint;    //現在のスキルポイント
@@ -15,12 +16,14 @@ public class PlayerSkillSlider : MonoBehaviour
     bool isSkillCharge;//チャージするか true:チャージする false:チャージしない
 
     float nowTime;
+
+
     public void Init()
     {
         Application.targetFrameRate = 30;
 
         playerStatus_Script = GetComponent<PlayerStatus_Script>();
-
+        seBox = GetComponent<PlayerSEBox>();
 
         maxSkillPoint = playerStatus_Script.D_player_Skill_Point;
         nowSkillPoint = maxSkillPoint;
@@ -45,11 +48,15 @@ public class PlayerSkillSlider : MonoBehaviour
 
         skillSet();
 
-        if (isUseSkill()) isSkillCharge = false;
+        if (isUseSkill())
+        {
+            isSkillCharge = false;
+            seBox.PlayPlayerSE(PlayerSEBox.SENAME.CHARGE);
+        }
     }
 
-    //UIに反映
-    void skillSet()
+        //UIに反映
+        void skillSet()
     {
         float nowValue = nowSkillPoint / maxSkillPoint;
 

@@ -52,7 +52,7 @@ public class EnemyAttackState : EnemyState
         // クールダウンが終わったら攻撃
         if (Time.time - lastAttackTime >= attackCooldown)
         {
-            PerformAttack(enemy);
+            enemy.StartCoroutine(PerformAttack(enemy));
             lastAttackTime = Time.time;
         }
     }
@@ -64,12 +64,15 @@ public class EnemyAttackState : EnemyState
         isDelaying = false;
     }
 
-    private void PerformAttack(EnemyController enemy)
+    IEnumerator PerformAttack(EnemyController enemy)
     {
+        enemy.Enemy_SE.PlayEnemySE(EnemySEBox.SENAME.ATTACK);
+        yield return new WaitForSeconds(0.7f);
         // 攻撃判定：攻撃範囲内のプレイヤーを確認
         if (enemy.DistanceToPlayer <= attackRange + 0.5f)
         {
             //Debug.Log("Hit player!"); // ここでプレイヤーのダメージ処理を呼び出せる
+            enemy.Enemy_SE.PlayEnemySE(EnemySEBox.SENAME.HIT);
             enemy.player.GetComponent<PlayerController>()?.TakeDamage((int)enemy.Enemy_Power);
         }
     }

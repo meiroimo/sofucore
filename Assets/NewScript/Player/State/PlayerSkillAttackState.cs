@@ -7,7 +7,7 @@ using UnityEngine.Windows;
 public class PlayerSkillAttackState : PlayerState
 {
     private int attackCount = 0;                // 今までのひっかき回数
-    private float attackInterval = 0.5f;        // 各ひっかきの間隔（秒）
+    private float attackInterval = 0.1f;        // 各ひっかきの間隔（秒）
     private float timer = 0f;                   // 経過時間
     private int maxAttacks = 8;                 // 最大ひっかき回数（8回）
 
@@ -114,7 +114,7 @@ public class PlayerSkillAttackState : PlayerState
 
         //player.PlayAttackAnimation(attackCount); // アニメーション（Claw1 / Claw2 切替）
         //player.DealDamageInFront();              // 前方にダメージを与える処理（当たり判定）
-        PlayerLAttack();
+        player.PlayerLAttack();
     }
 
 

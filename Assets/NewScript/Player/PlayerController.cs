@@ -2,6 +2,7 @@ using System;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -30,7 +31,10 @@ public class PlayerController : MonoBehaviour
     private PlayerSkillSlider playerSkillSlider;
     public playerEffectScript PlayerEffectScript;
     public Animator animator;
+    private PlayerSEBox _seBox;
 
+    //ゲッター・セッター
+    #region
     public Vector2 MoveInput { get; private set; }
     public Rigidbody Rigid { get; private set; }
     public float ComboInputWindow { get => comboInputWindow; set => comboInputWindow = value; }
@@ -38,29 +42,46 @@ public class PlayerController : MonoBehaviour
     public bool IsAttack { get => isAttack; set => isAttack = value; }
     public Vector3 FixedAttackDirection { get => fixedAttackDirection; set => fixedAttackDirection = value; }
     public float Attack_Power { get => attack_Power; set => attack_Power = value; }
+    public PlayerSEBox SeBox { get => _seBox; set => _seBox = value; }
+    #endregion
+    //ゲッター・セッター
 
     private void Awake()
     {
+        //GetComponent
+        #region
         inputActions = new FlowerGuard2();
         Rigid = gameObject.transform.parent.gameObject.GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         playerStatus_Script = GetComponent<PlayerStatus_Script>();
-        playerStatus_Script.Init();
         hpSliderScript = GetComponent<HPSliderScript>();
-        hpSliderScript.Init();
         staminaSliderScript = GetComponent<StaminaSliderScript>();
-        staminaSliderScript.Init();
         playerSkillSlider = GetComponent<PlayerSkillSlider>();
-        playerSkillSlider.Init();
         PlayerEffectScript = effectOBJ.GetComponent<playerEffectScript>();
-
+        _seBox = GetComponent<PlayerSEBox>();
         animator = GetComponent<Animator>();
+        #endregion
+        //GetComponent
 
+        //初期化
+        #region
+        playerStatus_Script.Init();
+        hpSliderScript.Init();
+        staminaSliderScript.Init();
+        playerSkillSlider.Init();
+        #endregion
+        //初期化
+
+        //InputSystem
+        #region
         inputActions.Player.Move.performed += ctx => MoveInput = ctx.ReadValue<Vector2>();
         inputActions.Player.Move.canceled += ctx => MoveInput = Vector2.zero;
         inputActions.Player.Avoid.performed += ctx => OnAvoid();
         inputActions.Player.NomalAttack.performed += cxt => OnLightAttack();
         inputActions.Player.BarettaAttack.performed += cxt => OnSkillAttack();
+        #endregion
+        //InputSystem
+
     }
 
     //Enable : GameObject が有効になったとき
@@ -167,6 +188,8 @@ public class PlayerController : MonoBehaviour
 
         Collider[] hits = Physics.OverlapSphere(origin, attackRadius, enemyLayer);
 
+        _seBox.PlayPlayerSE(PlayerSEBox.SENAME.ATTACK);
+
         foreach (Collider col in hits)
         {
             Vector3 dirToTarget = (col.transform.position - origin).normalized;
@@ -179,12 +202,14 @@ public class PlayerController : MonoBehaviour
                 EnemyController enemy = col.GetComponent<EnemyController>();
                 if (enemy != null)
                 {
+                    _seBox.PlayPlayerSE(PlayerSEBox.SENAME.HIT);
                     enemy.OnHit(this);
                     return;
                 }
                 BossController boss = col.GetComponent<BossController>();
                 if(boss != null)
                 {
+                    _seBox.PlayPlayerSE(PlayerSEBox.SENAME.HIT);
                     boss.OnHit(this);
                 }
             }
@@ -229,6 +254,7 @@ public class PlayerController : MonoBehaviour
 
         if (currentHP <= 0)
         {
+            SceneManager.LoadScene("ResultScene");
             Debug.Log("Player died");
             // 死亡処理
         }

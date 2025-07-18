@@ -56,13 +56,11 @@ public class PlayerSkillSlider : MonoBehaviour
     }
 
         //UI‚É”½‰f
-        void skillSet()
+    void skillSet()
     {
         float nowValue = nowSkillPoint / maxSkillPoint;
 
-
         skillSlider.value = nowValue;
-
     }
 
     //ƒXƒLƒ‹‚ðŽg‚¦‚é‚©

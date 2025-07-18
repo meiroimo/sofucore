@@ -28,10 +28,22 @@ public class PlayerController : MonoBehaviour
     private PlayerStatus_Script playerStatus_Script;
     private HPSliderScript hpSliderScript;
     private StaminaSliderScript staminaSliderScript;
-    private PlayerSkillSlider playerSkillSlider;
+    private PlayerSkillSlider[] playerSkillSlider;
     public playerEffectScript PlayerEffectScript;
     public Animator animator;
     private PlayerSEBox _seBox;
+
+    /// <summary>
+    /// 必殺技 = 0,
+    /// スキル1 = 1,
+    /// スキル2 = 2
+    /// </summary>
+    enum SkillName
+    {
+        SPECIAL = 0,
+        SKILL_1,
+        SKILL_2
+    }
 
     //ゲッター・セッター
     #region
@@ -56,7 +68,7 @@ public class PlayerController : MonoBehaviour
         playerStatus_Script = GetComponent<PlayerStatus_Script>();
         hpSliderScript = GetComponent<HPSliderScript>();
         staminaSliderScript = GetComponent<StaminaSliderScript>();
-        playerSkillSlider = GetComponent<PlayerSkillSlider>();
+        playerSkillSlider = GetComponents<PlayerSkillSlider>(); //同一コンポーネントを複数Getするときは[GetComponents]でｓ付ける
         PlayerEffectScript = effectOBJ.GetComponent<playerEffectScript>();
         _seBox = GetComponent<PlayerSEBox>();
         animator = GetComponent<Animator>();
@@ -68,7 +80,9 @@ public class PlayerController : MonoBehaviour
         playerStatus_Script.Init();
         hpSliderScript.Init();
         staminaSliderScript.Init();
-        playerSkillSlider.Init();
+        for(int i = 0;i < playerSkillSlider.Length; i++) {
+            playerSkillSlider[i].Init();
+        }
         #endregion
         //初期化
 
@@ -303,9 +317,9 @@ public class PlayerController : MonoBehaviour
     public void OnSkillAttack()
     {
         //必要なスキルポイントがあるかの判定を作る
-        if(playerSkillSlider.isUseSkill())
+        if (playerSkillSlider[(int)SkillName.SPECIAL].isUseSkill())  //一旦0番目の必殺ゲージにしてある
         {
-            playerSkillSlider.setNowPoint(0);
+            playerSkillSlider[(int)SkillName.SPECIAL].setNowPoint(0);
             ChangeState(new PlayerSkillAttackState(this));
         }
     }

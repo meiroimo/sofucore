@@ -23,13 +23,11 @@ public class sofviStrage : MonoBehaviour
        // softVinyl sofvidata = new softVinyl();//インスタンスの生成が上手くいかない　理由　UnityEngine.Object 系（MonoBehaviour / ScriptableObject）だから だよ。
                                               //Unity の Object 系は普通の C# オブジェクトと生成ルールが違うので、正しい作り方をしないと “空っぽ” 扱いになって Debug.Log で null に見える。
         Debug.Log(sofvidata);
+      //  sofvidata = softVinylData;
         sofvidata.name = softVinylData.name;
         sofvidata.sofvimodel = softVinylData.sofvimodel;
         sofvidata.skill = softVinylData.skill;
         sofvidata.theme = softVinylData.theme;
-        sofvidata.sofviImage = softVinylData.sofviImage;
-        sofvidata.sofviImage = softVinylData.sofviImage;
-        sofvidata.sofviName = softVinylData.sofviName;
         sofvidata.buffMainstatus = softVinylData.buffMainstatus;
         sofvidata.buffSubstatus1 = softVinylData.buffSubstatus1;
         sofvidata.buffSubstatus2 = softVinylData.buffSubstatus2;
@@ -61,7 +59,7 @@ public class sofviStrage : MonoBehaviour
         sofviStrageListConut = 0;
 
         //testdata = GameObject.Find("testdeta");
-        //setTestData();
+        //setpotionDataSet();
     }
 
     

@@ -128,10 +128,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sofvimodel: 1
-  sofviName: 38
-  sofviImage: 4
-  theme: 20
-  skill: 4
+  sofviName: 1
+  sofviImage: 1
+  theme: 1
+  skill: 1
   rarity: 3
   cost: 100
   ListNumber: 1

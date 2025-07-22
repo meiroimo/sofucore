@@ -25,7 +25,7 @@ public class CameraCoverTransparentScript : MonoBehaviour
         RayCastCover();
 
         //前フレームと障害物が一緒ならreturn
-        if (Enumerable.SequenceEqual(tmpHitOBJ.OrderBy(e => e.name), coverOBJ.OrderBy(e => e.name))) return;
+       // if (Enumerable.SequenceEqual(tmpHitOBJ.OrderBy(e => e.name), coverOBJ.OrderBy(e => e.name))) return;
 
         //メッシュ初期化(一旦全部表示)
         InitCoverMesh();

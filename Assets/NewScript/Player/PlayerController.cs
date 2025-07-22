@@ -117,11 +117,6 @@ public class PlayerController : MonoBehaviour
         currentState.Enter();
     }
 
-    //public void OnAttackInput()
-    //{
-    //    receivedNextAttack = true;
-    //}
-
     /// <summary>
     /// プレイヤーの回転処理
     /// </summary>
@@ -262,6 +257,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// スタミナを減少させる
+    /// ：回避を使用した際に呼ばれる
+    /// </summary>
+    /// <param name="stamina"></param>
     public void TakeAvoid(float stamina)
     {
         float currentStamina = staminaSliderScript.GetNowStamina();
@@ -274,6 +274,9 @@ public class PlayerController : MonoBehaviour
 
     //private bool isInvincible = false;
 
+    /// <summary>
+    /// 回避ステート呼び出し
+    /// </summary>
     public void OnAvoid()
     {
         //if (CanDodge()) // 任意：クールタイム等
@@ -282,6 +285,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 攻撃ステート呼び出し
+    /// </summary>
     public void OnLightAttack()
     {
         // Idle中又はMoveならAttackOneへ
@@ -301,6 +307,9 @@ public class PlayerController : MonoBehaviour
         //animator.SetTrigger("Attack");
     }
 
+    /// <summary>
+    /// スキルステート呼び出し
+    /// </summary>
     public void OnSkillAttack()
     {
         //必要なスキルポイントがあるかの判定を作る

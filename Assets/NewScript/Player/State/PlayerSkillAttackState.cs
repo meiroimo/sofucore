@@ -30,14 +30,8 @@ public class PlayerSkillAttackState : PlayerState
         player.animator.SetBool("isAttack", true);
         player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.SLASH);
         player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.AURA);
-
-        //Debug.Log("Entered LightAttack State");
         attackCount = 0;
         timer = 0f;
-
-        //player.SetInvincible(true);             // 攻撃中は無敵にする
-        Debug.Log($"ひっかき攻撃{attackCount + 1}回目");
-        //DoClawAttack();                         // 最初のひっかき攻撃を発動
     }
 
     public override void Update()
@@ -71,8 +65,6 @@ public class PlayerSkillAttackState : PlayerState
             }
         }
 
-        //PlayerLAttack();
-
         // 時間をカウントしてひっかき間隔を管理
         timer += Time.deltaTime;
 
@@ -91,11 +83,6 @@ public class PlayerSkillAttackState : PlayerState
             DoClawAttack();
         }
 
-        // 攻撃が終わったら待機状態に戻す
-        //player.ChangeState(new PlayerIdleState(player));
-
-
-
     }
 
     public override void Exit()
@@ -110,14 +97,11 @@ public class PlayerSkillAttackState : PlayerState
     // ひとつのひっかき処理
     private void DoClawAttack()
     {
-        attackCount++;                          // 回数カウント
-
-        //player.PlayAttackAnimation(attackCount); // アニメーション（Claw1 / Claw2 切替）
-        //player.DealDamageInFront();              // 前方にダメージを与える処理（当たり判定）
+        attackCount++;// 回数カウント
         player.PlayerLAttack();
     }
 
-
+    #region
     private void PlayerLAttack()
     {
         Vector3 origin = player.transform.position;
@@ -149,4 +133,5 @@ public class PlayerSkillAttackState : PlayerState
             }
         }
     }
+    #endregion
 }

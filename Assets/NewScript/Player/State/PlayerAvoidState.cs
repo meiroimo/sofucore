@@ -23,8 +23,6 @@ public class PlayerAvoidState : PlayerState
         player.SeBox.PlayPlayerSE(PlayerSEBox.SENAME.AVOID);
         timer = 0f;
         player.TakeAvoid(30);
-        // 無敵状態ON（必要なら）
-        //player.SetInvincible(true);
     }
 
     public override void Update()

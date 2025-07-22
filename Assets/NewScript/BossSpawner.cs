@@ -7,6 +7,7 @@ public class BossSpawner : MonoBehaviour
     [SerializeField] Transform player; // プレイヤーの位置
     [SerializeField] GameObject bossPrefab;
     [SerializeField] Transform bossSpawnPoint;
+    private ChangeResultScene_Script changeResult;
 
     [SerializeField] CSVReader csvReader;//CSVReaderをインスペクターで指定
     [SerializeField] int bossTypeNo = 1;//CSV上のボスの行番号
@@ -17,6 +18,7 @@ public class BossSpawner : MonoBehaviour
 
     private void Start()
     {
+        changeResult = GetComponent<ChangeResultScene_Script>();
         //イベントに登録
         gameTimer.OnTimeReached += SpawnBoss;
     }
@@ -40,7 +42,7 @@ public class BossSpawner : MonoBehaviour
         BossController bossController = boss.GetComponent<BossController>();
         if (bossController != null)
         {
-            bossController.SetPlayer(player);
+            bossController.SetPlayer(player, player.GetComponent<PlayerStatus_Script>());
             //bossController.OnDeath += () => currentEnemyCount--;
         }
     }

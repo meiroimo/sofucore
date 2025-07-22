@@ -254,6 +254,7 @@ public class PlayerController : MonoBehaviour
 
         if (currentHP <= 0)
         {
+            PlayerStatusCache.LastStatusSave(playerStatus_Script);
             SceneManager.LoadScene("ResultScene");
             Debug.Log("Player died");
             // Ž€–Sˆ—

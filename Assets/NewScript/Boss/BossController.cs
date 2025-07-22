@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class BossController : MonoBehaviour
 {
     public Transform player;
+    private PlayerStatus_Script playerstatus;
     private NavMeshAgent agent;
 
     private BossState currentState;
@@ -25,11 +26,13 @@ public class BossController : MonoBehaviour
     public NavMeshAgent Agent { get => agent; set => agent = value; }
     public float Boss_Power { get => boss_Power; set => boss_Power = value; }
     public BossSEBox Boss_SE { get => boss_SE; set => boss_SE = value; }
+    public PlayerStatus_Script Playerstatus { get => playerstatus; set => playerstatus = value; }
 
     // プレイヤーを設定する用の関数
-    public void SetPlayer(Transform playerTransform)
+    public void SetPlayer(Transform playerTransform, PlayerStatus_Script playerStatus)
     {
         player = playerTransform;
+        playerstatus = playerStatus.GetComponent<PlayerStatus_Script>();
     }
 
     private void Awake()

@@ -25,23 +25,41 @@ public class ResultStatus : MonoBehaviour
 
         var data = DataManager.Instance.data;
 
-        string[] labels = {
+        string[] labels = 
+        {
             "攻撃力: ",
-            "最大体力: ",
-            "スピード: "
+            "体力: ",
+            "スピード: ",
+            "スタミナ: ",
+            "攻撃範囲: ",
+            "スキルチャージ: "
             // 必要に応じて他のステータス名もここに追加
         };
 
-        float[] values = {
-            data.attackPower,
-            data.maxHealth,
-            data.player_Speed
+        float[] values =
+        {
+            PlayerStatusCache.lastattackPower,
+            PlayerStatusCache.lastmaxHealth,
+            PlayerStatusCache.lastspeed,
+            PlayerStatusCache.lastMaxSutamina,
+            PlayerStatusCache.lastAttack_Range,
+            PlayerStatusCache.lastSkill_Charge
             // 必要に応じて他のデータも追加
+        };
+
+        string[] unit =
+        {
+            "",
+            "",
+            "",
+            "",
+            "%",
+            "s"
         };
 
         for (int i = 0; i < statusTexts.Length && i < labels.Length; i++)
         {
-            statusTexts[i].text = labels[i] + values[i].ToString("F0");
+            statusTexts[i].text = labels[i] + values[i].ToString("F0") + unit[i];
         }
     }
 }

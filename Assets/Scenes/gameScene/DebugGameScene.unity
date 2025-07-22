@@ -351,6 +351,18 @@ PrefabInstance:
       propertyPath: maxhealthText
       value: 
       objectReference: {fileID: 1679099955}
+    - target: {fileID: 5099792238054019712, guid: 6dd16d8c59c1b894699401c76dca7911, type: 3}
+      propertyPath: angle
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5099792238054019712, guid: 6dd16d8c59c1b894699401c76dca7911, type: 3}
+      propertyPath: radius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5099792238054019712, guid: 6dd16d8c59c1b894699401c76dca7911, type: 3}
+      propertyPath: segments
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 5252755814668263351, guid: 6dd16d8c59c1b894699401c76dca7911, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

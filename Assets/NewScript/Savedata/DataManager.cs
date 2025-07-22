@@ -51,7 +51,7 @@ public class DataManager : MonoBehaviour
     {
         if (string.IsNullOrEmpty(filepath))
         {
-            Debug.LogWarning("Save skipped: file path is null.");
+            Debug.LogWarning("LastStatusSave skipped: file path is null.");
             return;
         }
 

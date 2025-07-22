@@ -36,6 +36,7 @@ public class GameTimer : MonoBehaviour
         if (!triggered && currentTime >= spawnTime)
         {
             triggered = true;
+
             OnTimeReached?.Invoke();//“o˜^‚³‚ê‚½ŠÖ”‚ğŒÄ‚Ño‚·
         }
     }

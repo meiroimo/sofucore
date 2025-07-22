@@ -438,6 +438,12 @@ PrefabInstance:
       addedObject: {fileID: 7121198949653411910}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c41f73350deff5448916e427208742e9, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 9154995197401978052}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c41f73350deff5448916e427208742e9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1839647518679427628}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c41f73350deff5448916e427208742e9, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 2553797456617829265}
   m_SourcePrefab: {fileID: 100100000, guid: c41f73350deff5448916e427208742e9, type: 3}
 --- !u!1 &7100487447586010782 stripped
@@ -596,6 +602,32 @@ MonoBehaviour:
   HPSlider: {fileID: 0}
   maxhealthText: {fileID: 0}
 --- !u!114 &7121198949653411910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7100487447586010782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75ab7441dc0007f448b0c033247fb71f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillSlider: {fileID: 0}
+--- !u!114 &9154995197401978052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7100487447586010782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75ab7441dc0007f448b0c033247fb71f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillSlider: {fileID: 0}
+--- !u!114 &1839647518679427628
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

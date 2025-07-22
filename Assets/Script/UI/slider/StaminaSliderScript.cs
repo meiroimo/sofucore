@@ -22,6 +22,7 @@ public class StaminaSliderScript : MonoBehaviour
         maxStamina = playerStatus_Script.player_MaxSutamina;
         nowStamina = maxStamina;
         SetStaminaUI();
+        setHealthText();
         //InvokeRepeating("メソッド名", 開始までの遅延時間, 繰り返し間隔);
         InvokeRepeating(nameof(HealStamina), 1.0f, 1.0f);
 

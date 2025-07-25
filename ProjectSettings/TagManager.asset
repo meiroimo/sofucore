@@ -9,6 +9,12 @@ TagManager:
   - Sofvi
   - Undefined
   - SetPosition
+  - box/Normal
+  - box/Rare
+  - box/superRare
+  - sofvi/Normal
+  - sofvi/Rare
+  - sofvi/superRare
   layers:
   - Default
   - TransparentFX

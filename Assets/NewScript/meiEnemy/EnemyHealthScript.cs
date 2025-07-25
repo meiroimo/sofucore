@@ -12,6 +12,7 @@ public class EnemyHealthScript : MonoBehaviour
     // 死亡イベント（他スクリプトと連携できる）
     public event System.Action OnDeath;
 
+    [SerializeField] TreasureChestDropScript dropScript;
 
 
     //20250621 kome変更点
@@ -47,8 +48,11 @@ public class EnemyHealthScript : MonoBehaviour
         Debug.Log($"{gameObject.name} は倒された！");
         OnDeath?.Invoke(); // 死亡イベントを発火（スコア加算やエフェクト再生など）
 
+        //rena追加
+        dropScript.Drop();
+
         //kome変更点
-      
+
         sofviStrageScript.addSofvi(softVinyldata);
 
         Destroy(gameObject); // 敵オブジェクトを消去

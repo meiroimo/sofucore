@@ -28,10 +28,12 @@ public class ResultController : MonoBehaviour
     public void GoToMainGameScene()
     {
         SceneManager.LoadScene(sceneName[1]);
+        ResultClear.Instance.isGameClear = false;
     }
 
     public void GotToTitleScene()
     {
         SceneManager.LoadScene(sceneName[0]);
+        ResultClear.Instance.isGameClear = false;
     }
 }

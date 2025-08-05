@@ -53,7 +53,7 @@ public class EnemyHealthScript : MonoBehaviour
 
         //kome変更点
 
-        sofviStrageScript.addSofvi(softVinyldata);
+        //sofviStrageScript.addSofvi(softVinyldata);
 
         Destroy(gameObject); // 敵オブジェクトを消去
 

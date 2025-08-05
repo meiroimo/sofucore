@@ -25,7 +25,7 @@ public class BossSpawner : MonoBehaviour
 
     void SpawnBoss()
     {
-        if (bossSpawned) return;
+        if (bossSpawned || ResultClear.Instance.isGameClear) return;
 
         GameObject boss = Instantiate(bossPrefab, bossSpawnPoint.position, bossSpawnPoint.rotation);
 

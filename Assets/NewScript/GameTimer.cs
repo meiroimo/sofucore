@@ -21,10 +21,12 @@ public class GameTimer : MonoBehaviour
     {
         GameObject player = GameObject.FindWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
+        ResultClear.Instance.isGameClear = false;
     }
 
     private void Update()
     {
+        if (ResultClear.Instance.isGameClear) return;
         currentTime += Time.deltaTime;
         float remainingTime = Mathf.Max(0f, spawnTime - currentTime);
 

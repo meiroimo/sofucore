@@ -32,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        if (currentEnemyCount >= maxEnemies) return;
+        if (currentEnemyCount >= maxEnemies || ResultClear.Instance.isGameClear) return;
 
         // ランダムなスポーン地点を選択
         int index = Random.Range(0, spawnPoints.Length);

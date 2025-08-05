@@ -48,9 +48,8 @@ public class TreasureChestDropScript : MonoBehaviour
             if (tmp < rarityRate[i])//落ちるレアリティ判定
             {
                 GameObject tmpOBJ = dropOBJ[i].objType[0];  //一旦0で決め打ち
-                Instantiate<GameObject>(tmpOBJ);//生成
-
-                tmpOBJ.transform.position = transform.root.gameObject.transform.localPosition;
+                Vector3 dropPosition = transform.root.position; // 敵の親のワールド座標を取得
+                GameObject droppedItem = Instantiate(tmpOBJ, dropPosition, Quaternion.identity); // ここで位置を指定して生成
                 return;
             }
         }

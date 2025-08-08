@@ -9,9 +9,10 @@ public class PlayerController : MonoBehaviour
     public float moveForce = 10f;//移動速度
     public float rotationSpeed = 10f;
 
-    private float comboInputWindow = 0.6f; // 次の攻撃を受け付ける猶予時間
+    private float comboInputWindow = 0.6f; //次の攻撃を受け付ける猶予時間
     private bool receivedNextAttack = false;
-    private Vector3 fixedAttackDirection; // 攻撃中の向き（固定）
+    private Vector3 fixedAttackDirection; //攻撃中の向き（マウス）
+    private Vector2 attackStickInput;//攻撃の向き（コントローラー用）
     private bool isAttack = false;
 
     private float attack_Power;
@@ -29,9 +30,24 @@ public class PlayerController : MonoBehaviour
     private HPSliderScript hpSliderScript;
     private StaminaSliderScript staminaSliderScript;
     private PlayerSkillSlider[] playerSkillSlider;
+    public FilledAttackCone attackCone;
     public playerEffectScript PlayerEffectScript;
     public Animator animator;
     private PlayerSEBox _seBox;
+
+    //コントローラー関係
+    #region 
+    private enum InputDeviceType 
+    { 
+        Mouse, 
+        Gamepad 
+    }
+
+    private InputDeviceType lastUsedDevice = InputDeviceType.Mouse;
+
+    private Vector2 lastMousePosition;
+    #endregion
+    //コントローラー関係
 
     /// <summary>
     /// 必殺技 = 0,
@@ -55,6 +71,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 FixedAttackDirection { get => fixedAttackDirection; set => fixedAttackDirection = value; }
     public float Attack_Power { get => attack_Power; set => attack_Power = value; }
     public PlayerSEBox SeBox { get => _seBox; set => _seBox = value; }
+    public Vector2 AttackStickInput { get => attackStickInput; set => attackStickInput = value; }
     #endregion
     //ゲッター・セッター
 
@@ -90,6 +107,8 @@ public class PlayerController : MonoBehaviour
         #region
         inputActions.Player.Move.performed += ctx => MoveInput = ctx.ReadValue<Vector2>();
         inputActions.Player.Move.canceled += ctx => MoveInput = Vector2.zero;
+        inputActions.Player.AttackDirection.performed += ctx => AttackStickInput = ctx.ReadValue<Vector2>();
+        inputActions.Player.AttackDirection.canceled += ctx => AttackStickInput = Vector2.zero;
         inputActions.Player.Avoid.performed += ctx => OnAvoid();
         inputActions.Player.NomalAttack.performed += cxt => OnLightAttack();
         inputActions.Player.BarettaAttack.performed += cxt => OnSkillAttack();
@@ -117,7 +136,10 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         currentState?.Update();
-        if(hpSliderScript.GetNowHealth() <= 0)
+        UpdateLastUsedInputDevice();
+        PlayerCurrentDirection();
+
+        if (hpSliderScript.GetNowHealth() <= 0)
         {
             animator.SetBool("isDeth", true);
         }
@@ -230,22 +252,27 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void PlayerCurrentDirection()
     {
-        //マウス位置へのRayを取得
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-
-        //プレイヤーの高さに水平な仮想平面を作成
-        Plane groundPlane = new Plane(Vector3.up, transform.position);
-
-        if (groundPlane.Raycast(ray, out float distance))
+        if (lastUsedDevice == InputDeviceType.Gamepad && AttackStickInput.sqrMagnitude > 0.1f) // 右スティック入力がある
         {
-            Vector3 lookPoint = ray.GetPoint(distance);
-
-            // 3. プレイヤーがマウス位置の方向を向く
-            Vector3 targetDirection = lookPoint - transform.position;
-            targetDirection.y = 0f; // 水平のみ回転
-            if (targetDirection != Vector3.zero)
+            Vector3 stickDir = new Vector3(AttackStickInput.x, 0, AttackStickInput.y);
+            transform.rotation = Quaternion.LookRotation(stickDir);
+        }
+        else
+        {
+            //マウス位置へのRayを取得
+            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            //プレイヤーの高さに水平な仮想平面を作成
+            Plane groundPlane = new Plane(Vector3.up, transform.position);
+            if (groundPlane.Raycast(ray, out float distance))
             {
-                transform.rotation = Quaternion.LookRotation(targetDirection);
+                Vector3 lookPoint = ray.GetPoint(distance);
+                //プレイヤーがマウス位置の方向を向く
+                Vector3 targetDirection = lookPoint - transform.position;
+                targetDirection.y = 0f;//水平のみ回転
+                if (targetDirection != Vector3.zero)
+                {
+                    transform.rotation = Quaternion.LookRotation(targetDirection);
+                }
             }
         }
     }
@@ -318,7 +345,6 @@ public class PlayerController : MonoBehaviour
             // 攻撃中なら次の攻撃フラグを立てる
             receivedNextAttack = true;
         }
-        //animator.SetTrigger("Attack");
     }
 
     /// <summary>
@@ -334,24 +360,46 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmosSelected()
+    /// <summary>
+    /// デバイス判定用
+    /// </summary>
+    private void UpdateLastUsedInputDevice()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, 5f); // 半径に合わせて調整
+        // コントローラーの右スティックを監視
+        if (AttackStickInput.sqrMagnitude > 0.1f)
+        {
+            lastUsedDevice = InputDeviceType.Gamepad;
+            return;
+        }
 
-        Vector3 left = Quaternion.Euler(0, -30f, 0) * transform.forward;
-        Vector3 right = Quaternion.Euler(0, 30f, 0) * transform.forward;
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawRay(transform.position, left * 5f);
-        Gizmos.DrawRay(transform.position, right * 5f);
-
-        Vector3 left2 = Quaternion.Euler(0, -25f, 0) * transform.forward;
-        Vector3 right2 = Quaternion.Euler(0, 25f, 0) * transform.forward;
-
-        Gizmos.color = Color.black;
-        Gizmos.DrawRay(transform.position, left2 * 5f);
-        Gizmos.DrawRay(transform.position, right2 * 5f);
-
+        // マウス位置が変化したかを監視
+        //[?]: Mouse.currentがnullかをチェックする
+        Vector2 currentMousePos = Mouse.current?.position.ReadValue() ?? Vector2.zero;
+        if (currentMousePos != lastMousePosition)
+        {
+            lastMousePosition = currentMousePos;
+            lastUsedDevice = InputDeviceType.Mouse;
+        }
     }
+
+    //private void OnDrawGizmosSelected()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawWireSphere(transform.position, 5f); // 半径に合わせて調整
+
+    //    Vector3 left = Quaternion.Euler(0, -30f, 0) * transform.forward;
+    //    Vector3 right = Quaternion.Euler(0, 30f, 0) * transform.forward;
+
+    //    Gizmos.color = Color.yellow;
+    //    Gizmos.DrawRay(transform.position, left * 5f);
+    //    Gizmos.DrawRay(transform.position, right * 5f);
+
+    //    Vector3 left2 = Quaternion.Euler(0, -25f, 0) * transform.forward;
+    //    Vector3 right2 = Quaternion.Euler(0, 25f, 0) * transform.forward;
+
+    //    Gizmos.color = Color.black;
+    //    Gizmos.DrawRay(transform.position, left2 * 5f);
+    //    Gizmos.DrawRay(transform.position, right2 * 5f);
+
+    //}
 }

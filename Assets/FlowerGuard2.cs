@@ -116,6 +116,15 @@ public partial class @FlowerGuard2: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AttackDirection"",
+                    ""type"": ""Value"",
+                    ""id"": ""e42c9955-40ed-40ca-a939-74362e42a68c"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -545,6 +554,17 @@ public partial class @FlowerGuard2: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Avoid"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""83c54610-1e08-4140-846d-319176e1257f"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AttackDirection"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1142,6 +1162,7 @@ public partial class @FlowerGuard2: IInputActionCollection2, IDisposable
         m_Player_Skill3 = m_Player.FindAction("Skill3", throwIfNotFound: true);
         m_Player_Cursor = m_Player.FindAction("Cursor", throwIfNotFound: true);
         m_Player_Avoid = m_Player.FindAction("Avoid", throwIfNotFound: true);
+        m_Player_AttackDirection = m_Player.FindAction("AttackDirection", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1225,6 +1246,7 @@ public partial class @FlowerGuard2: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Skill3;
     private readonly InputAction m_Player_Cursor;
     private readonly InputAction m_Player_Avoid;
+    private readonly InputAction m_Player_AttackDirection;
     public struct PlayerActions
     {
         private @FlowerGuard2 m_Wrapper;
@@ -1239,6 +1261,7 @@ public partial class @FlowerGuard2: IInputActionCollection2, IDisposable
         public InputAction @Skill3 => m_Wrapper.m_Player_Skill3;
         public InputAction @Cursor => m_Wrapper.m_Player_Cursor;
         public InputAction @Avoid => m_Wrapper.m_Player_Avoid;
+        public InputAction @AttackDirection => m_Wrapper.m_Player_AttackDirection;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1278,6 +1301,9 @@ public partial class @FlowerGuard2: IInputActionCollection2, IDisposable
             @Avoid.started += instance.OnAvoid;
             @Avoid.performed += instance.OnAvoid;
             @Avoid.canceled += instance.OnAvoid;
+            @AttackDirection.started += instance.OnAttackDirection;
+            @AttackDirection.performed += instance.OnAttackDirection;
+            @AttackDirection.canceled += instance.OnAttackDirection;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1312,6 +1338,9 @@ public partial class @FlowerGuard2: IInputActionCollection2, IDisposable
             @Avoid.started -= instance.OnAvoid;
             @Avoid.performed -= instance.OnAvoid;
             @Avoid.canceled -= instance.OnAvoid;
+            @AttackDirection.started -= instance.OnAttackDirection;
+            @AttackDirection.performed -= instance.OnAttackDirection;
+            @AttackDirection.canceled -= instance.OnAttackDirection;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1504,6 +1533,7 @@ public partial class @FlowerGuard2: IInputActionCollection2, IDisposable
         void OnSkill3(InputAction.CallbackContext context);
         void OnCursor(InputAction.CallbackContext context);
         void OnAvoid(InputAction.CallbackContext context);
+        void OnAttackDirection(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -46,24 +46,7 @@ public class PlayerSkillAttackState : PlayerState
             player.MoveCharacter(moveDirection, player.moveForce * attackMoveSpeedMultiplier);
         }
 
-        //マウス位置へのRayを取得
-        ray = player.mainCamera.ScreenPointToRay(UnityEngine.Input.mousePosition);
-
-        //プレイヤーの高さに水平な仮想平面を作成
-        Plane groundPlane = new Plane(Vector3.up, player.transform.position);
-
-        if (groundPlane.Raycast(ray, out float distance))
-        {
-            Vector3 lookPoint = ray.GetPoint(distance);
-
-            // 3. プレイヤーがマウス位置の方向を向く
-            Vector3 targetDirection = lookPoint - player.transform.position;
-            targetDirection.y = 0f; // 水平のみ回転
-            if (targetDirection != Vector3.zero)
-            {
-                player.transform.rotation = Quaternion.LookRotation(targetDirection);
-            }
-        }
+        SkillAttackDir();
 
         // 時間をカウントしてひっかき間隔を管理
         timer += Time.deltaTime;
@@ -99,6 +82,37 @@ public class PlayerSkillAttackState : PlayerState
     {
         attackCount++;// 回数カウント
         player.PlayerLAttack();
+    }
+
+    private void SkillAttackDir()
+    {
+        Vector2 rightInput = player.AttackStickInput;
+
+        if (rightInput.sqrMagnitude > 0.1f)
+        {
+            Vector3 direction = new Vector3(rightInput.x, 0, rightInput.y);
+            player.transform.rotation = Quaternion.LookRotation(direction);
+        }
+        else
+        {
+            //マウス位置へのRayを取得
+            ray = player.mainCamera.ScreenPointToRay(UnityEngine.Input.mousePosition);
+            //プレイヤーの高さに水平な仮想平面を作成
+            Plane groundPlane = new Plane(Vector3.up, player.transform.position);
+
+            if (groundPlane.Raycast(ray, out float distance))
+            {
+                //プレイヤーがマウス位置の方向を向く
+                Vector3 lookPoint = ray.GetPoint(distance);
+                Vector3 targetDirection = lookPoint - player.transform.position;
+                targetDirection.y = 0f;
+
+                if (targetDirection != Vector3.zero)
+                {
+                    player.transform.rotation = Quaternion.LookRotation(targetDirection);
+                }
+            }
+        }
     }
 
     #region

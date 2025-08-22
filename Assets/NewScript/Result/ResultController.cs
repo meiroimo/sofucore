@@ -1,7 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ResultController : MonoBehaviour
 {
@@ -9,17 +10,17 @@ public class ResultController : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip clearSE;
 
+    [SerializeField] private Button firstButton;//ç≈èâÇ…ëIëÇ≥ÇÍÇÈÉ{É^Éì
 
-    // Start is called before the first frame update
     void Start()
     {
         if(ResultClear.Instance.isGameClear)
         {
             audioSource.PlayOneShot(clearSE);
         }
+        StartCoroutine(SelectFirstButtonNextFrame(firstButton));
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -36,4 +37,15 @@ public class ResultController : MonoBehaviour
         SceneManager.LoadScene(sceneName[0]);
         ResultClear.Instance.isGameClear = false;
     }
+
+    private IEnumerator SelectFirstButtonNextFrame(Button button)
+    {
+        yield return new WaitForSeconds(1f); // 1ïbë“Ç¬
+        if (button != null)
+        {
+            EventSystem.current.SetSelectedGameObject(null); //îOÇÃÇΩÇﬂàÍâÒâèú
+            EventSystem.current.SetSelectedGameObject(button.gameObject);
+        }
+    }
+
 }

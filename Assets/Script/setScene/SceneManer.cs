@@ -33,7 +33,9 @@ public class SceneManer : MonoBehaviour
         UIManegeScript = UIManagerObject.GetComponent<UIManager>();
         CameraManegerObject = GameObject.Find("CameraManager");
         CameraManegerScript = CameraManegerObject.GetComponent<CameraManager>();
-      
+        CloseSetScene();
+
+
     }
     public void OnLoadSceneAdditive()
     {

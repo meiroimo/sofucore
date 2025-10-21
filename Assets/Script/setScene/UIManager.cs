@@ -13,18 +13,20 @@ public class UIManager : MonoBehaviour
 
 
     bool SetUIFlg;//開いているか判定
+
     void Start()
     {
-        var gameObject = GameObject.Find("SetSceneCanvas");
+        GameObject gameObject = GameObject.Find("SetSceneCanvas");
         if (gameObject != null)
         {
-            GameMainCanvas = GameObject.Find("Canvas");
+            GameMainCanvas = GameObject.Find("GameMainCanvas");
             SetCanvas = GameObject.Find("SetSceneCanvas");
 
             SetUIFlg = true;
             SetCanvas.SetActive(false);//初めはセットシーンのUIは非表示
         }
-      
+        //SetCanvas.SetActive(false);//初めはセットシーンのUIは非表示
+        UIClose();
 
     }
 

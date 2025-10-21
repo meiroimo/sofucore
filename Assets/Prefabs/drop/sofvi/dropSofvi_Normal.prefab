@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2634619452063695113}
   - component: {fileID: 8179553126536840421}
   - component: {fileID: -1342792725047346533}
+  - component: {fileID: 397772083149204080}
   m_Layer: 6
   m_Name: dropSofvi_Normal
   m_TagString: sofvi/Normal
@@ -105,3 +106,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 705.2, y: 641.4, z: 820.8}
   m_Center: {x: -0.000030517576, y: 0, z: 0}
+--- !u!114 &397772083149204080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3925992834239245393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01d7dad586a608549be90ed83e779f5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sofvimodel: 0
+  sofviName: 1
+  sofviImage: 0
+  theme: 0
+  skill: 0
+  rarity: 0
+  cost: 0
+  ListNumber: 0
+  buffMainstatus: 1
+  buffSubstatus1: 1
+  buffSubstatus2: 1
+  buffSubstatus3: 1
+  Buffparameter: 2
+  Buffparameter1: 2
+  Buffparameter2: 2
+  Buffparameter3: 2
+  buffName: a
+  buffName1: b
+  buffName2: c
+  buffName3: d
+  checksetpotion: 0
+  selectCheck: 0
+  selectButton: {fileID: 0}

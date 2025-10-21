@@ -39,7 +39,9 @@ public class softVinyl : MonoBehaviour
                                    //ここＣＳＶで管理できたらいいね
 
 
-
+    /// <summary>
+    /// ソフビの名前
+    /// </summary>
     public enum Name
     {
         NULL = 0,
@@ -186,6 +188,10 @@ public class softVinyl : MonoBehaviour
         SKILL4,
         MAX,
     }
+
+    /// <summary>
+    /// ソフビの画像
+    /// </summary>
     public enum IMAGE
     {
         NULL = 0,
@@ -195,6 +201,10 @@ public class softVinyl : MonoBehaviour
         IMAGE4,
         MAX,
     }
+
+    /// <summary>
+    /// ソフビのモデルデータ
+    /// </summary>
     public enum SOFVIMODEL
     {
         NULL = 0,
@@ -205,8 +215,9 @@ public class softVinyl : MonoBehaviour
         MAX,
     }
 
-
-
+    /// <summary>
+    /// バフステータス
+    /// </summary>
     public enum BUFFSTATUSNUM
     {
         NULL=0,

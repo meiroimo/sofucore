@@ -5,7 +5,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class PanelButton : MonoBehaviour{
+public class PanelButton : MonoBehaviour
+{
     [SerializeField] private GameObject PanelImage;//パネルイメージOBJ
     [SerializeField] private GameObject PanelUI;//パネルウィンドウUI
     [SerializeField] private softVinyl SetSofvidata;//設置ソフビデータ

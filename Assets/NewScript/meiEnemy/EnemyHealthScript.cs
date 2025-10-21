@@ -29,7 +29,7 @@ public class EnemyHealthScript : MonoBehaviour
         softVinyldata = gameObject.transform.GetChild(0).gameObject.GetComponent<softVinyl>();
         maxHP = enemyStatus_Script.enemy_MaxHealth;
         currentHP = maxHP;
-        Debug.Log(currentHP);
+        //Debug.Log(currentHP);
     }
 
     public void EnemtTakeDamage(int damage)

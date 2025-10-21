@@ -16,7 +16,7 @@ public class SofviVinylList : MonoBehaviour
 
     void Start()
     {
-        playerStorage = GameObject.Find("Storage");
+        playerStorage = GameObject.Find("Player_Storage");
         sofviStrageScript= playerStorage.GetComponent<sofviStrage>();
         Parent = this.gameObject.transform;
       

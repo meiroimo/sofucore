@@ -343,6 +343,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6688312335283281, guid: 6dd16d8c59c1b894699401c76dca7911, type: 3}
+      propertyPath: m_Name
+      value: Player_Storage
+      objectReference: {fileID: 0}
     - target: {fileID: 1492911022986130405, guid: 6dd16d8c59c1b894699401c76dca7911, type: 3}
       propertyPath: HPSlider
       value: 
@@ -426,6 +430,10 @@ PrefabInstance:
     - target: {fileID: 6908486176802028979, guid: 6dd16d8c59c1b894699401c76dca7911, type: 3}
       propertyPath: m_Name
       value: Player (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908486176802028979, guid: 6dd16d8c59c1b894699401c76dca7911, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7121198949653411910, guid: 6dd16d8c59c1b894699401c76dca7911, type: 3}
       propertyPath: skillSlider
@@ -837,7 +845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameMainCanvas: {fileID: 815250637}
-  SetCanvas: {fileID: 0}
+  SetCanvas: {fileID: 1934855909}
 --- !u!4 &1091569322
 Transform:
   m_ObjectHideFlags: 0
@@ -1578,7 +1586,7 @@ GameObject:
   - component: {fileID: 1934855911}
   - component: {fileID: 1934855910}
   m_Layer: 0
-  m_Name: SceneManager
+  m_Name: SceneManeger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1596,7 +1604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2298a26752faafd46b0f152000054d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerObject: {fileID: 0}
+  UIManagerObject: {fileID: 1091569320}
   CameraManegerObject: {fileID: 0}
 --- !u!4 &1934855911
 Transform:

@@ -118,14 +118,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01d7dad586a608549be90ed83e779f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sofvimodel: 0
-  sofviName: 1
-  sofviImage: 0
-  theme: 0
-  skill: 0
-  rarity: 0
-  cost: 0
-  ListNumber: 0
+  sofvimodel: 1
+  theme: 1
+  skill: 1
+  rarity: 1
+  cost: 1
+  ListNumber: 1
   buffMainstatus: 1
   buffSubstatus1: 1
   buffSubstatus2: 1

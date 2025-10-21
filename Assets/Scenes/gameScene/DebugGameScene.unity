@@ -435,6 +435,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7100487447586010782, guid: 6dd16d8c59c1b894699401c76dca7911, type: 3}
+      propertyPath: m_Name
+      value: Player_stand
+      objectReference: {fileID: 0}
     - target: {fileID: 7121198949653411910, guid: 6dd16d8c59c1b894699401c76dca7911, type: 3}
       propertyPath: skillSlider
       value: 

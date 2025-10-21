@@ -23,10 +23,7 @@ public class SofviVinylList : MonoBehaviour
         int childCount = Parent.childCount;
         children = new GameObject[childCount];
         childrenPanelScript = new PanelButton[childCount];
-
         childrensoftVinyl = new softVinyl[childCount];
-
-
         Storechildren();
     }
 
@@ -51,8 +48,6 @@ public class SofviVinylList : MonoBehaviour
             Debug.Log("nullだったよ");
 
         }
-
-
         //個数分ボタンにソフビデータをセット
 
 

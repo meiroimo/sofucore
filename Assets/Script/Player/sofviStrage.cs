@@ -16,13 +16,9 @@ public class sofviStrage : MonoBehaviour
     }
     public void addSofvi(softVinyl softVinylData)
     {
-        var dataobj = new GameObject("SoftVinyl");
+        GameObject dataobj = new GameObject("SoftVinyl");
         dataobj.transform.parent = this.transform.parent;
         softVinyl sofvidata = dataobj.AddComponent<softVinyl>();
-        // softVinyl sofvidata = new softVinyl();//インスタンスの生成が上手くいかない　理由　UnityEngine.Object 系（MonoBehaviour / ScriptableObject）だから だよ。
-        //Unity の Object 系は普通の C# オブジェクトと生成ルールが違うので、正しい作り方をしないと “空っぽ” 扱いになって Debug.Log で null に見える。
-        Debug.Log(sofvidata);
-      //  sofvidata = softVinylData;
         sofvidata.name = softVinylData.name;
         sofvidata.sofvimodel = softVinylData.sofvimodel;
         sofvidata.skill = softVinylData.skill;

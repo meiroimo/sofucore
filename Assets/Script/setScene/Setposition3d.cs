@@ -77,11 +77,15 @@ public class Setposition3d : MonoBehaviour
     }
     public void DestryTranslucentSofvi()
     {
-        if(!rathit&& translucentflg)
+        if (!rathit && translucentflg)
         {
-            Destroy(this.gameObject.transform.GetChild(0).gameObject);
+            this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+
+            Destroy(this.gameObject.transform.GetChild(1).gameObject);
             translucentflg = false;
         }
+        else
+            this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
 
     }
 

@@ -26,8 +26,8 @@ public class SetSofviManeger : MonoBehaviour
     {
         checkBuffStatus = false;
         selectSofviDeta = selectSofviOBJ.GetComponent<softVinyl>();
-        setTestData();
-        PlayerStatus_Script= GameObject.Find("Player_stand").GetComponent<PlayerStatus_Script>();//  直接名前検索しているのでプレイヤーobjの名前が変わるとここも変更させる
+        setpotionDataSet();
+        PlayerStatus_Script= GameObject.FindWithTag("Player").GetComponent<PlayerStatus_Script>();//  直接名前検索しているのでプレイヤーobjの名前が変わるとここも変更させる
     }
 
     // Update is called once per frame
@@ -49,12 +49,9 @@ public class SetSofviManeger : MonoBehaviour
     {
         setSoftVinylData.Add(softVinyldata);
         setposition3Ds.Add(setposition3D);
-
-
-
     }
 
-    void setTestData()
+    void setpotionDataSet()
     {
         for (int i = 0; i < AllSetobject.gameObject.transform.childCount; i++)
         {
@@ -136,9 +133,8 @@ public class SetSofviManeger : MonoBehaviour
     {
         if (selectSoftVinylData.selectCheck)
         {
-            //setPositionSoftVinylData = selectSoftVinylData;
+            //  setPositionSoftVinylData = selectSoftVinylData;
             setPositionSoftVinylData.skill = selectSoftVinylData.skill;
-            setPositionSoftVinylData.sofviImage = selectSoftVinylData.sofviImage;
             setPositionSoftVinylData.theme = selectSoftVinylData.theme;
             setPositionSoftVinylData.cost = selectSoftVinylData.cost;
 
@@ -156,7 +152,6 @@ public class SetSofviManeger : MonoBehaviour
             setPositionSoftVinylData.buffName1 = selectSoftVinylData.buffName1;
             setPositionSoftVinylData.buffName2 = selectSoftVinylData.buffName2;
             setPositionSoftVinylData.buffName3 = selectSoftVinylData.buffName3;
-            setPositionSoftVinylData.sofviName = selectSoftVinylData.sofviName;
             //設置されたリストのソフビデータの削除
             //   sofviStrageOBJ.deletelist(selectSoftVinylData.ListNumber);
 

@@ -9,7 +9,7 @@ public class PanelButton : MonoBehaviour
 {
     [SerializeField] private GameObject PanelImage;//パネルイメージOBJ
     [SerializeField] private GameObject PanelUI;//パネルウィンドウUI
-    [SerializeField] private softVinyl SetSofvidata;//設置ソフビデータ
+    [SerializeField] public softVinyl SetSofvidata;//設置ソフビデータ
 
     public GameObject selectSofviOBJ;//選択中のソフビデータオブジェ
     public softVinyl selectSofviDeta;//選択中のソフビデータオブジェ
@@ -66,7 +66,7 @@ public class PanelButton : MonoBehaviour
     public void onclickButton()
     {
 
-        if(!selectPanel)
+        if(!selectPanel && SetSofvidata.sofvimodel!= softVinyl.SOFVINUMBER.NULL)
         {
             setselectSofviData();
             selectPanel = true;
@@ -79,7 +79,9 @@ public class PanelButton : MonoBehaviour
             if (selectSofviDeta.selectButton==this.gameObject)
             {
                 againClick();
-            //    PoptextWindowObj.SetActive(false);
+                Debug.Log("同じボタン押された");
+
+                //    PoptextWindowObj.SetActive(false);
             }
         }
 
@@ -111,13 +113,12 @@ public class PanelButton : MonoBehaviour
 
 
 
-        PanelImage.GetComponent<Image>().sprite = ImgStrageScriptdata.sprites[(int)SetSofvidata.sofviImage];
+        PanelImage.GetComponent<Image>().sprite = ImgStrageScriptdata.sprites[(int)SetSofvidata.sofvimodel];
 
 
     }
-    void againClick()
+    void againClick()//セレクトデータをリセット
     {
-        selectSofviDeta.sofviImage = 0;
         selectSofviDeta.cost = 0;
         selectSofviDeta.skill = softVinyl.SKILLNUM.NULL;
         selectSofviDeta.theme =softVinyl.themeNuｍ.NULL;
@@ -149,9 +150,7 @@ public class PanelButton : MonoBehaviour
 
         selectSofviDeta.sofvimodel = SetSofvidata.sofvimodel;
 
-        selectSofviDeta.sofviName = SetSofvidata.sofviName;
 
-        selectSofviDeta.sofviImage = SetSofvidata.sofviImage;
         selectSofviDeta.cost = SetSofvidata.cost;
         selectSofviDeta.skill = SetSofvidata.skill;
         selectSofviDeta.theme = SetSofvidata.theme;
@@ -176,8 +175,8 @@ public class PanelButton : MonoBehaviour
     void setTextPopTextWindow()//ポップアップウィンドウのテキストをセット
     {
 
-        PopTextSelect.text = "選択中："+ nameText[(int)selectSofviDeta.sofviName] + "\n" + themeText[(int)selectSofviDeta.theme] + "\n" + skillText[(int)selectSofviDeta.skill] + "\n" + "コスト" +selectSofviDeta.cost ;
-        PopTextonpointar.text = "比較中：" + nameText[(int)SetSofvidata.sofviName] + "\n" + themeText[(int)SetSofvidata.theme] + "\n" + skillText[(int)SetSofvidata.skill] + "\n" + "コスト" + SetSofvidata.cost;
+        PopTextSelect.text = "選択中："+ nameText[(int)selectSofviDeta.sofvimodel] + "\n" + themeText[(int)selectSofviDeta.theme] + "\n" + skillText[(int)selectSofviDeta.skill] + "\n" + "コスト" +selectSofviDeta.cost ;
+        PopTextonpointar.text = "比較中：" + nameText[(int)SetSofvidata.sofvimodel] + "\n" + themeText[(int)SetSofvidata.theme] + "\n" + skillText[(int)SetSofvidata.skill] + "\n" + "コスト" + SetSofvidata.cost;
 
     }
 
@@ -217,7 +216,7 @@ public class PanelButton : MonoBehaviour
 
     void nameTextset()//スキルテキストのセット
     {
-        for(int i=1;i<(int)softVinyl.Name.MAX;i++)
+        for(int i=1;i<(int)softVinyl.SOFVINUMBER.MAX;i++)
         {
             nameText[i] = "名前"+i;
 

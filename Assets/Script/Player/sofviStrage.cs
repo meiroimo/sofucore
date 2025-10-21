@@ -57,17 +57,12 @@ public class sofviStrage : MonoBehaviour
     void Start()
     {
         sofviStrageListConut = 0;
-
-        //testdata = GameObject.Find("testdeta");
-        //setpotionDataSet();
     }
 
     
     void Update()
     {
         sofviStrageListConut = sofviStrageList.Count;
-
-
     }
   
 }

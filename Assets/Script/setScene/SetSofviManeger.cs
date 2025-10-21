@@ -49,9 +49,6 @@ public class SetSofviManeger : MonoBehaviour
     {
         setSoftVinylData.Add(softVinyldata);
         setposition3Ds.Add(setposition3D);
-
-
-
     }
 
     void setpotionDataSet()

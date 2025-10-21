@@ -27,7 +27,6 @@ public class catchScript : MonoBehaviour
 
     void Update()
     {
-        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -43,10 +42,15 @@ public class catchScript : MonoBehaviour
             //ÇªÇÍÇºÇÍëŒè€ÇÃï®ÇÉJÉEÉìÉg
             if (objTagName.Contains("box"))
             {
+
                 catchTreasureChest[i]++;
             }
             else
             {
+                if(other.GetComponent<softVinyl>() != null)
+                {
+                    sofviStrage.sofviStrageList.Add(other.GetComponent<softVinyl>());
+                }
                 catchSofvi[i]++;
             }
 

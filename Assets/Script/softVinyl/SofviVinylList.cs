@@ -43,7 +43,7 @@ public class SofviVinylList : MonoBehaviour
     void setSofiDataButton()//各ボタンにソフビデータをセット
     {
 
-            softVinylData = sofviStrageScript.sofviStrageList;
+            softVinylData = sofviStrage.sofviStrageList;
       
 
 

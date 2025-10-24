@@ -17,9 +17,9 @@ public class EnemyController : MonoBehaviour
     private float enemy_Speed;
 
     private bool isHit = false;
-    public event System.Action OnDeath; // 死亡イベント
+    public event System.Action OnDeath; //死亡イベント
 
-    // 距離チェック
+    //距離チェック
     public float DistanceToPlayer => Vector3.Distance(transform.position, player.position);
 
     public bool IsHit { get => isHit; set => isHit = value; }
@@ -27,7 +27,7 @@ public class EnemyController : MonoBehaviour
     public float Enemy_Power { get => enemy_Power; set => enemy_Power = value; }
     public EnemySEBox Enemy_SE { get => enemy_SE; set => enemy_SE = value; }
 
-    // プレイヤーを設定する用の関数
+    //プレイヤーを設定する用の関数
     public void SetPlayer(Transform playerTransform)
     {
         player = playerTransform;
@@ -77,11 +77,11 @@ public class EnemyController : MonoBehaviour
     public void OnHit(PlayerController _player)
     {
         isHit = true;
-        agent.ResetPath();   // 移動を即停止 ResetPath:停止
-        ChangeState(null);   // 状態を一旦解除（もしくは専用のHitStateに切り替え）
+        agent.ResetPath();   //移動を即停止 ResetPath:停止
+        ChangeState(null);   //状態を一旦解除（もしくは専用のHitStateに切り替え）
         enemyHealth.EnemtTakeDamage((int)_player.Attack_Power);
 
-        // 例: 一定時間後に移動再開
+        //一定時間後に移動再開
         StartCoroutine(RecoverFromHit());
     }
 
@@ -91,18 +91,9 @@ public class EnemyController : MonoBehaviour
     /// <returns></returns>
     private IEnumerator RecoverFromHit()
     {
-        yield return new WaitForSeconds(1.0f); // 1秒硬直
+        yield return new WaitForSeconds(0.5f); //硬直
         isHit = false;
-        ChangeState(new EnemyChaseState()); // 硬直後に追跡再開
+        ChangeState(new EnemyChaseState()); //硬直後に追跡再開
     }
 
-    //public void Die()
-    //{
-    //    Debug.Log("敵が死んだ");
-
-    //    // イベント通知：登録されていれば呼び出す
-    //    OnDeath?.Invoke();
-
-    //    Destroy(gameObject);
-    //}
 }

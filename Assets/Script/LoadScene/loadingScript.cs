@@ -52,6 +52,7 @@ public class loadingScript : MonoBehaviour
 
         isLoading = true;
 
+        BGMManager.Instance.StopBGM();
         ////　コルーチンを開始
         //StartCoroutine("LoadData");
     }

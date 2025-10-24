@@ -30,6 +30,7 @@ public class BossAttackState : BossState
 
     public override void Update(BossController boss)
     {
+
         // プレイヤーが離れたら追跡へ戻る
         if (!boss.IsPlayerInAttackRange())
         {
@@ -52,7 +53,7 @@ public class BossAttackState : BossState
         // クールダウンが終わったら攻撃
         if (Time.time - lastAttackTime >= attackCooldown)
         {
-            PerformAttack(boss);
+            boss.StartCoroutine(PerformAttack(boss));
             lastAttackTime = Time.time;
         }
     }
@@ -66,12 +67,13 @@ public class BossAttackState : BossState
 
     IEnumerator PerformAttack(BossController boss)
     {
+
         boss.Boss_SE.PlayBossSE(BossSEBox.SENAME.ATTACK);
         yield return new WaitForSeconds(0.7f);
         // 攻撃判定：攻撃範囲内のプレイヤーを確認
         if (boss.DistanceToPlayer <= attackRange + 0.5f)
         {
-            //Debug.Log("Hit player!"); // ここでプレイヤーのダメージ処理を呼び出せる
+            Debug.Log("Hit player!"); // ここでプレイヤーのダメージ処理を呼び出せる
             boss.Boss_SE.PlayBossSE(BossSEBox.SENAME.HIT);
             boss.player.GetComponent<PlayerController>()?.TakeDamage((int)boss.Boss_Power);
         }

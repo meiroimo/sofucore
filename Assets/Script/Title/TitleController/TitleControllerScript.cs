@@ -49,7 +49,7 @@ public class TitleControllerScript : MonoBehaviour
         // コントローラー/キーボードのSubmitアクション
         if (Keyboard.current?.enterKey.wasPressedThisFrame == true ||
             Keyboard.current?.spaceKey.wasPressedThisFrame == true ||
-            Gamepad.current?.buttonSouth.wasPressedThisFrame == true) // Aボタン(PSなら×)
+            Gamepad.current?.buttonSouth.wasPressedThisFrame == true) //Aボタン(PSなら×)
         {
             startOBJ.SetActive(false);
             StartCoroutine(SelectFirstButtonNextFrame(firstButton));

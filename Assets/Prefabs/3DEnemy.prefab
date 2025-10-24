@@ -128,8 +128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sofvimodel: 1
-  sofviName: 1
-  sofviImage: 1
   theme: 1
   skill: 1
   rarity: 3
@@ -278,6 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 0
+  enemyRenderer: {fileID: 3386731305477797828}
   dropScript: {fileID: 6581994499314108105}
   softVinyldata: {fileID: 0}
 --- !u!114 &1796146075026801919

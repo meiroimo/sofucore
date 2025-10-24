@@ -10,11 +10,11 @@ public class BGMManager : MonoBehaviour
 
     private void Awake()
     {
+        //bgmSource = GetComponent<AudioSource>();
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
-
             bgmSource = GetComponent<AudioSource>();
         }
         else

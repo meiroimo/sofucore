@@ -9,6 +9,12 @@ public class EnemyHealthScript : MonoBehaviour
     private float currentHP;
     EnemyStatus_Script enemyStatus_Script;
 
+    public Renderer enemyRenderer; // 敵の見た目
+    private Color hitColor = Color.black; // 被弾時の色
+    private float flashDuration = 0.2f; // 色が変わる時間
+    private Color originalColor;
+    private Material enemyMaterial;
+
     // 死亡イベント（他スクリプトと連携できる）
     public event System.Action OnDeath;
 
@@ -21,13 +27,19 @@ public class EnemyHealthScript : MonoBehaviour
     private void Awake()
     {
         enemyStatus_Script = GetComponent<EnemyStatus_Script>();
+        if (enemyRenderer != null)
+        {
+            // マテリアルを個別インスタンスに
+            enemyMaterial = enemyRenderer.material;
+            originalColor = enemyMaterial.color;
+        }
     }
 
     private void Start()
     {
-        sofviStrageScript = GameObject.Find("Storage").gameObject.GetComponent<sofviStrage>();
+        sofviStrageScript = GameObject.Find("Player_Storage").gameObject.GetComponent<sofviStrage>();
         softVinyldata = gameObject.transform.GetChild(0).gameObject.GetComponent<softVinyl>();
-        maxHP = enemyStatus_Script.enemy_MaxHealth;
+        maxHP = enemyStatus_Script.enemy_MaxHealth + 30;
         currentHP = maxHP;
         //Debug.Log(currentHP);
     }
@@ -36,6 +48,7 @@ public class EnemyHealthScript : MonoBehaviour
     {
         currentHP -= damage;
         Debug.Log($"{gameObject.name} は {damage} ダメージを受けた！ 残りHP: {currentHP}");
+        StartCoroutine(FlashColor());
 
         if (currentHP <= 0)
         {
@@ -58,4 +71,15 @@ public class EnemyHealthScript : MonoBehaviour
         Destroy(gameObject); // 敵オブジェクトを消去
 
     }
+
+    /// <summary>
+    /// 一瞬だけ色を変えて戻す
+    /// </summary>
+    IEnumerator FlashColor()
+    {
+        enemyMaterial.color = hitColor;
+        yield return new WaitForSeconds(flashDuration);
+        enemyMaterial.color = originalColor;
+    }
+
 }

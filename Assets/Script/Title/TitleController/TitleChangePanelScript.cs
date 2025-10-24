@@ -21,11 +21,6 @@ public class TitleChangePanelScript : MonoBehaviour
         ChangeButtonPanel((int)PanelName.SELECT_PANEL); 
     }
 
-    void Update()
-    {
-        
-    }
-
     //引数の値のパネルを付け、それ以外を消す
     public void ChangeButtonPanel(int nextPanel)
     {

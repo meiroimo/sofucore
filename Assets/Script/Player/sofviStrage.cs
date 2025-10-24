@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 using static UnityEngine.Mesh;
 
 public class sofviStrage : MonoBehaviour
@@ -9,36 +10,7 @@ public class sofviStrage : MonoBehaviour
     [Header("獲得ソフビ個数")] public int sofviStrageListConut;
     public GameObject testdata;//テストデータオブジェクト
     
-    public void deletelist(int listnumber)
-    {
-        sofviStrageList.RemoveAt(listnumber);
-
-    }
-    public void addSofvi(softVinyl softVinylData)
-    {
-        GameObject dataobj = new GameObject("SoftVinyl");
-        dataobj.transform.parent = this.transform.parent;
-        softVinyl sofvidata = dataobj.AddComponent<softVinyl>();
-        sofvidata.name = softVinylData.name;
-        sofvidata.sofvimodel = softVinylData.sofvimodel;
-        sofvidata.skill = softVinylData.skill;
-        sofvidata.theme = softVinylData.theme;
-        sofvidata.buffMainstatus = softVinylData.buffMainstatus;
-        sofvidata.buffSubstatus1 = softVinylData.buffSubstatus1;
-        sofvidata.buffSubstatus2 = softVinylData.buffSubstatus2;
-        sofvidata.buffSubstatus3 = softVinylData.buffSubstatus3;
-        sofvidata.Buffparameter = softVinylData.Buffparameter;
-        sofvidata.Buffparameter1 = softVinylData.Buffparameter1;
-        sofvidata.Buffparameter2 = softVinylData.Buffparameter2;
-        sofvidata.Buffparameter3 = softVinylData.Buffparameter3;
-        sofvidata.buffName = softVinylData.buffName;
-        sofvidata.buffName1 = softVinylData.buffName1;
-        sofvidata.buffName2 = softVinylData.buffName2;
-        sofvidata.buffName3 = softVinylData.buffName3;
-        sofviStrageList.Add(sofvidata);
-
-
-    }
+   
 
     void setTestData()
     {

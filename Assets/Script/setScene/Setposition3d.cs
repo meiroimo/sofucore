@@ -10,6 +10,7 @@ public class Setposition3d : MonoBehaviour
     public softVinyl softVinylData;
     public BoxCollider boxCollider;//設置個所のボックスコライダー
     public SetSofviManeger SetSofviManeger;//ステータスアップ反映関数を使用するため、掴む
+    public SofviVinylList sofviVinylListSc;//ソフビリストスクリプト
     [Header("半透明マテリアル")] public Material translucent;
     public bool translucentflg=false;//半透明表示判定
     public bool rathit = false;//レイが当たっていたら判定
@@ -21,7 +22,7 @@ public class Setposition3d : MonoBehaviour
         softVinylData = gameObject.GetComponent<softVinyl>();//自分のソフビクラスコンポーネントを掴む
         boxCollider = gameObject.GetComponent<BoxCollider>();//自分のボックスコライダ―を掴む
         GameObject setsofvimanegarobj = GameObject.Find("SetsofviManeger");//ソフビマネージャーのオブジェクトの掴む
-        SetSofviManeger = setsofvimanegarobj.GetComponent<SetSofviManeger>();
+        SetSofviManeger = setsofvimanegarobj.GetComponent<SetSofviManeger>();//ソフビマネージャーのスクリプトを掴む
 
     }
 
@@ -29,33 +30,29 @@ public class Setposition3d : MonoBehaviour
     void Update()
     {
         DestryTranslucentSofvi();
-        if (checkmodelset) //クリックされてcheckmodelsetがtrueにされたら、ソフビを生成
+        if (checkmodelset) //クリックされてcheckmodelsetがtrueにされたら(SetSofviManegerで)、ソフビを生成
         {
             SofviIns();
         }
-      
-        
     }
 
-    void SofviIns()　//ソフビ生成関数
+    void SofviIns()　//ソフビ生成
     {
-        SetSofviManeger.setpositionsofviDeta(softVinylData);
+        SetSofviManeger.setpositionsofviDeta(softVinylData);//selectしたソフビデータを設置場所に反映
         //３Ðモデルを空箱に生成
         GameObject ins = Instantiate(model[(int)softVinylData.sofvimodel], this.transform.position, Quaternion.identity);
         ins.transform.parent = this.transform;
         ins.transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
-        //Vector3 pos = ins.transform.position;
-        //pos.y -= 0.45f;
-        //ins.transform.position = pos;
-
+        //ストレージからデータの削除
+        sofviStrage.sofviStrageList.RemoveAt(softVinylData.ListNumber);
+        //セレクトデータのリセット
+        SetSofviManeger.selectSofviDeta.ResetParameter();
+        //ボタンのソフビデータもreset
+        sofviVinylListSc.childrensoftVinyl[softVinylData.ListNumber].ResetParameter();
         checkmodelset = false;//生成するクリック判定をfalse
         ColloderOff();//設置場所のコライダーオフ再度クリックされないように
         softVinylData.checksetpotion = true;//セットされたかの判定をオンに
-        //Debug.Log(softVinylData.Buffparameter);
         SetSofviManeger.statusup();
-
-      //  if (!Physics.Raycast(ray, out hit)||)//レイに当たっている時
-
     }
 
     public   void TranslucentSofviIns()　//半透明ソフビ生成関数
@@ -63,36 +60,30 @@ public class Setposition3d : MonoBehaviour
         SetSofviManeger.setpositionsofviDeta(softVinylData);
         //３Ðモデルを空箱に生成
         GameObject ins = Instantiate(model[(int)softVinylData.sofvimodel], this.transform.position, Quaternion.identity);
-       // Debug.Log(softVinylData.Buffparameter);
 
         ins.transform.parent = this.transform;
         ins.transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
-        //Vector3 pos = ins.transform.position;
-        //pos.y -= 0.45f;
-        //ins.transform.position = pos;
         ins.GetComponent<MeshRenderer>().material = translucent;//マテリアルを半透明に
         ins.GetComponent<BoxCollider>().enabled = false;//例が当たらないようにコライダーオフ
         translucentflg = true;//半透明表示判定をオンに
-
     }
+    //半透明ソフビの削除
     public void DestryTranslucentSofvi()
     {
+        //マウスが離れたら、消す
         if (!rathit && translucentflg)
         {
             this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
-
             Destroy(this.gameObject.transform.GetChild(1).gameObject);
             translucentflg = false;
         }
         else
+        {
             this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
-
+        }
     }
-
-
     void ColloderOff() //クリック判定を取っているボックスコライダーをオフ
     {
-
         boxCollider.enabled = false;
     }
 }

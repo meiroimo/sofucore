@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,17 +25,13 @@ public class softVinyl : MonoBehaviour
     [Header("バフサブステータスパラメーター２")] public int Buffparameter2;//サブステ２
     [Header("バフサブステータスパラメーター３")] public int Buffparameter3;//サブステ３
 
-    [Header("メインバフ名前")] public string buffName;　 //メインステ名前
-    [Header("サブバフ１名前")] public string buffName1;　　//サブ名前１
-    [Header("サブバフ２名前")] public string buffName2;　　//サブ名前２
-    [Header("サブバフ３名前")] public string buffName3;　//サブ名前３
+  
     /// <summary>
     ///設置ポジション用ソフビが置かれていたら判定 
     /// </summary>
     public bool checksetpotion = false;
     public bool selectCheck;
     public GameObject selectButton;//セレクト中のボタン
-                                   //ここＣＳＶで管理できたらいいね
 
 
 
@@ -125,5 +122,25 @@ public class softVinyl : MonoBehaviour
     void Update()
     {
         
+    }
+    public void ResetParameter()
+    {
+        sofvimodel= SOFVINUMBER.NULL;//このソフビの３ｄモデルプレハブ
+        theme= themeNuｍ.NULL;//このソフビのテーマ
+        skill= SKILLNUM.NULL;//このソフビのスキル
+        rarity= Raritynum.NULL;//このソフビのレア度
+        cost= 0;//このソフビのコスト
+        ListNumber=0;//このソフビの番号
+        buffMainstatus= BUFFSTATUSNUM.NULL;//メインステ
+        buffSubstatus1 = BUFFSTATUSNUM.NULL;//サブステ１
+        buffSubstatus2 = BUFFSTATUSNUM.NULL;//サブステ2
+        buffSubstatus3 = BUFFSTATUSNUM.NULL;//サブステ3
+        Buffparameter = 0;
+        Buffparameter1 = 0;
+        Buffparameter2 = 0;
+        Buffparameter3 = 0;
+        checksetpotion = false;
+        selectCheck=false;
+
     }
 }

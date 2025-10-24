@@ -14,8 +14,7 @@ public class SetSofviManeger : MonoBehaviour
     [Header("選択中ソフビデータ参照")]      public softVinyl selectSoftVinylData;
     [Header("プレイヤーステータス参照")]    public PlayerStatus_Script PlayerStatus_Script;
     [Header("全ての設置場所の親オブジェ")]  public GameObject AllSetobject;
-    public sofviStrage sofviStrageOBJ;//ソフビストレージオブジェ
-    public SofviVinylList SofviVinylListobj;
+   
     bool checkBuffStatus;//強化ステータスの反映ができているか
 
     public GameObject selectSofviOBJ;//選択中のソフビデータオブジェ
@@ -34,15 +33,7 @@ public class SetSofviManeger : MonoBehaviour
     void Update()
     {
         setSofuvi();
-    //    testchangeMaterial();
         SofviPreview();
-        //if (checkSetDeta)
-        //{
-        //    if (!checkBuffStatus)
-        //    {
-        //        statusup();
-        //    }
-        //}
     }
 
     public void addSetPotiionSofviData(softVinyl softVinyldata,Setposition3d setposition3D)
@@ -115,16 +106,9 @@ public class SetSofviManeger : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "SetPosition")//レイが当たったオブジェクトへアクセスかつ設置場所だったら
             {
-                // Debug.Log("Hit: " + hit.collider.name);
-                // hit.collider.GetComponent<softVinyl>().sofvimodel = selectSofviDeta.sofvimodel;//先にモデルを渡す
-                softVinyl softVinylTest;
-                softVinylTest = hit.collider.GetComponent<softVinyl>();
-                softVinylTest = selectSofviDeta;//ソフビデータを渡す
-
                 hit.collider.GetComponent<Setposition3d>().checkmodelset =true;//設置場所の設置判定をtrue
-
             }
-           
+  
         }
     }
     //この関数はセットポジションでよくね？
@@ -133,76 +117,19 @@ public class SetSofviManeger : MonoBehaviour
     {
         if (selectSoftVinylData.selectCheck)
         {
-            //  setPositionSoftVinylData = selectSoftVinylData;
             setPositionSoftVinylData.skill = selectSoftVinylData.skill;
             setPositionSoftVinylData.theme = selectSoftVinylData.theme;
             setPositionSoftVinylData.cost = selectSoftVinylData.cost;
-
+            setPositionSoftVinylData.ListNumber = selectSoftVinylData.ListNumber;
             setPositionSoftVinylData.buffMainstatus = selectSoftVinylData.buffMainstatus;
             setPositionSoftVinylData.buffSubstatus1 = selectSoftVinylData.buffSubstatus1;
             setPositionSoftVinylData.buffSubstatus2 = selectSoftVinylData.buffSubstatus2;
             setPositionSoftVinylData.buffSubstatus3 = selectSoftVinylData.buffSubstatus3;
-
             setPositionSoftVinylData.Buffparameter = selectSoftVinylData.Buffparameter;
             setPositionSoftVinylData.Buffparameter1 = selectSoftVinylData.Buffparameter1;
             setPositionSoftVinylData.Buffparameter2 = selectSoftVinylData.Buffparameter2;
             setPositionSoftVinylData.Buffparameter3 = selectSoftVinylData.Buffparameter3;
-
-            setPositionSoftVinylData.buffName = selectSoftVinylData.buffName;
-            setPositionSoftVinylData.buffName1 = selectSoftVinylData.buffName1;
-            setPositionSoftVinylData.buffName2 = selectSoftVinylData.buffName2;
-            setPositionSoftVinylData.buffName3 = selectSoftVinylData.buffName3;
-            //設置されたリストのソフビデータの削除
-            //   sofviStrageOBJ.deletelist(selectSoftVinylData.ListNumber);
-
-            //SofviVinylListobj.childrenPanelScript[selectSoftVinylData.ListNumber].selectCheck = false;
-            //SofviVinylListobj.childrensoftVinyl[selectSoftVinylData.ListNumber].skill = softVinyl.SKILLNUM.NULL;
-            //SofviVinylListobj.childrensoftVinyl[selectSoftVinylData.ListNumber].theme = softVinyl.themeNuｍ.NULL;
-            //SofviVinylListobj.childrensoftVinyl[selectSoftVinylData.ListNumber].sofviImage = null;
-            //SofviVinylListobj.childrensoftVinyl[selectSoftVinylData.ListNumber].cost = 0;
-
-            //SofviVinylListobj.childrensoftVinyl[selectSoftVinylData.ListNumber].buffMainstatus = softVinyl.BUFFSTATUSNUM.NULL;
-            //SofviVinylListobj.childrensoftVinyl[selectSoftVinylData.ListNumber].buffSubstatus1 = softVinyl.BUFFSTATUSNUM.NULL;
-            //SofviVinylListobj.childrensoftVinyl[selectSoftVinylData.ListNumber].buffSubstatus2 = softVinyl.BUFFSTATUSNUM.NULL;
-            //SofviVinylListobj.childrensoftVinyl[selectSoftVinylData.ListNumber].buffSubstatus3 = softVinyl.BUFFSTATUSNUM.NULL;
-
-            //SofviVinylListobj.childrensoftVinyl[selectSoftVinylData.ListNumber].Buffparameter = 0;
-            //SofviVinylListobj.childrensoftVinyl[selectSoftVinylData.ListNumber].Buffparameter1 = 0;
-            //SofviVinylListobj.childrensoftVinyl[selectSoftVinylData.ListNumber].Buffparameter2 = 0;
-            //SofviVinylListobj.childrensoftVinyl[selectSoftVinylData.ListNumber].Buffparameter3 = 0;
-
-            //SofviVinylListobj.childrensoftVinyl[selectSoftVinylData.ListNumber].buffName = null;
-            //SofviVinylListobj.childrensoftVinyl[selectSoftVinylData.ListNumber].buffName1 = null;
-            //SofviVinylListobj.childrensoftVinyl[selectSoftVinylData.ListNumber].buffName2 = null;
-            //SofviVinylListobj.childrensoftVinyl[selectSoftVinylData.ListNumber].buffName3 = null;
-
-
-            //selectSoftVinylData.skill = softVinyl.SKILLNUM.NULL;
-            //selectSoftVinylData.sofviImage = null;
-            //selectSoftVinylData.theme = softVinyl.themeNuｍ.NULL;
-            //selectSoftVinylData.cost = 0;
-
-            //selectSoftVinylData.buffMainstatus = softVinyl.BUFFSTATUSNUM.NULL;
-            //selectSoftVinylData.buffSubstatus1 = softVinyl.BUFFSTATUSNUM.NULL;
-            //selectSoftVinylData.buffSubstatus2 = softVinyl.BUFFSTATUSNUM.NULL;
-            //selectSoftVinylData.buffSubstatus3 = softVinyl.BUFFSTATUSNUM.NULL;
-
-            //selectSoftVinylData.Buffparameter = 0;
-            //selectSoftVinylData.Buffparameter1 = 0;
-            //selectSoftVinylData.Buffparameter2 = 0;
-            //selectSoftVinylData.Buffparameter3 = 0;
-
-            //selectSoftVinylData.buffName = null;
-            //selectSoftVinylData.buffName1 = null;
-            //selectSoftVinylData.buffName2 = null;
-            //selectSoftVinylData.buffName3 = null;
-
-            //selectSoftVinylData.selectCheck = false;
-            //setWindowOBJ.selectSofvibutton = null;
-            //checkSetDeta = true;
         }
-
-
     }
 
     /// <summary>

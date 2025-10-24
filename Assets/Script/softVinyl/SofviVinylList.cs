@@ -53,9 +53,7 @@ public class SofviVinylList : MonoBehaviour
 
         for (int i = 0; i < softVinylData.Count; i++)
         {
-            childrensoftVinyl[i].buffName1 = softVinylData[i].buffName1;
-            childrensoftVinyl[i].buffName2 = softVinylData[i].buffName2;
-            childrensoftVinyl[i].buffName3 = softVinylData[i].buffName3;
+          
             childrensoftVinyl[i].sofvimodel = softVinylData[i].sofvimodel;
             childrensoftVinyl[i].skill = softVinylData[i].skill;
             childrensoftVinyl[i].theme = softVinylData[i].theme;
@@ -66,11 +64,7 @@ public class SofviVinylList : MonoBehaviour
             childrensoftVinyl[i].Buffparameter1 = softVinylData[i].Buffparameter1;
             childrensoftVinyl[i].Buffparameter2 = softVinylData[i].Buffparameter2;
             childrensoftVinyl[i].Buffparameter3 = softVinylData[i].Buffparameter3;
-            childrensoftVinyl[i].buffName = softVinylData[i].buffName;
-            childrensoftVinyl[i].buffName1 = softVinylData[i].buffName1;
-            childrensoftVinyl[i].buffName2 = softVinylData[i].buffName2;
-            childrensoftVinyl[i].buffName3 = softVinylData[i].buffName3;
-            childrensoftVinyl[i].ListNumber = i;//”z—ñ”Ô†‚ð•t—^
+           
 
         }
 

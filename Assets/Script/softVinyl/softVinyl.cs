@@ -101,7 +101,9 @@ public class softVinyl : MonoBehaviour
         CRITICALDAMAGE,
         MAXHP,
         MAXSUTAMINA,
-
+        SUTAMINA_CHARGE_SPEED,
+        SKILL_CHARGE,
+        ATTACKRANGE
     }
 
     /// <summary>

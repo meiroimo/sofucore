@@ -9,7 +9,8 @@ public class sofviStrage : MonoBehaviour
     [Header("獲得ソフビ格納リスト")] public static List<softVinyl> sofviStrageList = new List<softVinyl>();//ソフビのストレージ
     [Header("獲得ソフビ個数")] public int sofviStrageListConut;
     public GameObject testdata;//テストデータオブジェクト
-    
+    public int StrageMax;//(１００)インスペクターで設定、変更あり
+    public static bool ListUpdate=false;
    
 
     void setTestData()

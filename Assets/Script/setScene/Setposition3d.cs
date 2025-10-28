@@ -45,6 +45,8 @@ public class Setposition3d : MonoBehaviour
         ins.transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
         //ストレージからデータの削除
         sofviStrage.sofviStrageList.RemoveAt(softVinylData.ListNumber);
+        Debug.Log(softVinylData.ListNumber);
+        //sofviStrage.ListUpdate = true;//リストの更新判定をオン
         //セレクトデータのリセット
         SetSofviManeger.selectSofviDeta.ResetParameter();
         //ボタンのソフビデータもreset

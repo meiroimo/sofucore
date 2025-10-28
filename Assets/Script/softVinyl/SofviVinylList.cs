@@ -14,6 +14,7 @@ public class SofviVinylList : MonoBehaviour
     public int storageCount;//ストレージ参照の個数
     public List<softVinyl> softVinylData;//ソフビデータをストレージからコピー
 
+
     void Start()
     {
         playerStorage = GameObject.Find("Player_Storage");
@@ -25,6 +26,7 @@ public class SofviVinylList : MonoBehaviour
         childrenPanelScript = new PanelButton[childCount];
         childrensoftVinyl = new softVinyl[childCount];
         Storechildren();
+      
     }
 
     void Storechildren()//子オブジェクトの取得
@@ -48,15 +50,14 @@ public class SofviVinylList : MonoBehaviour
             Debug.Log("nullだったよ");
 
         }
-        //個数分ボタンにソフビデータをセット
-
-
+        //ストレージに入っているデータ分だけ表示されるボタンのデータ更新
         for (int i = 0; i < softVinylData.Count; i++)
         {
           
             childrensoftVinyl[i].sofvimodel = softVinylData[i].sofvimodel;
             childrensoftVinyl[i].skill = softVinylData[i].skill;
             childrensoftVinyl[i].theme = softVinylData[i].theme;
+            childrensoftVinyl[i].ListNumber = softVinylData[i].ListNumber;
             childrensoftVinyl[i].buffSubstatus1 = softVinylData[i].buffSubstatus1;
             childrensoftVinyl[i].buffSubstatus2 = softVinylData[i].buffSubstatus2;
             childrensoftVinyl[i].buffSubstatus3 = softVinylData[i].buffSubstatus3;
@@ -72,7 +73,12 @@ public class SofviVinylList : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       setSofiDataButton();
+        if(sofviStrage.ListUpdate)
+        {
+            setSofiDataButton();
+            Debug.Log("表示されるソフビのリストを更新");
+            sofviStrage.ListUpdate = false;
+        }
      
     }
 }

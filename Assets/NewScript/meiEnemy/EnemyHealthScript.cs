@@ -20,6 +20,8 @@ public class EnemyHealthScript : MonoBehaviour
 
     [SerializeField] TreasureChestDropScript dropScript;
 
+    [SerializeField, Header("ダメージエフェクト")] GameObject damageEffect;
+
 
     //20250621 kome変更点
     sofviStrage sofviStrageScript;//ストレージスクリプト
@@ -41,12 +43,14 @@ public class EnemyHealthScript : MonoBehaviour
         softVinyldata = gameObject.transform.GetChild(0).gameObject.GetComponent<softVinyl>();
         maxHP = enemyStatus_Script.enemy_MaxHealth + 30;
         currentHP = maxHP;
+        damageEffect.SetActive(false);
         //Debug.Log(currentHP);
     }
 
     public void EnemtTakeDamage(int damage)
     {
         currentHP -= damage;
+        damageEffect.SetActive(true);
         Debug.Log($"{gameObject.name} は {damage} ダメージを受けた！ 残りHP: {currentHP}");
         StartCoroutine(FlashColor());
 

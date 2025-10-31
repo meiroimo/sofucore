@@ -10,6 +10,8 @@ public class BossHealth : MonoBehaviour
     EnemyStatus_Script enemyStatus_Script;
     BossController bossController;
 
+    [SerializeField, Header("ダメージエフェクト")] GameObject damageEffect;
+
     // 死亡イベント（他スクリプトと連携できる）
     public event System.Action OnDeath;
 
@@ -25,6 +27,7 @@ public class BossHealth : MonoBehaviour
     {
         maxHP = enemyStatus_Script.enemy_MaxHealth;
         currentHP = maxHP;
+        damageEffect.SetActive(false);
         Debug.Log(currentHP);
     }
 
@@ -32,6 +35,7 @@ public class BossHealth : MonoBehaviour
     {
         currentHP -= damage;
         Debug.Log($"{gameObject.name} は {damage} ダメージを受けた！ 残りHP: {currentHP}");
+        damageEffect.SetActive(true);
 
         if (currentHP <= 0)
         {

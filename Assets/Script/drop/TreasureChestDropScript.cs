@@ -24,8 +24,9 @@ public class TreasureChestDropScript : MonoBehaviour
 
     [SerializeField, Header("レアリティ割合 %で入力　レアリティ高い順で入れる")]
     int[] rarityRate;
-    
 
+    softVinyl softVinylScript;
+    
     void Start()
     {
     }

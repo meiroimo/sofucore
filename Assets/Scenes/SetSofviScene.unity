@@ -403,10 +403,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -776,10 +772,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -951,6 +943,7 @@ MonoBehaviour:
   softVinylData: {fileID: 0}
   boxCollider: {fileID: 0}
   SetSofviManeger: {fileID: 0}
+  sofviVinylListSc: {fileID: 312057054}
   translucent: {fileID: 2100000, guid: f40991208b8a6084fadf3ba56c8d5b46, type: 2}
   translucentflg: 0
   rathit: 0
@@ -985,10 +978,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -1543,7 +1532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1651,10 +1640,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -1807,7 +1792,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &188328376
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2002,10 +1987,6 @@ MonoBehaviour:
   Buffparameter1: 1
   Buffparameter2: 1
   Buffparameter3: 1
-  buffName: 1
-  buffName1: 1
-  buffName2: 1
-  buffName3: 1
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -2194,8 +2175,6 @@ MonoBehaviour:
   selectSoftVinylData: {fileID: 423283845}
   PlayerStatus_Script: {fileID: 0}
   AllSetobject: {fileID: 535739474}
-  sofviStrageOBJ: {fileID: 23475655}
-  SofviVinylListobj: {fileID: 0}
   selectSofviOBJ: {fileID: 423283844}
   selectSofviDeta: {fileID: 0}
 --- !u!4 &253091295
@@ -2372,10 +2351,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -2600,7 +2575,7 @@ GameObject:
   - component: {fileID: 312057055}
   - component: {fileID: 312057054}
   m_Layer: 5
-  m_Name: softVinylList
+  m_Name: softVinylListOBJ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2981,10 +2956,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -3629,10 +3600,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 423283844}
@@ -3934,10 +3901,6 @@ MonoBehaviour:
   Buffparameter1: 1
   Buffparameter2: 1
   Buffparameter3: 1
-  buffName: 1
-  buffName1: 1
-  buffName2: 1
-  buffName3: 1
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -3999,10 +3962,6 @@ MonoBehaviour:
   Buffparameter1: 1
   Buffparameter2: 1
   Buffparameter3: 1
-  buffName: 1
-  buffName1: 1
-  buffName2: 1
-  buffName3: 1
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -4195,10 +4154,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -4418,10 +4373,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -4753,10 +4704,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -5126,10 +5073,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -5649,10 +5592,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -6022,10 +5961,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -6474,10 +6409,6 @@ MonoBehaviour:
   Buffparameter1: 1
   Buffparameter2: 1
   Buffparameter3: 1
-  buffName: 1
-  buffName1: 1
-  buffName2: 1
-  buffName3: 1
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -6640,10 +6571,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -6837,10 +6764,6 @@ MonoBehaviour:
   Buffparameter1: 1
   Buffparameter2: 1
   Buffparameter3: 1
-  buffName: 1
-  buffName1: 1
-  buffName2: 1
-  buffName3: 1
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -6928,10 +6851,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -7226,10 +7145,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -7401,6 +7316,7 @@ MonoBehaviour:
   softVinylData: {fileID: 0}
   boxCollider: {fileID: 0}
   SetSofviManeger: {fileID: 0}
+  sofviVinylListSc: {fileID: 312057054}
   translucent: {fileID: 2100000, guid: f40991208b8a6084fadf3ba56c8d5b46, type: 2}
   translucentflg: 0
   rathit: 0
@@ -7435,10 +7351,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -7549,10 +7461,6 @@ MonoBehaviour:
   Buffparameter1: 1
   Buffparameter2: 1
   Buffparameter3: 1
-  buffName: 1
-  buffName1: 1
-  buffName2: 1
-  buffName3: 1
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -7667,6 +7575,7 @@ MonoBehaviour:
   softVinylData: {fileID: 0}
   boxCollider: {fileID: 0}
   SetSofviManeger: {fileID: 0}
+  sofviVinylListSc: {fileID: 312057054}
   translucent: {fileID: 2100000, guid: f40991208b8a6084fadf3ba56c8d5b46, type: 2}
   translucentflg: 0
   rathit: 0
@@ -7701,10 +7610,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -7973,6 +7878,7 @@ MonoBehaviour:
   softVinylData: {fileID: 0}
   boxCollider: {fileID: 0}
   SetSofviManeger: {fileID: 0}
+  sofviVinylListSc: {fileID: 312057054}
   translucent: {fileID: 2100000, guid: f40991208b8a6084fadf3ba56c8d5b46, type: 2}
   translucentflg: 0
   rathit: 0
@@ -8007,10 +7913,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -8147,10 +8049,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -8445,10 +8343,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -8668,10 +8562,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -8966,10 +8856,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -9163,10 +9049,6 @@ MonoBehaviour:
   Buffparameter1: 1
   Buffparameter2: 1
   Buffparameter3: 1
-  buffName: 1
-  buffName1: 1
-  buffName2: 1
-  buffName3: 1
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -9254,10 +9136,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -9477,10 +9355,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -10075,10 +9949,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -10298,10 +10168,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -10570,10 +10436,6 @@ MonoBehaviour:
   Buffparameter1: 1
   Buffparameter2: 1
   Buffparameter3: 1
-  buffName: 1
-  buffName1: 1
-  buffName2: 1
-  buffName3: 1
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -10875,10 +10737,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -11100,7 +10958,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -11518,10 +11376,6 @@ MonoBehaviour:
   Buffparameter1: 1
   Buffparameter2: 1
   Buffparameter3: 1
-  buffName: 1
-  buffName1: 1
-  buffName2: 1
-  buffName3: 1
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -11583,10 +11437,6 @@ MonoBehaviour:
   Buffparameter1: 1
   Buffparameter2: 1
   Buffparameter3: 1
-  buffName: 1
-  buffName1: 1
-  buffName2: 1
-  buffName3: 1
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -11854,10 +11704,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -12077,10 +11923,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -12300,10 +12142,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -12598,10 +12436,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -12821,10 +12655,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -13044,10 +12874,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -13200,7 +13026,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1312160078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13421,10 +13247,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -13704,7 +13526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -13805,10 +13627,6 @@ MonoBehaviour:
   Buffparameter1: 1
   Buffparameter2: 1
   Buffparameter3: 1
-  buffName: 1
-  buffName1: 1
-  buffName2: 1
-  buffName3: 1
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -13896,10 +13714,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -14071,6 +13885,7 @@ MonoBehaviour:
   softVinylData: {fileID: 0}
   boxCollider: {fileID: 0}
   SetSofviManeger: {fileID: 0}
+  sofviVinylListSc: {fileID: 312057054}
   translucent: {fileID: 2100000, guid: f40991208b8a6084fadf3ba56c8d5b46, type: 2}
   translucentflg: 0
   rathit: 0
@@ -14105,10 +13920,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -14320,10 +14131,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -14873,10 +14680,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -15096,10 +14899,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -15319,10 +15118,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -15516,10 +15311,6 @@ MonoBehaviour:
   Buffparameter1: 1
   Buffparameter2: 1
   Buffparameter3: 1
-  buffName: 1
-  buffName1: 1
-  buffName2: 1
-  buffName3: 1
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -15731,10 +15522,6 @@ MonoBehaviour:
   Buffparameter1: 1
   Buffparameter2: 1
   Buffparameter3: 1
-  buffName: 1
-  buffName1: 1
-  buffName2: 1
-  buffName3: 1
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -16471,10 +16258,6 @@ MonoBehaviour:
   Buffparameter1: 1
   Buffparameter2: 1
   Buffparameter3: 1
-  buffName: 1
-  buffName1: 1
-  buffName2: 1
-  buffName3: 1
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -16688,10 +16471,6 @@ MonoBehaviour:
   Buffparameter1: 1
   Buffparameter2: 1
   Buffparameter3: 1
-  buffName: 1
-  buffName1: 1
-  buffName2: 1
-  buffName3: 1
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -17019,10 +16798,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -17447,10 +17222,6 @@ MonoBehaviour:
   Buffparameter1: 1
   Buffparameter2: 1
   Buffparameter3: 1
-  buffName: 1
-  buffName1: 1
-  buffName2: 1
-  buffName3: 1
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -17718,10 +17489,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -17741,6 +17508,7 @@ MonoBehaviour:
   softVinylData: {fileID: 0}
   boxCollider: {fileID: 0}
   SetSofviManeger: {fileID: 0}
+  sofviVinylListSc: {fileID: 312057054}
   translucent: {fileID: 2100000, guid: f40991208b8a6084fadf3ba56c8d5b46, type: 2}
   translucentflg: 0
   rathit: 0
@@ -18044,10 +17812,6 @@ MonoBehaviour:
   Buffparameter1: 1
   Buffparameter2: 1
   Buffparameter3: 1
-  buffName: 1
-  buffName1: 1
-  buffName2: 1
-  buffName3: 1
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -18315,10 +18079,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -18688,10 +18448,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -18911,10 +18667,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -19209,10 +18961,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -19406,10 +19154,6 @@ MonoBehaviour:
   Buffparameter1: 1
   Buffparameter2: 1
   Buffparameter3: 1
-  buffName: 1
-  buffName1: 1
-  buffName2: 1
-  buffName3: 1
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}
@@ -19652,10 +19396,6 @@ MonoBehaviour:
   Buffparameter1: 0
   Buffparameter2: 0
   Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}

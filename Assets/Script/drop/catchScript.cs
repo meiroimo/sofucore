@@ -49,7 +49,11 @@ public class catchScript : MonoBehaviour
             {
                 if(other.GetComponent<softVinyl>() != null)
                 {
+                    //リストの何番目かを記録
+                    other.GetComponent<softVinyl>().ListNumber = sofviStrage.sofviStrageList.Count ;
+                    //ストレージリストに追加
                     sofviStrage.sofviStrageList.Add(other.GetComponent<softVinyl>());
+                   
                 }
                 catchSofvi[i]++;
             }

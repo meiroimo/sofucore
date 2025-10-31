@@ -12,7 +12,7 @@ public class PanelButton : MonoBehaviour
     [SerializeField] public softVinyl SetSofvidata;//設置ソフビデータ
 
     public GameObject selectSofviOBJ;//選択中のソフビデータオブジェ
-    public softVinyl selectSofviDeta;//選択中のソフビデータオブジェ
+    public softVinyl selectSofviDeta;//選択中のソフビデータ
     private Outline outline;
 
     bool selectPanel;//パネルを選択判定
@@ -40,8 +40,6 @@ public class PanelButton : MonoBehaviour
 
         outline = gameObject.GetComponent<Outline>();
         outline.enabled = false;
-  //      PopTextSelect =PoptextWindowObj.transform.GetChild(0).gameObject.GetComponent<Text>();
-       // PopTextonpointar = PoptextWindowObj.transform.GetChild(1).gameObject.GetComponent<Text>();
         themeText = new string[21];
         skillText = new string[5];
         nameText = new string[102];
@@ -87,34 +85,16 @@ public class PanelButton : MonoBehaviour
 
         Debug.Log("押された");
     }
-    //public void OnPointerEnter(PointerEventData eventData)
-    //{
-    //    if (selectSofviDeta.selectButton != this.gameObject&& selectSofviDeta.selectCheck)
-    //    {
-    //        setTextPopTextWindow();
-
-    //        PoptextWindowObj.SetActive(true);
-    //    }
-    //    else
-    //    {
-    //        PoptextWindowObj.SetActive(false);
-    //    }
-
-
-    //}
-
-    //public void OnPointerExit(PointerEventData eventData)
-    //{
-    //    PoptextWindowObj.SetActive(false);
-    //}
+  
 
     void setImage()
     {
-
-
-
+        //ソフビデータがなかった場合は×表示
+        if(SetSofvidata==null)
+        {
+            PanelImage.GetComponent<Image>().sprite = ImgStrageScriptdata.sprites[0];
+        }
         PanelImage.GetComponent<Image>().sprite = ImgStrageScriptdata.sprites[(int)SetSofvidata.sofvimodel];
-
 
     }
     void againClick()//セレクトデータをリセット
@@ -131,10 +111,7 @@ public class PanelButton : MonoBehaviour
         selectSofviDeta.Buffparameter1 = 0;
         selectSofviDeta.Buffparameter2 = 0;
         selectSofviDeta.Buffparameter3 = 0;
-        selectSofviDeta.buffName = null;
-        selectSofviDeta.buffName1 = null;
-        selectSofviDeta.buffName2 = null;
-        selectSofviDeta.buffName3 = null;
+      
         selectSofviDeta.selectButton = null;
         selectSofviDeta.selectCheck = false;
         selectPanel = false;
@@ -163,10 +140,6 @@ public class PanelButton : MonoBehaviour
         selectSofviDeta.Buffparameter1 = SetSofvidata.Buffparameter1;
         selectSofviDeta.Buffparameter2 = SetSofvidata.Buffparameter2;
         selectSofviDeta.Buffparameter3 = SetSofvidata.Buffparameter3;
-        selectSofviDeta.buffName = SetSofvidata.buffName;
-        selectSofviDeta.buffName1 = SetSofvidata.buffName1;
-        selectSofviDeta.buffName2 = SetSofvidata.buffName2;
-        selectSofviDeta.buffName3 = SetSofvidata.buffName3;
         selectSofviDeta.selectButton = this.gameObject;
         selectSofviDeta.selectCheck =true;
        // Debug.Log(selectSofviDeta.Buffparameter);

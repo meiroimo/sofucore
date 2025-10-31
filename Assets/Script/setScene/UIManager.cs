@@ -42,7 +42,7 @@ public class UIManager : MonoBehaviour
             if (SetUIFlg)
             {
                 UIOpen();
-
+                //表示のソフビリストの更新
             }
             else
             {
@@ -52,6 +52,7 @@ public class UIManager : MonoBehaviour
     }
     public void UIOpen()//設置シーンUIを開く関数
     {
+        sofviStrage.ListUpdate = true;
         SetUIFlg = false;
         SetCanvas.SetActive(true);
         GameMainCanvas.SetActive(false);

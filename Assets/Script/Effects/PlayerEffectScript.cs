@@ -11,7 +11,8 @@ public class playerEffectScript : MonoBehaviour
         AVOIDANCE = 0,
         SMOKE,
         SLASH,
-        AURA
+        AURA,
+        DAMAGE
     }
 
     void Start()

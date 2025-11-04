@@ -347,6 +347,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Storage
       objectReference: {fileID: 0}
+    - target: {fileID: 907799100072893924, guid: 6dd16d8c59c1b894699401c76dca7911, type: 3}
+      propertyPath: stopAction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1454484313161083952, guid: 6dd16d8c59c1b894699401c76dca7911, type: 3}
+      propertyPath: stopAction
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1492911022986130405, guid: 6dd16d8c59c1b894699401c76dca7911, type: 3}
       propertyPath: HPSlider
       value: 
@@ -359,6 +367,10 @@ PrefabInstance:
       propertyPath: skillSlider
       value: 
       objectReference: {fileID: 1694105261}
+    - target: {fileID: 3786735446446183292, guid: 6dd16d8c59c1b894699401c76dca7911, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5099792238054019712, guid: 6dd16d8c59c1b894699401c76dca7911, type: 3}
       propertyPath: angle
       value: 60
@@ -427,6 +439,14 @@ PrefabInstance:
       propertyPath: maxStaminaText
       value: 
       objectReference: {fileID: 1982530646}
+    - target: {fileID: 6305125795513033527, guid: 6dd16d8c59c1b894699401c76dca7911, type: 3}
+      propertyPath: stopAction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748037733100106149, guid: 6dd16d8c59c1b894699401c76dca7911, type: 3}
+      propertyPath: stopAction
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6908486176802028979, guid: 6dd16d8c59c1b894699401c76dca7911, type: 3}
       propertyPath: m_Name
       value: Player (1)

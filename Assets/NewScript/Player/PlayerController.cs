@@ -3,6 +3,7 @@ using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using static playerEffectScript;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask enemyLayer;
     public float attackRange = 100f;
     public GameObject effectOBJ;
+    public playerEffectScript playerEffect;
 
     private FlowerGuard2 inputActions;
     private PlayerState currentState;
@@ -287,6 +289,7 @@ public class PlayerController : MonoBehaviour
         currentHP -= damage;
         hpSliderScript.SetNowHealth(currentHP);
         Debug.Log($"Player に {damage}ダメージ！. 現在HP: {currentHP}");
+        playerEffect.PlayEffect((int)EffectName.DAMAGE);
 
         if (currentHP <= 0)
         {

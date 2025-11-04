@@ -15,6 +15,10 @@ public class BulletEnemyChaseState : BulletEnemyState
 
     public override void Update(BulletEnemyController bulletEnemy)
     {
+        // プレイヤーの位置に向かって移動
+        bulletEnemy.Agent.SetDestination(bulletEnemy.player.position);
+
+
         attackCounter += Time.deltaTime;
         if(attackCounter > bulletEnemy.AttackInterval)
         {

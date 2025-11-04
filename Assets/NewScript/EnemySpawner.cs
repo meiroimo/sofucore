@@ -29,6 +29,8 @@ public class EnemySpawner : MonoBehaviour
 
         enemyType = enemyPrefab.Length;
 
+        Debug.Log(enemyType);
+
         // 繰り返し呼び出し開始
         InvokeRepeating(nameof(SpawnEnemy), 1f, spawnInterval);
     }
@@ -42,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
         Transform spawnPoint = spawnPoints[index];
 
         // 敵を生成
-        GameObject enemy = Instantiate(enemyPrefab[Random.Range(0, enemyType)], spawnPoint.position, spawnPoint.rotation);
+        GameObject enemy = Instantiate(enemyPrefab[Random.Range(0, enemyPrefab.Length)], spawnPoint.position, spawnPoint.rotation);
 
         // ステータス設定
         EnemyStatus_Script enemyStatus = enemy.GetComponent<EnemyStatus_Script>();

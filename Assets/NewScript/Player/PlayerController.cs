@@ -229,14 +229,21 @@ public class PlayerController : MonoBehaviour
             float angle = Vector3.Angle(forward, dirToTarget);
             if (angle < attackAngle / 2f)
             {
-                Debug.Log($"{col.name} Ç…çUåÇÇ™ñΩíÜÇµÇ‹ÇµÇΩÅI");
                 EnemyController enemy = col.GetComponent<EnemyController>();
                 if (enemy != null)
                 {
                     _seBox.PlayPlayerSE(PlayerSEBox.SENAME.HIT);
                     enemy.OnHit(this);
-                    return;
                 }
+
+                BulletEnemyController bulletenemy = col.GetComponent<BulletEnemyController>();
+                if (bulletenemy != null)
+                {
+                    //Debug.Log($"{col.name} Ç…çUåÇÇ™ñΩíÜÇµÇ‹ÇµÇΩÅI");
+                    _seBox.PlayPlayerSE(PlayerSEBox.SENAME.HIT);
+                    bulletenemy.OnHit(this);
+                }
+
                 BossController boss = col.GetComponent<BossController>();
                 if(boss != null)
                 {

@@ -1546,13 +1546,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1434040295}
-  enemyPrefab: {fileID: 6907368253047354171, guid: 0291551f08812734ca78600b7f6b3211, type: 3}
+  enemyPrefab:
+  - {fileID: 6907368253047354171, guid: 0291551f08812734ca78600b7f6b3211, type: 3}
   spawnPoints:
   - {fileID: 432022728}
   - {fileID: 1471991709}
   spawnInterval: 10
   maxEnemies: 10
-  enemyTypeNo: 1
+  enemyStatusTypeNo: 1
 --- !u!4 &1814842749
 Transform:
   m_ObjectHideFlags: 0

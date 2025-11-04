@@ -8,7 +8,9 @@ public class BulletEnemyAttackState : BulletEnemyState
     {
         Debug.Log("íeÇÃê∂ê¨");
         bulletEnemy.InitBullet();
-        bulletEnemy.ChangeState(new BulletEnemyChaseState());
+        bulletEnemy.Agent.ResetPath();   //à⁄ìÆÇë¶í‚é~ ResetPath:í‚é~
+
+        bulletEnemy.StartCoroutine(RecoverFromHit(bulletEnemy));
     }
 
     public override void Update(BulletEnemyController bulletEnemy)
@@ -20,4 +22,11 @@ public class BulletEnemyAttackState : BulletEnemyState
     {
 
     }
+
+    private IEnumerator RecoverFromHit(BulletEnemyController bulletEnemy)
+    {
+        yield return new WaitForSeconds(1f); //çdíº
+        bulletEnemy.ChangeState(new BulletEnemyChaseState());
+    }
+
 }

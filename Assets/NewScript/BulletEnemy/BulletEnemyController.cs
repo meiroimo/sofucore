@@ -26,6 +26,8 @@ public class BulletEnemyController : MonoBehaviour
 
     public bool IsHit { get => isHit; set => isHit = value; }
     public float AttackInterval { get => attackInterval; set => attackInterval = value; }
+    public NavMeshAgent Agent { get => agent; set => agent = value; }
+    public float Enemy_Power { get => enemy_Power; set => enemy_Power = value; }
 
     //プレイヤーを設定する用の関数
     public void SetPlayer(Transform playerTransform)
@@ -49,7 +51,7 @@ public class BulletEnemyController : MonoBehaviour
         //初期化
         #region
         enemy_Power = enemyStatus.enemy_Attack_Power;
-        enemy_Speed = enemyStatus.enemy_Speed;
+        enemy_Speed = enemyStatus.enemy_Speed - 2;
         agent.speed = enemy_Speed;
         #endregion
 
@@ -89,6 +91,8 @@ public class BulletEnemyController : MonoBehaviour
         //プレイヤーの方向を計算
         Vector3 dir = (player.position - generatePoint.position).normalized;
 
+        dir.y = 0;
+
         Quaternion lookRotation = Quaternion.LookRotation(dir);
 
         //弾の生成
@@ -96,6 +100,7 @@ public class BulletEnemyController : MonoBehaviour
 
         //弾に進行方向を伝える
         enemy_Bullet.GetComponent<EnemyBullet_Script>().SetDirection(dir);
+        enemy_Bullet.GetComponent<EnemyBullet_Script>().SetBulletEnemy(this);
 
     }
 
@@ -124,5 +129,7 @@ public class BulletEnemyController : MonoBehaviour
         isHit = false;
         ChangeState(new BulletEnemyChaseState()); //硬直後に追跡再開
     }
+
+
 
 }

@@ -8,9 +8,11 @@ public class EnemyBullet_Script : MonoBehaviour
     public float speed;
 
     //プレイヤーの方向
+
     private Vector3 direction;
 
-    /// <summary>
+    BulletEnemyController bulletEnemy;
+
     /// プレイヤーの方向を取得する
     /// </summary>
     /// <param name="dir"></param>
@@ -19,14 +21,48 @@ public class EnemyBullet_Script : MonoBehaviour
         direction = dir.normalized;
     }
 
+    public void SetBulletEnemy(BulletEnemyController bulletEnemyCon)
+    {
+        bulletEnemy = bulletEnemyCon.GetComponent<BulletEnemyController>();
+    }
+
     private void Start()
     {
         Debug.Log("弾生成完了！");
-        Destroy(this.gameObject, 2f);
+        //Destroy(this.gameObject, 2f);
     }
 
     private void Update()
     {
         transform.position += direction * speed * Time.deltaTime;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            PlayerController playerController = other.gameObject.GetComponentInChildren<PlayerController>();
+            if (playerController != null)
+            {
+                playerController.TakeDamage((int)bulletEnemy.Enemy_Power);
+            }
+
+            Destroy(this.gameObject);
+        }
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //if (collision.gameObject.CompareTag("Player"))
+        //{
+        //    PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
+        //    if(playerController != null)
+        //    {
+        //        playerController.TakeDamage((int)bulletEnemy.Enemy_Power);
+        //    }
+
+        //    Destroy(this.gameObject);
+        //}
     }
 }

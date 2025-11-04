@@ -28,7 +28,6 @@ public class SetSofviManeger : MonoBehaviour
         setpotionDataSet();
         PlayerStatus_Script= GameObject.Find("Player_stand").GetComponent<PlayerStatus_Script>();//  直接名前検索しているのでプレイヤーobjの名前が変わるとここも変更させる
     }
-
     // Update is called once per frame
     void Update()
     {

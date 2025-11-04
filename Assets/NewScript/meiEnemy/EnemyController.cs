@@ -19,6 +19,9 @@ public class EnemyController : MonoBehaviour
     private bool isHit = false;
     public event System.Action OnDeath; //死亡イベント
 
+    public GameObject attackEffect;
+
+
     //距離チェック
     public float DistanceToPlayer => Vector3.Distance(transform.position, player.position);
 
@@ -51,6 +54,7 @@ public class EnemyController : MonoBehaviour
         #endregion
 
         ChangeState(new EnemyChaseState());
+        attackEffect.SetActive(false);
     }
 
     void Update()
@@ -94,6 +98,12 @@ public class EnemyController : MonoBehaviour
         yield return new WaitForSeconds(0.5f); //硬直
         isHit = false;
         ChangeState(new EnemyChaseState()); //硬直後に追跡再開
+    }
+
+    public void StartAttackEffect()
+    {
+        attackEffect.SetActive(true);
+
     }
 
 }

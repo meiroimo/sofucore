@@ -12,6 +12,7 @@ public class EnemyAttackState : EnemyState
     private float lastAttackTime = 0f;
     private bool isDelaying = true;
 
+
     public override void Enter(EnemyController enemy)
     {
         enemy.Agent.ResetPath();  // 攻撃中は移動停止
@@ -26,6 +27,7 @@ public class EnemyAttackState : EnemyState
 
         delayTimer = 0f;
         isDelaying = true;
+
     }
 
     public override void Update(EnemyController enemy)
@@ -72,6 +74,7 @@ public class EnemyAttackState : EnemyState
         if (enemy.DistanceToPlayer <= attackRange + 0.5f)
         {
             //Debug.Log("Hit player!"); // ここでプレイヤーのダメージ処理を呼び出せる
+            enemy.StartAttackEffect();
             enemy.Enemy_SE.PlayEnemySE(EnemySEBox.SENAME.HIT);
             enemy.player.GetComponent<PlayerController>()?.TakeDamage((int)enemy.Enemy_Power);
         }

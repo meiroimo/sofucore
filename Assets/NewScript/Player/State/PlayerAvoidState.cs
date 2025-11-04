@@ -18,8 +18,20 @@ public class PlayerAvoidState : PlayerState
     public override void Enter()
     {
         player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.AVOIDANCE);
-        // 入力方向がなければ向いている方向に回避
-        dodgeDirection = player.transform.forward;
+        //入力方向がなければ向いている方向に回避
+        Vector2 moveInput = player.MoveInput; // ← 例：新Input Systemでの移動入力
+        Vector3 moveDir = new Vector3(moveInput.x, 0, moveInput.y).normalized;
+
+        //入力があればその方向、なければ前方
+        //sqrMagnitude:平方根らしい
+        if (moveDir.sqrMagnitude > 0.01f)
+        {
+            dodgeDirection = moveDir;
+        }
+        else
+        {
+            dodgeDirection = player.transform.forward;
+        }
         player.SeBox.PlayPlayerSE(PlayerSEBox.SENAME.AVOID);
         timer = 0f;
         player.TakeAvoid(30);

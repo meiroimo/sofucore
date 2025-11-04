@@ -14,7 +14,9 @@ public class BossChaseState : BossState
         // UŒ‚”ÍˆÍ‚É“ü‚Á‚½‚çUŒ‚ó‘Ô‚Ö
         if (boss.IsPlayerInAttackRange())
         {
-            boss.ChangeState(new BossAttackState());
+           // boss.ChangeState(new BossAttackState());
+            boss.ChangeState(new BossTackleState());
+
 
         }
     }

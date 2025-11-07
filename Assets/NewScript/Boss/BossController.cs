@@ -19,6 +19,9 @@ public class BossController : MonoBehaviour
 
     private bool isHit = false;
 
+    public GameObject attackEffect;
+
+
     // 距離チェック
     public float DistanceToPlayer => Vector3.Distance(transform.position, player.position);
 
@@ -49,6 +52,7 @@ public class BossController : MonoBehaviour
         boss_Speed = bossStatus.enemy_Speed;
         agent.speed = boss_Speed;
         bossHealth.OnDeath += Die;
+        attackEffect.SetActive(false);
 
         //Debug.Log(agent.speed);
         ChangeState(new BossChaseState());
@@ -93,6 +97,11 @@ public class BossController : MonoBehaviour
         {
             ChangeState(new BossDefeatedState());
         }
+    }
+    public void StartAttackEffect()
+    {
+        attackEffect.SetActive(true);
+
     }
 
 }

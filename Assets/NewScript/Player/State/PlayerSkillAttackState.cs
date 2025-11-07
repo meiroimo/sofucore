@@ -27,7 +27,8 @@ public class PlayerSkillAttackState : PlayerState
 
     public override void Enter()
     {
-        player.animator.SetBool("isAttack", true);
+        player.PlayerMotionScript.attackMotion(true);
+
         player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.SLASH);
         player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.AURA);
         attackCount = 0;
@@ -71,7 +72,8 @@ public class PlayerSkillAttackState : PlayerState
     public override void Exit()
     {
         //Debug.Log("Exited LightAttack State");
-        player.animator.SetBool("isAttack", false);
+        player.PlayerMotionScript.attackMotion(false);
+
         player.PlayerEffectScript.StopEffect((int)playerEffectScript.EffectName.AURA);
         player.PlayerEffectScript.StopEffect((int)playerEffectScript.EffectName.SLASH);
 

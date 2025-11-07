@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     public playerEffectScript PlayerEffectScript;
     public Animator animator;
     private PlayerSEBox _seBox;
+    public playerMotionScript PlayerMotionScript;
 
     //コントローラー関係
     #region 
@@ -85,15 +86,14 @@ public class PlayerController : MonoBehaviour
         //GetComponent
         #region
         inputActions = new FlowerGuard2();
-        Rigid = gameObject.transform.parent.gameObject.GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
+        Rigid = gameObject.GetComponent<Rigidbody>();
+        //animator = GetComponent<Animator>();
         playerStatus_Script = GetComponent<PlayerStatus_Script>();
         hpSliderScript = GetComponent<HPSliderScript>();
         staminaSliderScript = GetComponent<StaminaSliderScript>();
         playerSkillSlider = GetComponents<PlayerSkillSlider>(); //同一コンポーネントを複数Getするときは[GetComponents]でｓ付ける
         PlayerEffectScript = effectOBJ.GetComponent<playerEffectScript>();
         _seBox = GetComponent<PlayerSEBox>();
-        animator = GetComponent<Animator>();
         #endregion
         //GetComponent
 
@@ -148,7 +148,7 @@ public class PlayerController : MonoBehaviour
 
         if (hpSliderScript.GetNowHealth() <= 0)
         {
-            animator.SetBool("isDeth", true);
+            PlayerMotionScript.dethMotion(true);
         }
     }
 

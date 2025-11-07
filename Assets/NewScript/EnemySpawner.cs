@@ -12,6 +12,9 @@ public class EnemySpawner : MonoBehaviour
     public int maxEnemies = 10;      // “¯‚É‘¶İ‚Å‚«‚é“G‚ÌÅ‘å”
     public int enemyStatusTypeNo = 1;      // CSV‚©‚ç“Ç‚İ‚Ş“G‚Ìí—Ş
 
+    public float minSpawnInterval = 1f;
+    public float intervalDecreaseStep = 1f;
+
     private int enemyType;
     private int currentEnemyCount = 0;
     private CSVReader csvReader;     // CSVReader‚Ö‚ÌQÆ
@@ -19,6 +22,13 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
+        GameTimer timer = FindObjectOfType<GameTimer>();
+        if (timer != null)
+        {
+            timer.OnTimeIntervalReached += UpdateSpawnInterval;
+        }
+
+
         // ƒV[ƒ““à‚ÌCSVReader‚ğ’T‚µ‚ÄQÆ
         csvReader = FindObjectOfType<CSVReader>();
         if (csvReader == null)
@@ -29,10 +39,27 @@ public class EnemySpawner : MonoBehaviour
 
         enemyType = enemyPrefab.Length;
 
-        Debug.Log(enemyType);
-
         // ŒJ‚è•Ô‚µŒÄ‚Ño‚µŠJn
-        InvokeRepeating(nameof(SpawnEnemy), 1f, spawnInterval);
+        //InvokeRepeating(nameof(SpawnEnemy), 1f, spawnInterval);
+
+        StartCoroutine(SpawnLoop());
+
+    }
+
+    private void UpdateSpawnInterval(int intervalIndex)
+    {
+        // —áF20•bŒo‰ß‚²‚Æ‚É spawnInterval ‚ğ’Z‚­‚·‚é
+        spawnInterval = Mathf.Max(minSpawnInterval, spawnInterval - intervalDecreaseStep);
+        Debug.Log($"SpawnInterval updated: {spawnInterval}•b");
+    }
+
+    private IEnumerator SpawnLoop()
+    {
+        while (true)
+        {
+            SpawnEnemy();
+            yield return new WaitForSeconds(spawnInterval);
+        }
     }
 
     void SpawnEnemy()

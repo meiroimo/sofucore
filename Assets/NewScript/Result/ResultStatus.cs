@@ -59,7 +59,8 @@ public class ResultStatus : MonoBehaviour
 
         for (int i = 0; i < statusTexts.Length && i < labels.Length; i++)
         {
-            statusTexts[i].text = labels[i] + values[i].ToString("F0") + unit[i];
+            //statusTexts[i].text = labels[i] + values[i].ToString("F0") + unit[i];
+            statusTexts[i].text = values[i].ToString("F0") + unit[i];
         }
     }
 }

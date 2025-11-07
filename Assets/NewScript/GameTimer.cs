@@ -1,53 +1,40 @@
 using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameTimer : MonoBehaviour
 {
-    [Header("仮の目標時間(秒)")] public float spawnTime = 60;
+    public float spawnTime = 60;
     private float currentTime = 0f;
-    public Text timerText;// タイマー表示用
+    public Text timerText;
 
     public event Action OnTimeReached;
+    public event Action<int> OnTimeIntervalReached; // 経過時間帯イベント
 
     private bool triggered = false;
 
-    private PlayerController playerController;
-    bool player_LifeOrdeath;//プレイヤーが生きてるか
-    bool clearFlg;
-
-    private void Start()
-    {
-        GameObject player = GameObject.FindWithTag("Player");
-        playerController = player.GetComponent<PlayerController>();
-        ResultClear.Instance.isGameClear = false;
-    }
+    private int lastInterval = 0; // 前回通知した時間帯
 
     private void Update()
     {
-        if (ResultClear.Instance.isGameClear) return;
         currentTime += Time.deltaTime;
         float remainingTime = Mathf.Max(0f, spawnTime - currentTime);
 
         if (timerText != null)
-        {
             timerText.text = "Time: " + remainingTime.ToString("F1") + "秒";
-        }
 
         if (!triggered && currentTime >= spawnTime)
         {
             triggered = true;
-
-            OnTimeReached?.Invoke();//登録された関数を呼び出す
+            OnTimeReached?.Invoke();
         }
-    }
 
-    /// <summary>
-    /// リザルトシーンに遷移
-    /// </summary>
-    private void GoToResult()
-    {
-        SceneManager.LoadScene("ResultScene");
+        // 20秒ごとの間隔イベント
+        int currentInterval = Mathf.FloorToInt(currentTime / 20f);
+        if (currentInterval != lastInterval)
+        {
+            lastInterval = currentInterval;
+            OnTimeIntervalReached?.Invoke(currentInterval);
+        }
     }
 }

@@ -30,6 +30,7 @@ public class PlayerSkillSlider : MonoBehaviour
         skillChargePoint = playerStatus_Script.D_player_Skill_Charge;
 
         isSkillCharge = false;
+        setNowPoint(1);
         //InvokeRepeating("メソッド名", 開始までの遅延時間, 繰り返し間隔);
         //InvokeRepeating(nameof(skillPointUICharge), 1.0f, 1.0f);
 
@@ -58,7 +59,7 @@ public class PlayerSkillSlider : MonoBehaviour
         //UIに反映
     void skillSet()
     {
-        float nowValue = nowSkillPoint / maxSkillPoint;
+        float nowValue = 1 - (nowSkillPoint / maxSkillPoint);
 
         skillSlider.value = nowValue;
     }
@@ -70,7 +71,7 @@ public class PlayerSkillSlider : MonoBehaviour
         else return false;
     }
 
-    //使ったら0を入れる
+    //使ったら1を入れる
     public void setNowPoint(float h_nowSkillPoint)
     {
         nowSkillPoint = h_nowSkillPoint;

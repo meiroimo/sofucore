@@ -370,7 +370,7 @@ public class PlayerController : MonoBehaviour
         //必要なスキルポイントがあるかの判定を作る
         if (playerSkillSlider[(int)SkillName.SPECIAL].isUseSkill())  //一旦0番目の必殺ゲージにしてある
         {
-            playerSkillSlider[(int)SkillName.SPECIAL].setNowPoint(0);
+            playerSkillSlider[(int)SkillName.SPECIAL].setNowPoint(1);
             ChangeState(new PlayerSkillAttackState(this));
         }
     }

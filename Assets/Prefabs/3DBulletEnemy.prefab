@@ -309,6 +309,7 @@ MonoBehaviour:
   maxHP: 0
   enemyRenderer: {fileID: 3386731305477797828}
   dropScript: {fileID: 6581994499314108105}
+  damageEffect: {fileID: 1758473627833946668, guid: 431f3848c1b205a47ab4213544c9ba4f, type: 3}
   softVinyldata: {fileID: 0}
 --- !u!114 &1796146075026801919
 MonoBehaviour:

@@ -20,7 +20,7 @@ public class ScreenshotDisplayScript : MonoBehaviour
             );
 
             display.sprite = sprite;
-            display.preserveAspect = true;
+            display.preserveAspect = false;
 
             FitToImageSize(display);
         }

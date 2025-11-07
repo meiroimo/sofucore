@@ -172,12 +172,12 @@ public class SetSofviManeger : MonoBehaviour
         PlayerStatus_Script.add_Player_MaxSutamina = 0;
 
 
-        for (int i=1;i<= MAXSETPOSITION;i++)
+        for (int i = 0; i < MAXSETPOSITION; i++)
         {
             //設置されていないポジションならスキップ
             if (setSoftVinylData[i].checksetpotion == false) continue;
             //メインステータス反映
-           // Debug.Log(setSoftVinylData[i].Buffparameter);
+            // Debug.Log(setSoftVinylData[i].Buffparameter);
             switch (setSoftVinylData[i].buffMainstatus)
             {
                 case softVinyl.BUFFSTATUSNUM.POWER:

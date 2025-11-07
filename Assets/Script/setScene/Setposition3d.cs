@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Setposition3d : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class Setposition3d : MonoBehaviour
     public bool rathit = false;//レイが当たっていたら判定
     public int setpotionNumber=0;
     public GameObject[] model;
+    Camera mainCamera; // 撮影したいカメラ
     void Start()
     {
         //model = new GameObject[5];
@@ -55,8 +57,17 @@ public class Setposition3d : MonoBehaviour
         ColloderOff();//設置場所のコライダーオフ再度クリックされないように
         softVinylData.checksetpotion = true;//セットされたかの判定をオンに
         SetSofviManeger.statusup();
-    }
 
+        //スクショ
+        StartCoroutine(CaptureAndGo());
+
+    }
+    private IEnumerator CaptureAndGo()
+    {
+        if(mainCamera == null) mainCamera = GameObject.Find("SetSceneCamera").GetComponent<Camera>();
+
+        yield return ScreenshotManagerScript.CaptureFromCamera(mainCamera);
+    }
     public   void TranslucentSofviIns()　//半透明ソフビ生成関数
     {
         SetSofviManeger.setpositionsofviDeta(softVinylData);

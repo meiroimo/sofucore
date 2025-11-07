@@ -73,6 +73,7 @@ public class BossAttackState : BossState
         // 攻撃判定：攻撃範囲内のプレイヤーを確認
         if (boss.DistanceToPlayer <= attackRange + 0.5f)
         {
+            boss.StartAttackEffect();
             Debug.Log("Hit player!"); // ここでプレイヤーのダメージ処理を呼び出せる
             boss.Boss_SE.PlayBossSE(BossSEBox.SENAME.HIT);
             boss.player.GetComponent<PlayerController>()?.TakeDamage((int)boss.Boss_Power);

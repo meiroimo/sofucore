@@ -103,6 +103,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Run",
+                    "type": "Button",
+                    "id": "8acecb51-0313-46d4-82ed-d7a7ad6f0f62",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -328,17 +337,6 @@
                 },
                 {
                     "name": "",
-                    "id": "0752a095-f0e8-4e4b-a695-fcd3493cb116",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "NomalAttack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "0bf9ba2b-9f2d-414b-b6c1-2c899a987766",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -516,7 +514,7 @@
                 {
                     "name": "",
                     "id": "1be06822-1c99-491d-a430-f8eaed2a0528",
-                    "path": "<Keyboard>/leftShift",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -543,6 +541,17 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "AttackDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7e0312f2-fd20-48a3-bc90-3ad6d77936a9",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

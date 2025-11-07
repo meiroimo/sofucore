@@ -7,6 +7,7 @@ using static playerEffectScript;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("移動速度")]
     public float moveForce = 10f;//移動速度
     public float rotationSpeed = 10f;
 
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 fixedAttackDirection; //攻撃中の向き（マウス）
     private Vector2 attackStickInput;//攻撃の向き（コントローラー用）
     private bool isAttack = false;
+    private bool isRunning = false;
 
     private float attack_Power;
     private float attackRadius = 5f;
@@ -74,6 +76,7 @@ public class PlayerController : MonoBehaviour
     public float Attack_Power { get => attack_Power; set => attack_Power = value; }
     public PlayerSEBox SeBox { get => _seBox; set => _seBox = value; }
     public Vector2 AttackStickInput { get => attackStickInput; set => attackStickInput = value; }
+    public bool IsRunning { get => isRunning; }
     #endregion
     //ゲッター・セッター
 
@@ -114,6 +117,8 @@ public class PlayerController : MonoBehaviour
         inputActions.Player.Avoid.performed += ctx => OnAvoid();
         inputActions.Player.NomalAttack.performed += cxt => OnLightAttack();
         inputActions.Player.BarettaAttack.performed += cxt => OnSkillAttack();
+        inputActions.Player.Run.performed += ctx => isRunning = true;
+        inputActions.Player.Run.canceled += ctx => isRunning = false;
         #endregion
         //InputSystem
 

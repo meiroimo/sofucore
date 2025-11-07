@@ -125,6 +125,15 @@ public partial class @FlowerGuard2: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Run"",
+                    ""type"": ""Button"",
+                    ""id"": ""8acecb51-0313-46d4-82ed-d7a7ad6f0f62"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -350,17 +359,6 @@ public partial class @FlowerGuard2: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""0752a095-f0e8-4e4b-a695-fcd3493cb116"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""NomalAttack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""0bf9ba2b-9f2d-414b-b6c1-2c899a987766"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
@@ -538,7 +536,7 @@ public partial class @FlowerGuard2: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""1be06822-1c99-491d-a430-f8eaed2a0528"",
-                    ""path"": ""<Keyboard>/leftShift"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -565,6 +563,17 @@ public partial class @FlowerGuard2: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""AttackDirection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7e0312f2-fd20-48a3-bc90-3ad6d77936a9"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Run"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1163,6 +1172,7 @@ public partial class @FlowerGuard2: IInputActionCollection2, IDisposable
         m_Player_Cursor = m_Player.FindAction("Cursor", throwIfNotFound: true);
         m_Player_Avoid = m_Player.FindAction("Avoid", throwIfNotFound: true);
         m_Player_AttackDirection = m_Player.FindAction("AttackDirection", throwIfNotFound: true);
+        m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1247,6 +1257,7 @@ public partial class @FlowerGuard2: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Cursor;
     private readonly InputAction m_Player_Avoid;
     private readonly InputAction m_Player_AttackDirection;
+    private readonly InputAction m_Player_Run;
     public struct PlayerActions
     {
         private @FlowerGuard2 m_Wrapper;
@@ -1262,6 +1273,7 @@ public partial class @FlowerGuard2: IInputActionCollection2, IDisposable
         public InputAction @Cursor => m_Wrapper.m_Player_Cursor;
         public InputAction @Avoid => m_Wrapper.m_Player_Avoid;
         public InputAction @AttackDirection => m_Wrapper.m_Player_AttackDirection;
+        public InputAction @Run => m_Wrapper.m_Player_Run;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1304,6 +1316,9 @@ public partial class @FlowerGuard2: IInputActionCollection2, IDisposable
             @AttackDirection.started += instance.OnAttackDirection;
             @AttackDirection.performed += instance.OnAttackDirection;
             @AttackDirection.canceled += instance.OnAttackDirection;
+            @Run.started += instance.OnRun;
+            @Run.performed += instance.OnRun;
+            @Run.canceled += instance.OnRun;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1341,6 +1356,9 @@ public partial class @FlowerGuard2: IInputActionCollection2, IDisposable
             @AttackDirection.started -= instance.OnAttackDirection;
             @AttackDirection.performed -= instance.OnAttackDirection;
             @AttackDirection.canceled -= instance.OnAttackDirection;
+            @Run.started -= instance.OnRun;
+            @Run.performed -= instance.OnRun;
+            @Run.canceled -= instance.OnRun;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1534,6 +1552,7 @@ public partial class @FlowerGuard2: IInputActionCollection2, IDisposable
         void OnCursor(InputAction.CallbackContext context);
         void OnAvoid(InputAction.CallbackContext context);
         void OnAttackDirection(InputAction.CallbackContext context);
+        void OnRun(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

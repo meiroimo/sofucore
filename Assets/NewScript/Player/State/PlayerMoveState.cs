@@ -18,16 +18,23 @@ public class PlayerMoveState : PlayerState
 
     public override void Update()
     {
-        Vector2 input = player.MoveInput;
+        Vector2 moveInput = player.MoveInput;
+        Vector3 moveDir = new Vector3(moveInput.x, 0, moveInput.y);
 
-        if (input.magnitude < 0.1f)
+        if (moveDir.sqrMagnitude < 0.01f)
         {
             player.ChangeState(new PlayerIdleState(player));
             return;
         }
 
-        Vector3 moveDirection = new Vector3(input.x, 0, input.y); // Z•ûŒüˆÚ“®
-        player.MoveCharacter(moveDirection, player.moveForce);
+        // ShiftƒL[‰Ÿ‰º‚Å‘–‚è‚ÉˆÚs
+        if (player.IsRunning)
+        {
+            player.ChangeState(new PlayerRunState(player));
+            return;
+        }
+
+        player.MoveCharacter(moveDir, player.moveForce);
     }
 
     public override void Exit()

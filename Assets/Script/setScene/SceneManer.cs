@@ -68,7 +68,7 @@ public class SceneManer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))//tab‰Ÿ‚µ‚½‚ç
         {
-            Debug.Log("tab‚¨‚µ‚½");
+           // Debug.Log("tab‚¨‚µ‚½");
             if (!SetFlg)
             {
                 Time.timeScale = 0f;

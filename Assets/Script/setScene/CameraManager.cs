@@ -31,7 +31,7 @@ public class CameraManager : MonoBehaviour
     public void changeCamera(GameObject ToCamera)
     {
         GameObject NowMainCamera;
-         NowMainCamera = Camera.main.gameObject;
+        NowMainCamera = Camera.main.gameObject;
         NowMainCamera.SetActive(false);
         ToCamera.SetActive(true);
 

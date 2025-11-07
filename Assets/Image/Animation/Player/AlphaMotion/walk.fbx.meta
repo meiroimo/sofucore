@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 1338b940b3de6fa44966cc4b8efc4f10
+guid: 35b89f397d5de854fa0aeff3e1719d55
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: standardSurface1
+    second: {fileID: 2100000, guid: 8e4d03c481faaf44ca5ea5889be1fdc1, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -36,8 +41,8 @@ ModelImporter:
       name: Take 001
       takeName: Take 001
       internalID: 1827226128182048838
-      firstFrame: 0
-      lastFrame: 30
+      firstFrame: 1
+      lastFrame: 19
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

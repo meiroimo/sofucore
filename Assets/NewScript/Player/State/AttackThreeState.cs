@@ -14,7 +14,8 @@ public class AttackThreeState : PlayerState
 
     public override void Enter()
     {
-        player.animator.SetBool("isAttack", true);
+        player.PlayerMotionScript.attackMotion(true);
+
         player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.SLASH);
         Debug.Log("攻撃：三段階目！");
         player.IsAttack = true;
@@ -40,7 +41,7 @@ public class AttackThreeState : PlayerState
     public override void Exit()
     {
         player.IsAttack = false;
-        player.animator.SetBool("isAttack", false);
+        player.PlayerMotionScript.attackMotion(false);
         player.PlayerEffectScript.StopEffect((int)playerEffectScript.EffectName.SLASH);
 
     }

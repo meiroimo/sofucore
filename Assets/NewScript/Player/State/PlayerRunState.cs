@@ -40,6 +40,7 @@ public class PlayerRunState : PlayerState
     public override void Exit()
     {
         //player.animator.SetBool("isRun", false);
+
     }
 
 }

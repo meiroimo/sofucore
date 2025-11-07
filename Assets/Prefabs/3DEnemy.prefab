@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 0
-  enemyRenderer: {fileID: 0}
+  enemyRenderer: {fileID: 2326972640027880198}
   dropScript: {fileID: 6581994499314108105}
   damageEffect: {fileID: 2521587283091839040}
   softVinyldata: {fileID: 0}
@@ -557,6 +557,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f5815504c3eb304c92079b1e4819a4f, type: 3}
+--- !u!23 &2326972640027880198 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8242656852711037844, guid: 5f5815504c3eb304c92079b1e4819a4f, type: 3}
+  m_PrefabInstance: {fileID: 5920225758368624786}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3458832224633606249 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7073149920984178939, guid: 5f5815504c3eb304c92079b1e4819a4f, type: 3}

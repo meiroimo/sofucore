@@ -18,6 +18,8 @@ public class PlayerAvoidState : PlayerState
     public override void Enter()
     {
         player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.AVOIDANCE);
+        player.PlayerMotionScript.avoidanceMotion(true);
+
         //“ü—Í•ûŒü‚ª‚È‚¯‚ê‚ÎŒü‚¢‚Ä‚¢‚é•ûŒü‚É‰ñ”ğ
         Vector2 moveInput = player.MoveInput; // © —áFVInput System‚Å‚ÌˆÚ“®“ü—Í
         Vector3 moveDir = new Vector3(moveInput.x, 0, moveInput.y).normalized;
@@ -54,5 +56,7 @@ public class PlayerAvoidState : PlayerState
 
     public override void Exit() {
         player.PlayerEffectScript.StopEffect((int)playerEffectScript.EffectName.AVOIDANCE);
+        player.PlayerMotionScript.avoidanceMotion(false);
+
     }
 }

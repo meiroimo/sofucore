@@ -28,4 +28,9 @@ public class playerMotionScript : MonoBehaviour
     {
         animator.SetBool("isWalk", flag);
     }
+
+    public void avoidanceMotion(bool flag)
+    {
+        animator.SetBool("isAvoidance", flag);
+    }
 }

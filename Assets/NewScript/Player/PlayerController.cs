@@ -7,6 +7,7 @@ using static playerEffectScript;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("移動速度")]
     public float moveForce = 10f;//移動速度
     public float rotationSpeed = 10f;
 
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 fixedAttackDirection; //攻撃中の向き（マウス）
     private Vector2 attackStickInput;//攻撃の向き（コントローラー用）
     private bool isAttack = false;
+    private bool isRunning = false;
 
     private float attack_Power;
     private float attackRadius = 5f;
@@ -36,6 +38,7 @@ public class PlayerController : MonoBehaviour
     public playerEffectScript PlayerEffectScript;
     public Animator animator;
     private PlayerSEBox _seBox;
+    public playerMotionScript PlayerMotionScript;
 
     //コントローラー関係
     #region 
@@ -74,6 +77,7 @@ public class PlayerController : MonoBehaviour
     public float Attack_Power { get => attack_Power; set => attack_Power = value; }
     public PlayerSEBox SeBox { get => _seBox; set => _seBox = value; }
     public Vector2 AttackStickInput { get => attackStickInput; set => attackStickInput = value; }
+    public bool IsRunning { get => isRunning; }
     #endregion
     //ゲッター・セッター
 
@@ -82,15 +86,14 @@ public class PlayerController : MonoBehaviour
         //GetComponent
         #region
         inputActions = new FlowerGuard2();
-        Rigid = gameObject.transform.parent.gameObject.GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
+        Rigid = gameObject.GetComponent<Rigidbody>();
+        //animator = GetComponent<Animator>();
         playerStatus_Script = GetComponent<PlayerStatus_Script>();
         hpSliderScript = GetComponent<HPSliderScript>();
         staminaSliderScript = GetComponent<StaminaSliderScript>();
         playerSkillSlider = GetComponents<PlayerSkillSlider>(); //同一コンポーネントを複数Getするときは[GetComponents]でｓ付ける
         PlayerEffectScript = effectOBJ.GetComponent<playerEffectScript>();
         _seBox = GetComponent<PlayerSEBox>();
-        animator = GetComponent<Animator>();
         #endregion
         //GetComponent
 
@@ -114,6 +117,8 @@ public class PlayerController : MonoBehaviour
         inputActions.Player.Avoid.performed += ctx => OnAvoid();
         inputActions.Player.NomalAttack.performed += cxt => OnLightAttack();
         inputActions.Player.BarettaAttack.performed += cxt => OnSkillAttack();
+        inputActions.Player.Run.performed += ctx => isRunning = true;
+        inputActions.Player.Run.canceled += ctx => isRunning = false;
         #endregion
         //InputSystem
 
@@ -143,7 +148,7 @@ public class PlayerController : MonoBehaviour
 
         if (hpSliderScript.GetNowHealth() <= 0)
         {
-            animator.SetBool("isDeth", true);
+            PlayerMotionScript.dethMotion(true);
         }
     }
 
@@ -231,14 +236,21 @@ public class PlayerController : MonoBehaviour
             float angle = Vector3.Angle(forward, dirToTarget);
             if (angle < attackAngle / 2f)
             {
-                Debug.Log($"{col.name} に攻撃が命中しました！");
                 EnemyController enemy = col.GetComponent<EnemyController>();
                 if (enemy != null)
                 {
                     _seBox.PlayPlayerSE(PlayerSEBox.SENAME.HIT);
                     enemy.OnHit(this);
-                    return;
                 }
+
+                BulletEnemyController bulletenemy = col.GetComponent<BulletEnemyController>();
+                if (bulletenemy != null)
+                {
+                    //Debug.Log($"{col.name} に攻撃が命中しました！");
+                    _seBox.PlayPlayerSE(PlayerSEBox.SENAME.HIT);
+                    bulletenemy.OnHit(this);
+                }
+
                 BossController boss = col.GetComponent<BossController>();
                 if(boss != null)
                 {
@@ -358,7 +370,7 @@ public class PlayerController : MonoBehaviour
         //必要なスキルポイントがあるかの判定を作る
         if (playerSkillSlider[(int)SkillName.SPECIAL].isUseSkill())  //一旦0番目の必殺ゲージにしてある
         {
-            playerSkillSlider[(int)SkillName.SPECIAL].setNowPoint(0);
+            playerSkillSlider[(int)SkillName.SPECIAL].setNowPoint(1);
             ChangeState(new PlayerSkillAttackState(this));
         }
     }

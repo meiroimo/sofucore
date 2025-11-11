@@ -6,18 +6,29 @@ using UnityEngine.InputSystem.XR;
 public class EnemySpawner : MonoBehaviour
 {
     public Transform player; // プレイヤーの位置
-    public GameObject enemyPrefab;   // 出現させる敵プレハブ
+    public GameObject[] enemyPrefab;   // 出現させる敵プレハブ
     public Transform[] spawnPoints;  // スポーン位置
     public float spawnInterval = 5f; // 敵を出現させる間隔
     public int maxEnemies = 10;      // 同時に存在できる敵の最大数
-    public int enemyTypeNo = 1;      // CSVから読み込む敵の種類
+    public int enemyStatusTypeNo = 1;      // CSVから読み込む敵の種類
 
+    public float minSpawnInterval = 1f;
+    public float intervalDecreaseStep = 1f;
+
+    private int enemyType;
     private int currentEnemyCount = 0;
     private CSVReader csvReader;     // CSVReaderへの参照
     private EnemyStatus_Script enemyStatus;
 
     void Start()
     {
+        GameTimer timer = FindObjectOfType<GameTimer>();
+        if (timer != null)
+        {
+            timer.OnTimeIntervalReached += UpdateSpawnInterval;
+        }
+
+
         // シーン内のCSVReaderを探して参照
         csvReader = FindObjectOfType<CSVReader>();
         if (csvReader == null)
@@ -26,8 +37,29 @@ public class EnemySpawner : MonoBehaviour
             return;
         }
 
+        enemyType = enemyPrefab.Length;
+
         // 繰り返し呼び出し開始
-        InvokeRepeating(nameof(SpawnEnemy), 1f, spawnInterval);
+        //InvokeRepeating(nameof(SpawnEnemy), 1f, spawnInterval);
+
+        StartCoroutine(SpawnLoop());
+
+    }
+
+    private void UpdateSpawnInterval(int intervalIndex)
+    {
+        // 例：20秒経過ごとに spawnInterval を短くする
+        spawnInterval = Mathf.Max(minSpawnInterval, spawnInterval - intervalDecreaseStep);
+        Debug.Log($"SpawnInterval updated: {spawnInterval}秒");
+    }
+
+    private IEnumerator SpawnLoop()
+    {
+        while (true)
+        {
+            SpawnEnemy();
+            yield return new WaitForSeconds(spawnInterval);
+        }
     }
 
     void SpawnEnemy()
@@ -39,14 +71,14 @@ public class EnemySpawner : MonoBehaviour
         Transform spawnPoint = spawnPoints[index];
 
         // 敵を生成
-        GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        GameObject enemy = Instantiate(enemyPrefab[Random.Range(0, enemyPrefab.Length)], spawnPoint.position, spawnPoint.rotation);
 
         // ステータス設定
         EnemyStatus_Script enemyStatus = enemy.GetComponent<EnemyStatus_Script>();
         if (enemyStatus != null)
         {
             csvReader.SetEnemyStatusScript(enemyStatus);
-            csvReader.LoadingEnemyStatus(enemyTypeNo);// CSVからステータス読み込み
+            csvReader.LoadingEnemyStatus(enemyStatusTypeNo);// CSVからステータス読み込み
         }
         else
         {

@@ -4,7 +4,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.Mesh;
 
-
+/// <summary>
+/// ソフビを「設置位置」に配置・プレビュー・確定する
+/// </summary>
 public class SetSofviManeger : MonoBehaviour
 {
 
@@ -26,12 +28,19 @@ public class SetSofviManeger : MonoBehaviour
         checkBuffStatus = false;
         selectSofviDeta = selectSofviOBJ.GetComponent<softVinyl>();
         setpotionDataSet();
-        PlayerStatus_Script= GameObject.Find("Player_stand").GetComponent<PlayerStatus_Script>();//  直接名前検索しているのでプレイヤーobjの名前が変わるとここも変更させる
+        PlayerStatus_Script= GameObject.Find("Player").GetComponent<PlayerStatus_Script>();//  直接名前検索しているのでプレイヤーobjの名前が変わるとここも変更させる
     }
     // Update is called once per frame
     void Update()
     {
+        if (selectSofviOBJ == null)
+        {
+            Debug.Log("nasi");
+            return; // 削除済みなので処理しない
+        }
+
         setSofuvi();
+
         SofviPreview();
     }
 
@@ -43,11 +52,27 @@ public class SetSofviManeger : MonoBehaviour
 
     void setpotionDataSet()
     {
-        for (int i = 0; i < AllSetobject.gameObject.transform.childCount; i++)
+        setSoftVinylData.Clear();
+        setposition3Ds.Clear();
+
+        for (int i = 0; i < AllSetobject.transform.childCount; i++)
         {
-            AllSetobject.gameObject.transform.GetChild(i).gameObject.GetComponent<Setposition3d>().setpotionNumber = (i);
-            addSetPotiionSofviData(AllSetobject.gameObject.transform.GetChild(i).gameObject.GetComponent<softVinyl>(), AllSetobject.gameObject.transform.GetChild(i).gameObject.GetComponent<Setposition3d>());
+            GameObject child = AllSetobject.transform.GetChild(i).gameObject;
+            softVinyl softvinyl = child.GetComponent<softVinyl>();
+            Setposition3d setpos = child.GetComponent<Setposition3d>();
+
+            if (softvinyl != null && setpos != null)
+            {
+                setpos.setpotionNumber = i;
+                addSetPotiionSofviData(softvinyl, setpos);
+            }
         }
+
+        //for (int i = 0; i < AllSetobject.gameObject.transform.childCount; i++)
+        //{
+        //    AllSetobject.gameObject.transform.GetChild(i).gameObject.GetComponent<Setposition3d>().setpotionNumber = (i);
+        //    addSetPotiionSofviData(AllSetobject.gameObject.transform.GetChild(i).gameObject.GetComponent<softVinyl>(), AllSetobject.gameObject.transform.GetChild(i).gameObject.GetComponent<Setposition3d>());
+        //}
 
 
     }
@@ -138,7 +163,7 @@ public class SetSofviManeger : MonoBehaviour
     {
         //ステータス反映前に数値を初期化
         
-            PlayerStatus_Script.add_Player_Attack_Power=0;
+        PlayerStatus_Script.add_Player_Attack_Power=0;
         PlayerStatus_Script.add_Player_Defense = 0;
         PlayerStatus_Script.add_Player_Speed = 0;
         PlayerStatus_Script.add_Player_Critical = 0; 
@@ -147,12 +172,12 @@ public class SetSofviManeger : MonoBehaviour
         PlayerStatus_Script.add_Player_MaxSutamina = 0;
 
 
-            for (int i=1;i<= MAXSETPOSITION;i++)
+        for (int i = 0; i < MAXSETPOSITION; i++)
         {
             //設置されていないポジションならスキップ
             if (setSoftVinylData[i].checksetpotion == false) continue;
             //メインステータス反映
-           // Debug.Log(setSoftVinylData[i].Buffparameter);
+            // Debug.Log(setSoftVinylData[i].Buffparameter);
             switch (setSoftVinylData[i].buffMainstatus)
             {
                 case softVinyl.BUFFSTATUSNUM.POWER:
@@ -264,5 +289,26 @@ public class SetSofviManeger : MonoBehaviour
                     break;
             }
         }
+    }
+
+    /// <summary>
+    /// 現在選択中のソフビを破棄（UI上から削除）
+    /// </summary>
+    public void DeleteSelectedSofvi()
+    {
+        if (selectSofviOBJ == null)
+        {
+            Debug.LogWarning("選択中のソフビが存在しません");
+            return;
+        }
+
+        // ソフビオブジェクト削除
+        Debug.Log($"ソフビ {selectSofviOBJ.name} を廃棄しました");
+        //Destroy(selectSofviOBJ);
+
+        // データ参照をクリア
+        selectSofviOBJ = null;
+        selectSofviDeta = null;
+
     }
 }

@@ -17,13 +17,11 @@ public class SceneManer : MonoBehaviour
     {
         Scene sceneB = SceneManager.GetSceneByName("SetSofviScene");
         Debug.LogFormat("sceneB ={0}", sceneB.IsValid());
-        //var gameObject = GameObject.Find("SetSceneCanvas");
         if (sceneB.IsValid()==false)
         {
             OnLoadSceneAdditive();
             Debug.Log("ê›íuÉVÅ[Éìì«Ç›çûÇ›");
         }
-
 
     }
     void Start()
@@ -68,7 +66,7 @@ public class SceneManer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))//tabâüÇµÇΩÇÁ
         {
-            Debug.Log("tabÇ®ÇµÇΩ");
+           // Debug.Log("tabÇ®ÇµÇΩ");
             if (!SetFlg)
             {
                 Time.timeScale = 0f;

@@ -5,8 +5,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+/// <summary>
+/// ソフビ一覧の各ボタン
+/// </summary>
 public class PanelButton : MonoBehaviour
 {
+    [Header("ソフビ一覧の各ボタンにソフビデータを入れるスクリプト")]
+
     [SerializeField] private GameObject PanelImage;//パネルイメージOBJ
     [SerializeField] private GameObject PanelUI;//パネルウィンドウUI
     [SerializeField] public softVinyl SetSofvidata;//設置ソフビデータ
@@ -87,7 +92,7 @@ public class PanelButton : MonoBehaviour
     }
   
 
-    void setImage()
+    public void setImage()
     {
         //ソフビデータがなかった場合は×表示
         if(SetSofvidata==null)

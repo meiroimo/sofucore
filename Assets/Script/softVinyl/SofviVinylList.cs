@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// ストレージ (sofviStrage) からソフビデータを取得し、一覧UI（子ボタン）に反映する。
+/// </summary>
 public class SofviVinylList : MonoBehaviour
 {
     Transform Parent;//親オブジェクト
@@ -40,9 +43,10 @@ public class SofviVinylList : MonoBehaviour
             childrenPanelScript[i] = children[i].gameObject.GetComponent<PanelButton>();
         }
     }
-    void setSofiDataButton()//各ボタンにソフビデータをセット
+    public void setSofiDataButton()//各ボタンにソフビデータをセット
     {
          softVinylData = sofviStrage.sofviStrageList;
+
 
         if (softVinylData == null)
         {

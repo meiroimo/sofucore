@@ -29,6 +29,7 @@ public class clear : MonoBehaviour
            Keyboard.current?.spaceKey.wasPressedThisFrame == true ||
            Gamepad.current?.buttonSouth.wasPressedThisFrame == true) // Aボタン(PSなら×)
             {
+                resetStrage();//スタティックのストレージリストをクリア
                 SceneManager.LoadScene("ResultScene");
                 return;
             }
@@ -59,5 +60,9 @@ public class clear : MonoBehaviour
         {
             clearText.text = "spaceキーで進む";
         }
+    }
+    private void resetStrage()
+    {
+        sofviStrage.sofviStrageList.Clear();
     }
 }

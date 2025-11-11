@@ -119,24 +119,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01d7dad586a608549be90ed83e779f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sofvimodel: 0
-  theme: 0
-  skill: 0
+  sofvimodel: 2
+  theme: 2
+  skill: 2
   rarity: 2
-  cost: 0
-  ListNumber: 0
-  buffMainstatus: 0
-  buffSubstatus1: 0
-  buffSubstatus2: 0
-  buffSubstatus3: 0
-  Buffparameter: 0
-  Buffparameter1: 0
-  Buffparameter2: 0
-  Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
+  cost: 2
+  ListNumber: 2
+  buffMainstatus: 2
+  buffSubstatus1: 2
+  buffSubstatus2: 2
+  buffSubstatus3: 2
+  Buffparameter: 2
+  Buffparameter1: 2
+  Buffparameter2: 2
+  Buffparameter3: 2
   checksetpotion: 0
   selectCheck: 0
   selectButton: {fileID: 0}

@@ -53,6 +53,11 @@ public class EnemyController : MonoBehaviour
         agent.speed = enemy_Speed;
         #endregion
 
+        if (enemyHealth != null)
+        {
+            enemyHealth.OnDeath += HandleDeath;
+        }
+
         ChangeState(new EnemyChaseState());
         attackEffect.SetActive(false);
     }
@@ -60,6 +65,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         currentState?.Update(this);
+        JudgementDrop();
     }
 
     public void ChangeState(EnemyState newState)
@@ -104,6 +110,34 @@ public class EnemyController : MonoBehaviour
     {
         attackEffect.SetActive(true);
 
+    }
+
+    private void HandleDeath()
+    {
+        // EnemyHealth‚ª€‚ğŒŸ’m ¨ Spawner‚Ö“`‚¦‚é
+        OnDeath?.Invoke();
+    }
+
+    void JudgementDrop()
+    {
+        // NavMeshã‚ÅŒo˜H‚ª‚È‚­‚È‚Á‚½‚çd—Í‚Å—‚Æ‚·
+        if (!agent.hasPath && agent.isOnNavMesh)
+        {
+            agent.enabled = false; // NavMesh§Œä‚ğ–³Œø‰»
+            Rigidbody rb = GetComponent<Rigidbody>();
+            rb.isKinematic = false; // •¨—‚ğ—LŒø‚É
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Floor"))
+        {
+            Rigidbody rb = GetComponent<Rigidbody>();
+            rb.isKinematic = true; // •¨—’â~
+            agent.enabled = true;  // NavMesh§Œä‚É–ß‚·
+            agent.SetDestination(player.position);
+        }
     }
 
 }

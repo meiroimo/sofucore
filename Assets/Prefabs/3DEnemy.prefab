@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 1940904434732597160}
   - component: {fileID: 975810745972596569}
   - component: {fileID: 1796146075026801919}
+  - component: {fileID: -5765141888682880806}
   - component: {fileID: -2857209347671981484}
   m_Layer: 6
   m_Name: 3DEnemy
@@ -212,6 +213,33 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ded059219cd735c419d34754e3132b1e, type: 3}
   - {fileID: 8300000, guid: 79a7b9360af5c5d43875a269ba487364, type: 3}
   EnemyAudioSource: {fileID: -2857209347671981484}
+--- !u!54 &-5765141888682880806
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6907368253047354171}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!82 &-2857209347671981484
 AudioSource:
   m_ObjectHideFlags: 0

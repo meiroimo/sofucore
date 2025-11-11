@@ -1,99 +1,185 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem.XR;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public Transform player; // �v���C���[�̈ʒu
-    public GameObject[] enemyPrefab;   // �o��������G�v���n�u
-    public Transform[] spawnPoints;  // �X�|�[���ʒu
-    public float spawnInterval = 5f; // �G���o��������Ԋu
-    public int maxEnemies = 10;      // �����ɑ��݂ł���G�̍ő吔
-    public int enemyStatusTypeNo = 1;      // CSV����ǂݍ��ޓG�̎��
+    [Header("基本設定")]
+    public Transform player; // プレイヤーの位置
+    public GameObject[] enemyPrefab; // 出現させる敵プレハブ
+    public Transform[] spawnPoints; // スポーン候補位置
+    public float spawnInterval = 2f; // 敵を出現させる間隔
+    public int maxEnemies = 10; // 同時に存在できる敵の最大数
+    public int spawnCountPerWave = 3; // 一度に出す敵の数
+    public int enemyStatusTypeNo = 1; // CSVから読み込む敵の種類
 
-    public float minSpawnInterval = 1f;
-    public float intervalDecreaseStep = 1f;
+    public float spawnRadiusMin = 10f;
+    public float spawnRadiusMax = 20f;
+    public float spawnHeight = 0f;
 
-    private int enemyType;
+    private float timer;
+
+    [Header("障害物チェック設定")]
+    public LayerMask obstacleLayer; // 障害物レイヤー
+    public float checkRadius = 1.0f; // 出現位置周囲の判定半径
+    public int maxSpawnTries = 10; // 再抽選回数（障害物がある場合）
+
     private int currentEnemyCount = 0;
-    private CSVReader csvReader;     // CSVReader�ւ̎Q��
-    private EnemyStatus_Script enemyStatus;
+    private CSVReader csvReader;
 
     void Start()
     {
-        GameTimer timer = FindObjectOfType<GameTimer>();
-        if (timer != null)
-        {
-            timer.OnTimeIntervalReached += UpdateSpawnInterval;
-        }
-
-
-        // �V�[������CSVReader��T���ĎQ��
+        // CSVReaderを探す
         csvReader = FindObjectOfType<CSVReader>();
         if (csvReader == null)
         {
-            Debug.LogError("CSVReader���V�[���Ɍ�����܂���I");
+            Debug.LogError("CSVReaderがシーンに見つかりません！");
             return;
         }
 
-        enemyType = enemyPrefab.Length;
-
-        // �J��Ԃ��Ăяo���J�n
-        //InvokeRepeating(nameof(SpawnEnemy), 1f, spawnInterval);
-
-        StartCoroutine(SpawnLoop());
-
+        // 一定間隔で呼び出し
+        //InvokeRepeating(nameof(SpawnEnemyWave), 1f, spawnInterval);
     }
 
-    private void UpdateSpawnInterval(int intervalIndex)
+    private void Update()
     {
-        // ��F20�b�o�߂��Ƃ� spawnInterval ��Z������
-        spawnInterval = Mathf.Max(minSpawnInterval, spawnInterval - intervalDecreaseStep);
-        Debug.Log($"SpawnInterval updated: {spawnInterval}�b");
-    }
+        timer += Time.deltaTime;
 
-    private IEnumerator SpawnLoop()
-    {
-        while (true)
+        if (timer >= spawnInterval)
         {
-            SpawnEnemy();
-            yield return new WaitForSeconds(spawnInterval);
+            SpawnEnemyWave();
+            timer = 0;
         }
     }
 
-    void SpawnEnemy()
+    /// <summary>
+    /// 一度に複数の敵を出す（ウェーブ生成）
+    /// </summary>
+    void SpawnEnemyWave()
     {
-        if (currentEnemyCount >= maxEnemies || ResultClear.Instance.isGameClear) return;
+        if (ResultClear.Instance.isGameClear) return;
 
-        // �����_���ȃX�|�[���n�_��I��
-        int index = Random.Range(0, spawnPoints.Length);
-        Transform spawnPoint = spawnPoints[index];
+        if (currentEnemyCount >= maxEnemies) return;
 
-        // �G�𐶐�
-        GameObject enemy = Instantiate(enemyPrefab[Random.Range(0, enemyPrefab.Length)], spawnPoint.position, spawnPoint.rotation);
+        int spawnable = Mathf.Min(spawnCountPerWave, maxEnemies - currentEnemyCount);
 
-        // �X�e�[�^�X�ݒ�
+        for (int i = 0; i < spawnable; i++)
+        {
+            SpawnSingleEnemy();
+        }
+    }
+
+    /// <summary>
+    /// 敵1体を出現させる（障害物を避ける版）
+    /// </summary>
+    void SpawnSingleEnemy()
+    {
+        Vector3 spawnPos = GetValidSpawnPosition();
+
+        if (spawnPos == Vector3.zero)
+        {
+            return;
+        }
+
+        // 敵をランダムに選んで生成
+        GameObject prefab = enemyPrefab[Random.Range(0, enemyPrefab.Length)];
+        GameObject enemy = Instantiate(prefab, spawnPos, Quaternion.identity);
+
+        // ステータス設定
         EnemyStatus_Script enemyStatus = enemy.GetComponent<EnemyStatus_Script>();
         if (enemyStatus != null)
         {
             csvReader.SetEnemyStatusScript(enemyStatus);
-            csvReader.LoadingEnemyStatus(enemyStatusTypeNo);// CSV����X�e�[�^�X�ǂݍ���
+            csvReader.LoadingEnemyStatus(enemyStatusTypeNo);
         }
         else
         {
-            Debug.LogWarning("EnemyStatus_Script ���v���n�u�ɂ���܂���");
+            Debug.LogWarning("EnemyStatus_Script がプレハブにありません");
         }
 
-        // �G�̃J�E���g���X�V
+        // 敵数カウント
         currentEnemyCount++;
 
-        // �G�����S�����Ƃ��ɃJ�E���g����
+        // 死亡時に減らす
         EnemyController enemyController = enemy.GetComponent<EnemyController>();
         if (enemyController != null)
         {
             enemyController.SetPlayer(player);
             enemyController.OnDeath += () => currentEnemyCount--;
         }
+    }
+
+    /// <summary>
+    /// 有効なスポーン位置を選ぶ（障害物があれば再抽選）
+    /// </summary>
+    Vector3 GetValidSpawnPosition()
+    {
+        for (int i = 0; i < maxSpawnTries; i++)
+        {
+            //ランダム方向と距離を決定
+            Vector2 randomDir = Random.insideUnitCircle.normalized;
+            float distance = Random.Range(spawnRadiusMin, spawnRadiusMax);
+
+            //プレイヤーの周囲に候補位置を設定（XZ平面）
+            Vector3 candidate = player.position + new Vector3(randomDir.x * distance, 0f, randomDir.y * distance);
+
+            //NavMesh上の最近点を取得
+            NavMeshHit hit;
+            bool foundNavMesh = NavMesh.SamplePosition(candidate, out hit, 2.0f, NavMesh.AllAreas);
+
+            if (foundNavMesh)
+            {
+                //障害物チェック
+                bool hasObstacle = Physics.CheckSphere(hit.position, checkRadius, obstacleLayer);
+
+                if (!hasObstacle)
+                {
+                    //NavMesh上かつ障害物なし
+                    return hit.position;
+                }
+            }
+        }
+
+        Debug.LogWarning("有効なスポーン位置が見つかりませんでした。");
+        return Vector3.zero;
+
+        //for (int i = 0; i < maxSpawnTries; i++)
+        //{
+        //    // ランダム方向
+        //    Vector2 randomDir = Random.insideUnitCircle.normalized;
+        //    float distance = Random.Range(spawnRadiusMin, spawnRadiusMax);
+
+        //    // 候補位置（XZ平面）
+        //    Vector3 candidate = player.position + new Vector3(randomDir.x * distance, spawnHeight, randomDir.y * distance);
+
+        //    // 地形・障害物チェック（球体で確認）
+        //    bool hit = Physics.CheckSphere(candidate, 1.0f, obstacleLayer);
+        //    if (!hit)
+        //    {
+        //        return candidate; // 障害物がなければこの位置を採用
+        //    }
+        //}
+
+        //// 何度試してもダメならゼロを返す
+        //return Vector3.zero;
+
+        //for (int i = 0; i < maxSpawnTries; i++)
+        //{
+        //    // スポーンポイントをランダムに選ぶ
+        //    Transform point = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        //    Vector3 candidate = point.position;
+
+        //    // 周囲に障害物があるかを確認
+        //    bool hasObstacle = Physics.CheckSphere(candidate, checkRadius, obstacleLayer);
+        //    if (!hasObstacle)
+        //    {
+        //        return candidate; // 障害物がない → 採用
+        //    }
+        //}
+
+        //// 見つからなかった場合
+        //return Vector3.zero;
     }
 }

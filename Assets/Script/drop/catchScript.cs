@@ -56,6 +56,7 @@ public class catchScript : MonoBehaviour
                    
                 }
                 catchSofvi[i]++;
+                PlayerStatusCache.SaveCatchSofviCount();
             }
 
             //ÉJÉEÉìÉgÇµÇΩÇÁè¡Ç∑

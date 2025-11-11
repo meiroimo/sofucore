@@ -9,18 +9,22 @@ public class ResultStatus : MonoBehaviour
     [Header("表示するステータステキスト（順番に）")]
     public Text[] statusTexts;
 
-    [Header("クリアかゲームオーバーのテキスト")]
-    [SerializeField] Text resultText;
+    [Header("クリアかゲームオーバーのImage")]
+    [SerializeField] GameObject clearImage;
+    [SerializeField] GameObject overImage;
 
     void Start()
     {
+        clearImage.SetActive(false);
+        overImage.SetActive(false);
+
         if (ResultClear.Instance.isGameClear)
         {
-            resultText.text = "ゲームクリア！";
+            clearImage.SetActive(true);
         }
         else
         {
-            resultText.text = "ゲームオーバー…";
+            overImage.SetActive(true);
         }
 
         var data = DataManager.Instance.data;
@@ -32,7 +36,9 @@ public class ResultStatus : MonoBehaviour
             "スピード: ",
             "スタミナ: ",
             "攻撃範囲: ",
-            "スキルチャージ: "
+            "スキルチャージ: ",
+            "倒した敵の数",
+            "入手したソフビの数"
             // 必要に応じて他のステータス名もここに追加
         };
 
@@ -43,7 +49,9 @@ public class ResultStatus : MonoBehaviour
             PlayerStatusCache.lastspeed,
             PlayerStatusCache.lastMaxSutamina,
             PlayerStatusCache.lastAttack_Range,
-            PlayerStatusCache.lastSkill_Charge
+            PlayerStatusCache.lastSkill_Charge,
+            PlayerStatusCache.enemy_Defats,
+            PlayerStatusCache.catchSofviCount
             // 必要に応じて他のデータも追加
         };
 
@@ -54,7 +62,9 @@ public class ResultStatus : MonoBehaviour
             "",
             "",
             "%",
-            "s"
+            "s",
+            "体",
+            "個"
         };
 
         for (int i = 0; i < statusTexts.Length && i < labels.Length; i++)

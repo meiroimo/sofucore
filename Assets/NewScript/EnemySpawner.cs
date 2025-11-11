@@ -108,6 +108,7 @@ public class EnemySpawner : MonoBehaviour
         {
             enemyController.SetPlayer(player);
             enemyController.OnDeath += () => currentEnemyCount--;
+            PlayerStatusCache.SaveDefats();
         }
     }
 

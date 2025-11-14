@@ -28,7 +28,7 @@ public class BossDefeatedState : BossState
         if (elapsed >= delayBeforeResult)
         {
             Time.timeScale = 1f;
-            BGMManager.Instance.StopBGM();
+            //BGMManager.Instance.StopBGM();
             ResultClear.Instance.isGameClear = true;
             boss.gameObject.SetActive(false);
             // ここでクリアフラグを保存

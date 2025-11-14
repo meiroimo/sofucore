@@ -62,6 +62,7 @@ public class catchScript : MonoBehaviour
                             softVinylSdata.skill = softVinylSc.skill;
                             softVinylSdata.theme = softVinylSc.theme;
                             softVinylSdata.ListNumber = softVinylSc.ListNumber;
+                            softVinylSdata.buffMainstatus = softVinylSc.buffMainstatus;
                             softVinylSdata.buffSubstatus1 = softVinylSc.buffSubstatus1;
                             softVinylSdata.buffSubstatus2 = softVinylSc.buffSubstatus2;
                             softVinylSdata.buffSubstatus3 = softVinylSc.buffSubstatus3;

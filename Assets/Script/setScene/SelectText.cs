@@ -28,7 +28,7 @@ public class SelectText : MonoBehaviour
    public void setText(softVinyl buttonlocalsoftVinyldata)//パラメータテキストのセット関数
     {
         GameObject textOBJ = transform.GetChild(0).gameObject;
-        switch (buttonlocalsoftVinyldata.buffSubstatus1)
+        switch (buttonlocalsoftVinyldata.buffMainstatus)
         {
             case softVinyl.BUFFSTATUSNUM.POWER:
                 MainBuffname = "<color=#ff3355>攻撃力アップ";

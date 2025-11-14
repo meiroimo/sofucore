@@ -62,6 +62,7 @@ public class SofviVinylList : MonoBehaviour
             childrensoftVinyl[i].skill = softVinylData[i].skill;
             childrensoftVinyl[i].theme = softVinylData[i].theme;
             childrensoftVinyl[i].ListNumber = softVinylData[i].ListNumber;
+            childrensoftVinyl[i].buffMainstatus = softVinylData[i].buffMainstatus;
             childrensoftVinyl[i].buffSubstatus1 = softVinylData[i].buffSubstatus1;
             childrensoftVinyl[i].buffSubstatus2 = softVinylData[i].buffSubstatus2;
             childrensoftVinyl[i].buffSubstatus3 = softVinylData[i].buffSubstatus3;

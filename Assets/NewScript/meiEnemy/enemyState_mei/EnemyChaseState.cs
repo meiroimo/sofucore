@@ -1,6 +1,7 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyChaseState : EnemyState
 {
@@ -8,10 +9,17 @@ public class EnemyChaseState : EnemyState
 
     public override void Update(EnemyController enemy)
     {
-        // ƒvƒŒƒCƒ„[‚ÌˆÊ’u‚ÉŒü‚©‚Á‚ÄˆÚ“®
+
+        //NavMeshAgent ãŒç„¡åŠ¹ / NavMeshä¸Šã«ã„ãªã„ â†’ SetDestinationç¦æ­¢
+        if (enemy.Agent == null || !enemy.Agent.isActiveAndEnabled || !enemy.Agent.isOnNavMesh)
+        {
+            return;
+        }
+
+        // ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ä½ç½®ã«å‘ã‹ã£ã¦ç§»å‹•
         enemy.Agent.SetDestination(enemy.player.position);
 
-        // UŒ‚”ÍˆÍ‚É“ü‚Á‚½‚çUŒ‚ó‘Ô‚Ö
+        // æ”»æ’ƒç¯„å›²ã«å…¥ã£ãŸã‚‰æ”»æ’ƒçŠ¶æ…‹ã¸
         if (enemy.IsPlayerInAttackRange())
         {
             enemy.ChangeState(new EnemyAttackState());

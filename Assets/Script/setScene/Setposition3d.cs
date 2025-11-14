@@ -64,6 +64,7 @@ public class Setposition3d : MonoBehaviour
     private IEnumerator CaptureAndGo()
     {
         if(mainCamera == null) mainCamera = GameObject.Find("SetSceneCamera").GetComponent<Camera>();
+        yield return null;
 
         yield return ScreenshotManagerScript.CaptureFromCamera(mainCamera);
     }

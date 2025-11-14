@@ -916,7 +916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48410316737e22c479014bed518f434a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTime: 60
+  spawnTime: 30
   timerText: {fileID: 312383595}
 --- !u!4 &1159825471
 Transform:
@@ -1402,7 +1402,7 @@ MonoBehaviour:
   player: {fileID: 1016606775}
   enemyPrefab:
   - {fileID: 6907368253047354171, guid: 0291551f08812734ca78600b7f6b3211, type: 3}
-  spawnInterval: 2
+  spawnInterval: 3
   maxEnemies: 10
   spawnCountPerWave: 3
   enemyStatusTypeNo: 1

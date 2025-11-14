@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
     private PlayerSEBox _seBox;
     public playerMotionScript PlayerMotionScript;
 
+    private UIManager uIManager;
+
     //コントローラー関係
     #region 
     private enum InputDeviceType 
@@ -95,6 +97,7 @@ public class PlayerController : MonoBehaviour
         playerSkillSlider = GetComponents<PlayerSkillSlider>(); //同一コンポーネントを複数Getするときは[GetComponents]でｓ付ける
         PlayerEffectScript = effectOBJ.GetComponent<playerEffectScript>();
         _seBox = GetComponent<PlayerSEBox>();
+        uIManager = FindObjectOfType<UIManager>();
         #endregion
         //GetComponent
 
@@ -343,6 +346,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void OnAvoid()
     {
+        if (!uIManager.SetUIFlg) return;
         //if (CanDodge()) // 任意：クールタイム等
         {
             ChangeState(new PlayerAvoidState(this));
@@ -354,6 +358,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void OnLightAttack()
     {
+        if (!uIManager.SetUIFlg) return;
+
         // Idle中又はMoveならAttackOneへ
         if (currentState is PlayerIdleState)
         {
@@ -375,6 +381,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void OnSkillAttack()
     {
+        if (!uIManager.SetUIFlg) return;
+
         //必要なスキルポイントがあるかの判定を作る
         if (playerSkillSlider[(int)SkillName.SPECIAL].isUseSkill())  //一旦0番目の必殺ゲージにしてある
         {

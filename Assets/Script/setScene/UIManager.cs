@@ -12,7 +12,9 @@ public class UIManager : MonoBehaviour
 
 
 
-    bool SetUIFlg;//開いているか判定
+    bool setUIFlg;//開いているか判定
+
+    public bool SetUIFlg { get => setUIFlg; set => setUIFlg = value; }
 
     void Start()
     {
@@ -22,7 +24,7 @@ public class UIManager : MonoBehaviour
             GameMainCanvas = GameObject.Find("GameMainCanvas");
             SetCanvas = GameObject.Find("SetSceneCanvas");
 
-            SetUIFlg = true;
+            setUIFlg = true;
             SetCanvas.SetActive(false);//初めはセットシーンのUIは非表示
         }
         //SetCanvas.SetActive(false);//初めはセットシーンのUIは非表示
@@ -39,7 +41,7 @@ public class UIManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))//tab押したら
         {
-            if (SetUIFlg)
+            if (setUIFlg)
             {
                 UIOpen();
                 //表示のソフビリストの更新
@@ -53,14 +55,14 @@ public class UIManager : MonoBehaviour
     public void UIOpen()//設置シーンUIを開く関数
     {
         sofviStrage.ListUpdate = true;
-        SetUIFlg = false;
+        setUIFlg = false;
         SetCanvas.SetActive(true);
         GameMainCanvas.SetActive(false);
     }
 
     public void UIClose()//設置シーンUIを閉じる関数
     {
-        SetUIFlg = true;
+        setUIFlg = true;
         SetCanvas.SetActive(false);
         GameMainCanvas.SetActive(true);
 

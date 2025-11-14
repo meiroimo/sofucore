@@ -36,7 +36,7 @@ public class statuspanel : MonoBehaviour
     {
         statusText.text =
       "HP:" + PleyerStatus.player_MaxHealth + "攻撃力:" + PleyerStatus.player_Attack_Power + "スタミナ:" + PleyerStatus.player_MaxSutamina + "\n"
-      + "スキルチャージ(毎秒):" + PleyerStatus.player_Skill_Charge+"スタミナ回復(毎秒)"+3;
+      + "スキルチャージ(毎秒):" + PleyerStatus.player_Skill_Charge+"スタミナ回復(毎秒)"+ PleyerStatus.player_stamina_recovery_speed;
 
     }
   

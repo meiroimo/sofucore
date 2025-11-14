@@ -33,12 +33,8 @@ public class CSVReader : MonoBehaviour
     /// 最大体力 = 2,
     /// 最大スタミナ = 3,
     /// 攻撃力 = 4,
-    /// 防御力 = 5,
-    /// スピード = 6,
-    /// 会心率 = 7,
-    /// 会心ダメ = 8,
-    /// スキルポイント= 9,
-    /// スキルチャージ = 10
+    /// スキルチャージ = 5
+    /// スタミナ回復速度=6
     /// </summary>
     enum CSVPlayerStatus
     {
@@ -46,12 +42,8 @@ public class CSVReader : MonoBehaviour
         D_MAX_HEALTH,
         D_MAX_SUTAMINA,
         D_ATTACK_POWER,
-        D_DEFENCE,
-        D_SPEED,
-        D_CRITICAL,
-        D_CRITICAL_DAMAGE,
-        D_SKILL_POINT,
-        D_SKILL_CHARGE
+        D_SKILL_CHARGE,
+        D_SUTAMINA_RECHARGE
     }
 
     /// <summary>
@@ -108,13 +100,8 @@ public class CSVReader : MonoBehaviour
         playerStatus_Script.default_player_MaxHealth = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_MAX_HEALTH]);
         playerStatus_Script.default_player_MaxSutamina = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_MAX_SUTAMINA]);
         playerStatus_Script.default_player_Attack_Power = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_ATTACK_POWER]);
-        playerStatus_Script.D_player_Defense = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_DEFENCE]);
-        playerStatus_Script.default_player_Speed = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_SPEED]);
-        playerStatus_Script.D_player_Critical = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_CRITICAL]);
-        playerStatus_Script.D_player_Critical_Damage = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_CRITICAL_DAMAGE]);
-        playerStatus_Script.default_player_Skill_Point = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_SKILL_POINT]);
         playerStatus_Script.default_player_Skill_Charge = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_SKILL_CHARGE]);
-
+        playerStatus_Script.default_player_stamina_recovery_speed = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_SUTAMINA_RECHARGE]);
     }
 
 
@@ -138,16 +125,16 @@ public class CSVReader : MonoBehaviour
 
         float atk = playerStatus_Script.default_player_Attack_Power;
         float hp = playerStatus_Script.default_player_MaxHealth;
-        float spd = playerStatus_Script.default_player_Speed;
+        float stamina_rechage = playerStatus_Script.default_player_stamina_recovery_speed;
+
 
         data.attackPower = atk;
         data.maxHealth = hp;
-        data.player_Speed = spd;
-
+        data.staminaRecoverySpeed = stamina_rechage;
         // 初期値としても保存
         data.base_attackPower = atk;
         data.base_maxHealth = hp;
-        data.base_player_Speed = spd;
+        data.base_staminaRecoverySpeed = stamina_rechage;
 
         DataManager.Instance.SaveNow(); // 保存 
     }
@@ -160,7 +147,8 @@ public class CSVReader : MonoBehaviour
 
         data.attackPower = data.base_attackPower;
         data.maxHealth = data.base_maxHealth;
-        data.player_Speed = data.base_player_Speed;
+       // data.player_Speed = data.base_player_Speed;
+
 
         DataManager.Instance.SaveNow(); // 必要なら
     }

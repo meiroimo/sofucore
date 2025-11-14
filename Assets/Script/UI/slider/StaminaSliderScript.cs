@@ -74,7 +74,7 @@ public class StaminaSliderScript : MonoBehaviour
     void HealStamina()
     {
         float currentStamina = GetNowStamina();
-        currentStamina += 3;
+        currentStamina += playerStatus_Script.player_stamina_recovery_speed;
         if(currentStamina > maxStamina)
         {
             currentStamina = maxStamina;

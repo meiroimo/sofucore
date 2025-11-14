@@ -906,6 +906,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5252755814668263351, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
   m_PrefabInstance: {fileID: 2092479803}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1016606777 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1269030269129964891, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
+  m_PrefabInstance: {fileID: 2092479803}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edaaa9cb2aa46f64a93d4a022208e9c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1091569320
 GameObject:
   m_ObjectHideFlags: 0
@@ -1899,10 +1910,22 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1269030269129964891, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
+      propertyPath: Player_audioClips.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269030269129964891, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
+      propertyPath: Player_audioClips.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0c6b9333feaa32543859316f788566a5, type: 3}
     - target: {fileID: 1764108281010956406, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
       propertyPath: skillSlider
       value: 
       objectReference: {fileID: 1694105261}
+    - target: {fileID: 2238399771016706883, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
+      propertyPath: moveForce
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2238399771016706883, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
       propertyPath: uIManager
       value: 
@@ -1915,6 +1938,10 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1497522984}
+    - target: {fileID: 2816209997868636882, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
+      propertyPath: PlayerSEBoxCrass
+      value: 
+      objectReference: {fileID: 1016606777}
     - target: {fileID: 3197129063856490479, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
       propertyPath: m_Mass
       value: 10

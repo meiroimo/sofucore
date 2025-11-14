@@ -38,6 +38,7 @@ public class PlayerSkillSlider : MonoBehaviour
 
     void Update()
     {
+        skillChargePoint = playerStatus_Script.player_Skill_Charge;
         if (!isSkillCharge) return;
         skillPointUICharge();
     }

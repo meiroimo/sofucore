@@ -2,6 +2,7 @@ using System;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.SceneManagement;
 using static playerEffectScript;
 
@@ -115,7 +116,14 @@ public class PlayerController : MonoBehaviour
         inputActions.Player.AttackDirection.performed += ctx => AttackStickInput = ctx.ReadValue<Vector2>();
         inputActions.Player.AttackDirection.canceled += ctx => AttackStickInput = Vector2.zero;
         inputActions.Player.Avoid.performed += ctx => OnAvoid();
-        inputActions.Player.NomalAttack.performed += cxt => OnLightAttack();
+        //inputActions.Player.NomalAttack.performed += cxt => OnLightAttack();
+        inputActions.Player.NomalAttack.performed += ctx =>
+        {
+            if (ctx.control is ButtonControl btn && btn.wasPressedThisFrame)
+            {
+                OnLightAttack();
+            }
+        };
         inputActions.Player.BarettaAttack.performed += cxt => OnSkillAttack();
         inputActions.Player.Run.performed += ctx => isRunning = true;
         inputActions.Player.Run.canceled += ctx => isRunning = false;

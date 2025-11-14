@@ -167,9 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f3b15818b4f13499ee81cc250d9bdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sofviStrageListConut: 0
   testdata: {fileID: 1082048902}
-  StrageMax: 0
 --- !u!1 &26395818
 GameObject:
   m_ObjectHideFlags: 0
@@ -5796,9 +5794,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: " HP 100     \u653B\u6483\u529B 100     \u30B9\u30BF\u30DF\u30CA 100  
-    \u30B5\u30A4\u30BA   \u666E\u901A\n \u653B\u6483\u7BC4\u56F2 10 \u30B9\u30AD\u30EB\u30DD\u30A4\u30F3\u30C8
-    100 \u30B9\u30AD\u30EB\u30C1\u30E3\u30FC\u30B8100"
+  m_Text: "HP 100  \u653B\u6483\u529B 100  \u30B9\u30BF\u30DF\u30CA 100    \n\u30B9\u30AD\u30EB\u30C1\u30E3\u30FC\u30B8\u901F\u5EA6(\u6BCE\u79D2)
+    100 \u30B9\u30BF\u30DF\u30CA\u56DE\u5FA9(\u6BCE\u79D2) 100"
 --- !u!222 &1812268265
 CanvasRenderer:
   m_ObjectHideFlags: 0

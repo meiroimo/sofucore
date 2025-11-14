@@ -40,10 +40,9 @@ public class statuspanel : MonoBehaviour
 
     //テキストをセット
     void settext()
-    {// HP 100     攻撃力 100     スタミナ 100   サイズ   普通
-      //  攻撃範囲  スキルポイント 100 スキルチャージ100
+    {
         statusText.text =
-      " HP  " + PleyerStatus.player_MaxHealth+ "    攻撃力  " + PleyerStatus.player_Attack_Power + "    スタミナ  " + PleyerStatus.player_MaxSutamina + "    サイズ  " + PleyerStatus.player_Size +"\n"+
+      "HP:" +PleyerStatus.player_MaxHealth+ "攻撃力:" + PleyerStatus.player_Attack_Power + "スタミナ" + PleyerStatus.player_MaxSutamina + "スキルチャージ" + PleyerStatus.player_Size +"\n"+
        "  攻撃範囲 " + PleyerStatus.D_player_Attack_Range + " スキルポイント " + PleyerStatus.player_Skill_Point + " スキルチャージ " + PleyerStatus.player_Skill_Charge;
 
     }

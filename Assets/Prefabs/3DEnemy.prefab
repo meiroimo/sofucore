@@ -460,6 +460,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stones hit
       objectReference: {fileID: 0}
+    - target: {fileID: 1758473627833946668, guid: 431f3848c1b205a47ab4213544c9ba4f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2452082064152055796, guid: 431f3848c1b205a47ab4213544c9ba4f, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.6
@@ -637,6 +641,10 @@ PrefabInstance:
     - target: {fileID: 2060900179291159282, guid: 4f7bdb9318cd04541bfecbf0ab051cbf, type: 3}
       propertyPath: m_Name
       value: enemySlash
+      objectReference: {fileID: 0}
+    - target: {fileID: 2060900179291159282, guid: 4f7bdb9318cd04541bfecbf0ab051cbf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2145314521902459719, guid: 4f7bdb9318cd04541bfecbf0ab051cbf, type: 3}
       propertyPath: m_LocalScale.x

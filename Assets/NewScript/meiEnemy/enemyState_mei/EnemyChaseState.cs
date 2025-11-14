@@ -11,10 +11,10 @@ public class EnemyChaseState : EnemyState
     {
 
         //NavMeshAgent が無効 / NavMesh上にいない → SetDestination禁止
-        if (enemy.Agent == null || !enemy.Agent.isActiveAndEnabled || !enemy.Agent.isOnNavMesh)
-        {
-            return;
-        }
+        //if (enemy.Agent == null || !enemy.Agent.isActiveAndEnabled || !enemy.Agent.isOnNavMesh)
+        //{
+        //    return;
+        //}
 
         // プレイヤーの位置に向かって移動
         enemy.Agent.SetDestination(enemy.player.position);

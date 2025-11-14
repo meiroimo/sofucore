@@ -36,7 +36,7 @@ public class EnemyController : MonoBehaviour
         player = playerTransform;
     }
 
-    IEnumerator Start()
+    void Start()
     {
         //GetComponent
         #region
@@ -44,6 +44,7 @@ public class EnemyController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         enemyStatus = GetComponent<EnemyStatus_Script>();
         enemy_SE = GetComponent<EnemySEBox>();
+
         #endregion
 
         //‰Šú‰»
@@ -59,7 +60,7 @@ public class EnemyController : MonoBehaviour
         }
 
         //NavMesh ã‚Éæ‚é‚Ü‚Å‘Ò‚Â
-        yield return new WaitUntil(() => agent.isOnNavMesh);
+        //yield return new WaitUntil(() => agent.isOnNavMesh);
 
         ChangeState(new EnemyChaseState());
         attackEffect.SetActive(false);
@@ -68,7 +69,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         currentState?.Update(this);
-        JudgementDrop();
+        //JudgementDrop();
     }
 
     public void ChangeState(EnemyState newState)
@@ -121,30 +122,32 @@ public class EnemyController : MonoBehaviour
         OnDeath?.Invoke();
     }
 
+    //-------”pŠüƒ][ƒ“----------//
+
     void JudgementDrop()
     {
         // NavMeshã‚ÅŒo˜H‚ª‚È‚­‚È‚Á‚½‚çd—Í‚Å—‚Æ‚·
         if (!agent.hasPath && agent.isOnNavMesh)
         {
             agent.enabled = false; // NavMesh§Œä‚ğ–³Œø‰»
-            Rigidbody rb = GetComponent<Rigidbody>();
-            rb.isKinematic = false; // •¨—‚ğ—LŒø‚É
+            //Rigidbody rb = GetComponent<Rigidbody>();
+            //rb.isKinematic = false; // •¨—‚ğ—LŒø‚É
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Floor"))
-        {
-            Rigidbody rb = GetComponent<Rigidbody>();
-            rb.isKinematic = true; // •¨—’â~
-            agent.enabled = true;  // NavMesh§Œä‚É–ß‚·
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Floor"))
+    //    {
+    //        //Rigidbody rb = GetComponent<Rigidbody>();
+    //        //rb.isKinematic = true; // •¨—’â~
+    //        agent.enabled = true;  // NavMesh§Œä‚É–ß‚·
 
-            if (agent.isOnNavMesh)
-            {
-                agent.SetDestination(player.position);
-            }
-        }
-    }
+    //        if (agent.isOnNavMesh)
+    //        {
+    //            agent.SetDestination(player.position);
+    //        }
+    //    }
+    //}
 
 }

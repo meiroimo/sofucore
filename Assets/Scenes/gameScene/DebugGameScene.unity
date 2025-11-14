@@ -1576,6 +1576,14 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1497522984}
+    - target: {fileID: 3197129063856490479, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197129063856490479, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 3965573112493299834, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
       propertyPath: HPSlider
       value: 

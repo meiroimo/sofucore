@@ -413,24 +413,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //private void OnDrawGizmosSelected()
-    //{
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(transform.position, 5f); // 半径に合わせて調整
+    private void OnCollisionStay(Collision collision)
+    {
+        if (!collision.collider.GetComponent<EnemyController>()) return;
 
-    //    Vector3 left = Quaternion.Euler(0, -30f, 0) * transform.forward;
-    //    Vector3 right = Quaternion.Euler(0, 30f, 0) * transform.forward;
+        Rigidbody enemyRb = collision.rigidbody;
+        if (enemyRb == null) return;
 
-    //    Gizmos.color = Color.yellow;
-    //    Gizmos.DrawRay(transform.position, left * 5f);
-    //    Gizmos.DrawRay(transform.position, right * 5f);
+        // プレイヤー → 敵 方向
+        Vector3 pushDir = (collision.transform.position - transform.position).normalized;
 
-    //    Vector3 left2 = Quaternion.Euler(0, -25f, 0) * transform.forward;
-    //    Vector3 right2 = Quaternion.Euler(0, 25f, 0) * transform.forward;
+        float pushPower = 10f; // ← 調整可能（強くしたければもっと上げる）
 
-    //    Gizmos.color = Color.black;
-    //    Gizmos.DrawRay(transform.position, left2 * 5f);
-    //    Gizmos.DrawRay(transform.position, right2 * 5f);
+        enemyRb.AddForce(pushDir * pushPower, ForceMode.Acceleration);
+    }
 
-    //}
 }

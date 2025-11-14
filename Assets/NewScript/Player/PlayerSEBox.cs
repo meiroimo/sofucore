@@ -13,7 +13,8 @@ public class PlayerSEBox : MonoBehaviour
         ATTACK,
         HIT,
         AVOID,
-        CHARGE
+        CHARGE,
+        ITEMGET
     }
 
     public AudioSource playerAudioSource; // SE ‚ð–Â‚ç‚· AudioSource

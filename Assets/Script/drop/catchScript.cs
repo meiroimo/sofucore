@@ -19,6 +19,7 @@ public class catchScript : MonoBehaviour
     //回収した宝箱の数
     public int[] catchTreasureChest;
     string[] rarityTagName = { "superRare", "Rare", "Normal" };
+    public PlayerSEBox PlayerSEBoxCrass;//SEボックス
     void Start()
     {
         catchSofvi = new int[3];
@@ -49,6 +50,9 @@ public class catchScript : MonoBehaviour
             {
                 if (other.GetComponent<softVinyl>() != null)
                 {
+                    //拾うSEの再生
+                    PlayerSEBoxCrass.PlayPlayerSE(PlayerSEBox.SENAME.ITEMGET);
+
                     //ストレージリストに追加
                     for (int j = 0; j < sofviStrage.MAXSofviCount; j++)//nullの場合データを挿入
                     {

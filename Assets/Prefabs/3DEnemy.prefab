@@ -201,6 +201,7 @@ MonoBehaviour:
   dropScript: {fileID: 6581994499314108105}
   damageEffect: {fileID: 2521587283091839040}
   HPSlider: {fileID: 4685760299750107908}
+  damageTxt: {fileID: 2236445887612891399}
   softVinyldata: {fileID: 0}
 --- !u!114 &1796146075026801919
 MonoBehaviour:
@@ -847,6 +848,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8326171260468417251, guid: a0abda9c315627d48abb1986b2439102, type: 3}
   m_PrefabInstance: {fileID: 8870329281284370253}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2236445887612891399 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7210490415382781514, guid: a0abda9c315627d48abb1986b2439102, type: 3}
+  m_PrefabInstance: {fileID: 8870329281284370253}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4685760299750107908 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4187951079302415433, guid: a0abda9c315627d48abb1986b2439102, type: 3}

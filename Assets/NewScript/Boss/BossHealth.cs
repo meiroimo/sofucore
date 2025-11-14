@@ -9,6 +9,8 @@ public class BossHealth : MonoBehaviour
     private float currentHP;
     EnemyStatus_Script enemyStatus_Script;
     BossController bossController;
+    private float flashDuration = 0.2f; // 色が変わる時間
+
 
     [SerializeField, Header("ダメージエフェクト")] GameObject damageEffect;
 
@@ -16,7 +18,8 @@ public class BossHealth : MonoBehaviour
     public event System.Action OnDeath;
 
     [SerializeField] TreasureChestDropScript dropScript;
-    public Slider HPSlider;
+    public Slider HPSlider;//HPスライダー
+    public Text damageTxt;
 
     private void Awake()
     {
@@ -30,6 +33,7 @@ public class BossHealth : MonoBehaviour
         maxHP = enemyStatus_Script.enemy_MaxHealth;
         currentHP = maxHP;
         damageEffect.SetActive(false);
+        damageTxt.text = "";
         Debug.Log(currentHP);
     }
 
@@ -39,10 +43,11 @@ public class BossHealth : MonoBehaviour
         Debug.Log($"{gameObject.name} は {damage} ダメージを受けた！ 残りHP: {currentHP}");
         damageEffect.SetActive(true);
         HPSlider.value = currentHP / maxHP;
+        StartCoroutine(DrawDamage(damage));
 
         if (currentHP <= 0)
         {
-            Die();
+            StartCoroutine(JudgeDeath());
         }
     }
 
@@ -55,4 +60,20 @@ public class BossHealth : MonoBehaviour
 
         //Destroy(gameObject); // 敵オブジェクトを消去
     }
+
+    IEnumerator DrawDamage(int damage)
+    {
+        damageTxt.text = "" + damage;
+        yield return new WaitForSeconds(flashDuration);
+
+        damageTxt.text = "";
+
+    }
+
+    IEnumerator JudgeDeath()
+    {
+        yield return new WaitForSeconds(flashDuration);
+        Die();
+    }
+
 }

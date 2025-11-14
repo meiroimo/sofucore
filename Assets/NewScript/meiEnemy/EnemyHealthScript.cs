@@ -23,7 +23,8 @@ public class EnemyHealthScript : MonoBehaviour
     [SerializeField] TreasureChestDropScript dropScript;
 
     [SerializeField, Header("ダメージエフェクト")] GameObject damageEffect;
-    public Slider HPSlider;
+    public Slider HPSlider;//HPスライダー
+    public Text damageTxt;
 
 
     //20250621 kome変更点
@@ -51,21 +52,24 @@ public class EnemyHealthScript : MonoBehaviour
         damageEffect.SetActive(false);
         //Debug.Log(currentHP);
         HPSlider.value = 1;
+        damageTxt.text = "";
     }
 
     public void EnemtTakeDamage(int damage)
     {
         
         currentHP -= damage;
+
         damageEffect.SetActive(true);
         Debug.Log($"{gameObject.name} は {damage} ダメージを受けた！ 残りHP: {currentHP}");
         HPSlider.value = currentHP / maxHP;
+        StartCoroutine(DrawDamage(damage));
         //hitReaction.PlayHitReaction();
         StartCoroutine(FlashColor());
 
         if (currentHP <= 0)
         {
-            Die();
+            StartCoroutine(JudgeDeath());
         }
     }
 
@@ -93,6 +97,21 @@ public class EnemyHealthScript : MonoBehaviour
         enemyMaterial.color = hitColor;
         yield return new WaitForSeconds(flashDuration);
         enemyMaterial.color = originalColor;
+
     }
 
+    IEnumerator　DrawDamage(int damage)
+    {
+        damageTxt.text = "" + damage;
+        yield return new WaitForSeconds(flashDuration);
+
+        damageTxt.text = "";
+
+    }
+
+    IEnumerator JudgeDeath()
+    {
+        yield return new WaitForSeconds(flashDuration);
+        Die();
+    }
 }

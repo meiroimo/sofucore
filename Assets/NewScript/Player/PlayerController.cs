@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
     private PlayerSEBox _seBox;
     public playerMotionScript PlayerMotionScript;
 
+    private UIManager uIManager;
+
     //コントローラー関係
     #region 
     private enum InputDeviceType 
@@ -95,6 +97,7 @@ public class PlayerController : MonoBehaviour
         playerSkillSlider = GetComponents<PlayerSkillSlider>(); //同一コンポーネントを複数Getするときは[GetComponents]でｓ付ける
         PlayerEffectScript = effectOBJ.GetComponent<playerEffectScript>();
         _seBox = GetComponent<PlayerSEBox>();
+        uIManager = FindObjectOfType<UIManager>();
         #endregion
         //GetComponent
 
@@ -343,6 +346,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void OnAvoid()
     {
+        if (!uIManager.SetUIFlg) return;
         //if (CanDodge()) // 任意：クールタイム等
         {
             ChangeState(new PlayerAvoidState(this));
@@ -354,6 +358,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void OnLightAttack()
     {
+        if (!uIManager.SetUIFlg) return;
+
         // Idle中又はMoveならAttackOneへ
         if (currentState is PlayerIdleState)
         {
@@ -375,6 +381,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void OnSkillAttack()
     {
+        if (!uIManager.SetUIFlg) return;
+
         //必要なスキルポイントがあるかの判定を作る
         if (playerSkillSlider[(int)SkillName.SPECIAL].isUseSkill())  //一旦0番目の必殺ゲージにしてある
         {
@@ -405,24 +413,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //private void OnDrawGizmosSelected()
-    //{
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(transform.position, 5f); // 半径に合わせて調整
+    private void OnCollisionStay(Collision collision)
+    {
+        if (!collision.collider.GetComponent<EnemyController>()) return;
 
-    //    Vector3 left = Quaternion.Euler(0, -30f, 0) * transform.forward;
-    //    Vector3 right = Quaternion.Euler(0, 30f, 0) * transform.forward;
+        Rigidbody enemyRb = collision.rigidbody;
+        if (enemyRb == null) return;
 
-    //    Gizmos.color = Color.yellow;
-    //    Gizmos.DrawRay(transform.position, left * 5f);
-    //    Gizmos.DrawRay(transform.position, right * 5f);
+        // プレイヤー → 敵 方向
+        Vector3 pushDir = (collision.transform.position - transform.position).normalized;
 
-    //    Vector3 left2 = Quaternion.Euler(0, -25f, 0) * transform.forward;
-    //    Vector3 right2 = Quaternion.Euler(0, 25f, 0) * transform.forward;
+        float pushPower = 10f; // ← 調整可能（強くしたければもっと上げる）
 
-    //    Gizmos.color = Color.black;
-    //    Gizmos.DrawRay(transform.position, left2 * 5f);
-    //    Gizmos.DrawRay(transform.position, right2 * 5f);
+        enemyRb.AddForce(pushDir * pushPower, ForceMode.Acceleration);
+    }
 
-    //}
 }

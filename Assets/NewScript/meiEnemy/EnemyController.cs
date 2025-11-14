@@ -36,7 +36,7 @@ public class EnemyController : MonoBehaviour
         player = playerTransform;
     }
 
-    void Start()
+    IEnumerator Start()
     {
         //GetComponent
         #region
@@ -57,6 +57,9 @@ public class EnemyController : MonoBehaviour
         {
             enemyHealth.OnDeath += HandleDeath;
         }
+
+        //NavMesh è„Ç…èÊÇÈÇ‹Ç≈ë“Ç¬
+        yield return new WaitUntil(() => agent.isOnNavMesh);
 
         ChangeState(new EnemyChaseState());
         attackEffect.SetActive(false);
@@ -136,7 +139,11 @@ public class EnemyController : MonoBehaviour
             Rigidbody rb = GetComponent<Rigidbody>();
             rb.isKinematic = true; // ï®óùí‚é~
             agent.enabled = true;  // NavMeshêßå‰Ç…ñﬂÇ∑
-            agent.SetDestination(player.position);
+
+            if (agent.isOnNavMesh)
+            {
+                agent.SetDestination(player.position);
+            }
         }
     }
 

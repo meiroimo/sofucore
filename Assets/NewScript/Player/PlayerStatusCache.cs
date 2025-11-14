@@ -18,9 +18,9 @@ public class PlayerStatusCache : MonoBehaviour
     {
         lastattackPower = playerStatus.player_Attack_Power;
         lastmaxHealth = playerStatus.player_MaxHealth;
-        lastspeed = playerStatus.player_Speed;
+        lastspeed =100;
         lastMaxSutamina = playerStatus.player_MaxSutamina;
-        lastAttack_Range = playerStatus.player_Attack_Range;
+        lastAttack_Range = 100;
         lastSkill_Charge = playerStatus.player_Skill_Charge;
     }
 

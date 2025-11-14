@@ -145,7 +145,6 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        moveForce = playerStatus_Script.default_player_Speed;
         attack_Power = playerStatus_Script.default_player_Attack_Power;
 
         ChangeState(new PlayerIdleState(this));

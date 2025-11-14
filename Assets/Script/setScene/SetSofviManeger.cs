@@ -61,9 +61,6 @@ public class SetSofviManeger : MonoBehaviour
                 addSetPotiionSofviData(softvinyl, setpos);
             }
         }
-
-
-
     }
     void SofviPreview()
     {
@@ -141,20 +138,11 @@ public class SetSofviManeger : MonoBehaviour
             case softVinyl.BUFFSTATUSNUM.SKILL_CHARGE:
                 PlayerStatus_Script.add_Player_Skill_Charge += value; break;
 
+            case softVinyl.BUFFSTATUSNUM.SUTAMINA_RECHARGE_SPEED:
+                PlayerStatus_Script.add_player_stamina_recovery_speed += value; break;
             case softVinyl.BUFFSTATUSNUM.MAXSUTAMINA:
                 PlayerStatus_Script.add_Player_MaxSutamina += value; break;
 
-            case softVinyl.BUFFSTATUSNUM.DEFENSE:
-                PlayerStatus_Script.add_Player_Defense += value; break;
-
-            case softVinyl.BUFFSTATUSNUM.SPEED:
-                PlayerStatus_Script.add_Player_Speed += value; break;
-
-            case softVinyl.BUFFSTATUSNUM.CRITICAL:
-                PlayerStatus_Script.add_Player_Critical += value; break;
-
-            case softVinyl.BUFFSTATUSNUM.CRITICALDAMAGE:
-                PlayerStatus_Script.add_Player_Critical_Damage += value; break;
         }
     }
 
@@ -163,11 +151,8 @@ public class SetSofviManeger : MonoBehaviour
     {
         // ステータスをリセット
         PlayerStatus_Script.add_Player_Attack_Power = 0;
-        PlayerStatus_Script.add_Player_Defense = 0;
-        PlayerStatus_Script.add_Player_Speed = 0;
-        PlayerStatus_Script.add_Player_Critical = 0;
-        PlayerStatus_Script.add_Player_Critical_Damage = 0;
         PlayerStatus_Script.add_Player_MaxHealth = 0;
+        PlayerStatus_Script.add_player_stamina_recovery_speed = 0;
         PlayerStatus_Script.add_Player_MaxSutamina = 0;
         PlayerStatus_Script.add_Player_Skill_Charge = 0;
 

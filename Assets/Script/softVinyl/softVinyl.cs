@@ -98,13 +98,8 @@ public class softVinyl : MonoBehaviour
         POWER,
         MAXHP,
         SKILL_CHARGE,
+        SUTAMINA_RECHARGE_SPEED,
         MAXSUTAMINA,
-        DEFENSE,
-        SPEED,
-        CRITICAL,
-        CRITICALDAMAGE,
-        SUTAMINA_CHARGE_SPEED,
-        ATTACKRANGE
     }
 
     /// <summary>

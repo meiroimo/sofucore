@@ -12,6 +12,9 @@ public class SceneManer : MonoBehaviour
     private CameraManager CameraManegerScript;
     bool SetFlg=false;//ŠJ‚¢‚Ä‚¢‚é‚©”»’è
 
+    private PlayPauseMenu pauseMenu;
+
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -32,7 +35,7 @@ public class SceneManer : MonoBehaviour
         CameraManegerObject = GameObject.Find("CameraManager");
         CameraManegerScript = CameraManegerObject.GetComponent<CameraManager>();
 
-
+        pauseMenu = FindObjectOfType<PlayPauseMenu>();
 
     }
     public void OnLoadSceneAdditive()
@@ -66,6 +69,7 @@ public class SceneManer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))//tab‰Ÿ‚µ‚½‚ç
         {
+            if (pauseMenu.IsPaused) return;
            // Debug.Log("tab‚¨‚µ‚½");
             if (!SetFlg)
             {

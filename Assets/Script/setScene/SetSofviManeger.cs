@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static softVinyl;
 using static UnityEngine.Mesh;
 
 /// <summary>
@@ -9,6 +10,7 @@ using static UnityEngine.Mesh;
 /// </summary>
 public class SetSofviManeger : MonoBehaviour
 {
+    
 
     [Header("設置場所のソフビデータ")]      public List<softVinyl>   setSoftVinylData;
     [Header("設置場所のスクリプト")]        public List<Setposition3d> setposition3Ds;
@@ -16,7 +18,9 @@ public class SetSofviManeger : MonoBehaviour
     [Header("選択中ソフビデータ参照")]      public softVinyl selectSoftVinylData;
     [Header("プレイヤーステータス参照")]    public PlayerStatus_Script PlayerStatus_Script;
     [Header("全ての設置場所の親オブジェ")]  public GameObject AllSetobject;
-   
+    [Header("設置シーンカメラ（自動で設定されます）")]
+    public Camera cam;
+
     bool checkBuffStatus;//強化ステータスの反映ができているか
 
     public GameObject selectSofviOBJ;//選択中のソフビデータオブジェ
@@ -33,11 +37,7 @@ public class SetSofviManeger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (selectSofviOBJ == null)
-        {
-            Debug.Log("nasi");
-            return; // 削除済みなので処理しない
-        }
+       
 
         setSofuvi();
 
@@ -68,11 +68,6 @@ public class SetSofviManeger : MonoBehaviour
             }
         }
 
-        //for (int i = 0; i < AllSetobject.gameObject.transform.childCount; i++)
-        //{
-        //    AllSetobject.gameObject.transform.GetChild(i).gameObject.GetComponent<Setposition3d>().setpotionNumber = (i);
-        //    addSetPotiionSofviData(AllSetobject.gameObject.transform.GetChild(i).gameObject.GetComponent<softVinyl>(), AllSetobject.gameObject.transform.GetChild(i).gameObject.GetComponent<Setposition3d>());
-        //}
 
 
     }
@@ -80,7 +75,8 @@ public class SetSofviManeger : MonoBehaviour
     {
         if (selectSofviDeta.selectCheck)//ソフビがセレクトされていたら
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);//レイを飛ばす
+           
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);//レイを飛ばす
             RaycastHit hit;//レイに当たったまたオブジェクトのデータの保存先
 
             if (Physics.Raycast(ray, out hit))//レイに当たっている時
@@ -125,7 +121,7 @@ public class SetSofviManeger : MonoBehaviour
         if(selectSofviDeta.selectCheck&& Input.GetMouseButtonDown(0))//ソフビ選択されてたらかつ左クリック時
         {
            
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);//レイ飛ばす
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);//レイ飛ばす
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "SetPosition")//レイが当たったオブジェクトへアクセスかつ設置場所だったら
@@ -296,19 +292,18 @@ public class SetSofviManeger : MonoBehaviour
     /// </summary>
     public void DeleteSelectedSofvi()
     {
-        if (selectSofviOBJ == null)
+        if (selectSoftVinylData.sofvimodel == SOFVINUMBER.NULL)
         {
             Debug.LogWarning("選択中のソフビが存在しません");
             return;
         }
 
         // ソフビオブジェクト削除
-        Debug.Log($"ソフビ {selectSofviOBJ.name} を廃棄しました");
-        //Destroy(selectSofviOBJ);
-
+        Debug.Log($"{selectSoftVinylData.ListNumber} を廃棄しました");
+        sofviStrage.sofviStrageList[selectSoftVinylData.ListNumber].ResetParameter();
+        sofviStrage.ListUpdate = true;//表示の更新
         // データ参照をクリア
-        selectSofviOBJ = null;
-        selectSofviDeta = null;
+        selectSofviDeta.ResetParameter();
 
     }
 }

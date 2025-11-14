@@ -15,6 +15,7 @@ TagManager:
   - sofvi/Normal
   - sofvi/Rare
   - sofvi/superRare
+  - SetSceneCamera
   layers:
   - Default
   - TransparentFX

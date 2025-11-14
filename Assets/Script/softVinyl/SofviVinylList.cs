@@ -45,19 +45,19 @@ public class SofviVinylList : MonoBehaviour
     }
     public void setSofiDataButton()//各ボタンにソフビデータをセット
     {
-         softVinylData = sofviStrage.sofviStrageList;
+
+        softVinylData = sofviStrage.sofviStrageList;
 
 
         if (softVinylData == null)
         {
-           
             Debug.Log("nullだったよ");
 
         }
         //ストレージに入っているデータ分だけ表示されるボタンのデータ更新
-        for (int i = 0; i < softVinylData.Count; i++)
+        for (int i = 0; i < sofviStrage.MAXSofviCount; i++)
         {
-          
+            if (softVinylData[i] == null) continue;
             childrensoftVinyl[i].sofvimodel = softVinylData[i].sofvimodel;
             childrensoftVinyl[i].skill = softVinylData[i].skill;
             childrensoftVinyl[i].theme = softVinylData[i].theme;
@@ -70,7 +70,6 @@ public class SofviVinylList : MonoBehaviour
             childrensoftVinyl[i].Buffparameter2 = softVinylData[i].Buffparameter2;
             childrensoftVinyl[i].Buffparameter3 = softVinylData[i].Buffparameter3;
            
-
         }
 
     }

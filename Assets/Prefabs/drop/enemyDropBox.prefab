@@ -52,4 +52,4 @@ MonoBehaviour:
   - objType:
     - {fileID: 3925992834239245393, guid: 85dca065721db344eb88244b45dabd6c, type: 3}
   dropRate: 100
-  rarityRate: 000000006400000000000000
+  rarityRate: 000000000000000064000000

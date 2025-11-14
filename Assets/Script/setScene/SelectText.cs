@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 using UnityEngine.UI;
+using static softVinyl;
 
 public class SelectText : MonoBehaviour
 {
@@ -14,19 +16,19 @@ public class SelectText : MonoBehaviour
 
     void Start()
     {
-        setText();
+       //setText(null);//初期化
     }
 
     // Update is called once per frame
     void Update()
     {
-        setText();
+       // setText();
 
     }
-    void setText()//魔法陣パラメータテキストのセット関数
+   public void setText(softVinyl buttonlocalsoftVinyldata)//パラメータテキストのセット関数
     {
         GameObject textOBJ = transform.GetChild(0).gameObject;
-        switch(SetSofviManegerSc.selectSoftVinylData.buffMainstatus)
+        switch (buttonlocalsoftVinyldata.buffSubstatus1)
         {
             case softVinyl.BUFFSTATUSNUM.POWER:
                 MainBuffname = "<color=#ff3355>攻撃力アップ";
@@ -49,10 +51,13 @@ public class SelectText : MonoBehaviour
             case softVinyl.BUFFSTATUSNUM.CRITICALDAMAGE:
                 MainBuffname = "<color=#ffff00>クリティカルダメージアップ";
                 break;
+            case softVinyl.BUFFSTATUSNUM.NULL:
+                MainBuffname = "<color=#000000>";
+                break;
             default:
                 break;
         }
-        switch (SetSofviManegerSc.selectSoftVinylData.buffSubstatus1)
+        switch (buttonlocalsoftVinyldata.buffSubstatus1)
         {
             case softVinyl.BUFFSTATUSNUM.POWER:
                 Sub1Buffname = "<color=#ff3355>攻撃力アップ";
@@ -75,10 +80,13 @@ public class SelectText : MonoBehaviour
             case softVinyl.BUFFSTATUSNUM.CRITICALDAMAGE:
                 Sub1Buffname = "<color=#ffff00>クリティカルダメージアップ";
                 break;
+            case softVinyl.BUFFSTATUSNUM.NULL:
+                Sub1Buffname = "<color=#000000>";
+                break;
             default:
                 break;
         }
-        switch (SetSofviManegerSc.selectSoftVinylData.buffSubstatus2)
+        switch (buttonlocalsoftVinyldata.buffSubstatus2)
         {
             case softVinyl.BUFFSTATUSNUM.POWER:
                 Sub2Buffname = "<color=#ff3355>攻撃力アップ";
@@ -101,49 +109,46 @@ public class SelectText : MonoBehaviour
             case softVinyl.BUFFSTATUSNUM.CRITICALDAMAGE:
                 Sub2Buffname = "<color=#ffff00>クリティカルダメージアップ";
                 break;
+            case softVinyl.BUFFSTATUSNUM.NULL:
+                Sub2Buffname = "<color=#000000>";
+                break;
             default:
                 break;
         }
-        switch (SetSofviManegerSc.selectSoftVinylData.buffSubstatus3)
+        switch (buttonlocalsoftVinyldata.buffSubstatus3)
         {
             case softVinyl.BUFFSTATUSNUM.POWER:
-                Sub3Buffname = "<color=#ff3355>攻撃力アップ";
+                Sub3Buffname ="<color=#ff3355>攻撃力アップ";
                 break;
             case softVinyl.BUFFSTATUSNUM.SPEED:
-                Sub3Buffname = "<color=#3377ff>速度アップ";
+                Sub3Buffname ="<color=#3377ff>素早さアップ";
                 break;
             case softVinyl.BUFFSTATUSNUM.DEFENSE:
-                Sub3Buffname = "<color=#3377ff>防御力アップ";
+                Sub3Buffname ="<color=#3377ff>防御力アップ";
                 break;
             case softVinyl.BUFFSTATUSNUM.MAXHP:
-                Sub3Buffname = "<color=#33ff33>体力アップ";
+                Sub3Buffname ="<color=#33ff33>体力アップ";
                 break;
             case softVinyl.BUFFSTATUSNUM.MAXSUTAMINA:
-                Sub3Buffname = "<color=#ffff00>スタミナアップ";
+                Sub3Buffname ="<color=#ffff00>スタミナアップ";
                 break;
             case softVinyl.BUFFSTATUSNUM.CRITICAL:
-                Sub3Buffname = "<color=#ffff00>クリティカル率アップ";
+                Sub3Buffname ="<color=#ffff00>クリティカル率アップ";
                 break;
             case softVinyl.BUFFSTATUSNUM.CRITICALDAMAGE:
-                Sub3Buffname = "<color=#ffff00>クリティカルダメージアップ";
+                Sub3Buffname ="<color=#ffff00>クリティカルダメージアップ";
+                break;
+            case softVinyl.BUFFSTATUSNUM.NULL:
+                Sub3Buffname = "<color=#000000>";
                 break;
             default:
                 break;
         }
 
-
-        textOBJ.GetComponent<Text>().text ="\r\n\r\nメイン\r\n"+ MainBuffname + SetSofviManegerSc.selectSoftVinylData.Buffparameter+  "</color>\r\n\r\nサブ1\r\n" + Sub1Buffname + SetSofviManegerSc.selectSoftVinylData.Buffparameter1 
-            + "</color>\r\n\r\nサブ2\r\n" + Sub2Buffname + SetSofviManegerSc.selectSoftVinylData.Buffparameter2+
-            "</color>\r\n\r\nサブ3\r\n" + Sub3Buffname + SetSofviManegerSc.selectSoftVinylData.Buffparameter3+"</color>";
-
-
-
-        //textOBJ.GetComponent<Text>().text =
-        //  dorpMagicCircleData.name + "\r\n\r\nメイン\r\n" + dorpMagicCircleData.M_skill.name + dorpMagicCircleData.M_skill.Skillparameter + "</color>\r\n\r\nサブ\r\n" + dorpMagicCircleData.S_skill.name + dorpMagicCircleData.S_skill.Skillparameter + "</color>";
-        //Debug.Log(dorpMagicCircleData.M_skill.name);
-
-
-
-
+        textOBJ.GetComponent<Text>().supportRichText = true; // ←これが重要！
+        textOBJ.GetComponent<Text>().text = "メイン\r\n" + MainBuffname + buttonlocalsoftVinyldata.Buffparameter +
+        "</color>\r\nサブ1\r\n" + Sub1Buffname + buttonlocalsoftVinyldata.Buffparameter1
+        + "</color>\r\nサブ2\r\n" + Sub2Buffname + buttonlocalsoftVinyldata.Buffparameter2 +
+        "</color>\r\nサブ3\r\n" + Sub3Buffname + buttonlocalsoftVinyldata.Buffparameter3 +"</color>";
     }
-}
+}//buttonlocalsoftVinyldata.Buffparameter +;

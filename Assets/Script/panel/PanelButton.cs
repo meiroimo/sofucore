@@ -5,134 +5,121 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+
 /// <summary>
 /// ソフビ一覧の各ボタン
 /// </summary>
-public class PanelButton : MonoBehaviour
+public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandler
 {
     [Header("ソフビ一覧の各ボタンにソフビデータを入れるスクリプト")]
 
-    [SerializeField] private GameObject PanelImage;//パネルイメージOBJ
-    [SerializeField] private GameObject PanelUI;//パネルウィンドウUI
-    [SerializeField] public softVinyl SetSofvidata;//設置ソフビデータ
+    [SerializeField] private GameObject TextWindowManegerObj;//パネルイメージOBJ
+    [SerializeField] private TextWindow TextWindowManegerSc;//パネルイメージ
 
-    public GameObject selectSofviOBJ;//選択中のソフビデータオブジェ
-    public softVinyl selectSofviDeta;//選択中のソフビデータ
+
+    [SerializeField] private GameObject PanelImageobj;//パネルイメージOBJ
+    [SerializeField] private Image PanelImage;//パネルイメージ
+
+    public softVinyl SetSofvidata;//設置ソフビデータ
+
+    [SerializeField] private GameObject selectSofviOBJ;//選択中のソフビデータオブジェ
+    [SerializeField] private softVinyl selectSofviDeta;//選択中のソフビデータ
     private Outline outline;
 
-    bool selectPanel;//パネルを選択判定
-    public bool selectCheck;
-    public GameObject PoptextWindowObj;//ポップアップウィンドウオブジェ
-    public Text PopTextSelect;//ポップアップテキストセレクトソフビ
-    public Text PopTextonpointar;//ポップアップテキスト重なったソフビ
-    public string[] themeText;//themeの文字列配列
-    public string[] skillText;//skillの文字列配列
-    public string[] nameText;//nameの文字列配列
+    private bool selectPanel;//パネルを選択判定 
     public int Number;//ボタン番号
-    public GameObject ImgStrage;//イメージ画像ストレージスクリプト
-    ImgStrageScript ImgStrageScriptdata;//イメージ画像データストレージ
-    // Start is called before the first frame update
+    [SerializeField] private GameObject ImgStrage;//イメージ画像ストレージスクリプト
+    private ImgStrageScript ImgStrageScriptdata;//イメージ画像データストレージ
+
+    [SerializeField] private GameObject SelectTextObj;//セレクトソフビのテキストオブジェクト
+    [SerializeField] private SelectText SelectTextSc;//セレクトソフビのクラス
+
     void Start()
     {
+        SelectTextObj = GameObject.Find("SelectStetasText");
+        SelectTextSc = SelectTextObj.GetComponent<SelectText>();
+        TextWindowManegerObj = GameObject.Find("TextWindowManeger");
+        TextWindowManegerSc = TextWindowManegerObj.GetComponent<TextWindow>();
         ImgStrage = GameObject.Find("ImgStrage");
         ImgStrageScriptdata = ImgStrage.GetComponent<ImgStrageScript>();
-
-        selectPanel = false;
-        PanelImage = gameObject.transform.GetChild(0).gameObject;
-        SetSofvidata = this.gameObject.GetComponent<softVinyl>();//自身のソフビスクリプトを掴む
-        //Debug.Log(SetSofvidata);
+        selectSofviOBJ = GameObject.Find("selectSofvi");
+        PanelImageobj = gameObject.transform.GetChild(0).gameObject;
+        PanelImage = PanelImageobj.GetComponent<Image>();
+        SetSofvidata = this.gameObject.GetComponent<softVinyl>();
         selectSofviDeta = selectSofviOBJ.GetComponent<softVinyl>();
-
         outline = gameObject.GetComponent<Outline>();
         outline.enabled = false;
-        themeText = new string[21];
-        skillText = new string[5];
-        nameText = new string[102];
-        themeTextset();
-        skillTextset();
-        nameTextset();
+        selectPanel = false;
+
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
         setImage();
-
         if (selectSofviDeta.selectButton != this.gameObject)
         {
             selectPanel = false;
             outline.enabled = false;
-
         }
     }
+
+    public void OnPointerEnter(PointerEventData eventData)//マウスが重なったら
+    {
+        SelectTextSc.setText(SetSofvidata);
+        TextWindowManegerSc.OnHoverEnter();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        TextWindowManegerSc.OnHoverExit();
+        //SelectTextSc.setText(null);
+
+
+    }
+
+
+
     public void onclickButton()
     {
-
         if(!selectPanel && SetSofvidata.sofvimodel!= softVinyl.SOFVINUMBER.NULL)
         {
             setselectSofviData();
             selectPanel = true;
             outline.enabled = true;
-       //     PoptextWindowObj.SetActive(false);
         }
         else
         {
-
             if (selectSofviDeta.selectButton==this.gameObject)
             {
                 againClick();
-                Debug.Log("同じボタン押された");
-
-                //    PoptextWindowObj.SetActive(false);
             }
         }
-
-        Debug.Log("押された");
     }
   
 
     public void setImage()
     {
         //ソフビデータがなかった場合は×表示
-        if(SetSofvidata==null)
+        if (SetSofvidata == null)
         {
-            PanelImage.GetComponent<Image>().sprite = ImgStrageScriptdata.sprites[0];
+            PanelImage.sprite = ImgStrageScriptdata.sprites[0];
         }
-        PanelImage.GetComponent<Image>().sprite = ImgStrageScriptdata.sprites[(int)SetSofvidata.sofvimodel];
+        //表示している画像とデータの画像が違う場合に変更
+        else if (PanelImage.sprite!= ImgStrageScriptdata.sprites[(int)SetSofvidata.sofvimodel])
+        {
+            PanelImage.sprite = ImgStrageScriptdata.sprites[(int)SetSofvidata.sofvimodel];
+        }
 
     }
     void againClick()//セレクトデータをリセット
     {
-        selectSofviDeta.cost = 0;
-        selectSofviDeta.skill = softVinyl.SKILLNUM.NULL;
-        selectSofviDeta.theme =softVinyl.themeNuｍ.NULL;
-        selectSofviDeta.ListNumber = 0;
-        selectSofviDeta.buffMainstatus = softVinyl.BUFFSTATUSNUM.NULL;
-        selectSofviDeta.buffSubstatus1 = softVinyl.BUFFSTATUSNUM.NULL;
-        selectSofviDeta.buffSubstatus2 = softVinyl.BUFFSTATUSNUM.NULL;
-        selectSofviDeta.buffSubstatus3 = softVinyl.BUFFSTATUSNUM.NULL;
-        selectSofviDeta.Buffparameter = 0;
-        selectSofviDeta.Buffparameter1 = 0;
-        selectSofviDeta.Buffparameter2 = 0;
-        selectSofviDeta.Buffparameter3 = 0;
-      
-        selectSofviDeta.selectButton = null;
-        selectSofviDeta.selectCheck = false;
+        selectSofviDeta.ResetParameter();
         selectPanel = false;
         outline.enabled = false;
-
     }
-    private void setselectSofviData()
+    private void setselectSofviData()//選択ソフビデータに自分のデータを渡す。
     {
-
-
-        // selectSofviDeta = SetSofvidata;
-        
-
         selectSofviDeta.sofvimodel = SetSofvidata.sofvimodel;
-
-
         selectSofviDeta.cost = SetSofvidata.cost;
         selectSofviDeta.skill = SetSofvidata.skill;
         selectSofviDeta.theme = SetSofvidata.theme;
@@ -147,59 +134,5 @@ public class PanelButton : MonoBehaviour
         selectSofviDeta.Buffparameter3 = SetSofvidata.Buffparameter3;
         selectSofviDeta.selectButton = this.gameObject;
         selectSofviDeta.selectCheck =true;
-       // Debug.Log(selectSofviDeta.Buffparameter);
-
-    }
-    void setTextPopTextWindow()//ポップアップウィンドウのテキストをセット
-    {
-
-        PopTextSelect.text = "選択中："+ nameText[(int)selectSofviDeta.sofvimodel] + "\n" + themeText[(int)selectSofviDeta.theme] + "\n" + skillText[(int)selectSofviDeta.skill] + "\n" + "コスト" +selectSofviDeta.cost ;
-        PopTextonpointar.text = "比較中：" + nameText[(int)SetSofvidata.sofvimodel] + "\n" + themeText[(int)SetSofvidata.theme] + "\n" + skillText[(int)SetSofvidata.skill] + "\n" + "コスト" + SetSofvidata.cost;
-
-    }
-
-    void themeTextset()//テーマテキストをセット
-    {
-        themeText[1] = "テーマ１";
-        themeText[2] = "テーマ２";
-        themeText[3] = "テーマ３";
-        themeText[4] = "テーマ４";
-        themeText[5] = "テーマ５";
-        themeText[6] = "テーマ６";
-        themeText[7] = "テーマ７";
-        themeText[8] = "テーマ８";
-        themeText[9] = "テーマ９";
-        themeText[10] = "テーマ１０";
-        themeText[11] = "テーマ１１";
-        themeText[12] = "テーマ１２";
-        themeText[13] = "テーマ１３";
-        themeText[14] = "テーマ１４";
-        themeText[15] = "テーマ１５";
-        themeText[16] = "テーマ１６";
-        themeText[17] = "テーマ１７";
-        themeText[18] = "テーマ１８";
-        themeText[19] = "テーマ１９";
-        themeText[20] = "テーマ２０";
-
-    }
-    void skillTextset()//スキルテキストのセット
-    {
-
-        skillText[1] = "スキル１";
-        skillText[2] = "スキル２";
-        skillText[3] = "スキル３";
-        skillText[4] = "スキル４";
-
-    }
-
-    void nameTextset()//スキルテキストのセット
-    {
-        for(int i=1;i<(int)softVinyl.SOFVINUMBER.MAX;i++)
-        {
-            nameText[i] = "名前"+i;
-
-        }
-
-        
     }
 }

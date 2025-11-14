@@ -6,31 +6,25 @@ using static UnityEngine.Mesh;
 
 public class sofviStrage : MonoBehaviour
 {
-    [Header("獲得ソフビ格納リスト")] public static List<softVinyl> sofviStrageList = new List<softVinyl>();//ソフビのストレージ
-    [Header("獲得ソフビ個数")] public int sofviStrageListConut;
+    [Header("獲得ソフビ格納リスト")] public static List<softVinyl> sofviStrageList = new List<softVinyl>(MAXSofviCount);//ソフビのストレージ
+    public static int MAXSofviCount = 18;//ストレージの最大数
+  
     public GameObject testdata;//テストデータオブジェクト
-    public int StrageMax;//(１００)インスペクターで設定、変更あり
     public static bool ListUpdate=false;
    
 
-    void setTestData()
-    {
-        for (int i = 0; i < testdata.gameObject.transform.childCount; i++)
-        {
-            //addSofvi(testdata.gameObject.transform.GetChild(i).gameObject.GetComponent<softVinyl>());
-        }
-
-
-    }
     void Start()
     {
-        sofviStrageListConut = 0;
+
+        for (int i = 0; i < 18; i++)
+        {
+            sofviStrageList.Add(null);
+        }
     }
 
-    
+
     void Update()
     {
-        sofviStrageListConut = sofviStrageList.Count;
     }
   
 }

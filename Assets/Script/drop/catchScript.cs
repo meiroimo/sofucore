@@ -47,13 +47,40 @@ public class catchScript : MonoBehaviour
             }
             else
             {
-                if(other.GetComponent<softVinyl>() != null)
+                if (other.GetComponent<softVinyl>() != null)
                 {
-                    //リストの何番目かを記録
-                    other.GetComponent<softVinyl>().ListNumber = sofviStrage.sofviStrageList.Count ;
                     //ストレージリストに追加
-                    sofviStrage.sofviStrageList.Add(other.GetComponent<softVinyl>());
-                   
+                    for (int j = 0; j < sofviStrage.MAXSofviCount; j++)//nullの場合データを挿入
+                    {
+                        if (sofviStrage.sofviStrageList[j] == null)
+                        {
+                            GameObject enpty = new GameObject();
+                            enpty.AddComponent<softVinyl>();
+                             softVinyl softVinylSc = other.GetComponent<softVinyl>();
+                            softVinyl softVinylSdata = enpty.GetComponent<softVinyl>();
+                            softVinylSdata.sofvimodel = softVinylSc.sofvimodel;
+                            softVinylSdata.skill = softVinylSc.skill;
+                            softVinylSdata.theme = softVinylSc.theme;
+                            softVinylSdata.ListNumber = softVinylSc.ListNumber;
+                            softVinylSdata.buffSubstatus1 = softVinylSc.buffSubstatus1;
+                            softVinylSdata.buffSubstatus2 = softVinylSc.buffSubstatus2;
+                            softVinylSdata.buffSubstatus3 = softVinylSc.buffSubstatus3;
+                            softVinylSdata.Buffparameter = softVinylSc.Buffparameter;
+                            softVinylSdata.Buffparameter1 = softVinylSc.Buffparameter1;
+                            softVinylSdata.Buffparameter2 = softVinylSc.Buffparameter2;
+                            softVinylSdata.Buffparameter3 = softVinylSc.Buffparameter3;
+                                
+                            //リストの何番目かを記録
+                            softVinylSdata.ListNumber = j;
+                            Debug.Log(j);
+                            Debug.Log(softVinylSdata);
+                            sofviStrage.sofviStrageList[j] = softVinylSdata;
+                            Debug.Log(sofviStrage.sofviStrageList[j]);
+                            break;
+                        }
+                    }
+                    // sofviStrage.sofviStrageList.Add(other.GetComponent<softVinyl>());
+
                 }
                 catchSofvi[i]++;
             }

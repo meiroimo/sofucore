@@ -5,35 +5,43 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
     public GameObject mainCamera;
-    public GameObject SetCamera;
-    
+    public GameObject setCamera;
+
+    private GameObject currentCamera;
+
+
     void Start()
     {
-        var gameObject = GameObject.Find("SetSceneCamera");
-        if (gameObject != null)
-        {
-            // 各カメラオブジェクトを取得
-            mainCamera = GameObject.Find("Main Camera");
-            SetCamera = GameObject.Find("SetSceneCamera");
-            Debug.Log("カメラスタート");
-            // サブカメラはデフォルトで無効にしておく
-            SetCamera.SetActive(false);
-        }
-          
+
+        // 各カメラオブジェクトを取得
+        mainCamera = GameObject.Find("Main Camera");
+        setCamera = GameObject.Find("SetSceneCamera");
+        currentCamera = mainCamera;
+        // サブカメラはデフォルトで無効にしておく
+        setCamera.SetActive(false);
+               
     }
 
     // Update is called once per frame
     void Update()
     {
 
-       
     }
-    public void changeCamera(GameObject ToCamera)
+    public void changeCamera()
     {
-        GameObject NowMainCamera;
-        NowMainCamera = Camera.main.gameObject;
-        NowMainCamera.SetActive(false);
-        ToCamera.SetActive(true);
+        if(currentCamera == mainCamera)
+        {
+            currentCamera = setCamera;
+            setCamera.SetActive(true);
+            mainCamera.SetActive(false);
+        }
+        else
+        {
+            currentCamera = mainCamera;
+            mainCamera.SetActive(true);
+            setCamera.SetActive(false);
+        }
+
 
     }
 }

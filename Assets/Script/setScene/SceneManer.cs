@@ -31,7 +31,7 @@ public class SceneManer : MonoBehaviour
         UIManegeScript = UIManagerObject.GetComponent<UIManager>();
         CameraManegerObject = GameObject.Find("CameraManager");
         CameraManegerScript = CameraManegerObject.GetComponent<CameraManager>();
-        CloseSetScene();
+
 
 
     }
@@ -50,14 +50,14 @@ public class SceneManer : MonoBehaviour
     public void OpenSetScene()
     {
         UIManegeScript.UIOpen();
-        CameraManegerScript.changeCamera(CameraManegerScript.SetCamera);
+        CameraManegerScript.changeCamera();
         SetFlg = true;
     }
 
     public void CloseSetScene()
     {
         UIManegeScript.UIClose();
-        CameraManegerScript.changeCamera(CameraManegerScript.mainCamera);
+        CameraManegerScript.changeCamera();
         SetFlg = false;
 
     }

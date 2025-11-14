@@ -147,6 +147,6 @@ public class softVinyl : MonoBehaviour
         Buffparameter3 = 0;
         checksetpotion = false;
         selectCheck=false;
-
+        selectButton = null;
     }
 }

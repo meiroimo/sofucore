@@ -17,7 +17,7 @@ public class PlayerLightAttackState : PlayerState
     public override void Enter()
     {
         //Debug.Log("Entered LightAttack State");
-        player.PlayerMotionScript.attackMotion(true);
+
 
     }
 
@@ -52,7 +52,6 @@ public class PlayerLightAttackState : PlayerState
     public override void Exit()
     {
         //Debug.Log("Exited LightAttack State");
-        player.PlayerMotionScript.attackMotion(false);
 
     }
 

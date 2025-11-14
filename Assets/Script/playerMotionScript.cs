@@ -33,4 +33,9 @@ public class playerMotionScript : MonoBehaviour
     {
         animator.SetBool("isAvoidance", flag);
     }
+
+    public void ultMotion(bool flag)
+    {
+        animator.SetBool("isUlt", flag);
+    }
 }

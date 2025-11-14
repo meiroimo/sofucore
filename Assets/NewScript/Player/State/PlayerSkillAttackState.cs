@@ -27,12 +27,12 @@ public class PlayerSkillAttackState : PlayerState
 
     public override void Enter()
     {
-        player.PlayerMotionScript.attackMotion(true);
-
         player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.SLASH);
         player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.AURA);
         attackCount = 0;
         timer = 0f;
+        player.PlayerMotionScript.ultMotion(true);
+
     }
 
     public override void Update()
@@ -72,10 +72,11 @@ public class PlayerSkillAttackState : PlayerState
     public override void Exit()
     {
         //Debug.Log("Exited LightAttack State");
-        player.PlayerMotionScript.attackMotion(false);
 
         player.PlayerEffectScript.StopEffect((int)playerEffectScript.EffectName.AURA);
         player.PlayerEffectScript.StopEffect((int)playerEffectScript.EffectName.SLASH);
+        player.PlayerMotionScript.ultMotion(false);
+
 
     }
 

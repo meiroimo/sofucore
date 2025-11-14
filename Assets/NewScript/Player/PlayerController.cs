@@ -1,11 +1,9 @@
 using System;
-using System.Collections;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using static playerEffectScript;
 
 public class PlayerController : MonoBehaviour
@@ -44,8 +42,7 @@ public class PlayerController : MonoBehaviour
     public playerMotionScript PlayerMotionScript;
 
     private UIManager uIManager;
-    public GameObject canvas;
-    public Text damageTxt;
+    private PlayPauseMenu pauseMenu;
 
     //コントローラー関係
     #region 
@@ -102,6 +99,7 @@ public class PlayerController : MonoBehaviour
         PlayerEffectScript = effectOBJ.GetComponent<playerEffectScript>();
         _seBox = GetComponent<PlayerSEBox>();
         uIManager = FindObjectOfType<UIManager>();
+        pauseMenu = FindObjectOfType<PlayPauseMenu>();
         #endregion
         //GetComponent
 
@@ -149,15 +147,14 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        moveForce = playerStatus_Script.default_player_Speed;
-        attack_Power = playerStatus_Script.default_player_Attack_Power;
+        moveForce = playerStatus_Script.D_player_Speed;
+        attack_Power = playerStatus_Script.D_player_Attack_Power;
+
         ChangeState(new PlayerIdleState(this));
-        damageTxt.text = "";
     }
 
     private void Update()
     {
-        canvas.transform.LookAt(mainCamera.transform);
         currentState?.Update();
         UpdateLastUsedInputDevice();
         PlayerCurrentDirection();
@@ -282,6 +279,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void PlayerCurrentDirection()
     {
+        if (pauseMenu.IsPaused) return;
+
         if (lastUsedDevice == InputDeviceType.Gamepad && AttackStickInput.sqrMagnitude > 0.1f) // 右スティック入力がある
         {
             Vector3 stickDir = new Vector3(AttackStickInput.x, 0, AttackStickInput.y);
@@ -318,7 +317,6 @@ public class PlayerController : MonoBehaviour
         hpSliderScript.SetNowHealth(currentHP);
         Debug.Log($"Player に {damage}ダメージ！. 現在HP: {currentHP}");
         playerEffect.PlayEffect((int)EffectName.DAMAGE);
-        StartCoroutine(DrawDamage(damage));
 
         if (currentHP <= 0)
         {
@@ -329,16 +327,6 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-
-    IEnumerator DrawDamage(int damage)
-    {
-        damageTxt.text = "" + damage;
-        yield return new WaitForSeconds(0.2f);
-
-        damageTxt.text = "";
-
-    }
-
 
     /// <summary>
     /// スタミナを減少させる
@@ -362,7 +350,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void OnAvoid()
     {
-        if (!uIManager.SetUIFlg) return;
+        if (!uIManager.SetUIFlg || pauseMenu.IsPaused) return;
         //if (CanDodge()) // 任意：クールタイム等
         {
             ChangeState(new PlayerAvoidState(this));
@@ -374,7 +362,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void OnLightAttack()
     {
-        if (!uIManager.SetUIFlg) return;
+        if (!uIManager.SetUIFlg || pauseMenu.IsPaused) return;
 
         // Idle中又はMoveならAttackOneへ
         if (currentState is PlayerIdleState)

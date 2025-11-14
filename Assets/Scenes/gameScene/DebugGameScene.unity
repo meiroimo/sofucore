@@ -1267,6 +1267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageBGM: {fileID: 8300000, guid: a35bbb5c42a483f42abfbeeb374361a3, type: 3}
+  testBGM: {fileID: 8300000, guid: 91d2454f71b79cd409dd2240e03c5811, type: 3}
 --- !u!4 &1634231168
 Transform:
   m_ObjectHideFlags: 0
@@ -1564,6 +1565,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1694105261}
     - target: {fileID: 2238399771016706883, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
+      propertyPath: uIManager
+      value: 
+      objectReference: {fileID: 1091569321}
+    - target: {fileID: 2238399771016706883, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
       propertyPath: attackCone
       value: 
       objectReference: {fileID: 1964394045}
@@ -1571,6 +1576,14 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1497522984}
+    - target: {fileID: 3197129063856490479, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197129063856490479, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 3965573112493299834, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
       propertyPath: HPSlider
       value: 

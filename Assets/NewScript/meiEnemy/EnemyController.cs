@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
 {
@@ -20,7 +21,8 @@ public class EnemyController : MonoBehaviour
     public event System.Action OnDeath; //死亡イベント
 
     public GameObject attackEffect;
-
+    public GameObject Canvas;
+    public GameObject Camera;
 
     //距離チェック
     public float DistanceToPlayer => Vector3.Distance(transform.position, player.position);
@@ -29,6 +31,7 @@ public class EnemyController : MonoBehaviour
     public NavMeshAgent Agent { get => agent; set => agent = value; }
     public float Enemy_Power { get => enemy_Power; set => enemy_Power = value; }
     public EnemySEBox Enemy_SE { get => enemy_SE; set => enemy_SE = value; }
+
 
     //プレイヤーを設定する用の関数
     public void SetPlayer(Transform playerTransform)
@@ -57,16 +60,18 @@ public class EnemyController : MonoBehaviour
         {
             enemyHealth.OnDeath += HandleDeath;
         }
-
+        Camera = GameObject.Find("Main Camera");
         //NavMesh 上に乗るまで待つ
         yield return new WaitUntil(() => agent.isOnNavMesh);
 
         ChangeState(new EnemyChaseState());
         attackEffect.SetActive(false);
+
     }
 
     void Update()
     {
+        Canvas.transform.LookAt(Camera.transform);
         currentState?.Update(this);
         JudgementDrop();
     }

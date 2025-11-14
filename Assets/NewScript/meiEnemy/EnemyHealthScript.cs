@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealthScript : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class EnemyHealthScript : MonoBehaviour
     [SerializeField] TreasureChestDropScript dropScript;
 
     [SerializeField, Header("ダメージエフェクト")] GameObject damageEffect;
+    public Slider HPSlider;
 
 
     //20250621 kome変更点
@@ -37,6 +39,7 @@ public class EnemyHealthScript : MonoBehaviour
             enemyMaterial = enemyRenderer.material;
             originalColor = enemyMaterial.color;
         }
+        
     }
 
     private void Start()
@@ -47,13 +50,16 @@ public class EnemyHealthScript : MonoBehaviour
         currentHP = maxHP;
         damageEffect.SetActive(false);
         //Debug.Log(currentHP);
+        HPSlider.value = 1;
     }
 
     public void EnemtTakeDamage(int damage)
     {
+        
         currentHP -= damage;
         damageEffect.SetActive(true);
         Debug.Log($"{gameObject.name} は {damage} ダメージを受けた！ 残りHP: {currentHP}");
+        HPSlider.value = currentHP / maxHP;
         //hitReaction.PlayHitReaction();
         StartCoroutine(FlashColor());
 

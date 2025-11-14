@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class BossHealth : MonoBehaviour
 {
     [Header("体力")]
@@ -16,6 +16,7 @@ public class BossHealth : MonoBehaviour
     public event System.Action OnDeath;
 
     [SerializeField] TreasureChestDropScript dropScript;
+    public Slider HPSlider;
 
     private void Awake()
     {
@@ -25,6 +26,7 @@ public class BossHealth : MonoBehaviour
 
     private void Start()
     {
+        HPSlider.value = 1;
         maxHP = enemyStatus_Script.enemy_MaxHealth;
         currentHP = maxHP;
         damageEffect.SetActive(false);
@@ -36,6 +38,7 @@ public class BossHealth : MonoBehaviour
         currentHP -= damage;
         Debug.Log($"{gameObject.name} は {damage} ダメージを受けた！ 残りHP: {currentHP}");
         damageEffect.SetActive(true);
+        HPSlider.value = currentHP / maxHP;
 
         if (currentHP <= 0)
         {

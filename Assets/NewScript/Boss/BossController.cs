@@ -21,6 +21,9 @@ public class BossController : MonoBehaviour
 
     public GameObject attackEffect;
 
+    public GameObject Canvas;
+    public GameObject Camera;
+
 
     // 距離チェック
     public float DistanceToPlayer => Vector3.Distance(transform.position, player.position);
@@ -53,6 +56,7 @@ public class BossController : MonoBehaviour
         agent.speed = boss_Speed;
         bossHealth.OnDeath += Die;
         attackEffect.SetActive(false);
+        Camera = GameObject.Find("Main Camera");
 
         //Debug.Log(agent.speed);
         ChangeState(new BossChaseState());
@@ -60,6 +64,8 @@ public class BossController : MonoBehaviour
 
     void Update()
     {
+        Canvas.transform.LookAt(Camera.transform);
+
         currentState?.Update(this);
     }
 

@@ -43,7 +43,7 @@ public class EnemyHealthScript : MonoBehaviour
     {
         sofviStrageScript = GameObject.Find("Player_Storage").gameObject.GetComponent<sofviStrage>();
         softVinyldata = gameObject.transform.GetChild(0).gameObject.GetComponent<softVinyl>();
-        maxHP = enemyStatus_Script.enemy_MaxHealth + 20;
+        maxHP = enemyStatus_Script.enemy_MaxHealth + 10;
         currentHP = maxHP;
         damageEffect.SetActive(false);
         //Debug.Log(currentHP);

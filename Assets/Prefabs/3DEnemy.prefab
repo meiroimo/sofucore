@@ -400,16 +400,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8166744685667211542, guid: 36523a4357aabe246b83275d6cf77556, type: 3}
+      propertyPath: dropRate
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8166744685667211542, guid: 36523a4357aabe246b83275d6cf77556, type: 3}
       propertyPath: rarityRate.Array.data[0]
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8166744685667211542, guid: 36523a4357aabe246b83275d6cf77556, type: 3}
       propertyPath: rarityRate.Array.data[1]
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8166744685667211542, guid: 36523a4357aabe246b83275d6cf77556, type: 3}
       propertyPath: rarityRate.Array.data[2]
-      value: 100
+      value: 95
       objectReference: {fileID: 0}
     - target: {fileID: 9050331998216033146, guid: 36523a4357aabe246b83275d6cf77556, type: 3}
       propertyPath: m_Name

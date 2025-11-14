@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
     [Header("基本設定")]
     public Transform player; // プレイヤーの位置
     public GameObject[] enemyPrefab; // 出現させる敵プレハブ
-    public Transform[] spawnPoints; // スポーン候補位置
+    //public Transform[] spawnPoints; // スポーン候補位置
     public float spawnInterval = 2f; // 敵を出現させる間隔
     public int maxEnemies = 10; // 同時に存在できる敵の最大数
     public int spawnCountPerWave = 3; // 一度に出す敵の数
@@ -72,7 +72,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     /// <summary>
-    /// 敵1体を出現させる（障害物を避ける版）
+    /// 敵1体を出現させる
     /// </summary>
     void SpawnSingleEnemy()
     {
@@ -146,41 +146,5 @@ public class EnemySpawner : MonoBehaviour
         Debug.LogWarning("有効なスポーン位置が見つかりませんでした。");
         return Vector3.zero;
 
-        //for (int i = 0; i < maxSpawnTries; i++)
-        //{
-        //    // ランダム方向
-        //    Vector2 randomDir = Random.insideUnitCircle.normalized;
-        //    float distance = Random.Range(spawnRadiusMin, spawnRadiusMax);
-
-        //    // 候補位置（XZ平面）
-        //    Vector3 candidate = player.position + new Vector3(randomDir.x * distance, spawnHeight, randomDir.y * distance);
-
-        //    // 地形・障害物チェック（球体で確認）
-        //    bool hit = Physics.CheckSphere(candidate, 1.0f, obstacleLayer);
-        //    if (!hit)
-        //    {
-        //        return candidate; // 障害物がなければこの位置を採用
-        //    }
-        //}
-
-        //// 何度試してもダメならゼロを返す
-        //return Vector3.zero;
-
-        //for (int i = 0; i < maxSpawnTries; i++)
-        //{
-        //    // スポーンポイントをランダムに選ぶ
-        //    Transform point = spawnPoints[Random.Range(0, spawnPoints.Length)];
-        //    Vector3 candidate = point.position;
-
-        //    // 周囲に障害物があるかを確認
-        //    bool hasObstacle = Physics.CheckSphere(candidate, checkRadius, obstacleLayer);
-        //    if (!hasObstacle)
-        //    {
-        //        return candidate; // 障害物がない → 採用
-        //    }
-        //}
-
-        //// 見つからなかった場合
-        //return Vector3.zero;
     }
 }

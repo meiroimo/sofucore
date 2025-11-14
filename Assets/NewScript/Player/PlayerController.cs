@@ -1,9 +1,11 @@
 using System;
+using System.Collections;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using static playerEffectScript;
 
 public class PlayerController : MonoBehaviour
@@ -43,6 +45,9 @@ public class PlayerController : MonoBehaviour
 
     private UIManager uIManager;
     private PlayPauseMenu pauseMenu;
+
+    public GameObject canvas;
+    public Text damageTxt;
 
     //コントローラー関係
     #region 
@@ -111,6 +116,7 @@ public class PlayerController : MonoBehaviour
         for(int i = 0;i < playerSkillSlider.Length; i++) {
             playerSkillSlider[i].Init();
         }
+        damageTxt.text = "";
         #endregion
         //初期化
 
@@ -158,6 +164,8 @@ public class PlayerController : MonoBehaviour
         currentState?.Update();
         UpdateLastUsedInputDevice();
         PlayerCurrentDirection();
+
+        canvas.transform.LookAt(mainCamera.transform);
 
         if (hpSliderScript.GetNowHealth() <= 0)
         {
@@ -317,6 +325,7 @@ public class PlayerController : MonoBehaviour
         hpSliderScript.SetNowHealth(currentHP);
         Debug.Log($"Player に {damage}ダメージ！. 現在HP: {currentHP}");
         playerEffect.PlayEffect((int)EffectName.DAMAGE);
+        StartCoroutine(DrawDamage(damage));
 
         if (currentHP <= 0)
         {
@@ -325,6 +334,15 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Player died");
             // 死亡処理
         }
+
+    }
+
+    IEnumerator DrawDamage(int damage)
+    {
+        damageTxt.text = "" + damage;
+        yield return new WaitForSeconds(0.2f);
+
+        damageTxt.text = "";
 
     }
 

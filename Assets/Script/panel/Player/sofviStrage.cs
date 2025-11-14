@@ -8,8 +8,6 @@ public class sofviStrage : MonoBehaviour
 {
     [Header("獲得ソフビ格納リスト")] public static List<softVinyl> sofviStrageList = new List<softVinyl>(MAXSofviCount);//ソフビのストレージ
     public static int MAXSofviCount = 18;//ストレージの最大数
-  
-    public GameObject testdata;//テストデータオブジェクト
     public static bool ListUpdate=false;
    
 

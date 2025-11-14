@@ -179,6 +179,15 @@ public class SetSofviManeger : MonoBehaviour
                 case softVinyl.BUFFSTATUSNUM.POWER:
                     PlayerStatus_Script.add_Player_Attack_Power += setSoftVinylData[i].Buffparameter;
                     break;
+                case softVinyl.BUFFSTATUSNUM.MAXHP:
+                    PlayerStatus_Script.add_Player_MaxHealth += setSoftVinylData[i].Buffparameter;
+                    break;
+                case softVinyl.BUFFSTATUSNUM.SKILL_CHARGE:
+                    PlayerStatus_Script.add_Player_Skill_Charge += setSoftVinylData[i].Buffparameter;
+                    break;
+                case softVinyl.BUFFSTATUSNUM.MAXSUTAMINA:
+                    PlayerStatus_Script.add_Player_MaxSutamina += setSoftVinylData[i].Buffparameter;
+                    break;
                 case softVinyl.BUFFSTATUSNUM.DEFENSE:
                     PlayerStatus_Script.add_Player_Defense += setSoftVinylData[i].Buffparameter;
                     break;
@@ -191,12 +200,6 @@ public class SetSofviManeger : MonoBehaviour
                 case softVinyl.BUFFSTATUSNUM.CRITICALDAMAGE:
                     PlayerStatus_Script.add_Player_Critical_Damage += setSoftVinylData[i].Buffparameter;
                     break;
-                case softVinyl.BUFFSTATUSNUM.MAXHP:
-                    PlayerStatus_Script.add_Player_MaxHealth += setSoftVinylData[i].Buffparameter;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.MAXSUTAMINA:
-                    PlayerStatus_Script.add_Player_MaxSutamina += setSoftVinylData[i].Buffparameter;
-                    break;
                 default:
                     break;
 
@@ -207,6 +210,16 @@ public class SetSofviManeger : MonoBehaviour
                 case softVinyl.BUFFSTATUSNUM.POWER:
                     PlayerStatus_Script.add_Player_Attack_Power += setSoftVinylData[i].Buffparameter1;
                     break;
+                case softVinyl.BUFFSTATUSNUM.SKILL_CHARGE:
+                    PlayerStatus_Script.add_Player_Skill_Charge += setSoftVinylData[i].Buffparameter1;
+                    break;
+                case softVinyl.BUFFSTATUSNUM.MAXHP:
+                    PlayerStatus_Script.add_Player_MaxHealth += setSoftVinylData[i].Buffparameter1;
+                    break;
+                case softVinyl.BUFFSTATUSNUM.MAXSUTAMINA:
+                    PlayerStatus_Script.add_Player_MaxSutamina += setSoftVinylData[i].Buffparameter1;
+                    break;
+
                 case softVinyl.BUFFSTATUSNUM.DEFENSE:
                     PlayerStatus_Script.add_Player_Defense += setSoftVinylData[i].Buffparameter1;
                     break;
@@ -219,12 +232,6 @@ public class SetSofviManeger : MonoBehaviour
                 case softVinyl.BUFFSTATUSNUM.CRITICALDAMAGE:
                     PlayerStatus_Script.add_Player_Critical_Damage += setSoftVinylData[i].Buffparameter1;
                     break;
-                case softVinyl.BUFFSTATUSNUM.MAXHP:
-                    PlayerStatus_Script.add_Player_MaxHealth += setSoftVinylData[i].Buffparameter1;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.MAXSUTAMINA:
-                    PlayerStatus_Script.add_Player_MaxSutamina += setSoftVinylData[i].Buffparameter1;
-                    break;
                 default:
                     break;
 
@@ -235,6 +242,16 @@ public class SetSofviManeger : MonoBehaviour
                 case softVinyl.BUFFSTATUSNUM.POWER:
                     PlayerStatus_Script.add_Player_Attack_Power += setSoftVinylData[i].Buffparameter2;
                     break;
+                case softVinyl.BUFFSTATUSNUM.SKILL_CHARGE:
+                    PlayerStatus_Script.add_Player_Skill_Charge += setSoftVinylData[i].Buffparameter2;
+                    break;
+                case softVinyl.BUFFSTATUSNUM.MAXHP:
+                    PlayerStatus_Script.add_Player_MaxHealth += setSoftVinylData[i].Buffparameter2;
+                    break;
+                case softVinyl.BUFFSTATUSNUM.MAXSUTAMINA:
+                    PlayerStatus_Script.add_Player_MaxSutamina += setSoftVinylData[i].Buffparameter2;
+                    break;
+
                 case softVinyl.BUFFSTATUSNUM.DEFENSE:
                     PlayerStatus_Script.add_Player_Defense += setSoftVinylData[i].Buffparameter2;
                     break;
@@ -247,12 +264,6 @@ public class SetSofviManeger : MonoBehaviour
                 case softVinyl.BUFFSTATUSNUM.CRITICALDAMAGE:
                     PlayerStatus_Script.add_Player_Critical_Damage += setSoftVinylData[i].Buffparameter2;
                     break;
-                case softVinyl.BUFFSTATUSNUM.MAXHP:
-                    PlayerStatus_Script.add_Player_MaxHealth += setSoftVinylData[i].Buffparameter2;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.MAXSUTAMINA:
-                    PlayerStatus_Script.add_Player_MaxSutamina += setSoftVinylData[i].Buffparameter2;
-                    break;
                 default:
                     break;
 
@@ -263,6 +274,17 @@ public class SetSofviManeger : MonoBehaviour
                 case softVinyl.BUFFSTATUSNUM.POWER:
                     PlayerStatus_Script.add_Player_Attack_Power += setSoftVinylData[i].Buffparameter3;
                     break;
+                case softVinyl.BUFFSTATUSNUM.SKILL_CHARGE:
+                    PlayerStatus_Script.add_Player_Skill_Charge += setSoftVinylData[i].Buffparameter3;
+                    break;
+                case softVinyl.BUFFSTATUSNUM.MAXHP:
+                    PlayerStatus_Script.add_Player_MaxHealth += setSoftVinylData[i].Buffparameter3;
+                    break;
+                case softVinyl.BUFFSTATUSNUM.MAXSUTAMINA:
+                    PlayerStatus_Script.add_Player_MaxSutamina += setSoftVinylData[i].Buffparameter3;
+                    break;
+
+
                 case softVinyl.BUFFSTATUSNUM.DEFENSE:
                     PlayerStatus_Script.add_Player_Defense += setSoftVinylData[i].Buffparameter3;
                     break;
@@ -275,12 +297,6 @@ public class SetSofviManeger : MonoBehaviour
                 case softVinyl.BUFFSTATUSNUM.CRITICALDAMAGE:
                     PlayerStatus_Script.add_Player_Critical_Damage += setSoftVinylData[i].Buffparameter3;
                     break;
-                case softVinyl.BUFFSTATUSNUM.MAXHP:
-                    PlayerStatus_Script.add_Player_MaxHealth += setSoftVinylData[i].Buffparameter3;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.MAXSUTAMINA:
-                    PlayerStatus_Script.add_Player_MaxSutamina += setSoftVinylData[i].Buffparameter3;
-                    break;
                 default:
                     break;
             }
@@ -288,7 +304,7 @@ public class SetSofviManeger : MonoBehaviour
     }
 
     /// <summary>
-    /// 現在選択中のソフビを破棄（UI上から削除）
+    /// 現在選択中のソフビを破棄
     /// </summary>
     public void DeleteSelectedSofvi()
     {

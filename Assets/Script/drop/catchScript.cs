@@ -52,7 +52,7 @@ public class catchScript : MonoBehaviour
                     //ストレージリストに追加
                     for (int j = 0; j < sofviStrage.MAXSofviCount; j++)//nullの場合データを挿入
                     {
-                        if (sofviStrage.sofviStrageList[j] == null)
+                        if (sofviStrage.sofviStrageList[j]==null || sofviStrage.sofviStrageList[j].sofvimodel == softVinyl.SOFVINUMBER.NULL)
                         {
                             GameObject enpty = new GameObject();
                             enpty.AddComponent<softVinyl>();

@@ -96,14 +96,14 @@ public class softVinyl : MonoBehaviour
     {
         NULL=0,
         POWER,
+        MAXHP,
+        SKILL_CHARGE,
+        MAXSUTAMINA,
         DEFENSE,
         SPEED,
         CRITICAL,
         CRITICALDAMAGE,
-        MAXHP,
-        MAXSUTAMINA,
         SUTAMINA_CHARGE_SPEED,
-        SKILL_CHARGE,
         ATTACKRANGE
     }
 

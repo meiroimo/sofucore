@@ -16,14 +16,11 @@ public class SelectText : MonoBehaviour
 
     void Start()
     {
-       //setText(null);//初期化
     }
 
     // Update is called once per frame
     void Update()
     {
-       // setText();
-
     }
    public void setText(softVinyl buttonlocalsoftVinyldata)//パラメータテキストのセット関数
     {
@@ -33,17 +30,23 @@ public class SelectText : MonoBehaviour
             case softVinyl.BUFFSTATUSNUM.POWER:
                 MainBuffname = "<color=#ff3355>攻撃力アップ";
                 break;
-            case softVinyl.BUFFSTATUSNUM.SPEED:
-                MainBuffname = "<color=#3377ff>速度アップ";
-                break;
-            case softVinyl.BUFFSTATUSNUM.DEFENSE:
-                MainBuffname = "<color=#3377ff>防御力アップ";
+            case softVinyl.BUFFSTATUSNUM.SKILL_CHARGE:
+                MainBuffname = "<color=#3377ff>スキルチャージ速度アップ";
                 break;
             case softVinyl.BUFFSTATUSNUM.MAXHP:
                 MainBuffname = "<color=#33ff33>体力アップ";
                 break;
             case softVinyl.BUFFSTATUSNUM.MAXSUTAMINA:
                 MainBuffname = "<color=#ffff00>スタミナアップ";
+                break;
+
+
+
+            case softVinyl.BUFFSTATUSNUM.SPEED:
+                MainBuffname = "<color=#3377ff>速度アップ";
+                break;
+            case softVinyl.BUFFSTATUSNUM.DEFENSE:
+                MainBuffname = "<color=#3377ff>防御力アップ";
                 break;
             case softVinyl.BUFFSTATUSNUM.CRITICAL:
                 MainBuffname = "<color=#ffff00>クリティカル率アップ";
@@ -62,18 +65,25 @@ public class SelectText : MonoBehaviour
             case softVinyl.BUFFSTATUSNUM.POWER:
                 Sub1Buffname = "<color=#ff3355>攻撃力アップ";
                 break;
-            case softVinyl.BUFFSTATUSNUM.SPEED:
-                Sub1Buffname = "<color=#3377ff>速度アップ";
+            case softVinyl.BUFFSTATUSNUM.SKILL_CHARGE:
+                Sub1Buffname = "<color=#3377ff>スキルチャージ速度アップ";
                 break;
-            case softVinyl.BUFFSTATUSNUM.DEFENSE:
-                Sub1Buffname = "<color=#3377ff>防御力アップ";
-                break;
+
             case softVinyl.BUFFSTATUSNUM.MAXHP:
                 Sub1Buffname = "<color=#33ff33>体力アップ";
                 break;
             case softVinyl.BUFFSTATUSNUM.MAXSUTAMINA:
                 Sub1Buffname = "<color=#ffff00>スタミナアップ";
                 break;
+
+
+            case softVinyl.BUFFSTATUSNUM.SPEED:
+                Sub1Buffname = "<color=#3377ff>速度アップ";
+                break;
+            case softVinyl.BUFFSTATUSNUM.DEFENSE:
+                Sub1Buffname = "<color=#3377ff>防御力アップ";
+                break;
+          
             case softVinyl.BUFFSTATUSNUM.CRITICAL:
                 Sub1Buffname = "<color=#ffff00>クリティカル率アップ";
                 break;
@@ -91,17 +101,23 @@ public class SelectText : MonoBehaviour
             case softVinyl.BUFFSTATUSNUM.POWER:
                 Sub2Buffname = "<color=#ff3355>攻撃力アップ";
                 break;
-            case softVinyl.BUFFSTATUSNUM.SPEED:
-                Sub2Buffname = "<color=#3377ff>速度アップ";
+            case softVinyl.BUFFSTATUSNUM.SKILL_CHARGE:
+                Sub2Buffname = "<color=#3377ff>スキルチャージ速度アップ";
                 break;
-            case softVinyl.BUFFSTATUSNUM.DEFENSE:
-                Sub2Buffname = "<color=#3377ff>防御力アップ";
-                break;
+
             case softVinyl.BUFFSTATUSNUM.MAXHP:
                 Sub2Buffname = "<color=#33ff33>体力アップ";
                 break;
             case softVinyl.BUFFSTATUSNUM.MAXSUTAMINA:
                 Sub2Buffname = "<color=#ffff00>スタミナアップ";
+                break;
+
+
+            case softVinyl.BUFFSTATUSNUM.SPEED:
+                Sub2Buffname = "<color=#3377ff>速度アップ";
+                break;
+            case softVinyl.BUFFSTATUSNUM.DEFENSE:
+                Sub2Buffname = "<color=#3377ff>防御力アップ";
                 break;
             case softVinyl.BUFFSTATUSNUM.CRITICAL:
                 Sub2Buffname = "<color=#ffff00>クリティカル率アップ";
@@ -120,17 +136,23 @@ public class SelectText : MonoBehaviour
             case softVinyl.BUFFSTATUSNUM.POWER:
                 Sub3Buffname ="<color=#ff3355>攻撃力アップ";
                 break;
+            case softVinyl.BUFFSTATUSNUM.SKILL_CHARGE:
+                Sub3Buffname = "<color=#3377ff>スキルチャージ速度アップ";
+                break;
+
+            case softVinyl.BUFFSTATUSNUM.MAXHP:
+                Sub3Buffname = "<color=#33ff33>体力アップ";
+                break;
+            case softVinyl.BUFFSTATUSNUM.MAXSUTAMINA:
+                Sub3Buffname = "<color=#ffff00>スタミナアップ";
+                break;
+
+
             case softVinyl.BUFFSTATUSNUM.SPEED:
                 Sub3Buffname ="<color=#3377ff>素早さアップ";
                 break;
             case softVinyl.BUFFSTATUSNUM.DEFENSE:
                 Sub3Buffname ="<color=#3377ff>防御力アップ";
-                break;
-            case softVinyl.BUFFSTATUSNUM.MAXHP:
-                Sub3Buffname ="<color=#33ff33>体力アップ";
-                break;
-            case softVinyl.BUFFSTATUSNUM.MAXSUTAMINA:
-                Sub3Buffname ="<color=#ffff00>スタミナアップ";
                 break;
             case softVinyl.BUFFSTATUSNUM.CRITICAL:
                 Sub3Buffname ="<color=#ffff00>クリティカル率アップ";

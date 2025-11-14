@@ -11,7 +11,6 @@ using static UnityEngine.Mesh;
 public class SetSofviManeger : MonoBehaviour
 {
     
-
     [Header("設置場所のソフビデータ")]      public List<softVinyl>   setSoftVinylData;
     [Header("設置場所のスクリプト")]        public List<Setposition3d> setposition3Ds;
 
@@ -21,7 +20,6 @@ public class SetSofviManeger : MonoBehaviour
     [Header("設置シーンカメラ（自動で設定されます）")]
     public Camera cam;
 
-    bool checkBuffStatus;//強化ステータスの反映ができているか
 
     public GameObject selectSofviOBJ;//選択中のソフビデータオブジェ
     public softVinyl selectSofviDeta;//選択中のソフビデータ
@@ -29,7 +27,6 @@ public class SetSofviManeger : MonoBehaviour
     public Ray ray;//カメラから飛ばすレイ
     void Start()
     {
-        checkBuffStatus = false;
         selectSofviDeta = selectSofviOBJ.GetComponent<softVinyl>();
         setpotionDataSet();
         PlayerStatus_Script= GameObject.Find("Player").GetComponent<PlayerStatus_Script>();//  直接名前検索しているのでプレイヤーobjの名前が変わるとここも変更させる
@@ -37,10 +34,7 @@ public class SetSofviManeger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-
         setSofuvi();
-
         SofviPreview();
     }
 
@@ -131,178 +125,85 @@ public class SetSofviManeger : MonoBehaviour
   
         }
     }
-    //この関数はセットポジションでよくね？
-    //セレクト中のソフビデータを設置ソフビデータにセットする関数
-    public void setpositionsofviDeta(softVinyl setPositionSoftVinylData)
+    // ---------------------------------------------
+    // ステータス追加関数（switch を1箇所に集約）
+    // ---------------------------------------------
+    private void AddStatusValue(softVinyl.BUFFSTATUSNUM type, int value)
     {
-        if (selectSoftVinylData.selectCheck)
+        switch (type)
         {
-            setPositionSoftVinylData.skill = selectSoftVinylData.skill;
-            setPositionSoftVinylData.theme = selectSoftVinylData.theme;
-            setPositionSoftVinylData.cost = selectSoftVinylData.cost;
-            setPositionSoftVinylData.ListNumber = selectSoftVinylData.ListNumber;
-            setPositionSoftVinylData.buffMainstatus = selectSoftVinylData.buffMainstatus;
-            setPositionSoftVinylData.buffSubstatus1 = selectSoftVinylData.buffSubstatus1;
-            setPositionSoftVinylData.buffSubstatus2 = selectSoftVinylData.buffSubstatus2;
-            setPositionSoftVinylData.buffSubstatus3 = selectSoftVinylData.buffSubstatus3;
-            setPositionSoftVinylData.Buffparameter = selectSoftVinylData.Buffparameter;
-            setPositionSoftVinylData.Buffparameter1 = selectSoftVinylData.Buffparameter1;
-            setPositionSoftVinylData.Buffparameter2 = selectSoftVinylData.Buffparameter2;
-            setPositionSoftVinylData.Buffparameter3 = selectSoftVinylData.Buffparameter3;
+            case softVinyl.BUFFSTATUSNUM.POWER:
+                PlayerStatus_Script.add_Player_Attack_Power += value; break;
+
+            case softVinyl.BUFFSTATUSNUM.MAXHP:
+                PlayerStatus_Script.add_Player_MaxHealth += value; break;
+
+            case softVinyl.BUFFSTATUSNUM.SKILL_CHARGE:
+                PlayerStatus_Script.add_Player_Skill_Charge += value; break;
+
+            case softVinyl.BUFFSTATUSNUM.MAXSUTAMINA:
+                PlayerStatus_Script.add_Player_MaxSutamina += value; break;
+
+            case softVinyl.BUFFSTATUSNUM.DEFENSE:
+                PlayerStatus_Script.add_Player_Defense += value; break;
+
+            case softVinyl.BUFFSTATUSNUM.SPEED:
+                PlayerStatus_Script.add_Player_Speed += value; break;
+
+            case softVinyl.BUFFSTATUSNUM.CRITICAL:
+                PlayerStatus_Script.add_Player_Critical += value; break;
+
+            case softVinyl.BUFFSTATUSNUM.CRITICALDAMAGE:
+                PlayerStatus_Script.add_Player_Critical_Damage += value; break;
         }
     }
 
-    /// <summary>
-    /// 6つの設置場所の置かれている場所のソフビのステータスをすべてプレイヤーに反映
-    /// </summary>
+   
     public void statusup()
     {
-        //ステータス反映前に数値を初期化
-        
-        PlayerStatus_Script.add_Player_Attack_Power=0;
+        // ステータスをリセット
+        PlayerStatus_Script.add_Player_Attack_Power = 0;
         PlayerStatus_Script.add_Player_Defense = 0;
         PlayerStatus_Script.add_Player_Speed = 0;
-        PlayerStatus_Script.add_Player_Critical = 0; 
+        PlayerStatus_Script.add_Player_Critical = 0;
         PlayerStatus_Script.add_Player_Critical_Damage = 0;
         PlayerStatus_Script.add_Player_MaxHealth = 0;
         PlayerStatus_Script.add_Player_MaxSutamina = 0;
-
+        PlayerStatus_Script.add_Player_Skill_Charge = 0;
 
         for (int i = 0; i < MAXSETPOSITION; i++)
         {
-            //設置されていないポジションならスキップ
-            if (setSoftVinylData[i].checksetpotion == false) continue;
-            //メインステータス反映
-            // Debug.Log(setSoftVinylData[i].Buffparameter);
-            switch (setSoftVinylData[i].buffMainstatus)
+            if (!setSoftVinylData[i].checksetpotion) continue;
+
+            softVinyl data = setSoftVinylData[i];
+
+            // ---- メイン ----
+            AddStatusValue(data.buffMainstatus, data.Buffparameter);
+
+            // ---- サブをまとめて処理（配列化）----
+            softVinyl.BUFFSTATUSNUM[] subStatusArray = new softVinyl.BUFFSTATUSNUM[3]
             {
-                case softVinyl.BUFFSTATUSNUM.POWER:
-                    PlayerStatus_Script.add_Player_Attack_Power += setSoftVinylData[i].Buffparameter;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.MAXHP:
-                    PlayerStatus_Script.add_Player_MaxHealth += setSoftVinylData[i].Buffparameter;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.SKILL_CHARGE:
-                    PlayerStatus_Script.add_Player_Skill_Charge += setSoftVinylData[i].Buffparameter;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.MAXSUTAMINA:
-                    PlayerStatus_Script.add_Player_MaxSutamina += setSoftVinylData[i].Buffparameter;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.DEFENSE:
-                    PlayerStatus_Script.add_Player_Defense += setSoftVinylData[i].Buffparameter;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.SPEED:
-                    PlayerStatus_Script.add_Player_Speed += setSoftVinylData[i].Buffparameter;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.CRITICAL:
-                    PlayerStatus_Script.add_Player_Critical += setSoftVinylData[i].Buffparameter;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.CRITICALDAMAGE:
-                    PlayerStatus_Script.add_Player_Critical_Damage += setSoftVinylData[i].Buffparameter;
-                    break;
-                default:
-                    break;
+            data.buffSubstatus1,
+            data.buffSubstatus2,
+            data.buffSubstatus3
+            };
 
-            }
-            //サブ１ステータス反映
-            switch (setSoftVinylData[i].buffSubstatus1)
+            int[] subValueArray = new int[3]
             {
-                case softVinyl.BUFFSTATUSNUM.POWER:
-                    PlayerStatus_Script.add_Player_Attack_Power += setSoftVinylData[i].Buffparameter1;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.SKILL_CHARGE:
-                    PlayerStatus_Script.add_Player_Skill_Charge += setSoftVinylData[i].Buffparameter1;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.MAXHP:
-                    PlayerStatus_Script.add_Player_MaxHealth += setSoftVinylData[i].Buffparameter1;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.MAXSUTAMINA:
-                    PlayerStatus_Script.add_Player_MaxSutamina += setSoftVinylData[i].Buffparameter1;
-                    break;
+            data.Buffparameter1,
+            data.Buffparameter2,
+            data.Buffparameter3
+            };
 
-                case softVinyl.BUFFSTATUSNUM.DEFENSE:
-                    PlayerStatus_Script.add_Player_Defense += setSoftVinylData[i].Buffparameter1;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.SPEED:
-                    PlayerStatus_Script.add_Player_Speed += setSoftVinylData[i].Buffparameter1;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.CRITICAL:
-                    PlayerStatus_Script.add_Player_Critical += setSoftVinylData[i].Buffparameter1;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.CRITICALDAMAGE:
-                    PlayerStatus_Script.add_Player_Critical_Damage += setSoftVinylData[i].Buffparameter1;
-                    break;
-                default:
-                    break;
-
-            }
-            //サブ２ステータス反映
-            switch (setSoftVinylData[i].buffSubstatus2)
+            for (int j = 0; j < 3; j++)
             {
-                case softVinyl.BUFFSTATUSNUM.POWER:
-                    PlayerStatus_Script.add_Player_Attack_Power += setSoftVinylData[i].Buffparameter2;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.SKILL_CHARGE:
-                    PlayerStatus_Script.add_Player_Skill_Charge += setSoftVinylData[i].Buffparameter2;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.MAXHP:
-                    PlayerStatus_Script.add_Player_MaxHealth += setSoftVinylData[i].Buffparameter2;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.MAXSUTAMINA:
-                    PlayerStatus_Script.add_Player_MaxSutamina += setSoftVinylData[i].Buffparameter2;
-                    break;
-
-                case softVinyl.BUFFSTATUSNUM.DEFENSE:
-                    PlayerStatus_Script.add_Player_Defense += setSoftVinylData[i].Buffparameter2;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.SPEED:
-                    PlayerStatus_Script.add_Player_Speed += setSoftVinylData[i].Buffparameter2;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.CRITICAL:
-                    PlayerStatus_Script.add_Player_Critical += setSoftVinylData[i].Buffparameter2;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.CRITICALDAMAGE:
-                    PlayerStatus_Script.add_Player_Critical_Damage += setSoftVinylData[i].Buffparameter2;
-                    break;
-                default:
-                    break;
-
-            }
-            //サブ３ステータス反映
-            switch (setSoftVinylData[i].buffSubstatus3)
-            {
-                case softVinyl.BUFFSTATUSNUM.POWER:
-                    PlayerStatus_Script.add_Player_Attack_Power += setSoftVinylData[i].Buffparameter3;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.SKILL_CHARGE:
-                    PlayerStatus_Script.add_Player_Skill_Charge += setSoftVinylData[i].Buffparameter3;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.MAXHP:
-                    PlayerStatus_Script.add_Player_MaxHealth += setSoftVinylData[i].Buffparameter3;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.MAXSUTAMINA:
-                    PlayerStatus_Script.add_Player_MaxSutamina += setSoftVinylData[i].Buffparameter3;
-                    break;
-
-
-                case softVinyl.BUFFSTATUSNUM.DEFENSE:
-                    PlayerStatus_Script.add_Player_Defense += setSoftVinylData[i].Buffparameter3;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.SPEED:
-                    PlayerStatus_Script.add_Player_Speed += setSoftVinylData[i].Buffparameter3;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.CRITICAL:
-                    PlayerStatus_Script.add_Player_Critical += setSoftVinylData[i].Buffparameter3;
-                    break;
-                case softVinyl.BUFFSTATUSNUM.CRITICALDAMAGE:
-                    PlayerStatus_Script.add_Player_Critical_Damage += setSoftVinylData[i].Buffparameter3;
-                    break;
-                default:
-                    break;
+                AddStatusValue(subStatusArray[j], subValueArray[j]);
             }
         }
     }
 
+
+  
     /// <summary>
     /// 現在選択中のソフビを破棄
     /// </summary>
@@ -314,7 +215,7 @@ public class SetSofviManeger : MonoBehaviour
             return;
         }
 
-        // ソフビオブジェクト削除
+        // ソフビ削除
         Debug.Log($"{selectSoftVinylData.ListNumber} を廃棄しました");
         sofviStrage.sofviStrageList[selectSoftVinylData.ListNumber].ResetParameter();
         sofviStrage.ListUpdate = true;//表示の更新

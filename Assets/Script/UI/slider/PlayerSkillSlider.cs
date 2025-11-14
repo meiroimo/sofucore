@@ -25,9 +25,9 @@ public class PlayerSkillSlider : MonoBehaviour
         playerStatus_Script = GetComponent<PlayerStatus_Script>();
         seBox = GetComponent<PlayerSEBox>();
 
-        maxSkillPoint = playerStatus_Script.D_player_Skill_Point;
+        maxSkillPoint = playerStatus_Script.default_player_Skill_Point;
         nowSkillPoint = maxSkillPoint;
-        skillChargePoint = playerStatus_Script.D_player_Skill_Charge;
+        skillChargePoint = playerStatus_Script.default_player_Skill_Charge;
 
         isSkillCharge = false;
         setNowPoint(1);

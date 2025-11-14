@@ -16,7 +16,6 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
     [SerializeField] private GameObject TextWindowManegerObj;//パネルイメージOBJ
     [SerializeField] private TextWindow TextWindowManegerSc;//パネルイメージ
 
-
     [SerializeField] private GameObject PanelImageobj;//パネルイメージOBJ
     [SerializeField] private Image PanelImage;//パネルイメージ
 
@@ -72,13 +71,7 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
     public void OnPointerExit(PointerEventData eventData)
     {
         TextWindowManegerSc.OnHoverExit();
-        //SelectTextSc.setText(null);
-
-
     }
-
-
-
     public void onclickButton()
     {
         if(!selectPanel && SetSofvidata.sofvimodel!= softVinyl.SOFVINUMBER.NULL)
@@ -95,8 +88,6 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
             }
         }
     }
-  
-
     public void setImage()
     {
         //ソフビデータがなかった場合は×表示
@@ -109,7 +100,6 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
         {
             PanelImage.sprite = ImgStrageScriptdata.sprites[(int)SetSofvidata.sofvimodel];
         }
-
     }
     void againClick()//セレクトデータをリセット
     {

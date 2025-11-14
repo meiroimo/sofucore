@@ -105,15 +105,15 @@ public class CSVReader : MonoBehaviour
         CsvRead(playerStatusCSV, playerStatusDatas);
 
         //ÉfÅ[É^Çì¸ÇÍÇÈ
-        playerStatus_Script.D_player_MaxHealth = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_MAX_HEALTH]);
-        playerStatus_Script.D_player_MaxSutamina = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_MAX_SUTAMINA]);
-        playerStatus_Script.D_player_Attack_Power = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_ATTACK_POWER]);
+        playerStatus_Script.default_player_MaxHealth = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_MAX_HEALTH]);
+        playerStatus_Script.default_player_MaxSutamina = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_MAX_SUTAMINA]);
+        playerStatus_Script.default_player_Attack_Power = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_ATTACK_POWER]);
         playerStatus_Script.D_player_Defense = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_DEFENCE]);
-        playerStatus_Script.D_player_Speed = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_SPEED]);
+        playerStatus_Script.default_player_Speed = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_SPEED]);
         playerStatus_Script.D_player_Critical = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_CRITICAL]);
         playerStatus_Script.D_player_Critical_Damage = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_CRITICAL_DAMAGE]);
-        playerStatus_Script.D_player_Skill_Point = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_SKILL_POINT]);
-        playerStatus_Script.D_player_Skill_Charge = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_SKILL_CHARGE]);
+        playerStatus_Script.default_player_Skill_Point = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_SKILL_POINT]);
+        playerStatus_Script.default_player_Skill_Charge = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_SKILL_CHARGE]);
 
     }
 
@@ -136,9 +136,9 @@ public class CSVReader : MonoBehaviour
 
         var data = DataManager.Instance.data;
 
-        float atk = playerStatus_Script.D_player_Attack_Power;
-        float hp = playerStatus_Script.D_player_MaxHealth;
-        float spd = playerStatus_Script.D_player_Speed;
+        float atk = playerStatus_Script.default_player_Attack_Power;
+        float hp = playerStatus_Script.default_player_MaxHealth;
+        float spd = playerStatus_Script.default_player_Speed;
 
         data.attackPower = atk;
         data.maxHealth = hp;

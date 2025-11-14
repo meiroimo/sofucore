@@ -84,8 +84,6 @@ public class catchScript : MonoBehaviour
                             break;
                         }
                     }
-                    // sofviStrage.sofviStrageList.Add(other.GetComponent<softVinyl>());
-
                 }
                 catchSofvi[i]++;
                 PlayerStatusCache.SaveCatchSofviCount();

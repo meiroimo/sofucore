@@ -67,9 +67,8 @@ public class StaminaSliderScript : MonoBehaviour
 
     void setHealthText()
     {
-        float addStamina = maxStamina - initMaxStamina;
 
-        maxStaminaText.text = maxStamina + "(" + addStamina + ")";
+        maxStaminaText.text = maxStamina + "(" + playerStatus_Script.add_Player_MaxSutamina + ")";
     }
 
     void HealStamina()

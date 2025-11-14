@@ -48,13 +48,13 @@ public class dropRandomStatusScript : MonoBehaviour
         softVinylStatusScript.buffSubstatus3 = (BUFFSTATUSNUM)Random.Range((float)BUFFSTATUSNUM.NULL, (float)BUFFSTATUSNUM.MAXSUTAMINA) + 1;
 
         //メインステ　追加値
-        softVinylStatusScript.Buffparameter = setRarityStatus[(int)softVinylStatusScript.rarity -1][(int)softVinylStatusScript.buffMainstatus -1];
+        softVinylStatusScript.Buffparameter = setRarityStatus[(int)softVinylStatusScript.rarity -1][(int)softVinylStatusScript.buffMainstatus -1] + 1;
         //サブステ１　追加値
-        softVinylStatusScript.Buffparameter1 = setRarityStatus[(int)softVinylStatusScript.rarity -1][(int)softVinylStatusScript.buffSubstatus1 -1];
+        softVinylStatusScript.Buffparameter1 = setRarityStatus[(int)softVinylStatusScript.rarity -1][(int)softVinylStatusScript.buffSubstatus1 -1] + 1;
         //サブステ2 　追加値
-        softVinylStatusScript.Buffparameter2 = setRarityStatus[(int)softVinylStatusScript.rarity -1][(int)softVinylStatusScript.buffSubstatus2 -1];
+        softVinylStatusScript.Buffparameter2 = setRarityStatus[(int)softVinylStatusScript.rarity -1][(int)softVinylStatusScript.buffSubstatus2 -1] + 1;
         //サブステ3 　追加値
-        softVinylStatusScript.Buffparameter3 = setRarityStatus[(int)softVinylStatusScript.rarity -1][(int)softVinylStatusScript.buffSubstatus3 -1];
+        softVinylStatusScript.Buffparameter3 = setRarityStatus[(int)softVinylStatusScript.rarity -1][(int)softVinylStatusScript.buffSubstatus3 -1] + 1;
 
 
     }

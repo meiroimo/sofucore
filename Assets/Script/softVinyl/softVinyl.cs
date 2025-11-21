@@ -8,7 +8,7 @@ using UnityEngine.UI;
 /// ソフビ1体のパラメータデータを保持（モデル、スキル、テーマ、バフ値など）。
 /// UIボタンや設置場所オブジェクトにも付与されている。
 /// </summary>
-public class softVinyl : MonoBehaviour
+public class softVinyl 
 {
     [Header("ソフビ種類")] public SOFVINUMBER sofvimodel;//このソフビの３ｄモデルプレハブ
     [Header("テーマ")] public themeNuｍ theme;//このソフビのテーマ

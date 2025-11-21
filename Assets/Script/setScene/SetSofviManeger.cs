@@ -163,7 +163,7 @@ public class SetSofviManeger : MonoBehaviour
             softVinyl data = setSoftVinylData[i];
 
             // ---- メイン ----
-            AddStatusValue(data.buffMainstatus, data.Buffparameter);
+            AddStatusValue(data.buffMainstatus, data.BuffMainParameter);
 
             // ---- サブをまとめて処理（配列化）----
             softVinyl.BUFFSTATUSNUM[] subStatusArray = new softVinyl.BUFFSTATUSNUM[3]
@@ -175,7 +175,7 @@ public class SetSofviManeger : MonoBehaviour
 
             int[] subValueArray = new int[3]
             {
-            data.Buffparameter1,
+            data.BuffSubparameter1,
             data.Buffparameter2,
             data.Buffparameter3
             };

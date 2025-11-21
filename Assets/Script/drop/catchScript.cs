@@ -70,8 +70,8 @@ public class catchScript : MonoBehaviour
                             softVinylSdata.buffSubstatus1 = softVinylSc.buffSubstatus1;
                             softVinylSdata.buffSubstatus2 = softVinylSc.buffSubstatus2;
                             softVinylSdata.buffSubstatus3 = softVinylSc.buffSubstatus3;
-                            softVinylSdata.Buffparameter = softVinylSc.Buffparameter;
-                            softVinylSdata.Buffparameter1 = softVinylSc.Buffparameter1;
+                            softVinylSdata.BuffMainParameter = softVinylSc.BuffMainParameter;
+                            softVinylSdata.BuffSubparameter1 = softVinylSc.BuffSubparameter1;
                             softVinylSdata.Buffparameter2 = softVinylSc.Buffparameter2;
                             softVinylSdata.Buffparameter3 = softVinylSc.Buffparameter3;
                                 

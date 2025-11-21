@@ -118,8 +118,8 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
         selectSofviDeta.buffSubstatus1 = SetSofvidata.buffSubstatus1;
         selectSofviDeta.buffSubstatus2 = SetSofvidata.buffSubstatus2;
         selectSofviDeta.buffSubstatus3 = SetSofvidata.buffSubstatus3;
-        selectSofviDeta.Buffparameter = SetSofvidata.Buffparameter;
-        selectSofviDeta.Buffparameter1 = SetSofvidata.Buffparameter1;
+        selectSofviDeta.BuffMainParameter = SetSofvidata.BuffMainParameter;
+        selectSofviDeta.BuffSubparameter1 = SetSofvidata.BuffSubparameter1;
         selectSofviDeta.Buffparameter2 = SetSofvidata.Buffparameter2;
         selectSofviDeta.Buffparameter3 = SetSofvidata.Buffparameter3;
         selectSofviDeta.selectButton = this.gameObject;

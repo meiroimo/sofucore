@@ -119,8 +119,8 @@ public class SelectText : MonoBehaviour
                 break;
         }
         textOBJ.GetComponent<Text>().supportRichText = true; // ←これが重要！
-        textOBJ.GetComponent<Text>().text = "メイン\r\n" + MainBuffname + buttonlocalsoftVinyldata.Buffparameter +
-        "</color>\r\nサブ1\r\n" + Sub1Buffname + buttonlocalsoftVinyldata.Buffparameter1
+        textOBJ.GetComponent<Text>().text = "メイン\r\n" + MainBuffname + buttonlocalsoftVinyldata.BuffMainParameter +
+        "</color>\r\nサブ1\r\n" + Sub1Buffname + buttonlocalsoftVinyldata.BuffSubparameter1
         + "</color>\r\nサブ2\r\n" + Sub2Buffname + buttonlocalsoftVinyldata.Buffparameter2 +
         "</color>\r\nサブ3\r\n" + Sub3Buffname + buttonlocalsoftVinyldata.Buffparameter3 +"</color>";
     }

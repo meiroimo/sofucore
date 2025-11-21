@@ -66,8 +66,8 @@ public class SofviVinylList : MonoBehaviour
             childrensoftVinyl[i].buffSubstatus1 = softVinylData[i].buffSubstatus1;
             childrensoftVinyl[i].buffSubstatus2 = softVinylData[i].buffSubstatus2;
             childrensoftVinyl[i].buffSubstatus3 = softVinylData[i].buffSubstatus3;
-            childrensoftVinyl[i].Buffparameter = softVinylData[i].Buffparameter;
-            childrensoftVinyl[i].Buffparameter1 = softVinylData[i].Buffparameter1;
+            childrensoftVinyl[i].BuffMainParameter = softVinylData[i].BuffMainParameter;
+            childrensoftVinyl[i].BuffSubparameter1 = softVinylData[i].BuffSubparameter1;
             childrensoftVinyl[i].Buffparameter2 = softVinylData[i].Buffparameter2;
             childrensoftVinyl[i].Buffparameter3 = softVinylData[i].Buffparameter3;
            

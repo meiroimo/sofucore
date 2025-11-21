@@ -112,8 +112,8 @@ public class Setposition3d : MonoBehaviour
             setPositionSoftVinylData.buffSubstatus1 = SetSofviManeger.selectSoftVinylData.buffSubstatus1;
             setPositionSoftVinylData.buffSubstatus2 = SetSofviManeger.selectSoftVinylData.buffSubstatus2;
             setPositionSoftVinylData.buffSubstatus3 = SetSofviManeger.selectSoftVinylData.buffSubstatus3;
-            setPositionSoftVinylData.Buffparameter = SetSofviManeger.selectSoftVinylData.Buffparameter;
-            setPositionSoftVinylData.Buffparameter1 = SetSofviManeger.selectSoftVinylData.Buffparameter1;
+            setPositionSoftVinylData.BuffMainParameter = SetSofviManeger.selectSoftVinylData.BuffMainParameter;
+            setPositionSoftVinylData.BuffSubparameter1 = SetSofviManeger.selectSoftVinylData.BuffSubparameter1;
             setPositionSoftVinylData.Buffparameter2 = SetSofviManeger.selectSoftVinylData.Buffparameter2;
             setPositionSoftVinylData.Buffparameter3 = SetSofviManeger.selectSoftVinylData.Buffparameter3;
         }

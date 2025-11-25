@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerRunState : PlayerState
 {
     private float runSpeed;
+    private float nextStaminaDecreaseTime;
+    private float staminaDecrease = 1;
 
     public PlayerRunState(PlayerController player) : base(player) 
     {
@@ -13,8 +15,12 @@ public class PlayerRunState : PlayerState
 
     public override void Enter()
     {
+        if (!player.TakeAvoid(5))
+        {
+            player.ChangeState(new PlayerMoveState(player));
+            return;
+        }
         player.PlayerMotionScript.runMotion(true);
-
         player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.SMOKE);
         player.SeBox.PlayPlayerSE(PlayerSEBox.SENAME.MOVE);
     }
@@ -23,6 +29,16 @@ public class PlayerRunState : PlayerState
     {
         Vector2 moveInput = player.MoveInput;
         Vector3 moveDir = new Vector3(moveInput.x, 0, moveInput.y);
+
+        if (Time.time > nextStaminaDecreaseTime)
+        {
+            nextStaminaDecreaseTime = Time.time + staminaDecrease;
+            if (!player.TakeAvoid(5))
+            {
+                player.ChangeState(new PlayerMoveState(player));
+                return;
+            }
+        }
 
         if (moveDir.sqrMagnitude < 0.01f)
         {

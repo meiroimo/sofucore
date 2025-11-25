@@ -8,7 +8,6 @@ public static class Difficulty
 
     public static float GetDifficultyPercent()
     {
-        return 1;
         return Mathf.Clamp01(Time.time / secondsToMaxDifficulty);
     }
 }

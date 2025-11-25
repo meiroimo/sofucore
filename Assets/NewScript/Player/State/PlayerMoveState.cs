@@ -28,12 +28,13 @@ public class PlayerMoveState : PlayerState
         }
 
         // ShiftƒL[‰Ÿ‰º‚Å‘–‚è‚ÉˆÚs
-        if (player.IsRunning)
+        if (player.IsRunning && player.TakeAvoid(5))
         {
             player.ChangeState(new PlayerRunState(player));
             return;
         }
 
+        player.CallHealStamina();
         player.MoveCharacter(moveDir, player.moveForce);
     }
 

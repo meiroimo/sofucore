@@ -114,7 +114,7 @@ public partial class @FlowerGuard2: IInputActionCollection2, IDisposable
                     ""id"": ""4cd9b1ad-7f5e-4b7d-932e-fedbd1fc2048"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 },
                 {

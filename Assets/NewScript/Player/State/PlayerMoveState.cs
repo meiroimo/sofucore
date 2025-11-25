@@ -13,7 +13,6 @@ public class PlayerMoveState : PlayerState
         player.PlayerMotionScript.runMotion(true);
 
         player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.SMOKE);
-        //        bird_Audio.PlayOneShot(jump_SE);
         player.SeBox.PlayPlayerSE(PlayerSEBox.SENAME.MOVE);
     }
 

@@ -9,8 +9,8 @@ public class EnemySpawner : MonoBehaviour
     [Header("基本設定")]
     public Transform player; // プレイヤーの位置
     public GameObject[] enemyPrefab; // 出現させる敵プレハブ
-    //public Transform[] spawnPoints; // スポーン候補位置
     public float spawnInterval = 2f; // 敵を出現させる間隔
+    float nextSpawnTime;
     public int maxEnemies = 10; // 同時に存在できる敵の最大数
     public int spawnCountPerWave = 3; // 一度に出す敵の数
     public int enemyStatusTypeNo = 1; // CSVから読み込む敵の種類
@@ -45,12 +45,18 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        timer += Time.deltaTime;
+        //timer += Time.deltaTime;
 
-        if (timer >= spawnInterval)
+        //if (timer >= spawnInterval)
+        //{
+        //    SpawnEnemyWave();
+        //    timer = 0;
+        //}
+
+        if(Time.time > nextSpawnTime)
         {
+            nextSpawnTime = Time.time + spawnInterval;
             SpawnEnemyWave();
-            timer = 0;
         }
     }
 

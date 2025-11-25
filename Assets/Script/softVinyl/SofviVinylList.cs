@@ -55,18 +55,6 @@ public class SofviVinylList : MonoBehaviour
             if (softVinylData[i] == null) continue;
             childrensoftVinyl[i].SofviData = softVinylData[i];
 
-            //childrensoftVinyl[i].sofvimodel = softVinylData[i].sofvimodel;
-            //childrensoftVinyl[i].skill = softVinylData[i].skill;
-            //childrensoftVinyl[i].theme = softVinylData[i].theme;
-            //childrensoftVinyl[i].ListNumber = softVinylData[i].ListNumber;
-            //childrensoftVinyl[i].buffMainstatus = softVinylData[i].buffMainstatus;
-            //childrensoftVinyl[i].buffSubstatus1 = softVinylData[i].buffSubstatus1;
-            //childrensoftVinyl[i].buffSubstatus2 = softVinylData[i].buffSubstatus2;
-            //childrensoftVinyl[i].buffSubstatus3 = softVinylData[i].buffSubstatus3;
-            //childrensoftVinyl[i].Buffparameter = softVinylData[i].Buffparameter;
-            //childrensoftVinyl[i].Buffparameter1 = softVinylData[i].Buffparameter1;
-            //childrensoftVinyl[i].Buffparameter2 = softVinylData[i].Buffparameter2;
-            //childrensoftVinyl[i].Buffparameter3 = softVinylData[i].Buffparameter3;
            
         }
 

@@ -39,7 +39,6 @@ public class catchScript : MonoBehaviour
         for (int i = 1; i < rarityTagName.Length; i++)
         {
             if (objTagName != rarityTagName[i]) continue;//レアリティが違うとcontinue
-            Debug.Log("s");
             //それぞれ対象の物をカウント
             if (objTagName.Contains("box"))
             {
@@ -61,9 +60,7 @@ public class catchScript : MonoBehaviour
                             softVinyl DropSoftViny = other.GetComponent<softVinyl>();
 
                             SoftVinilData SeveStorageSofviData = DropSoftViny.SofviData;
-                            Debug.Log(SeveStorageSofviData.buffMainstatus);
                             sofviSotrage.sofviStrageList[j] = SeveStorageSofviData;
-                            Debug.Log("拾った");
                             //リストの何番目かを記録
                             sofviSotrage.sofviStrageList[j].ListNumber = j;
                             break;

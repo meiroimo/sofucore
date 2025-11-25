@@ -27,7 +27,6 @@ public class UIManager : MonoBehaviour
             setUIFlg = true;
             SetCanvas.SetActive(false);//初めはセットシーンのUIは非表示
         }
-        //SetCanvas.SetActive(false);//初めはセットシーンのUIは非表示
         UIClose();
 
     }

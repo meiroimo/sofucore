@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.Rendering.Universal.ShaderGUI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,9 +18,16 @@ public class Setposition3d : MonoBehaviour
     public bool rathit = false;//レイが当たっていたら判定
     public int setpotionNumber=0;
     public GameObject[] model;
+    [SerializeField] private GameObject SetSofviModelBox;//設置するソフビの全モデル
+    [SerializeField] private SetSofviBox SetSofviBoxScript;//設置するソフビの全モデルが入ってるスクリプト
+
+
+
     Camera mainCamera; // 撮影したいカメラ
     void Start()
     {
+        SetSofviModelBox = GameObject.Find("modelBox");//モデルボックスのオブジェクトの掴む
+        SetSofviBoxScript = SetSofviModelBox.GetComponent<SetSofviBox>();//設置すルソフビの全モデルが入っているスクリプトを掴む
         softVinylData = gameObject.GetComponent<softVinyl>();//自分のソフビクラスコンポーネントを掴む
         boxCollider = gameObject.GetComponent<BoxCollider>();//自分のボックスコライダ―を掴む
         GameObject setsofvimanegarobj = GameObject.Find("SetsofviManeger");//ソフビマネージャーのオブジェクトの掴む
@@ -39,11 +47,12 @@ public class Setposition3d : MonoBehaviour
 
     void SofviIns()　//ソフビ生成
     {
-        setpositionsofviDeta(softVinylData.SofviData);//selectしたソフビデータを設置場所に反映
-        //３Ðモデルを空箱に生成
-        GameObject ins = Instantiate(model[(int)softVinylData.SofviData.sofvimodel], this.transform.position, Quaternion.identity);
+        setpositionsofviDeta();//selectしたソフビデータを設置場所に反映
+                               //３Ðモデルを空箱に生成
+       // GameObject ins = Instantiate(model[(int)SetSofviManeger.selectSofviDeta.SofviData.sofvimodel], this.transform.position, Quaternion.identity);
+        GameObject ins = Instantiate(SetSofviBoxScript.SetSofviModelPrefabs[(int)SetSofviManeger.selectSofviDeta.SofviData.sofvimodel], this.transform.position, Quaternion.identity);
         ins.transform.parent = this.transform;
-        ins.transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
+        ins.transform.rotation = Quaternion.AngleAxis(90, Vector3.up);
         //ストレージからデータの削除
         sofviSotrage.sofviStrageList[softVinylData.SofviData.ListNumber] = null;
         //sofviSotrage.ListUpdate = true;//リストの更新判定をオン
@@ -54,7 +63,6 @@ public class Setposition3d : MonoBehaviour
         checkmodelset = false;//生成するクリック判定をfalse
         ColloderOff();//設置場所のコライダーオフ再度クリックされないように
         softVinylData.SofviData.checksetpotion = true;//セットされたかの判定をオンに
-        Debug.Log(softVinylData.SofviData.checksetpotion);
         SetSofviManeger.statusup();
 
         //スクショ
@@ -70,12 +78,14 @@ public class Setposition3d : MonoBehaviour
     }
     public   void TranslucentSofviIns()　//半透明ソフビ生成関数
     {
-        setpositionsofviDeta(softVinylData.SofviData);
+        setpositionsofviDeta();
         //３Ðモデルを空箱に生成
-        GameObject ins = Instantiate(model[(int)softVinylData.SofviData.sofvimodel], this.transform.position, Quaternion.identity);
+       // GameObject ins = Instantiate(model[(int)softVinylData.SofviData.sofvimodel], this.transform.position, Quaternion.identity);
+        GameObject ins = Instantiate(SetSofviBoxScript.SetSofviModelPrefabs[(int)SetSofviManeger.selectSofviDeta.SofviData.sofvimodel], this.transform.position, Quaternion.identity);
+
 
         ins.transform.parent = this.transform;
-        ins.transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
+        ins.transform.rotation = Quaternion.AngleAxis(90, Vector3.up);
         ins.GetComponent<MeshRenderer>().material = translucent;//マテリアルを半透明に
         ins.GetComponent<BoxCollider>().enabled = false;//例が当たらないようにコライダーオフ
         translucentflg = true;//半透明表示判定をオンに
@@ -101,25 +111,16 @@ public class Setposition3d : MonoBehaviour
     }
     //この関数はセットポジションでよくね？
     //セレクト中のソフビデータを設置ソフビデータにセットする関数
-    public void setpositionsofviDeta(SoftVinilData SetSofviData)
+    public void setpositionsofviDeta()
     {
-        if (SetSofviData.selectCheck)
+        if (SetSofviManeger.selectSoftVinylData.SofviData.selectCheck)
         {
-            SetSofviData = SetSofviManeger.selectSoftVinylData.SofviData;
-            Debug.Log(SetSofviData);
+            Debug.Log("セレクトの"+SetSofviManeger.selectSoftVinylData.SofviData.sofvimodel);
+            Debug.Log("設置場所の" + softVinylData.SofviData.sofvimodel);
 
-            //setPositionSoftVinylData.skill = SetSofviManeger.selectSoftVinylData.skill;
-            //setPositionSoftVinylData.theme = SetSofviManeger.selectSoftVinylData.theme;
-            //setPositionSoftVinylData.cost = SetSofviManeger.selectSoftVinylData.cost;
-            //setPositionSoftVinylData.ListNumber = SetSofviManeger.selectSoftVinylData.ListNumber;
-            //setPositionSoftVinylData.buffMainstatus = SetSofviManeger.selectSoftVinylData.buffMainstatus;
-            //setPositionSoftVinylData.buffSubstatus1 = SetSofviManeger.selectSoftVinylData.buffSubstatus1;
-            //setPositionSoftVinylData.buffSubstatus2 = SetSofviManeger.selectSoftVinylData.buffSubstatus2;
-            //setPositionSoftVinylData.buffSubstatus3 = SetSofviManeger.selectSoftVinylData.buffSubstatus3;
-            //setPositionSoftVinylData.Buffparameter = SetSofviManeger.selectSoftVinylData.Buffparameter;
-            //setPositionSoftVinylData.Buffparameter1 = SetSofviManeger.selectSoftVinylData.Buffparameter1;
-            //setPositionSoftVinylData.Buffparameter2 = SetSofviManeger.selectSoftVinylData.Buffparameter2;
-            //setPositionSoftVinylData.Buffparameter3 = SetSofviManeger.selectSoftVinylData.Buffparameter3;
+            softVinylData.SofviData = SetSofviManeger.selectSoftVinylData.SofviData;
+            Debug.Log("代入後の設置場所の" + softVinylData.SofviData.sofvimodel);
+
         }
     }
 }

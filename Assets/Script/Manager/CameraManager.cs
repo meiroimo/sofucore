@@ -17,7 +17,7 @@ public class CameraManager : MonoBehaviour
         mainCamera = GameObject.Find("Main Camera");
         setCamera = GameObject.Find("SetSceneCamera");
         currentCamera = mainCamera;
-        // サブカメラはデフォルトで無効にしておく
+        //設置画面カメラはデフォルトで無効にしておく
         setCamera.SetActive(false);
                
     }

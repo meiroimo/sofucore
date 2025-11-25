@@ -23,7 +23,8 @@ public class PlayerAvoidState : PlayerState
             return;
         }
 
-            player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.AVOIDANCE);
+        player.IsAvoid = true;
+        player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.AVOIDANCE);
         player.PlayerMotionScript.avoidanceMotion(true);
 
         //“ü—Í•ûŒü‚ª‚È‚¯‚ê‚ÎŒü‚¢‚Ä‚¢‚é•ûŒü‚É‰ñ”ð
@@ -62,5 +63,6 @@ public class PlayerAvoidState : PlayerState
     public override void Exit() {
         player.PlayerEffectScript.StopEffect((int)playerEffectScript.EffectName.AVOIDANCE);
         player.PlayerMotionScript.avoidanceMotion(false);
+        player.IsAvoid = false;
     }
 }

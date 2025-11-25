@@ -391,6 +391,10 @@ public class PlayerController : MonoBehaviour
         {
             ChangeState(new AttackOneState(this));
         }
+        else if(currentState is PlayerRunState)
+        {
+            ChangeState(new AttackOneState(this));
+        }
         else
         {
             // UŒ‚’†‚È‚çŸ‚ÌUŒ‚ƒtƒ‰ƒO‚ğ—§‚Ä‚é

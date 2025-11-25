@@ -64,7 +64,7 @@ public class SetSofviManeger : MonoBehaviour
     }
     void SofviPreview()
     {
-        if (selectSofviDeta.selectCheck)//ソフビがセレクトされていたら
+        if (selectSofviDeta.SofviData.selectCheck)//ソフビがセレクトされていたら
         {
            
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);//レイを飛ばす
@@ -109,7 +109,7 @@ public class SetSofviManeger : MonoBehaviour
     void setSofuvi()
 
     {
-        if(selectSofviDeta.selectCheck&& Input.GetMouseButtonDown(0))//ソフビ選択されてたらかつ左クリック時
+        if(selectSofviDeta.SofviData.selectCheck && Input.GetMouseButtonDown(0))//ソフビ選択されてたらかつ左クリック時
         {
            
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);//レイ飛ばす
@@ -125,22 +125,22 @@ public class SetSofviManeger : MonoBehaviour
     // ---------------------------------------------
     // ステータス追加関数（switch を1箇所に集約）
     // ---------------------------------------------
-    private void AddStatusValue(softVinyl.BUFFSTATUSNUM type, int value)
+    private void AddStatusValue(SoftVinilData.BUFFSTATUSNUM type, int value)
     {
         switch (type)
         {
-            case softVinyl.BUFFSTATUSNUM.POWER:
+            case SoftVinilData.BUFFSTATUSNUM.POWER:
                 PlayerStatus_Script.add_Player_Attack_Power += value; break;
 
-            case softVinyl.BUFFSTATUSNUM.MAXHP:
+            case SoftVinilData.BUFFSTATUSNUM.MAXHP:
                 PlayerStatus_Script.add_Player_MaxHealth += value; break;
 
-            case softVinyl.BUFFSTATUSNUM.SKILL_CHARGE:
+            case SoftVinilData.BUFFSTATUSNUM.SKILL_CHARGE:
                 PlayerStatus_Script.add_Player_Skill_Charge += value; break;
 
-            case softVinyl.BUFFSTATUSNUM.SUTAMINA_RECHARGE_SPEED:
+            case SoftVinilData.BUFFSTATUSNUM.SUTAMINA_RECHARGE_SPEED:
                 PlayerStatus_Script.add_player_stamina_recovery_speed += value; break;
-            case softVinyl.BUFFSTATUSNUM.MAXSUTAMINA:
+            case SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA:
                 PlayerStatus_Script.add_Player_MaxSutamina += value; break;
 
         }
@@ -158,15 +158,15 @@ public class SetSofviManeger : MonoBehaviour
 
         for (int i = 0; i < MAXSETPOSITION; i++)
         {
-            if (!setSoftVinylData[i].checksetpotion) continue;
+            if (!setSoftVinylData[i].SofviData.checksetpotion) continue;
 
-            softVinyl data = setSoftVinylData[i];
+            SoftVinilData data = setSoftVinylData[i].SofviData;
 
             // ---- メイン ----
             AddStatusValue(data.buffMainstatus, data.BuffMainParameter);
 
             // ---- サブをまとめて処理（配列化）----
-            softVinyl.BUFFSTATUSNUM[] subStatusArray = new softVinyl.BUFFSTATUSNUM[3]
+            SoftVinilData.BUFFSTATUSNUM[] subStatusArray = new SoftVinilData.BUFFSTATUSNUM[3]
             {
             data.buffSubstatus1,
             data.buffSubstatus2,
@@ -175,9 +175,9 @@ public class SetSofviManeger : MonoBehaviour
 
             int[] subValueArray = new int[3]
             {
-            data.BuffSubparameter1,
-            data.Buffparameter2,
-            data.Buffparameter3
+            data.BuffSubParameter1,
+            data.BuffSubParameter2,
+            data.BuffSubParameter3
             };
 
             for (int j = 0; j < 3; j++)
@@ -194,18 +194,18 @@ public class SetSofviManeger : MonoBehaviour
     /// </summary>
     public void DeleteSelectedSofvi()
     {
-        if (selectSoftVinylData.sofvimodel == SOFVINUMBER.NULL)
+        if (selectSoftVinylData.SofviData.sofvimodel ==  SoftVinilData.SOFVINUMBER.NULL)
         {
             Debug.LogWarning("選択中のソフビが存在しません");
             return;
         }
 
         // ソフビ削除
-        Debug.Log($"{selectSoftVinylData.ListNumber} を廃棄しました");
-        sofviStrage.sofviStrageList[selectSoftVinylData.ListNumber].ResetParameter();
-        sofviStrage.ListUpdate = true;//表示の更新
+        Debug.Log($"{selectSoftVinylData.SofviData.ListNumber} を廃棄しました");
+        sofviSotrage.sofviStrageList[selectSoftVinylData.SofviData.ListNumber].ResetParameter();
+        sofviSotrage.ListUpdate = true;//表示の更新
         // データ参照をクリア
-        selectSofviDeta.ResetParameter();
+        selectSofviDeta.SofviData.ResetParameter();
 
     }
 }

@@ -56,9 +56,9 @@ public class PanelWindowBox : MonoBehaviour
 
         debugText.text = "\n" + ofsetx+ "\n" + ofsety;
 
-        if(selectSofvi.selectCheck)
+        if(selectSofvi.SofviData.selectCheck)
         {
-            selectImage.sprite = ImgStrageScriptdata.sprites[(int)selectSofvi.sofvimodel];
+            selectImage.sprite = ImgStrageScriptdata.sprites[(int)selectSofvi.SofviData.sofvimodel];
             ImageOBJ.SetActive(true);
         }
         else

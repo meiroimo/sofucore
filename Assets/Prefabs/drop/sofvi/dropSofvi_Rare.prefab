@@ -119,23 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01d7dad586a608549be90ed83e779f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sofvimodel: 2
-  theme: 2
-  skill: 2
-  rarity: 2
-  cost: 2
-  ListNumber: 2
-  buffMainstatus: 2
-  buffSubstatus1: 2
-  buffSubstatus2: 2
-  buffSubstatus3: 2
-  Buffparameter: 2
-  Buffparameter1: 2
-  Buffparameter2: 2
-  Buffparameter3: 2
-  checksetpotion: 0
-  selectCheck: 0
-  selectButton: {fileID: 0}
+  SofviDataScriptable: {fileID: 11400000, guid: 880ee38be47c85546a6c17e6aa3fac39, type: 2}
 --- !u!114 &5131591951087595488
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -54,7 +54,7 @@ public class UIManager : MonoBehaviour
     }
     public void UIOpen()//設置シーンUIを開く関数
     {
-        sofviStrage.ListUpdate = true;
+        sofviSotrage.ListUpdate = true;
         setUIFlg = false;
         SetCanvas.SetActive(true);
         GameMainCanvas.SetActive(false);

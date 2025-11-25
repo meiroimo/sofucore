@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using static SoftVinilData;
 public class catchScript : MonoBehaviour
 {
     /*
@@ -18,12 +18,12 @@ public class catchScript : MonoBehaviour
     public int[] catchSofvi;
     //回収した宝箱の数
     public int[] catchTreasureChest;
-    string[] rarityTagName = { "superRare", "Rare", "Normal" };
+    string[] rarityTagName = {"null", "sofvi/Normal", "sofvi/Rare", "sofvi/superRare" };
     public PlayerSEBox PlayerSEBoxCrass;//SEボックス
     void Start()
     {
-        catchSofvi = new int[3];
-        catchTreasureChest = new int[3];
+        catchSofvi = new int[4];
+        catchTreasureChest = new int[4];
     }
 
     void Update()
@@ -36,10 +36,10 @@ public class catchScript : MonoBehaviour
         //回収対象ではなければreturn
         if (!objTagName.Contains("box") && !objTagName.Contains("sofvi")) return;
 
-        for (int i = 0; i < rarityTagName.Length; i++)
+        for (int i = 1; i < rarityTagName.Length; i++)
         {
-            if (!objTagName.Contains(rarityTagName[i])) continue;//レアリティが違うとcontinue
-
+            if (objTagName != rarityTagName[i]) continue;//レアリティが違うとcontinue
+            Debug.Log("s");
             //それぞれ対象の物をカウント
             if (objTagName.Contains("box"))
             {
@@ -52,35 +52,20 @@ public class catchScript : MonoBehaviour
                 {
                     //拾うSEの再生
                     PlayerSEBoxCrass.PlayPlayerSE(PlayerSEBox.SENAME.ITEMGET);
-
+                   
                     //ストレージリストに追加
-                    for (int j = 0; j < sofviStrage.MAXSofviCount; j++)//nullの場合データを挿入
+                    for (int j = 0; j < sofviSotrage.MAXSofviCount; j++)//nullの場合データを挿入
                     {
-                        if (sofviStrage.sofviStrageList[j]==null || sofviStrage.sofviStrageList[j].sofvimodel == softVinyl.SOFVINUMBER.NULL)
+                        if (sofviSotrage.sofviStrageList[j]==null || sofviSotrage.sofviStrageList[j].sofvimodel == SoftVinilData.SOFVINUMBER.NULL)
                         {
-                            GameObject enpty = new GameObject();
-                            enpty.AddComponent<softVinyl>();
-                             softVinyl softVinylSc = other.GetComponent<softVinyl>();
-                            softVinyl softVinylSdata = enpty.GetComponent<softVinyl>();
-                            softVinylSdata.sofvimodel = softVinylSc.sofvimodel;
-                            softVinylSdata.skill = softVinylSc.skill;
-                            softVinylSdata.theme = softVinylSc.theme;
-                            softVinylSdata.ListNumber = softVinylSc.ListNumber;
-                            softVinylSdata.buffMainstatus = softVinylSc.buffMainstatus;
-                            softVinylSdata.buffSubstatus1 = softVinylSc.buffSubstatus1;
-                            softVinylSdata.buffSubstatus2 = softVinylSc.buffSubstatus2;
-                            softVinylSdata.buffSubstatus3 = softVinylSc.buffSubstatus3;
-                            softVinylSdata.BuffMainParameter = softVinylSc.BuffMainParameter;
-                            softVinylSdata.BuffSubparameter1 = softVinylSc.BuffSubparameter1;
-                            softVinylSdata.Buffparameter2 = softVinylSc.Buffparameter2;
-                            softVinylSdata.Buffparameter3 = softVinylSc.Buffparameter3;
-                                
+                            softVinyl DropSoftViny = other.GetComponent<softVinyl>();
+
+                            SoftVinilData SeveStorageSofviData = DropSoftViny.SofviData;
+                            Debug.Log(SeveStorageSofviData.buffMainstatus);
+                            sofviSotrage.sofviStrageList[j] = SeveStorageSofviData;
+                            Debug.Log("拾った");
                             //リストの何番目かを記録
-                            softVinylSdata.ListNumber = j;
-                            Debug.Log(j);
-                            Debug.Log(softVinylSdata);
-                            sofviStrage.sofviStrageList[j] = softVinylSdata;
-                            Debug.Log(sofviStrage.sofviStrageList[j]);
+                            sofviSotrage.sofviStrageList[j].ListNumber = j;
                             break;
                         }
                     }

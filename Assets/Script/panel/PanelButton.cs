@@ -55,7 +55,7 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
     void Update()
     {
         setImage();
-        if (selectSofviDeta.selectButton != this.gameObject)
+        if (selectSofviDeta.SofviData.selectButton != this.gameObject)
         {
             selectPanel = false;
             outline.enabled = false;
@@ -64,7 +64,7 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerEnter(PointerEventData eventData)//マウスが重なったら
     {
-        SelectTextSc.setText(SetSofvidata);
+        SelectTextSc.setText(SetSofvidata.SofviData);
         TextWindowManegerSc.OnHoverEnter();
     }
 
@@ -74,7 +74,7 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
     }
     public void onclickButton()
     {
-        if(!selectPanel && SetSofvidata.sofvimodel!= softVinyl.SOFVINUMBER.NULL)
+        if(!selectPanel && SetSofvidata.SofviData.sofvimodel != SoftVinilData.SOFVINUMBER.NULL)
         {
             setselectSofviData();
             selectPanel = true;
@@ -82,7 +82,7 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
         }
         else
         {
-            if (selectSofviDeta.selectButton==this.gameObject)
+            if (selectSofviDeta.SofviData.selectButton==this.gameObject)
             {
                 againClick();
             }
@@ -96,33 +96,35 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
             PanelImage.sprite = ImgStrageScriptdata.sprites[0];
         }
         //表示している画像とデータの画像が違う場合に変更
-        else if (PanelImage.sprite!= ImgStrageScriptdata.sprites[(int)SetSofvidata.sofvimodel])
+        else if (PanelImage.sprite!= ImgStrageScriptdata.sprites[(int)SetSofvidata.SofviData.sofvimodel])
         {
-            PanelImage.sprite = ImgStrageScriptdata.sprites[(int)SetSofvidata.sofvimodel];
+            PanelImage.sprite = ImgStrageScriptdata.sprites[(int)SetSofvidata.SofviData.sofvimodel];
         }
     }
     void againClick()//セレクトデータをリセット
     {
-        selectSofviDeta.ResetParameter();
+        selectSofviDeta.SofviData.ResetParameter();
         selectPanel = false;
         outline.enabled = false;
     }
     private void setselectSofviData()//選択ソフビデータに自分のデータを渡す。
     {
-        selectSofviDeta.sofvimodel = SetSofvidata.sofvimodel;
-        selectSofviDeta.cost = SetSofvidata.cost;
-        selectSofviDeta.skill = SetSofvidata.skill;
-        selectSofviDeta.theme = SetSofvidata.theme;
-        selectSofviDeta.ListNumber = SetSofvidata.ListNumber;
-        selectSofviDeta.buffMainstatus = SetSofvidata.buffMainstatus;
-        selectSofviDeta.buffSubstatus1 = SetSofvidata.buffSubstatus1;
-        selectSofviDeta.buffSubstatus2 = SetSofvidata.buffSubstatus2;
-        selectSofviDeta.buffSubstatus3 = SetSofvidata.buffSubstatus3;
-        selectSofviDeta.BuffMainParameter = SetSofvidata.BuffMainParameter;
-        selectSofviDeta.BuffSubparameter1 = SetSofvidata.BuffSubparameter1;
-        selectSofviDeta.Buffparameter2 = SetSofvidata.Buffparameter2;
-        selectSofviDeta.Buffparameter3 = SetSofvidata.Buffparameter3;
-        selectSofviDeta.selectButton = this.gameObject;
-        selectSofviDeta.selectCheck =true;
+        selectSofviDeta.SofviData = SetSofvidata.SofviData;
+
+        //selectSofviDeta.sofvimodel = SetSofvidata.sofvimodel;
+        //selectSofviDeta.cost = SetSofvidata.cost;
+        //selectSofviDeta.skill = SetSofvidata.skill;
+        //selectSofviDeta.theme = SetSofvidata.theme;
+        //selectSofviDeta.ListNumber = SetSofvidata.ListNumber;
+        //selectSofviDeta.buffMainstatus = SetSofvidata.buffMainstatus;
+        //selectSofviDeta.buffSubstatus1 = SetSofvidata.buffSubstatus1;
+        //selectSofviDeta.buffSubstatus2 = SetSofvidata.buffSubstatus2;
+        //selectSofviDeta.buffSubstatus3 = SetSofvidata.buffSubstatus3;
+        //selectSofviDeta.Buffparameter = SetSofvidata.Buffparameter;
+        //selectSofviDeta.Buffparameter1 = SetSofvidata.Buffparameter1;
+        //selectSofviDeta.Buffparameter2 = SetSofvidata.Buffparameter2;
+        //selectSofviDeta.Buffparameter3 = SetSofvidata.Buffparameter3;
+        selectSofviDeta.SofviData.selectButton = this.gameObject;
+        selectSofviDeta.SofviData.selectCheck = true;
     }
 }

@@ -63,6 +63,6 @@ public class clear : MonoBehaviour
     }
     private void resetStrage()
     {
-        sofviStrage.sofviStrageList.Clear();
+        sofviSotrage.sofviStrageList.Clear();
     }
 }

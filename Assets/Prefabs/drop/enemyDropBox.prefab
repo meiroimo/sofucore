@@ -46,10 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropOBJ:
   - objType:
-    - {fileID: 3925992834239245393, guid: 259f647b4107cde4d99d9f56d8109bd9, type: 3}
+    - {fileID: 3925992834239245393, guid: d972172b1443ef94cb6920965e057cc1, type: 3}
   - objType:
     - {fileID: 3925992834239245393, guid: d972172b1443ef94cb6920965e057cc1, type: 3}
   - objType:
-    - {fileID: 3925992834239245393, guid: 85dca065721db344eb88244b45dabd6c, type: 3}
+    - {fileID: 3925992834239245393, guid: 259f647b4107cde4d99d9f56d8109bd9, type: 3}
   dropRate: 100
-  rarityRate: 000000000000000064000000
+  rarityRate: 640000000000000000000000

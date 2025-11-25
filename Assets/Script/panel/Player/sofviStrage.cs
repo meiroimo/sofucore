@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class sofviStrage : MonoBehaviour
+public class sofviSotrage : MonoBehaviour
 {
-    [Header("獲得ソフビ格納リスト")] public static List<softVinyl> sofviStrageList = new List<softVinyl>(MAXSofviCount);//ソフビのストレージ
+    //[Header("獲得ソフビ格納リスト")] public static List<SofviDataScriptable> sofviStrageList = new List<SofviDataScriptable>(MAXSofviCount);//ソフビのストレージ
+    [Header("獲得ソフビ格納リスト")] public static List<SoftVinilData> sofviStrageList = new List<SoftVinilData>(MAXSofviCount);//ソフビのストレージ
+
     public static int MAXSofviCount = 18;//ストレージの最大数
     public static bool ListUpdate=false;
    

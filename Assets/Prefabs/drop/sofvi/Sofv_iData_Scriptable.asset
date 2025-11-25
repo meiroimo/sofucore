@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 037318816a918e5489bb73f9f2c8d8da, type: 3}
+  m_Name: Sofv_iData_Scriptable
+  m_EditorClassIdentifier: 
+  sofvimodel: 1
+  rarity: 1
+  ListNumber: 0
+  buffMainstatus: 5
+  buffSubstatus1: 1
+  buffSubstatus2: 2
+  buffSubstatus3: 3
+  BuffMainParameter: 10
+  BuffSubParameter1: 1
+  BuffSubParameter2: 10
+  BuffSubParameter3: 1
+  checksetpotion: 0
+  selectCheck: 0
+  selectButton: {fileID: 0}

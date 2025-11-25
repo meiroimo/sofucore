@@ -17,16 +17,24 @@ public class dropRandomStatusScript : MonoBehaviour
     //追加する値　ステータスの順番は softVinylのBUFFSTATUSNUM enumの順でいれる
     List<List<int>> setRarityStatus = new List<List<int>>()
     {
-        //POWER,DEFENSE,SPEED,CRITICAL,CRITICALDAMAGE,MAXHP,MAXSUTAMINA,SUTAMINA_CHARGE_SPEED,SKILL_CHARGE,ATTACKRANGE
-        new List<int>(){1,0,2,1,1,10,10,1,1,10},  //Normal
-        new List<int>(){3,0,4,2,2,30,30,3,3,30},  //RARE
-        new List<int>(){5,0,6,3,3,50,50,5,5,50}   //SUPARRARE
+        //POWER,MAXHP,SKILL_CHARGE,SUTAMINA_RECHARGE_SPEED,MAXSUTAMINA,
+        new List<int>(){1,10,1,1,10},  //Normal
+        new List<int>(){3,30,3,3,30},  //RARE
+        new List<int>(){5,50,5,5,50}   //SUPARRARE
     };
+
+    SofviDataScriptable sofviDataScriptable;
+
+    SoftVinilData sofviData;
+
 
     void Start()
     {
         softVinylStatusScript = GetComponent<softVinyl>();
-        
+      //  sofviDataScriptable = softVinylStatusScript.SofviDataScriptable;
+        sofviData = softVinylStatusScript.SofviData;
+        Debug.Log((int)sofviData.rarity);
+
         SetStatusRandom();
     }
 
@@ -39,22 +47,30 @@ public class dropRandomStatusScript : MonoBehaviour
     void SetStatusRandom()
     {
         //メインステ
-        softVinylStatusScript.buffMainstatus = (BUFFSTATUSNUM)Random.Range((float)BUFFSTATUSNUM.NULL, (float)BUFFSTATUSNUM.MAXSUTAMINA) + 1;
-        //サブステ１
-        softVinylStatusScript.buffSubstatus1 = (BUFFSTATUSNUM)Random.Range((float)BUFFSTATUSNUM.NULL, (float)BUFFSTATUSNUM.MAXSUTAMINA) + 1;
-        //サブステ2
-        softVinylStatusScript.buffSubstatus2 = (BUFFSTATUSNUM)Random.Range((float)BUFFSTATUSNUM.NULL, (float)BUFFSTATUSNUM.MAXSUTAMINA) + 1;
-        //サブステ3
-        softVinylStatusScript.buffSubstatus3 = (BUFFSTATUSNUM)Random.Range((float)BUFFSTATUSNUM.NULL, (float)BUFFSTATUSNUM.MAXSUTAMINA) + 1;
+        sofviData.buffMainstatus = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.NULL, (float)SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA) + 1;
 
+        Debug.Log((int)sofviData.buffMainstatus);
+
+
+        //メインステ
+         sofviData.buffMainstatus = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.NULL, (float)SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA)+1;
+        //サブステ１
+         sofviData.buffSubstatus1 = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.NULL, (float)SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA) + 1;
+        //サブステ2
+         sofviData.buffSubstatus2 = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.NULL, (float)SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA) + 1;
+        //サブステ3
+         sofviData.buffSubstatus3 = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.NULL, (float)SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA) + 1;
+        Debug.Log((int) sofviData.rarity);
+        Debug.Log((int) sofviData.buffMainstatus);
         //メインステ　追加値
-        softVinylStatusScript.BuffMainParameter = setRarityStatus[(int)softVinylStatusScript.rarity -1][(int)softVinylStatusScript.buffMainstatus -1] + 1;
+         sofviData.BuffMainParameter = setRarityStatus[(int) sofviData.rarity - 1][(int) sofviData.buffMainstatus - 1];
+
         //サブステ１　追加値
-        softVinylStatusScript.BuffSubparameter1 = setRarityStatus[(int)softVinylStatusScript.rarity -1][(int)softVinylStatusScript.buffSubstatus1 -1] + 1;
+         sofviData.BuffSubParameter1 = setRarityStatus[(int) sofviData.rarity -1][(int) sofviData.buffSubstatus1 -1] ;
         //サブステ2 　追加値
-        softVinylStatusScript.Buffparameter2 = setRarityStatus[(int)softVinylStatusScript.rarity -1][(int)softVinylStatusScript.buffSubstatus2 -1] + 1;
+         sofviData.BuffSubParameter2 = setRarityStatus[(int) sofviData.rarity -1][(int) sofviData.buffSubstatus2 -1] ;
         //サブステ3 　追加値
-        softVinylStatusScript.Buffparameter3 = setRarityStatus[(int)softVinylStatusScript.rarity -1][(int)softVinylStatusScript.buffSubstatus3 -1] + 1;
+         sofviData.BuffSubParameter3 = setRarityStatus[(int) sofviData.rarity -1][(int) sofviData.buffSubstatus3 -1] ;
 
 
     }

@@ -28,7 +28,7 @@ public class EnemyHealthScript : MonoBehaviour
 
 
     //20250621 kome変更点
-    sofviStrage sofviStrageScript;//ストレージスクリプト
+    sofviSotrage sofviStrageScript;//ストレージスクリプト
     public softVinyl softVinyldata;//ドロップするソフビデータ
     private void Awake()
     {
@@ -45,7 +45,7 @@ public class EnemyHealthScript : MonoBehaviour
 
     private void Start()
     {
-        sofviStrageScript = GameObject.Find("Player_Storage").gameObject.GetComponent<sofviStrage>();
+        sofviStrageScript = GameObject.Find("Player_Storage").gameObject.GetComponent<sofviSotrage>();
         softVinyldata = gameObject.transform.GetChild(0).gameObject.GetComponent<softVinyl>();
         maxHP = enemyStatus_Script.enemy_MaxHealth + 10;
         currentHP = maxHP;

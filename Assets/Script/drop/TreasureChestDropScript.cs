@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
-
+using static SoftVinilData;
 public class TreasureChestDropScript : MonoBehaviour
 {
     /*
@@ -51,6 +51,15 @@ public class TreasureChestDropScript : MonoBehaviour
                 GameObject tmpOBJ = dropOBJ[i].objType[0];  //一旦0で決め打ち
                 Vector3 dropPosition = transform.root.position; // 敵の親のワールド座標を取得
                 GameObject droppedItem = Instantiate(tmpOBJ, dropPosition, Quaternion.identity); // ここで位置を指定して生成
+                if (droppedItem.GetComponent<softVinyl>().SofviData==null)
+                {
+                    droppedItem.GetComponent<softVinyl>().SofviData = new SoftVinilData();
+                }
+                droppedItem.GetComponent<softVinyl>().SofviData.rarity = (SoftVinilData.Raritynum)(i+1);//自分のレア度を記憶
+                Debug.Log(droppedItem.GetComponent<softVinyl>().SofviData.rarity);
+                droppedItem.GetComponent<softVinyl>().SofviData.sofvimodel = (SoftVinilData.SOFVINUMBER)(i + 1);
+                Debug.Log(droppedItem.GetComponent<softVinyl>().SofviData.sofvimodel);
+
                 return;
             }
         }

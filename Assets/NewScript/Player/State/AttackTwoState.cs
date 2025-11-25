@@ -16,7 +16,6 @@ public class AttackTwoState : PlayerState
     {
         player.PlayerMotionScript.attackMotion(true);
         player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.SLASH);
-        Debug.Log("UŒ‚F“ñ’iŠK–ÚI");  
         player.ReceivedNextAttack = false;
         player.IsAttack = true;
         player.PlayerLAttack();

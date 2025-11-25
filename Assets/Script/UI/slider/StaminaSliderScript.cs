@@ -54,6 +54,7 @@ public class StaminaSliderScript : MonoBehaviour
     public void SetNowStamina(float h_nowhealth)
     {
         nowStamina = h_nowhealth;
+        setHealthText();
         SetStaminaUI();
     }
 

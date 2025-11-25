@@ -322,6 +322,7 @@ public class PlayerController : MonoBehaviour
     /// <param name="damage"></param>
     public void TakeDamage(int damage)
     {
+        if (isAvoid) { return; }
         float currentHP = hpSliderScript.GetNowHealth();
         currentHP -= damage;
         hpSliderScript.SetNowHealth(currentHP);

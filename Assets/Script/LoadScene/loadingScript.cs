@@ -17,15 +17,26 @@ public class loadingScript : MonoBehaviour
     [SerializeField] GameObject loadPanel;
     [SerializeField] GameObject transitionOBJ;
     [SerializeField] transitionScript transition;
+    [SerializeField, Header("前Sceneからのトランジションあるか true:あり false:なし")] bool isPreSceneTra;
     float nowTime = 0;
     bool isLoading;
     int nextLoadingSceneNo;
 
      void Start()
     {
-        if (!transitionOBJ.activeSelf) transitionOBJ.SetActive(true);
-        if (loadPanel.activeSelf) loadPanel.SetActive(false);
+        Application.targetFrameRate = 60;
         isLoading = false;
+        if (loadPanel.activeSelf) loadPanel.SetActive(false);
+        if (isPreSceneTra)
+        {
+            if (!transitionOBJ.activeSelf) transitionOBJ.SetActive(true);
+
+        }
+        else
+        {
+            transition.maxScale();
+            if (transitionOBJ.activeSelf) transitionOBJ.SetActive(false);
+        }
     }
 
     void Update()
@@ -42,7 +53,8 @@ public class loadingScript : MonoBehaviour
         nextLoadingSceneNo = sceneNo;
         transition.isFadein = true;
         transitionOBJ.gameObject.SetActive(true);
-        transition.Start();
+
+       //transition.Start();
     }
 
     public void NextScene()

@@ -9,6 +9,7 @@ public class ResultController : MonoBehaviour
     [SerializeField, Header("シーンの名前")] string[] sceneName;
     public AudioSource audioSource;
     public AudioClip clearSE;
+    public loadingScript LoadingScript;
 
     [SerializeField] private Button firstButton;//最初に選択されるボタン
 
@@ -28,13 +29,16 @@ public class ResultController : MonoBehaviour
 
     public void GoToMainGameScene()
     {
-        SceneManager.LoadScene(sceneName[1]);
+        // SceneManager.LoadScene(sceneName[1]);
+        LoadingScript.setFadeIn(2);
         ResultClear.Instance.isGameClear = false;
     }
 
     public void GotToTitleScene()
     {
-        SceneManager.LoadScene(sceneName[0]);
+        //SceneManager.LoadScene(sceneName[0]);
+        LoadingScript.setFadeIn(0);
+
         ResultClear.Instance.isGameClear = false;
     }
 

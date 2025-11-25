@@ -13,7 +13,6 @@ public class PlayerMoveState : PlayerState
         player.PlayerMotionScript.runMotion(true);
 
         player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.SMOKE);
-        //        bird_Audio.PlayOneShot(jump_SE);
         player.SeBox.PlayPlayerSE(PlayerSEBox.SENAME.MOVE);
     }
 
@@ -29,12 +28,13 @@ public class PlayerMoveState : PlayerState
         }
 
         // ShiftÉLÅ[âüâ∫Ç≈ëñÇËÇ…à⁄çs
-        if (player.IsRunning)
+        if (player.IsRunning && player.TakeAvoid(5))
         {
             player.ChangeState(new PlayerRunState(player));
             return;
         }
 
+        player.CallHealStamina();
         player.MoveCharacter(moveDir, player.moveForce);
     }
 

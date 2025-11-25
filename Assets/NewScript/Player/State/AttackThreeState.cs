@@ -17,7 +17,6 @@ public class AttackThreeState : PlayerState
         player.PlayerMotionScript.attackMotion(true);
 
         player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.SLASH);
-        Debug.Log("UŒ‚FO’iŠK–ÚI");
         player.IsAttack = true;
         player.PlayerLAttack();
         player.FixedAttackDirection = player.transform.forward; // UŒ‚‚ÌŒü‚«‚ğ•Û‘¶

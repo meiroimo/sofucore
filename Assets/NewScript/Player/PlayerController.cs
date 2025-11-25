@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 attackStickInput;//攻撃の向き（コントローラー用）
     private bool isAttack = false;
     private bool isRunning = false;
+    private bool isAvoid = false;
 
     private float attack_Power;
     private float attackRadius = 5f;
@@ -87,6 +88,7 @@ public class PlayerController : MonoBehaviour
     public PlayerSEBox SeBox { get => _seBox; set => _seBox = value; }
     public Vector2 AttackStickInput { get => attackStickInput; set => attackStickInput = value; }
     public bool IsRunning { get => isRunning; }
+    public bool IsAvoid { get => isAvoid; set => isAvoid = value; }
     #endregion
     //ゲッター・セッター
 
@@ -320,6 +322,7 @@ public class PlayerController : MonoBehaviour
     /// <param name="damage"></param>
     public void TakeDamage(int damage)
     {
+        if (isAvoid) { return; }
         float currentHP = hpSliderScript.GetNowHealth();
         currentHP -= damage;
         hpSliderScript.SetNowHealth(currentHP);
@@ -346,22 +349,20 @@ public class PlayerController : MonoBehaviour
 
     }
 
+
     /// <summary>
     /// スタミナを減少させる
     /// ：回避を使用した際に呼ばれる
     /// </summary>
     /// <param name="stamina"></param>
-    public void TakeAvoid(float stamina)
+    public bool TakeAvoid(float stamina)
     {
         float currentStamina = staminaSliderScript.GetNowStamina();
-        if (currentStamina <= stamina) return;
+        if (currentStamina <= stamina) return false;
         currentStamina -= stamina;
         staminaSliderScript.SetNowStamina(currentStamina);
+        return true;
     }
-
-    //public float FacingDirection => transform.localScale.x;
-
-    //private bool isInvincible = false;
 
     /// <summary>
     /// 回避ステート呼び出し
@@ -369,10 +370,16 @@ public class PlayerController : MonoBehaviour
     public void OnAvoid()
     {
         if (!uIManager.SetUIFlg || pauseMenu.IsPaused) return;
+
         //if (CanDodge()) // 任意：クールタイム等
         {
             ChangeState(new PlayerAvoidState(this));
         }
+    }
+
+    public void CallHealStamina()
+    {
+        staminaSliderScript.HealStamina();
     }
 
     /// <summary>
@@ -388,6 +395,10 @@ public class PlayerController : MonoBehaviour
             ChangeState(new AttackOneState(this));
         }
         else if (currentState is PlayerMoveState)
+        {
+            ChangeState(new AttackOneState(this));
+        }
+        else if(currentState is PlayerRunState)
         {
             ChangeState(new AttackOneState(this));
         }

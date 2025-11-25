@@ -17,8 +17,9 @@ public class transitionScript : MonoBehaviour
     {
         if (isFadein)
         {
-            nowScale = MaxScale;
             addScale *= -1;
+
+            maxScale();
         }
         else nowScale = 0;
 
@@ -37,6 +38,12 @@ public class transitionScript : MonoBehaviour
             Loading.NextScene();
             gameObject.SetActive(false);
         }
+    }
+
+    public void maxScale()
+    {
+        nowScale = MaxScale;
+        unmaskTransform.localScale = new Vector3(nowScale, nowScale, nowScale);
     }
 
 }

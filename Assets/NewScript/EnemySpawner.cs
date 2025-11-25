@@ -9,10 +9,10 @@ public class EnemySpawner : MonoBehaviour
     [Header("基本設定")]
     public Transform player; // プレイヤーの位置
     public GameObject[] enemyPrefab; // 出現させる敵プレハブ
-    //public Transform[] spawnPoints; // スポーン候補位置
-    public float spawnInterval = 2f; // 敵を出現させる間隔
-    public int maxEnemies = 10; // 同時に存在できる敵の最大数
-    public int spawnCountPerWave = 3; // 一度に出す敵の数
+    [Header("敵を出現させる間隔")] public Vector2 spawnInterval; // 敵を出現させる間隔
+    float nextSpawnTime;
+    public int maxEnemies; // 同時に存在できる敵の最大数
+    [Header("一度に出す敵の数")] public Vector2 spawnCountPerWave; // 一度に出す敵の数
     public int enemyStatusTypeNo = 1; // CSVから読み込む敵の種類
 
     public float spawnRadiusMin = 10f;
@@ -45,12 +45,19 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        timer += Time.deltaTime;
+        //timer += Time.deltaTime;
 
-        if (timer >= spawnInterval)
+        //if (timer >= spawnInterval)
+        //{
+        //    SpawnEnemyWave();
+        //    timer = 0;
+        //}
+
+        if(Time.time > nextSpawnTime)
         {
+            float secondsBetweenSpawnsTime = Mathf.Lerp(spawnInterval.y, spawnInterval.x, Difficulty.GetDifficultyPercent());
+            nextSpawnTime = Time.time + secondsBetweenSpawnsTime;
             SpawnEnemyWave();
-            timer = 0;
         }
     }
 
@@ -59,11 +66,12 @@ public class EnemySpawner : MonoBehaviour
     /// </summary>
     void SpawnEnemyWave()
     {
+        float secoundsBetweenSpawnEnemiesMaxCount = Mathf.Lerp(spawnCountPerWave.y, spawnCountPerWave.x, Difficulty.GetDifficultyPercent());
         if (ResultClear.Instance.isGameClear) return;
 
         if (currentEnemyCount >= maxEnemies) return;
 
-        int spawnable = Mathf.Min(spawnCountPerWave, maxEnemies - currentEnemyCount);
+        int spawnable = Mathf.Min((int)secoundsBetweenSpawnEnemiesMaxCount, maxEnemies - currentEnemyCount);
 
         for (int i = 0; i < spawnable; i++)
         {
@@ -143,7 +151,7 @@ public class EnemySpawner : MonoBehaviour
             }
         }
 
-        Debug.LogWarning("有効なスポーン位置が見つかりませんでした。");
+        //Debug.LogWarning("有効なスポーン位置が見つかりませんでした。");
         return Vector3.zero;
 
     }

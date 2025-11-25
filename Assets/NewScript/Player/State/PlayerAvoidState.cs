@@ -17,7 +17,13 @@ public class PlayerAvoidState : PlayerState
 
     public override void Enter()
     {
-        player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.AVOIDANCE);
+        if (!player.TakeAvoid(30))
+        {
+            player.ChangeState(new PlayerIdleState(player));
+            return;
+        }
+
+            player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.AVOIDANCE);
         player.PlayerMotionScript.avoidanceMotion(true);
 
         //“ü—Í•ûŒü‚ª‚È‚¯‚ê‚ÎŒü‚¢‚Ä‚¢‚é•ûŒü‚É‰ñ”ð
@@ -36,7 +42,6 @@ public class PlayerAvoidState : PlayerState
         }
         player.SeBox.PlayPlayerSE(PlayerSEBox.SENAME.AVOID);
         timer = 0f;
-        player.TakeAvoid(30);
     }
 
     public override void Update()
@@ -57,6 +62,5 @@ public class PlayerAvoidState : PlayerState
     public override void Exit() {
         player.PlayerEffectScript.StopEffect((int)playerEffectScript.EffectName.AVOIDANCE);
         player.PlayerMotionScript.avoidanceMotion(false);
-
     }
 }

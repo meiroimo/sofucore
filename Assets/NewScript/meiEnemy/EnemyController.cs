@@ -24,6 +24,8 @@ public class EnemyController : MonoBehaviour
     public GameObject Canvas;
     public GameObject Camera;
 
+    public enemyMotionScript EnemyMotionScript;
+
     //距離チェック
     public float DistanceToPlayer => Vector3.Distance(transform.position, player.position);
 

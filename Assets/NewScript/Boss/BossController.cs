@@ -24,6 +24,8 @@ public class BossController : MonoBehaviour
     public GameObject Canvas;
     public GameObject Camera;
 
+    public bossMotionScript BossMotionScript;
+
 
     // 距離チェック
     public float DistanceToPlayer => Vector3.Distance(transform.position, player.position);

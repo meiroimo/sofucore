@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class BossChaseState : BossState
 {
-    public override void Enter(BossController boss) { }
+    public override void Enter(BossController boss) {
+        boss.BossMotionScript.runMotion(true);
+    }
 
     public override void Update(BossController boss)
     {
@@ -21,5 +23,7 @@ public class BossChaseState : BossState
         }
     }
 
-    public override void Exit(BossController boss) { }
+    public override void Exit(BossController boss) {
+        boss.BossMotionScript.runMotion(false);
+    }
 }

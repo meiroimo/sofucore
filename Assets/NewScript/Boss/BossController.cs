@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,6 +19,7 @@ public class BossController : MonoBehaviour
     private float boss_Speed;
 
     private bool isHit = false;
+    private bool isDie = false;//死んでるか
 
     public GameObject attackEffect;
 
@@ -35,6 +37,7 @@ public class BossController : MonoBehaviour
     public float Boss_Power { get => boss_Power; set => boss_Power = value; }
     public BossSEBox Boss_SE { get => boss_SE; set => boss_SE = value; }
     public PlayerStatus_Script Playerstatus { get => playerstatus; set => playerstatus = value; }
+    public bool IsDie { get => isDie; set => isDie = value; }
 
     // プレイヤーを設定する用の関数
     public void SetPlayer(Transform playerTransform, PlayerStatus_Script playerStatus)
@@ -59,6 +62,8 @@ public class BossController : MonoBehaviour
         bossHealth.OnDeath += Die;
         attackEffect.SetActive(false);
         Camera = GameObject.Find("Main Camera");
+
+        isDie = true;
 
         //Debug.Log(agent.speed);
         ChangeState(new BossChaseState());

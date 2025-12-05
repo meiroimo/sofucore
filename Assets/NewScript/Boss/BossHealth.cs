@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.UI;
 public class BossHealth : MonoBehaviour
@@ -47,6 +48,8 @@ public class BossHealth : MonoBehaviour
 
         if (currentHP <= 0)
         {
+            if (!bossController.IsDie) return;
+            bossController.IsDie = true;
             StartCoroutine(JudgeDeath());
         }
     }

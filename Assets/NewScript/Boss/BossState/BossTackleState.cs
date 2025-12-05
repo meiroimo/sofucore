@@ -24,6 +24,7 @@ public class BossTackleState : BossState
     private BOSSTACKLESTATUS TACKLESTATS;
     public override void Enter(BossController boss)
     {
+        boss.tackleEffect.SetActive(true);
         Debug.Log("tackle");
         TACKLESTATS = BOSSTACKLESTATUS.CHARGEPOWER;
         //チャージ時間の設定
@@ -65,7 +66,8 @@ public class BossTackleState : BossState
                 chargeTime -= Time.deltaTime;
                 if (chargeTime<=0)//突進へgo
                 {
-                    TACKLESTATS= BOSSTACKLESTATUS.TACKLE;
+                    boss.tackleEffect.SetActive(false);
+                    TACKLESTATS = BOSSTACKLESTATUS.TACKLE;
                     chargeTime = 3.0f;
                 }
                 break;

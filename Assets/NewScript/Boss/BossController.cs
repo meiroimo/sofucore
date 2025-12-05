@@ -22,6 +22,7 @@ public class BossController : MonoBehaviour
     private bool isDie = false;//Ž€‚ñ‚Å‚é‚©
 
     public GameObject attackEffect;
+    public GameObject tackleEffect;
 
     public GameObject Canvas;
     public GameObject Camera;
@@ -61,6 +62,7 @@ public class BossController : MonoBehaviour
         agent.speed = boss_Speed;
         bossHealth.OnDeath += Die;
         attackEffect.SetActive(false);
+        tackleEffect.SetActive(false);
         Camera = GameObject.Find("Main Camera");
 
         isDie = true;

@@ -303,6 +303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStatus_Script: {fileID: 1016606769}
   enemyStatus_Script: {fileID: 0}
+  enemySpawner_Script: {fileID: 0}
 --- !u!4 &353583778
 Transform:
   m_ObjectHideFlags: 0

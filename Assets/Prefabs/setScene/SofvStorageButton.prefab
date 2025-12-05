@@ -236,20 +236,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb3356192254247429b82da44350e07d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TextWindowManegerObj: {fileID: 0}
+  TextWindowManegerSc: {fileID: 0}
+  PanelImageobj: {fileID: 0}
   PanelImage: {fileID: 0}
-  PanelUI: {fileID: 0}
   SetSofvidata: {fileID: 0}
   selectSofviOBJ: {fileID: 0}
   selectSofviDeta: {fileID: 0}
-  selectCheck: 0
-  PoptextWindowObj: {fileID: 0}
-  PopTextSelect: {fileID: 0}
-  PopTextonpointar: {fileID: 0}
-  themeText: []
-  skillText: []
-  nameText: []
   Number: 0
   ImgStrage: {fileID: 0}
+  SelectTextObj: {fileID: 0}
+  SelectTextSc: {fileID: 0}
 --- !u!114 &7143105022110472938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,23 +259,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01d7dad586a608549be90ed83e779f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sofvimodel: 0
-  theme: 0
-  skill: 0
-  rarity: 0
-  cost: 0
-  ListNumber: 0
-  buffMainstatus: 0
-  buffSubstatus1: 0
-  buffSubstatus2: 0
-  buffSubstatus3: 0
-  Buffparameter: 0
-  Buffparameter1: 0
-  Buffparameter2: 0
-  Buffparameter3: 0
-  checksetpotion: 0
-  selectCheck: 0
-  selectButton: {fileID: 0}
 --- !u!114 &7438101782995162222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,7 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 1, g: 0.95294124, b: 0, a: 0.5}
-  m_EffectDistance: {x: 2, y: 2}
+  m_EffectDistance: {x: -2, y: -2}
   m_UseGraphicAlpha: 1
 --- !u!1 &6532491194693820628
 GameObject:

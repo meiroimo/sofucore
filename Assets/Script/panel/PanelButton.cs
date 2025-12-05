@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -13,41 +14,23 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
 {
     [Header("ソフビ一覧の各ボタンにソフビデータを入れるスクリプト")]
 
-    [SerializeField] private GameObject TextWindowManegerObj;//パネルイメージOBJ
-    [SerializeField] private TextWindow TextWindowManegerSc;//パネルイメージ
+   public TextWindow TextWindowManegerSc;//パネルイメージ
 
-    [SerializeField] private GameObject PanelImageobj;//パネルイメージOBJ
-    [SerializeField] private Image PanelImage;//パネルイメージ
+    public Image PanelImage;//パネルイメージ
 
     public softVinyl SetSofvidata;//設置ソフビデータ
 
-    [SerializeField] private GameObject selectSofviOBJ;//選択中のソフビデータオブジェ
-    [SerializeField] private softVinyl selectSofviDeta;//選択中のソフビデータ
-    private Outline outline;
+    public softVinyl selectSofviDeta;//選択中のソフビデータ
 
     private bool selectPanel;//パネルを選択判定 
     public int Number;//ボタン番号
-    [SerializeField] private GameObject ImgStrage;//イメージ画像ストレージスクリプト
-    private ImgStrageScript ImgStrageScriptdata;//イメージ画像データストレージ
+    public ImgStrageScript ImgStrageScriptdata;//イメージ画像データストレージ
 
-    [SerializeField] private GameObject SelectTextObj;//セレクトソフビのテキストオブジェクト
-    [SerializeField] private SelectText SelectTextSc;//セレクトソフビのクラス
+    public SelectText SelectTextSc;//セレクトソフビのクラス
 
+    public Image frameImage;//アイコンフレームの画像
     void Start()
     {
-        SelectTextObj = GameObject.Find("SelectStetasText");
-        SelectTextSc = SelectTextObj.GetComponent<SelectText>();
-        TextWindowManegerObj = GameObject.Find("TextWindowManeger");
-        TextWindowManegerSc = TextWindowManegerObj.GetComponent<TextWindow>();
-        ImgStrage = GameObject.Find("ImgStrage");
-        ImgStrageScriptdata = ImgStrage.GetComponent<ImgStrageScript>();
-        selectSofviOBJ = GameObject.Find("selectSofvi");
-        PanelImageobj = gameObject.transform.GetChild(0).gameObject;
-        PanelImage = PanelImageobj.GetComponent<Image>();
-        SetSofvidata = this.gameObject.GetComponent<softVinyl>();
-        selectSofviDeta = selectSofviOBJ.GetComponent<softVinyl>();
-        outline = gameObject.GetComponent<Outline>();
-        outline.enabled = false;
         selectPanel = false;
 
     }
@@ -58,8 +41,14 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
         if (selectSofviDeta.SofviData.selectButton != this.gameObject)
         {
             selectPanel = false;
-            outline.enabled = false;
+            chengeframecolor(Color.white);
+            //outline.enabled = false;
         }
+    }
+    public void chengeframecolor(Color newcolor)
+    {
+        frameImage.color = newcolor;
+
     }
 
     public void OnPointerEnter(PointerEventData eventData)//マウスが重なったら
@@ -78,7 +67,9 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
         {
             setselectSofviData();
             selectPanel = true;
-            outline.enabled = true;
+            chengeframecolor(Color.yellow);
+
+            //outline.enabled = true;
         }
         else
         {
@@ -110,7 +101,7 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
          selectSofviDeta.SofviData= selectSofviDeta.SofviData.copy();
         selectSofviDeta.SofviData.ResetParameter();
         selectPanel = false;
-        outline.enabled = false;
+        chengeframecolor(Color.white);
     }
     private void setselectSofviData()//選択ソフビデータに自分のデータを渡す。
     {

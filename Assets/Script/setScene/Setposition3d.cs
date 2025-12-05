@@ -49,21 +49,24 @@ public class Setposition3d : MonoBehaviour
     {
         setpositionsofviDeta();//selectしたソフビデータを設置場所に反映
                                //３Ðモデルを空箱に生成
-       // GameObject ins = Instantiate(model[(int)SetSofviManeger.selectSofviDeta.SofviData.sofvimodel], this.transform.position, Quaternion.identity);
         GameObject ins = Instantiate(SetSofviBoxScript.SetSofviModelPrefabs[(int)SetSofviManeger.selectSofviDeta.SofviData.sofvimodel], this.transform.position, Quaternion.identity);
         ins.transform.parent = this.transform;
         ins.transform.rotation = Quaternion.AngleAxis(90, Vector3.up);
-        //ストレージからデータの削除
-        sofviSotrage.sofviStrageList[softVinylData.SofviData.ListNumber] = null;
-        //sofviSotrage.ListUpdate = true;//リストの更新判定をオン
-        //セレクトデータのリセット
-        SetSofviManeger.selectSofviDeta.SofviData.ResetParameter();
-        //ボタンのソフビデータもreset
-        sofviVinylListSc.childrensoftVinyl[softVinylData.SofviData.ListNumber].SofviData.ResetParameter();
         checkmodelset = false;//生成するクリック判定をfalse
         ColloderOff();//設置場所のコライダーオフ再度クリックされないように
         softVinylData.SofviData.checksetpotion = true;//セットされたかの判定をオンに
+
+        //ステータスアップ反映
         SetSofviManeger.statusup();
+        //ストレージからデータの削除
+        sofviSotrage.sofviStrageList[softVinylData.SofviData.ListNumber] = null;
+
+        //ボタンのソフビデータもリセット
+        sofviVinylListSc.childrensoftVinyl[softVinylData.SofviData.ListNumber].SofviData.ResetParameter();
+        //セレクトデータのリセット
+        SetSofviManeger.selectSofviDeta.SofviData.ResetParameter();
+
+
 
         //スクショ
         StartCoroutine(CaptureAndGo());
@@ -80,7 +83,6 @@ public class Setposition3d : MonoBehaviour
     {
         setpositionsofviDeta();
         //３Ðモデルを空箱に生成
-       // GameObject ins = Instantiate(model[(int)softVinylData.SofviData.sofvimodel], this.transform.position, Quaternion.identity);
         GameObject ins = Instantiate(SetSofviBoxScript.SetSofviModelPrefabs[(int)SetSofviManeger.selectSofviDeta.SofviData.sofvimodel], this.transform.position, Quaternion.identity);
 
 
@@ -99,6 +101,8 @@ public class Setposition3d : MonoBehaviour
             this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
             Destroy(this.gameObject.transform.GetChild(1).gameObject);
             translucentflg = false;
+            softVinylData.SofviData.checksetpotion = false;//セットされたかの判定をオフ
+
         }
         else
         {
@@ -115,12 +119,10 @@ public class Setposition3d : MonoBehaviour
     {
         if (SetSofviManeger.selectSoftVinylData.SofviData.selectCheck)
         {
-            Debug.Log("セレクトの"+SetSofviManeger.selectSoftVinylData.SofviData.sofvimodel);
-            Debug.Log("設置場所の" + softVinylData.SofviData.sofvimodel);
+            softVinylData.SofviData = SetSofviManeger.selectSoftVinylData.SofviData.copy();
 
-            softVinylData.SofviData = SetSofviManeger.selectSoftVinylData.SofviData;
-            Debug.Log("代入後の設置場所の" + softVinylData.SofviData.sofvimodel);
-
+          //softVinylData.SofviData = SetSofviManeger.selectSoftVinylData.SofviData;
+           // Debug.Log(softVinylData.SofviData.buffMainstatus);
         }
     }
 }

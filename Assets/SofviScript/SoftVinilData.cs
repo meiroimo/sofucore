@@ -52,6 +52,27 @@ public class SoftVinilData
         SUPARRARE,
         MAX,
     }
+    public SoftVinilData copy()
+    {
+        SoftVinilData copydata = new SoftVinilData();
+
+        copydata.sofvimodel = this.sofvimodel;
+        copydata.rarity = this.rarity;
+        copydata.ListNumber = this.ListNumber;//このソフビの番号
+        copydata.buffMainstatus =this.buffMainstatus;//メインステ
+        copydata.buffSubstatus1 = this.buffSubstatus1;//サブステ１
+        copydata.buffSubstatus2 = this.buffSubstatus2;//サブステ2
+        copydata.buffSubstatus3 = this.buffSubstatus3;//サブステ3
+        copydata.BuffMainParameter = this.BuffMainParameter;
+        copydata.BuffSubParameter1 = this.BuffSubParameter1;
+        copydata.BuffSubParameter2 = this.BuffSubParameter2;
+        copydata.BuffSubParameter3 = this.BuffSubParameter3;
+        copydata.checksetpotion = this.checksetpotion;
+        copydata.selectCheck = this.selectCheck;
+        copydata.selectButton =this.selectButton;
+
+        return copydata;
+    }
     public void ResetParameter()
     {
         sofvimodel = SOFVINUMBER.NULL;//このソフビの３ｄモデルプレハブ

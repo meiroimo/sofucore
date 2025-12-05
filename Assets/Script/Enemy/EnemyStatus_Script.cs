@@ -8,14 +8,4 @@ public class EnemyStatus_Script : MonoBehaviour
     [Tooltip("UŒ‚—Í")] public float enemy_Attack_Power;
     [Tooltip("–hŒä—Í")] public float enemy_Defense;
     [Tooltip("ˆÚ“®‘¬“x")] public float enemy_Speed;
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
 }

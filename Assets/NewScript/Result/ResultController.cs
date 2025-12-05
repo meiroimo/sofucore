@@ -28,6 +28,7 @@ public class ResultController : MonoBehaviour
 
     public void GoToMainGameScene()
     {
+        Difficulty.ResetDifficulty();
         SceneManager.LoadScene(sceneName[1]);
         ResultClear.Instance.isGameClear = false;
     }

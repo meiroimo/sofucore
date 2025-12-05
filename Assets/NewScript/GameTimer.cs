@@ -15,6 +15,11 @@ public class GameTimer : MonoBehaviour
 
     private int lastInterval = 0; // ‘O‰ñ’Ê’m‚µ‚½ŽžŠÔ‘Ñ
 
+    private void Start()
+    {
+        Difficulty.ResetDifficulty();
+    }
+
     private void Update()
     {
         currentTime += Time.deltaTime;

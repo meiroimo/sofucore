@@ -38,21 +38,12 @@ public class EnemySpawner : MonoBehaviour
             Debug.LogError("CSVReaderがシーンに見つかりません！");
             return;
         }
-
-        // 一定間隔で呼び出し
-        //InvokeRepeating(nameof(SpawnEnemyWave), 1f, spawnInterval);
+        csvReader.SetFinalEnemyStatusScript(this);
+        csvReader.LoadingEnemyFinalStatus(2);
     }
 
     private void Update()
     {
-        //timer += Time.deltaTime;
-
-        //if (timer >= spawnInterval)
-        //{
-        //    SpawnEnemyWave();
-        //    timer = 0;
-        //}
-
         if(Time.time > nextSpawnTime)
         {
             float secondsBetweenSpawnsTime = Mathf.Lerp(spawnInterval.y, spawnInterval.x, Difficulty.GetDifficultyPercent());
@@ -101,11 +92,13 @@ public class EnemySpawner : MonoBehaviour
         {
             csvReader.SetEnemyStatusScript(enemyStatus);
             csvReader.LoadingEnemyStatus(enemyStatusTypeNo);
+            ApplyDifficultyBuff(enemyStatus);
         }
         else
         {
             Debug.LogWarning("EnemyStatus_Script がプレハブにありません");
         }
+
 
         // 敵数カウント
         currentEnemyCount++;
@@ -154,5 +147,36 @@ public class EnemySpawner : MonoBehaviour
         //Debug.LogWarning("有効なスポーン位置が見つかりませんでした。");
         return Vector3.zero;
 
+    }
+
+
+    float enemy_Final_MaxHealth;
+    float enemy_Final_Attack_Power;
+    float enemy_Final_Defense;
+    float enemy_Final_Speed;
+
+    public float Enemy_Final_MaxHealth { get => enemy_Final_MaxHealth; set => enemy_Final_MaxHealth = value; }
+    public float Enemy_Final_Attack_Power { get => enemy_Final_Attack_Power; set => enemy_Final_Attack_Power = value; }
+    public float Enemy_Final_Defense { get => enemy_Final_Defense; set => enemy_Final_Defense = value; }
+    public float Enemy_Final_Speed { get => enemy_Final_Speed; set => enemy_Final_Speed = value; }
+
+    /// <summary>
+    /// 難易度に応じてステータスを強化する
+    /// </summary>
+    void ApplyDifficultyBuff(EnemyStatus_Script status)
+    {
+        float d = Difficulty.GetDifficultyPercent();
+
+        float middleHP = Mathf.Lerp(status.enemy_MaxHealth, enemy_Final_MaxHealth, d);
+        float middleAtk = Mathf.Lerp(status.enemy_Attack_Power, enemy_Final_Attack_Power, d);
+        float middleDef = Mathf.Lerp(status.enemy_Defense, enemy_Final_Defense, d);
+        float middleSpeed = Mathf.Lerp(status.enemy_Speed, enemy_Final_Speed, d);
+
+        status.enemy_MaxHealth = Mathf.Round(middleHP);
+        status.enemy_Attack_Power = Mathf.Round(middleAtk);
+        status.enemy_Defense = Mathf.Round(middleDef);
+        status.enemy_Speed = Mathf.Round(middleSpeed);
+
+        Debug.LogWarning(status.enemy_MaxHealth);
     }
 }

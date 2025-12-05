@@ -15,6 +15,7 @@ public class CSVReader : MonoBehaviour
 
     [SerializeField, Header("代入するプレイヤーステータススクリプト")] PlayerStatus_Script playerStatus_Script;
     [SerializeField, Header("代入するエネミーステータススクリプト")] EnemyStatus_Script enemyStatus_Script;
+    [SerializeField, Header("敵の最終ステータスを代入するスポナースクリプト")] EnemySpawner enemySpawner_Script;
 
     int playerNo = 1;
 
@@ -27,6 +28,12 @@ public class CSVReader : MonoBehaviour
     {
         this.enemyStatus_Script = script;
     }
+
+    public void SetFinalEnemyStatusScript(EnemySpawner script)
+    {
+        this.enemySpawner_Script = script;
+    }
+
 
     /// <summary>
     /// 名前 = 1,
@@ -111,6 +118,14 @@ public class CSVReader : MonoBehaviour
         enemyStatus_Script.enemy_Attack_Power = float.Parse(enemyStatusDatas[typeNo][(int)CSVEnemyStatus.D_ATTACK_POWER]);
         enemyStatus_Script.enemy_Defense = float.Parse(enemyStatusDatas[typeNo][(int)CSVEnemyStatus.D_DEFENCE]);
         enemyStatus_Script.enemy_Speed = float.Parse(enemyStatusDatas[typeNo][(int)CSVEnemyStatus.D_SPEED]);
+    }
+
+    public void LoadingEnemyFinalStatus(int typeNo)
+    {
+        enemySpawner_Script.Enemy_Final_MaxHealth = float.Parse(enemyStatusDatas[typeNo][(int)CSVEnemyStatus.D_MAX_HEALTH]);
+        enemySpawner_Script.Enemy_Final_Attack_Power = float.Parse(enemyStatusDatas[typeNo][(int)CSVEnemyStatus.D_ATTACK_POWER]);
+        enemySpawner_Script.Enemy_Final_Defense = float.Parse(enemyStatusDatas[typeNo][(int)CSVEnemyStatus.D_DEFENCE]);
+        enemySpawner_Script.Enemy_Final_Speed = float.Parse(enemyStatusDatas[typeNo][(int)CSVEnemyStatus.D_SPEED]);
     }
 
     public void ApplyPlayerStatusToSaveData()

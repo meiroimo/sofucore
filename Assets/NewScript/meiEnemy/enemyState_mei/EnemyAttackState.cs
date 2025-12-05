@@ -15,6 +15,8 @@ public class EnemyAttackState : EnemyState
 
     public override void Enter(EnemyController enemy)
     {
+        enemy.EnemyMotionScript.attackMotion(true);
+        enemy.StartAttackEffect();
         enemy.Agent.ResetPath();  // 攻撃中は移動停止
 
         // プレイヤーの方向を向く
@@ -61,6 +63,8 @@ public class EnemyAttackState : EnemyState
 
     public override void Exit(EnemyController enemy) 
     {
+        enemy.EnemyMotionScript.attackMotion(false);
+
         // 状態終了時にタイマーリセット
         delayTimer = 0f;
         isDelaying = false;

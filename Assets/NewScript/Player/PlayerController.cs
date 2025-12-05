@@ -40,7 +40,6 @@ public class PlayerController : MonoBehaviour
     private PlayerSkillSlider[] playerSkillSlider;
     public FilledAttackCone attackCone;
     public playerEffectScript PlayerEffectScript;
-    public Animator animator;
     private PlayerSEBox _seBox;
     public playerMotionScript PlayerMotionScript;
 
@@ -98,7 +97,6 @@ public class PlayerController : MonoBehaviour
         #region
         inputActions = new FlowerGuard2();
         Rigid = gameObject.GetComponent<Rigidbody>();
-        //animator = GetComponent<Animator>();
         playerStatus_Script = GetComponent<PlayerStatus_Script>();
         hpSliderScript = GetComponent<HPSliderScript>();
         staminaSliderScript = GetComponent<StaminaSliderScript>();

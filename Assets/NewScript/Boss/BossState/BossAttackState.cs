@@ -15,7 +15,8 @@ public class BossAttackState : BossState
     public override void Enter(BossController boss)
     {
         boss.Agent.ResetPath();  // 攻撃中は移動停止
-
+        boss.BossMotionScript.attackMotion(true);
+        boss.StartAttackEffect();
         // プレイヤーの方向を向く
         Vector3 direction = (boss.player.position - boss.transform.position).normalized;
         direction.y = 0;
@@ -60,6 +61,7 @@ public class BossAttackState : BossState
 
     public override void Exit(BossController boss)
     {
+        boss.BossMotionScript.attackMotion(false);
         // 状態終了時にタイマーリセット
         delayTimer = 0f;
         isDelaying = false;
@@ -73,7 +75,7 @@ public class BossAttackState : BossState
         // 攻撃判定：攻撃範囲内のプレイヤーを確認
         if (boss.DistanceToPlayer <= attackRange + 0.5f)
         {
-            boss.StartAttackEffect();
+            
             Debug.Log("Hit player!"); // ここでプレイヤーのダメージ処理を呼び出せる
             boss.Boss_SE.PlayBossSE(BossSEBox.SENAME.HIT);
             boss.player.GetComponent<PlayerController>()?.TakeDamage((int)boss.Boss_Power);

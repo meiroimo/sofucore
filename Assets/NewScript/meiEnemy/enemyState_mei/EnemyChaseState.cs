@@ -5,7 +5,9 @@ using UnityEngine.AI;
 
 public class EnemyChaseState : EnemyState
 {
-    public override void Enter(EnemyController enemy) { }
+    public override void Enter(EnemyController enemy) {
+        enemy.EnemyMotionScript.runMotion(true);
+    }
 
     public override void Update(EnemyController enemy)
     {
@@ -26,5 +28,7 @@ public class EnemyChaseState : EnemyState
         }
     }
 
-    public override void Exit(EnemyController enemy) { }
+    public override void Exit(EnemyController enemy) {
+        enemy.EnemyMotionScript.runMotion(false);
+    }
 }

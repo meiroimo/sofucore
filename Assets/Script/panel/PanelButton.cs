@@ -29,9 +29,15 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
     public SelectText SelectTextSc;//セレクトソフビのクラス
 
     public Image frameImage;//アイコンフレームの画像
+
+    public GameObject[] starImages;//レア度表示の星
     void Start()
     {
         selectPanel = false;
+        for (int i = 0; i < 3; i++)
+        {
+            starImages[i].SetActive(false);
+        }
 
     }
 
@@ -91,6 +97,15 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
         else if (PanelImage.sprite!= ImgStrageScriptdata.sprites[(int)SetSofvidata.SofviData.sofvimodel])
         {
             PanelImage.sprite = ImgStrageScriptdata.sprites[(int)SetSofvidata.SofviData.sofvimodel];
+            for (int i = 0; i < 3; i++)
+            {
+                starImages[i].SetActive(false);
+            }
+            Debug.Log(SetSofvidata.SofviData.rarity);
+            for (int i=0;i< (int)SetSofvidata.SofviData.rarity; i++)
+            {
+                starImages[i].SetActive(true);
+            }
         }
     }
     void againClick()//セレクトデータをリセット

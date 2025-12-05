@@ -18,6 +18,7 @@ public class softVinyl : MonoBehaviour
         if (SofviData == null)
         {
             SofviData = new SoftVinilData();
+            SofviData.ResetParameter();
         }
     }
 

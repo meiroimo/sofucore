@@ -395,7 +395,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8166744685667211542, guid: 36523a4357aabe246b83275d6cf77556, type: 3}
       propertyPath: rarityRate.Array.data[0]
-      value: 1
+      value: 95
       objectReference: {fileID: 0}
     - target: {fileID: 8166744685667211542, guid: 36523a4357aabe246b83275d6cf77556, type: 3}
       propertyPath: rarityRate.Array.data[1]
@@ -403,12 +403,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8166744685667211542, guid: 36523a4357aabe246b83275d6cf77556, type: 3}
       propertyPath: rarityRate.Array.data[2]
-      value: 95
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8166744685667211542, guid: 36523a4357aabe246b83275d6cf77556, type: 3}
       propertyPath: dropOBJ.Array.data[0].objType.Array.data[0]
       value: 
-      objectReference: {fileID: 3925992834239245393, guid: ff36189b0fbc9e64eaefccb2ad38c884, type: 3}
+      objectReference: {fileID: 3925992834239245393, guid: 4e5ad728ddc253746a6ad001884935c0, type: 3}
     - target: {fileID: 8166744685667211542, guid: 36523a4357aabe246b83275d6cf77556, type: 3}
       propertyPath: dropOBJ.Array.data[1].objType.Array.data[0]
       value: 
@@ -416,7 +416,7 @@ PrefabInstance:
     - target: {fileID: 8166744685667211542, guid: 36523a4357aabe246b83275d6cf77556, type: 3}
       propertyPath: dropOBJ.Array.data[2].objType.Array.data[0]
       value: 
-      objectReference: {fileID: 3925992834239245393, guid: 4e5ad728ddc253746a6ad001884935c0, type: 3}
+      objectReference: {fileID: 3925992834239245393, guid: ff36189b0fbc9e64eaefccb2ad38c884, type: 3}
     - target: {fileID: 9050331998216033146, guid: 36523a4357aabe246b83275d6cf77556, type: 3}
       propertyPath: m_Name
       value: enemyDropBox

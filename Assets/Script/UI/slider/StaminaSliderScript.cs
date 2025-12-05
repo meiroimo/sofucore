@@ -26,10 +26,15 @@ public class StaminaSliderScript : MonoBehaviour
         maxStamina = playerStatus_Script.player_MaxSutamina;
         nowStamina = maxStamina;
         SetStaminaUI();
-        setHealthText();
+        setStaminaText();
         //InvokeRepeating("ƒƒ\ƒbƒh–¼", ŠJn‚Ü‚Å‚Ì’x‰„ŠÔ, ŒJ‚è•Ô‚µŠÔŠu);
         //InvokeRepeating(nameof(HealStamina), 1.0f, 1.0f);
 
+    }
+
+    public void MaxStaminaUpdate()
+    {
+        maxStamina = playerStatus_Script.player_MaxSutamina;
     }
 
     //UI(slider)‚É”½‰f
@@ -41,20 +46,19 @@ public class StaminaSliderScript : MonoBehaviour
     }
 
     //Å‘å’l‚ğƒZƒbƒg{UI”½‰f
-    public void SetMaxStamina(float h_maxHealth)
+    public void SetMaxStamina(float h_maxStamina)
     {
-        maxStamina = h_maxHealth;
+        maxStamina = h_maxStamina;
 
-        setHealthText();
-
+        setStaminaText();
         SetStaminaUI();
     }
 
     //Œ»İ’l‚ğƒZƒbƒg{UI”½‰f
-    public void SetNowStamina(float h_nowhealth)
+    public void SetNowStamina(float h_nowStamina)
     {
-        nowStamina = h_nowhealth;
-        setHealthText();
+        nowStamina = h_nowStamina;
+        setStaminaText();
         SetStaminaUI();
     }
 
@@ -70,9 +74,8 @@ public class StaminaSliderScript : MonoBehaviour
         return nowStamina;
     }
 
-    void setHealthText()
+    void setStaminaText()
     {
-
         maxStaminaText.text = maxStamina + "(" + playerStatus_Script.add_Player_MaxSutamina + ")";
     }
 

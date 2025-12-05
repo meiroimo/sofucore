@@ -26,6 +26,7 @@ public class SetSofviManeger : MonoBehaviour
     public softVinyl selectSofviDeta;//選択中のソフビデータ
     private int MAXSETPOSITION = 6;
     public Ray ray;//カメラから飛ばすレイ
+    public PlayerController PlayerControllerSc;//プレイヤーコントローラーのスクリプト
     void Start()
     {
         selectSofviDeta = selectSofviOBJ.GetComponent<softVinyl>();
@@ -159,7 +160,11 @@ public class SetSofviManeger : MonoBehaviour
 
         for (int i = 0; i < MAXSETPOSITION; i++)
         {
-            if (!setSoftVinylData[i].SofviData.checksetpotion) continue;
+            if (!setSoftVinylData[i].SofviData.checksetpotion)
+            {
+              // Debug.Log("設置されているデータがない" + i + "番目");
+                continue;
+            }
 
             SoftVinilData data = setSoftVinylData[i].SofviData;
 
@@ -173,7 +178,6 @@ public class SetSofviManeger : MonoBehaviour
             data.buffSubstatus2,
             data.buffSubstatus3
             };
-
             int[] subValueArray = new int[3]
             {
             data.BuffSubParameter1,
@@ -186,6 +190,8 @@ public class SetSofviManeger : MonoBehaviour
                 AddStatusValue(subStatusArray[j], subValueArray[j]);
             }
         }
+        //コントローラースクリプトのの値を更新
+        PlayerControllerSc.statusupdate();
     }
 
 

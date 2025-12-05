@@ -84,6 +84,7 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
         {
             if (selectSofviDeta.SofviData.selectButton==this.gameObject)
             {
+                Debug.Log("同じの押した");
                 againClick();
             }
         }
@@ -103,6 +104,10 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
     }
     void againClick()//セレクトデータをリセット
     {
+        //SoftVinilData nulldata = new SoftVinilData();
+        //nulldata.ResetParameter();
+        //selectSofviDeta.SofviData = nulldata;
+         selectSofviDeta.SofviData= selectSofviDeta.SofviData.copy();
         selectSofviDeta.SofviData.ResetParameter();
         selectPanel = false;
         outline.enabled = false;
@@ -111,19 +116,17 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
     {
         selectSofviDeta.SofviData = SetSofvidata.SofviData;
 
-        //selectSofviDeta.sofvimodel = SetSofvidata.sofvimodel;
-        //selectSofviDeta.cost = SetSofvidata.cost;
-        //selectSofviDeta.skill = SetSofvidata.skill;
-        //selectSofviDeta.theme = SetSofvidata.theme;
-        //selectSofviDeta.ListNumber = SetSofvidata.ListNumber;
-        //selectSofviDeta.buffMainstatus = SetSofvidata.buffMainstatus;
-        //selectSofviDeta.buffSubstatus1 = SetSofvidata.buffSubstatus1;
-        //selectSofviDeta.buffSubstatus2 = SetSofvidata.buffSubstatus2;
-        //selectSofviDeta.buffSubstatus3 = SetSofvidata.buffSubstatus3;
-        //selectSofviDeta.Buffparameter = SetSofvidata.Buffparameter;
-        //selectSofviDeta.Buffparameter1 = SetSofvidata.Buffparameter1;
-        //selectSofviDeta.Buffparameter2 = SetSofvidata.Buffparameter2;
-        //selectSofviDeta.Buffparameter3 = SetSofvidata.Buffparameter3;
+        //selectSofviDeta.SofviData.sofvimodel = SetSofvidata.SofviData.sofvimodel;
+        //selectSofviDeta.SofviData.rarity = SetSofvidata.SofviData.rarity;
+        //selectSofviDeta.SofviData.buffMainstatus = SetSofvidata.SofviData.buffMainstatus;
+        //selectSofviDeta.SofviData.buffSubstatus1 = SetSofvidata.SofviData.buffSubstatus1;
+        //selectSofviDeta.SofviData.buffSubstatus2 = SetSofvidata.SofviData.buffSubstatus2;
+        //selectSofviDeta.SofviData.buffSubstatus3 = SetSofvidata.SofviData.buffSubstatus3;
+        //selectSofviDeta.SofviData.ListNumber = SetSofvidata.SofviData.ListNumber;
+        //selectSofviDeta.SofviData.BuffMainParameter = SetSofvidata.SofviData.BuffMainParameter;
+        //selectSofviDeta.SofviData.BuffSubParameter1 = SetSofvidata.SofviData.BuffSubParameter1;
+        //selectSofviDeta.SofviData.BuffSubParameter2 = SetSofvidata.SofviData.BuffSubParameter2;
+        //selectSofviDeta.SofviData.BuffSubParameter3 = SetSofvidata.SofviData.BuffSubParameter3;
         selectSofviDeta.SofviData.selectButton = this.gameObject;
         selectSofviDeta.SofviData.selectCheck = true;
     }

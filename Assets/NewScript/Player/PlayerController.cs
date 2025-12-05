@@ -156,11 +156,18 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         moveForce = 5;
-        attack_Power = playerStatus_Script.default_player_Attack_Power;
+        attack_Power = playerStatus_Script.player_Attack_Power;
 
         ChangeState(new PlayerIdleState(this));
     }
 
+    public void statusupdate()
+    {
+        attack_Power = playerStatus_Script.player_Attack_Power;
+        hpSliderScript.MaxHealthUpdate();
+        staminaSliderScript.MaxStaminaUpdate();
+
+    }
     private void Update()
     {
         currentState?.Update();

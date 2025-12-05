@@ -33,7 +33,6 @@ public class dropRandomStatusScript : MonoBehaviour
         softVinylStatusScript = GetComponent<softVinyl>();
       //  sofviDataScriptable = softVinylStatusScript.SofviDataScriptable;
         sofviData = softVinylStatusScript.SofviData;
-        Debug.Log((int)sofviData.rarity);
 
         SetStatusRandom();
     }
@@ -49,7 +48,6 @@ public class dropRandomStatusScript : MonoBehaviour
         //メインステ
         sofviData.buffMainstatus = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.NULL, (float)SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA) + 1;
 
-        Debug.Log((int)sofviData.buffMainstatus);
 
 
         //メインステ
@@ -60,8 +58,6 @@ public class dropRandomStatusScript : MonoBehaviour
          sofviData.buffSubstatus2 = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.NULL, (float)SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA) + 1;
         //サブステ3
          sofviData.buffSubstatus3 = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.NULL, (float)SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA) + 1;
-        Debug.Log((int) sofviData.rarity);
-        Debug.Log((int) sofviData.buffMainstatus);
         //メインステ　追加値
          sofviData.BuffMainParameter = setRarityStatus[(int) sofviData.rarity - 1][(int) sofviData.buffMainstatus - 1];
 

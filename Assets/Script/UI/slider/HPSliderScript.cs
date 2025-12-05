@@ -25,6 +25,11 @@ public class HPSliderScript : MonoBehaviour
         setHealthText();
 
     }
+    public void MaxHealthUpdate()
+    {
+        maxHealth = playerStatus_Script.player_MaxHealth;
+        setHealthText();
+    }
 
     //UI(slider)‚É”½‰f
     public void SetHealthUI()
@@ -64,7 +69,7 @@ public class HPSliderScript : MonoBehaviour
     void setHealthText()
     {
 
-        maxhealthText.text = maxHealth + "(" + playerStatus_Script.add_Player_MaxHealth + ")";
+        maxhealthText.text = playerStatus_Script.player_MaxHealth + "(" + playerStatus_Script.add_Player_MaxHealth + ")";
     }
 
     //public void EnemtTakeDamage(int damage)

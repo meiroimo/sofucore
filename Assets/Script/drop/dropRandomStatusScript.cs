@@ -45,22 +45,17 @@ public class dropRandomStatusScript : MonoBehaviour
 
     void SetStatusRandom()
     {
-        //メインステ
-        sofviData.buffMainstatus = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.NULL, (float)SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA) + 1;
-
-
 
         //メインステ
-         sofviData.buffMainstatus = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.NULL, (float)SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA)+1;
+         sofviData.buffMainstatus = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.POWER, (float)SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA);
         //サブステ１
-         sofviData.buffSubstatus1 = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.NULL, (float)SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA) + 1;
+         sofviData.buffSubstatus1 = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.POWER, (float)SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA) ;
         //サブステ2
-         sofviData.buffSubstatus2 = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.NULL, (float)SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA) + 1;
+         sofviData.buffSubstatus2 = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.POWER, (float)SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA) ;
         //サブステ3
-         sofviData.buffSubstatus3 = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.NULL, (float)SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA) + 1;
+         sofviData.buffSubstatus3 = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.POWER, (float)SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA) ;
         //メインステ　追加値
          sofviData.BuffMainParameter = setRarityStatus[(int) sofviData.rarity - 1][(int) sofviData.buffMainstatus - 1];
-
         //サブステ１　追加値
          sofviData.BuffSubParameter1 = setRarityStatus[(int) sofviData.rarity -1][(int) sofviData.buffSubstatus1 -1] ;
         //サブステ2 　追加値

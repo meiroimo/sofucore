@@ -597,6 +597,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossDropBox 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9050331998216033146, guid: 884176eab3493a84b9e21da30c5d78d6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

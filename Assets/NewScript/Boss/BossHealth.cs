@@ -18,7 +18,7 @@ public class BossHealth : MonoBehaviour
     // 死亡イベント（他スクリプトと連携できる）
     public event System.Action OnDeath;
 
-    [SerializeField] TreasureChestDropScript dropScript;
+   // [SerializeField] TreasureChestDropScript dropScript;
     public Slider HPSlider;//HPスライダー
     public Text damageTxt;
 
@@ -59,7 +59,7 @@ public class BossHealth : MonoBehaviour
         //Debug.Log($"{gameObject.name} は倒された！");
         OnDeath?.Invoke(); // 死亡イベントを発火（スコア加算やエフェクト再生など）
 
-        dropScript.Drop();
+       // dropScript.Drop();
 
         //Destroy(gameObject); // 敵オブジェクトを消去
     }

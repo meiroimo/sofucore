@@ -42,12 +42,15 @@ public class PlayerController : MonoBehaviour
     public playerEffectScript PlayerEffectScript;
     private PlayerSEBox _seBox;
     public playerMotionScript PlayerMotionScript;
+    public GameObject footprintsOBJ;
 
     private UIManager uIManager;
     private PlayPauseMenu pauseMenu;
 
     public GameObject canvas;
     public Text damageTxt;
+
+    float time;
 
     //コントローラー関係
     #region 
@@ -164,7 +167,7 @@ public class PlayerController : MonoBehaviour
         currentState?.Update();
         UpdateLastUsedInputDevice();
         PlayerCurrentDirection();
-
+        Footprints();
         canvas.transform.LookAt(mainCamera.transform);
 
         if (hpSliderScript.GetNowHealth() <= 0)
@@ -458,5 +461,26 @@ public class PlayerController : MonoBehaviour
 
         enemyRb.AddForce(pushDir * pushPower, ForceMode.Acceleration);
     }
+
+    public void Footprints()
+    {
+        time += Time.deltaTime;
+        if (this.time > 0.5f)
+        {
+            this.time = 0;
+            Vector3 tmp = transform.localEulerAngles;
+            Vector3 preRotate = footprintsOBJ.transform.localEulerAngles;
+            preRotate.z = tmp.y * -1;
+            GameObject tmpOBJ = Instantiate(footprintsOBJ, transform.position, transform.rotation);
+            tmpOBJ.transform.localEulerAngles = preRotate;
+            Vector3 pos = tmpOBJ.transform.position;
+            pos.y = 0.05f;
+            tmpOBJ.transform.position = pos;
+        }
+
+    }
+
+
+
 
 }

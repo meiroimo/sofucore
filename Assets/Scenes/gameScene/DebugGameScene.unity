@@ -242,6 +242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStatus_Script: {fileID: 1016606769}
   enemyStatus_Script: {fileID: 0}
+  enemySpawner_Script: {fileID: 0}
 --- !u!4 &353583778
 Transform:
   m_ObjectHideFlags: 0
@@ -1682,9 +1683,9 @@ MonoBehaviour:
   maxEnemies: 100
   spawnCountPerWave: {x: 10, y: 3}
   enemyStatusTypeNo: 1
+  enemyScaleMultiplier: 1
   spawnRadiusMin: 10
   spawnRadiusMax: 20
-  spawnHeight: 0
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 128

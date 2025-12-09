@@ -1657,6 +1657,7 @@ GameObject:
   - component: {fileID: 1814842749}
   - component: {fileID: 1814842748}
   - component: {fileID: 1814842750}
+  - component: {fileID: 1814842751}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -1726,6 +1727,19 @@ MonoBehaviour:
   csvReader: {fileID: 353583777}
   bossTypeNo: 2
   gameTimer: {fileID: 1159825470}
+--- !u!114 &1814842751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814842747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 906401b16a86d4f45b44c4f82b10537a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpawner: {fileID: 1814842748}
 --- !u!114 &1823185145 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 258502235092379763, guid: 2353460912ea6a84392aa33975dd759d, type: 3}

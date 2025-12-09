@@ -2509,15 +2509,15 @@ PrefabInstance:
     - target: {fileID: 301211863526626181, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
       propertyPath: SetSofviModelPrefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 3925992834239245393, guid: 259f647b4107cde4d99d9f56d8109bd9, type: 3}
+      objectReference: {fileID: 8670939789299636123, guid: 07e38d4744f4b764c8ca283ee838483a, type: 3}
     - target: {fileID: 301211863526626181, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
       propertyPath: SetSofviModelPrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 3925992834239245393, guid: d972172b1443ef94cb6920965e057cc1, type: 3}
+      objectReference: {fileID: 8670939789299636123, guid: 575c4b89913bd334fb845a16859c8058, type: 3}
     - target: {fileID: 301211863526626181, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
       propertyPath: SetSofviModelPrefabs.Array.data[3]
       value: 
-      objectReference: {fileID: 3925992834239245393, guid: 85dca065721db344eb88244b45dabd6c, type: 3}
+      objectReference: {fileID: 8670939789299636123, guid: b3d4e7468040f0e4ea9b10e7ee3ea2bd, type: 3}
     - target: {fileID: 521375686694910788, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

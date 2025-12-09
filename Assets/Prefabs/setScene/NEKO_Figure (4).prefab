@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b24a4718f59d4bd4aa341881f5a48a2f, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b24a4718f59d4bd4aa341881f5a48a2f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b24a4718f59d4bd4aa341881f5a48a2f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b24a4718f59d4bd4aa341881f5a48a2f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -117,26 +117,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01d7dad586a608549be90ed83e779f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sofvimodel: 0
-  sofviName: 0
-  sofviImage: 0
-  theme: 0
-  skill: 0
-  rarity: 0
-  cost: 0
-  ListNumber: 0
-  buffMainstatus: 0
-  buffSubstatus1: 0
-  buffSubstatus2: 0
-  buffSubstatus3: 0
-  Buffparameter: 0
-  Buffparameter1: 0
-  Buffparameter2: 0
-  Buffparameter3: 0
-  buffName: 
-  buffName1: 
-  buffName2: 
-  buffName3: 
-  checksetpotion: 0
-  selectCheck: 0
-  selectButton: {fileID: 0}

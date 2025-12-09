@@ -51,6 +51,7 @@ public class Setposition3d : MonoBehaviour
                                //３Ðモデルを空箱に生成
         GameObject ins = Instantiate(SetSofviBoxScript.SetSofviModelPrefabs[(int)SetSofviManeger.selectSofviDeta.SofviData.sofvimodel], this.transform.position, Quaternion.identity);
         ins.transform.parent = this.transform;
+        ins.transform.localPosition = new Vector3(0.0f, -0.66f, 0.0f);
         ins.transform.rotation = Quaternion.AngleAxis(90, Vector3.up);
         checkmodelset = false;//生成するクリック判定をfalse
         ColloderOff();//設置場所のコライダーオフ再度クリックされないように
@@ -87,6 +88,7 @@ public class Setposition3d : MonoBehaviour
 
 
         ins.transform.parent = this.transform;
+        ins.transform.localPosition = new Vector3(0.0f, -0.66f, 0.0f);
         ins.transform.rotation = Quaternion.AngleAxis(90, Vector3.up);
         ins.GetComponent<MeshRenderer>().material = translucent;//マテリアルを半透明に
         ins.GetComponent<BoxCollider>().enabled = false;//例が当たらないようにコライダーオフ

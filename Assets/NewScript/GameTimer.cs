@@ -35,11 +35,11 @@ public class GameTimer : MonoBehaviour
         }
 
         // 20•b‚²‚Æ‚ÌŠÔŠuƒCƒxƒ“ƒg
-        int currentInterval = Mathf.FloorToInt(currentTime / 20f);
-        if (currentInterval != lastInterval)
-        {
-            lastInterval = currentInterval;
-            OnTimeIntervalReached?.Invoke(currentInterval);
-        }
+        //int currentInterval = Mathf.FloorToInt(currentTime / 20f);
+        //if (currentInterval != lastInterval)
+        //{
+        //    lastInterval = currentInterval;
+        //    OnTimeIntervalReached?.Invoke(currentInterval);
+        //}
     }
 }

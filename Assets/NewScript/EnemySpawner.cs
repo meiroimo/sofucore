@@ -15,9 +15,11 @@ public class EnemySpawner : MonoBehaviour
     [Header("一度に出す敵の数")] public Vector2 spawnCountPerWave; // 一度に出す敵の数
     public int enemyStatusTypeNo = 1; // CSVから読み込む敵の種類
 
+    [Header("イベントによる倍率変更")]
+    public float enemyScaleMultiplier = 1f;
+
     public float spawnRadiusMin = 10f;
     public float spawnRadiusMax = 20f;
-    public float spawnHeight = 0f;
 
     private float timer;
 
@@ -82,11 +84,11 @@ public class EnemySpawner : MonoBehaviour
             return;
         }
 
-        // 敵をランダムに選んで生成
+        //敵をランダムに選んで生成
         GameObject prefab = enemyPrefab[Random.Range(0, enemyPrefab.Length)];
         GameObject enemy = Instantiate(prefab, spawnPos, Quaternion.identity);
 
-        // ステータス設定
+        //ステータス設定
         EnemyStatus_Script enemyStatus = enemy.GetComponent<EnemyStatus_Script>();
         if (enemyStatus != null)
         {
@@ -99,11 +101,13 @@ public class EnemySpawner : MonoBehaviour
             Debug.LogWarning("EnemyStatus_Script がプレハブにありません");
         }
 
+        //大きさ変更（イベントで倍率が変わる）
+        enemy.transform.localScale *= enemyScaleMultiplier;
 
-        // 敵数カウント
+        //敵数カウント
         currentEnemyCount++;
 
-        // 死亡時に減らす
+        //死亡時に減らす
         EnemyController enemyController = enemy.GetComponent<EnemyController>();
         if (enemyController != null)
         {
@@ -177,6 +181,6 @@ public class EnemySpawner : MonoBehaviour
         status.enemy_Defense = Mathf.Round(middleDef);
         status.enemy_Speed = Mathf.Round(middleSpeed);
 
-        Debug.LogWarning(status.enemy_MaxHealth);
+        //Debug.LogWarning(status.enemy_MaxHealth);
     }
 }

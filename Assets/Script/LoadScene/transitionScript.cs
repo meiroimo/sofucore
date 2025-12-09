@@ -32,8 +32,8 @@ public class transitionScript : MonoBehaviour
 
         unmaskTransform.localScale = new Vector3(nowScale, nowScale, nowScale);
 
-        if (MaxScale <= nowScale) gameObject.SetActive(false);
-        if (nowScale <= 0 && isFadein) 
+        if (MaxScale < nowScale) gameObject.SetActive(false);
+        if (nowScale < 0 && isFadein) 
         {
             Loading.NextScene();
             gameObject.SetActive(false);

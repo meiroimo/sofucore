@@ -54,7 +54,7 @@ public class loadingScript : MonoBehaviour
         transition.isFadein = true;
         transitionOBJ.gameObject.SetActive(true);
 
-       //transition.Start();
+       transition.Start();
     }
 
     public void NextScene()

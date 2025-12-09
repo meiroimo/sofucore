@@ -417,8 +417,8 @@ MonoBehaviour:
   playerEffect: {fileID: 4801876933201552212}
   attackCone: {fileID: 0}
   PlayerEffectScript: {fileID: 4801876933201552212}
-  animator: {fileID: 0}
   PlayerMotionScript: {fileID: 6704278085657232148}
+  footprintsOBJ: {fileID: 6351596230871839408, guid: a3c94913c8823194eafdf8ae53ded6ee, type: 3}
   canvas: {fileID: 3395398609826447640}
   damageTxt: {fileID: 821673611413965849}
 --- !u!114 &6990655156876945735
@@ -465,37 +465,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_MaxHealth: 0
   player_MaxSutamina: 0
+  player_stamina_recovery_speed: 0
   player_Attack_Power: 0
-  player_Speed: 0
   player_Skill_Point: 0
   player_Skill_Charge: 0
-  player_Size: 0
-  player_Attack_Range: 0
-  player_Critical: 0
-  player_Critical_Damage: 0
-  player_Defense: 0
-  D_player_MaxHealth: 0
-  D_player_MaxSutamina: 0
-  D_player_Attack_Power: 0
-  D_player_Speed: 0
-  D_player_Skill_Point: 0
-  D_player_Skill_Charge: 0
-  D_player_Size: 0
-  D_player_Attack_Range: 0
-  D_player_Defense: 0
-  D_player_Critical: 0
-  D_player_Critical_Damage: 0
+  default_player_MaxHealth: 0
+  default_player_MaxSutamina: 0
+  default_player_stamina_recovery_speed: 0
+  default_player_Attack_Power: 0
+  default_player_Skill_Point: 0
+  default_player_Skill_Charge: 0
   add_Player_MaxHealth: 0
   add_Player_MaxSutamina: 0
+  add_player_stamina_recovery_speed: 0
   add_Player_Attack_Power: 0
-  add_Player_Speed: 0
   add_Player_Skill_Point: 0
   add_Player_Skill_Charge: 0
-  add_Player_Size: 0
-  add_Player_Attack_Range: 0
-  add_Player_Defense: 0
-  add_Player_Critical: 0
-  add_Player_Critical_Damage: 0
   enemyDeathCount: 0
   statusLoad: {fileID: 0}
 --- !u!114 &8398801253528264856

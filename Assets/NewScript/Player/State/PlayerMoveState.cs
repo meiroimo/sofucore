@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 /// <summary>
 /// ƒvƒŒƒCƒ„[‚ÌˆÚ“®ó‘Ô
@@ -6,7 +7,7 @@ using UnityEngine;
 public class PlayerMoveState : PlayerState
 {
     public PlayerMoveState(PlayerController player) : base(player) { }
-
+    float time = 0;
 
     public override void Enter()
     {
@@ -20,6 +21,7 @@ public class PlayerMoveState : PlayerState
     {
         Vector2 moveInput = player.MoveInput;
         Vector3 moveDir = new Vector3(moveInput.x, 0, moveInput.y);
+
 
         if (moveDir.sqrMagnitude < 0.01f)
         {
@@ -44,4 +46,5 @@ public class PlayerMoveState : PlayerState
         player.PlayerEffectScript.StopEffect((int)playerEffectScript.EffectName.SMOKE);
         player.SeBox.StopPlayerSE();
     }
+
 }

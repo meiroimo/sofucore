@@ -55,13 +55,17 @@ public class dropRandomStatusScript : MonoBehaviour
         //サブステ3
          sofviData.buffSubstatus3 = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.POWER, (float)SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA) ;
         //メインステ　追加値
-         sofviData.BuffMainParameter = setRarityStatus[(int) sofviData.rarity - 1][(int) sofviData.buffMainstatus - 1];
+        Debug.Log(sofviData.rarity);
+        Debug.Log((int)sofviData.buffMainstatus - 1);
+
+
+        sofviData.BuffMainParameter = setRarityStatus[(int) sofviData.rarity-1 ][(int) sofviData.buffMainstatus - 1];
         //サブステ１　追加値
-         sofviData.BuffSubParameter1 = setRarityStatus[(int) sofviData.rarity -1][(int) sofviData.buffSubstatus1 -1] ;
+         sofviData.BuffSubParameter1 = setRarityStatus[(int) sofviData.rarity-1][(int) sofviData.buffSubstatus1 -1] ;
         //サブステ2 　追加値
-         sofviData.BuffSubParameter2 = setRarityStatus[(int) sofviData.rarity -1][(int) sofviData.buffSubstatus2 -1] ;
+         sofviData.BuffSubParameter2 = setRarityStatus[(int) sofviData.rarity-1][(int) sofviData.buffSubstatus2 -1] ;
         //サブステ3 　追加値
-         sofviData.BuffSubParameter3 = setRarityStatus[(int) sofviData.rarity -1][(int) sofviData.buffSubstatus3 -1] ;
+         sofviData.BuffSubParameter3 = setRarityStatus[(int) sofviData.rarity-1][(int) sofviData.buffSubstatus3 -1] ;
 
 
     }

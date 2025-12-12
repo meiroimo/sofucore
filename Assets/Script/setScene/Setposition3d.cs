@@ -17,7 +17,6 @@ public class Setposition3d : MonoBehaviour
     public bool translucentflg=false;//半透明表示判定
     public bool rathit = false;//レイが当たっていたら判定
     public int setpotionNumber=0;
-    public GameObject[] model;
     [SerializeField] private GameObject SetSofviModelBox;//設置するソフビの全モデル
     [SerializeField] private SetSofviBox SetSofviBoxScript;//設置するソフビの全モデルが入ってるスクリプト
 
@@ -121,7 +120,6 @@ public class Setposition3d : MonoBehaviour
         {
             softVinylData.SofviData = SetSofviManeger.selectSoftVinylData.SofviData.copy();
 
-          //softVinylData.SofviData = SetSofviManeger.selectSoftVinylData.SofviData;
            // Debug.Log(softVinylData.SofviData.buffMainstatus);
         }
     }

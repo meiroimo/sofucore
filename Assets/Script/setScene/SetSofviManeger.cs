@@ -40,9 +40,11 @@ public class SetSofviManeger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        setSofuvi();
+        if (Input.GetMouseButtonDown(0))//左クリックされたら
+        {
+            setSofuvi();
+        }
         SofviPreview();
-        selectsetpotion();
     }
 
     public void addSetPotiionSofviData(softVinyl softVinyldata,Setposition3d setposition3D)
@@ -95,11 +97,19 @@ public class SetSofviManeger : MonoBehaviour
                     }
 
                 }
+                else if(hit.transform.tag == "SetPosition"&& hit.collider.GetComponent<softVinyl>().SofviData.checksetpotion == true&&selectSofviDeta.SofviData.isSelectStandSofvi)
+                {
+                    SelectTextSc.setText(hit.collider.GetComponent<softVinyl>().SofviData);
+                    TextWindowManegerSc.OnHoverEnter();
+
+                }
                 else  //レイがどこの設置場所にもあたっていない場合はすべでのレイの当たった判定をfalse
                 {
                     for (int i = 0; i < MAXSETPOSITION; i++)
                     {
                         setposition3Ds[i].rathit = false;
+                        TextWindowManegerSc.OnHoverExit();
+
                     }
                 }
             }
@@ -117,51 +127,43 @@ public class SetSofviManeger : MonoBehaviour
     }
     void selectsetpotion()
     {
-        if(Input.GetMouseButtonDown(0)&&!selectSofviDeta.SofviData.selectCheck)//選択されてなくて左クリックされたとき
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);//レイ飛ばす
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit) && selectSofviDeta.SofviData.selectButton != hit.collider.gameObject && hit.collider.gameObject.tag == "SetPosition" && hit.collider.GetComponent<softVinyl>().SofviData.checksetpotion == true)//レイが当たったオブジェクトへアクセスかつ設置場所だったら
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);//レイ飛ばす
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "SetPosition" && hit.collider.GetComponent<softVinyl>().SofviData.checksetpotion == true)//レイが当たったオブジェクトへアクセスかつ設置場所だったら
-            {
-                Debug.Log("設置されたのが押されました");
-
-                selectSofviDeta.SofviData = hit.collider.GetComponent<softVinyl>().SofviData;
-
-                //selectSofviDeta.SofviData.sofvimodel = SetSofvidata.SofviData.sofvimodel;
-                //selectSofviDeta.SofviData.rarity = SetSofvidata.SofviData.rarity;
-                //selectSofviDeta.SofviData.buffMainstatus = SetSofvidata.SofviData.buffMainstatus;
-                //selectSofviDeta.SofviData.buffSubstatus1 = SetSofvidata.SofviData.buffSubstatus1;
-                //selectSofviDeta.SofviData.buffSubstatus2 = SetSofvidata.SofviData.buffSubstatus2;
-                //selectSofviDeta.SofviData.buffSubstatus3 = SetSofvidata.SofviData.buffSubstatus3;
-                //selectSofviDeta.SofviData.ListNumber = SetSofvidata.SofviData.ListNumber;
-                //selectSofviDeta.SofviData.BuffMainParameter = SetSofvidata.SofviData.BuffMainParameter;
-                //selectSofviDeta.SofviData.BuffSubParameter1 = SetSofvidata.SofviData.BuffSubParameter1;
-                //selectSofviDeta.SofviData.BuffSubParameter2 = SetSofvidata.SofviData.BuffSubParameter2;
-                //selectSofviDeta.SofviData.BuffSubParameter3 = SetSofvidata.SofviData.BuffSubParameter3;
-                selectSofviDeta.SofviData.selectButton = hit.collider.gameObject;
-                selectSofviDeta.SofviData.selectCheck = true;
-                selectSofviDeta.SofviData.isSelectStandSofvi = true;
-
-            }
-
-
+            Debug.Log("設置されたのが押されました");
+            selectSofviDeta.SofviData = hit.collider.GetComponent<softVinyl>().SofviData;
+            selectSofviDeta.SofviData.selectButton = hit.collider.gameObject;
+            selectSofviDeta.SofviData.selectCheck = true;
+            selectSofviDeta.SofviData.isSelectStandSofvi = true;
         }
+
     }
 
     void setSofuvi()
 
     {
-        if(selectSofviDeta.SofviData.selectCheck && Input.GetMouseButtonDown(0))//ソフビ選択されてたらかつ左クリック時
+        if(selectSofviDeta.SofviData.selectCheck)//ソフビ選択されてたら
         {
            
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);//レイ飛ばす
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "SetPosition")//レイが当たったオブジェクトへアクセスかつ設置場所だったら
+            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "SetPosition" && selectSofviDeta.SofviData.selectButton!=hit.collider.gameObject)//レイが当たったオブジェクトへアクセスかつ設置場所だったら
             {
                 hit.collider.GetComponent<Setposition3d>().checkmodelset =true;//設置場所の設置判定をtrue
             }
-  
+            else if(selectSofviDeta.SofviData.selectButton==hit.collider.gameObject)
+            {
+                Debug.Log("設置したソフビをもう一回押した");
+                selectSofviDeta.SofviData = selectSofviDeta.SofviData.copy();
+                selectSofviDeta.SofviData.ResetParameter();
+
+            }
+        }
+        else
+        {
+            selectsetpotion();
         }
     }
     // ---------------------------------------------
@@ -259,11 +261,10 @@ public class SetSofviManeger : MonoBehaviour
         }
         else
         {
-            Debug.Log(selectSoftVinylData.SofviData.selectButton.GetComponent<Setposition3d>().setpotionNumber);
             int resetpotionnum = selectSoftVinylData.SofviData.selectButton.GetComponent<Setposition3d>().setpotionNumber;
-            //Debug.Log(AllSetobject.transform.GetChild(selectSoftVinylData.SofviData.selectButton.GetComponent<Setposition3d>().setpotionNumber));
             Destroy(AllSetobject.transform.GetChild(resetpotionnum).gameObject.transform.GetChild(1).gameObject);
             setSoftVinylData[resetpotionnum].SofviData.ResetParameter();
+            statusup();
         }
 
     }

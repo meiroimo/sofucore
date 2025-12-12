@@ -111,7 +111,7 @@ public class Setposition3d : MonoBehaviour
         //マウスが離れたら、消す
         if (!rathit && translucentflg)
         {
-            this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+           // this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
             Destroy(this.gameObject.transform.GetChild(1).gameObject);
             translucentflg = false;
             softVinylData.SofviData.checksetpotion = false;//セットされたかの判定をオフ
@@ -132,6 +132,7 @@ public class Setposition3d : MonoBehaviour
         if (SetSofviManeger.selectSoftVinylData.SofviData.selectCheck)
         {
             softVinylData.SofviData = SetSofviManeger.selectSoftVinylData.SofviData.copy();
+            softVinylData.SofviData.checksetpotion = false;
 
            // Debug.Log(softVinylData.SofviData.buffMainstatus);
         }

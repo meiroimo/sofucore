@@ -25,8 +25,19 @@ public class TreasureChestDropScript : MonoBehaviour
     [SerializeField, Header("レアリティ割合 %で入力　レアリティ高い順で入れる")]
     int[] rarityRate;
 
-    softVinyl softVinylScript;
-    
+
+    //追加する値　ステータスの順番は softVinylのBUFFSTATUSNUM enumの順でいれる
+    List<List<int>> setRarityStatus = new List<List<int>>()
+    {
+        //POWER,MAXHP,SKILL_CHARGE,SUTAMINA_RECHARGE_SPEED,MAXSUTAMINA,
+        new List<int>(){1,10,1,1,10},  //Normal
+        new List<int>(){3,30,3,3,30},  //RARE
+        new List<int>(){5,50,5,5,50}   //SUPARRARE
+    };
+
+   // SoftVinilData sofviData;
+
+
     void Start()
     {
     }
@@ -56,6 +67,7 @@ public class TreasureChestDropScript : MonoBehaviour
                     droppedItem.GetComponent<softVinyl>().SofviData = new SoftVinilData();
                 }
                 droppedItem.GetComponent<softVinyl>().SofviData.rarity = (SoftVinilData.Raritynum)(i+1);//自分のレア度を記憶
+                SetStatusRandom(droppedItem.GetComponent<softVinyl>().SofviData);
                 Debug.Log((SoftVinilData.Raritynum)(i + 1));
 
                 droppedItem.GetComponent<softVinyl>().SofviData.sofvimodel = (SoftVinilData.SOFVINUMBER)(i + 1);
@@ -64,4 +76,50 @@ public class TreasureChestDropScript : MonoBehaviour
             }
         }
     }
+
+    void SetStatusRandom(SoftVinilData sofviData)
+    {
+        InitStatus(sofviData);//ステータス初期化
+
+        //メインステ
+        sofviData.buffMainstatus = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.POWER, (float)SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA);
+        //メインステ　追加値
+        sofviData.BuffMainParameter = setRarityStatus[(int)sofviData.rarity - 1][(int)sofviData.buffMainstatus - 1];
+
+        //サブステ１
+        sofviData.buffSubstatus1 = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.POWER, (float)SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA);
+        //サブステ１　追加値
+        sofviData.BuffSubParameter1 = setRarityStatus[(int)sofviData.rarity - 1][(int)sofviData.buffSubstatus1 - 1];
+
+        if ((int)sofviData.rarity == 1) return; //Normalならサブステ1個
+
+        //サブステ2
+        sofviData.buffSubstatus2 = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.POWER, (float)SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA);
+        //サブステ2 　追加値
+        sofviData.BuffSubParameter2 = setRarityStatus[(int)sofviData.rarity - 1][(int)sofviData.buffSubstatus2 - 1];
+
+        if ((int)sofviData.rarity == 2) return; //レアならサブステ2個
+
+        //サブステ3
+        sofviData.buffSubstatus3 = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.POWER, (float)SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA);
+        //サブステ3 　追加値
+        sofviData.BuffSubParameter3 = setRarityStatus[(int)sofviData.rarity - 1][(int)sofviData.buffSubstatus3 - 1];
+
+        //スーパーレアならサブステ3個
+    }
+
+    //ステータス初期化
+    void InitStatus(SoftVinilData sofviData)
+    {
+        sofviData.buffMainstatus = SoftVinilData.BUFFSTATUSNUM.NULL;
+        sofviData.buffSubstatus1 = SoftVinilData.BUFFSTATUSNUM.NULL;
+        sofviData.buffSubstatus2 = SoftVinilData.BUFFSTATUSNUM.NULL;
+        sofviData.buffSubstatus3 = SoftVinilData.BUFFSTATUSNUM.NULL;
+
+        sofviData.BuffMainParameter = 0;
+        sofviData.BuffSubParameter1 = 0;
+        sofviData.BuffSubParameter2 = 0;
+        sofviData.BuffSubParameter3 = 0;
+    }
+
 }

@@ -4843,7 +4843,6 @@ GameObject:
   - component: {fileID: 8179553126536840421}
   - component: {fileID: -1342792725047346533}
   - component: {fileID: 1654008913815793896}
-  - component: {fileID: 5344423984184744738}
   m_Layer: 6
   m_Name: drop_superRare
   m_TagString: sofvi/superRare
@@ -4949,18 +4948,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01d7dad586a608549be90ed83e779f5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5344423984184744738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3925992834239245393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e5a394b72d52504da7d72e59ced456f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7849891367845282954

@@ -20,7 +20,6 @@ public class TemporaryEvent
 
     public void Activate()
     {
-        Debug.LogWarning("イベント開始");
         if(applyEffect != null)
         {
             applyEffect.Invoke();
@@ -41,7 +40,6 @@ public class TemporaryEvent
             {
                 removeEffect.Invoke();
                 active = false;
-                Debug.LogWarning("イベント終了");
                 OnEventFinished?.Invoke(); // ←イベント終了を通知
             }
         }

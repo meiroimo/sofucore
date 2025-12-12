@@ -101,7 +101,6 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
             {
                 starImages[i].SetActive(false);
             }
-            Debug.Log(SetSofvidata.SofviData.rarity);
             for (int i=0;i< (int)SetSofvidata.SofviData.rarity; i++)
             {
                 starImages[i].SetActive(true);

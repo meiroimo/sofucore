@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.Rendering.Universal.ShaderGUI;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class Setposition3d : MonoBehaviour
@@ -44,6 +45,16 @@ public class Setposition3d : MonoBehaviour
         }
     }
 
+    public void Reset()
+    {
+        checkmodelset = false;
+        translucentflg = false;
+        rathit = false;
+
+
+    }
+
+
     void SofviIns()　//ソフビ生成
     {
         setpositionsofviDeta();//selectしたソフビデータを設置場所に反映
@@ -52,8 +63,9 @@ public class Setposition3d : MonoBehaviour
         ins.transform.parent = this.transform;
         ins.transform.localPosition = new Vector3(0.0f, -0.66f, 0.0f);
         ins.transform.rotation = Quaternion.AngleAxis(90, Vector3.up);
+        ins.GetComponent<BoxCollider>().enabled = false;//生成したモデルの当たり判定をオフ
         checkmodelset = false;//生成するクリック判定をfalse
-        ColloderOff();//設置場所のコライダーオフ再度クリックされないように
+       // ColloderOff();//設置場所のコライダーオフ再度クリックされないように
         softVinylData.SofviData.checksetpotion = true;//セットされたかの判定をオンに
 
         //ステータスアップ反映
@@ -114,7 +126,6 @@ public class Setposition3d : MonoBehaviour
     {
         boxCollider.enabled = false;
     }
-    //この関数はセットポジションでよくね？
     //セレクト中のソフビデータを設置ソフビデータにセットする関数
     public void setpositionsofviDeta()
     {

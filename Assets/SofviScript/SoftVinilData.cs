@@ -24,6 +24,7 @@ public class SoftVinilData
     public bool checksetpotion = false;
     public bool selectCheck;
     public GameObject selectButton;//セレクト中のボタン
+    public bool isSelectStandSofvi = false;//選択中のデータが設置されたもの判定
 
 
     public enum SOFVINUMBER
@@ -70,6 +71,7 @@ public class SoftVinilData
         copydata.checksetpotion = this.checksetpotion;
         copydata.selectCheck = this.selectCheck;
         copydata.selectButton =this.selectButton;
+        copydata.isSelectStandSofvi = this.isSelectStandSofvi;
 
         return copydata;
     }
@@ -89,5 +91,6 @@ public class SoftVinilData
         checksetpotion = false;
         selectCheck = false;
         selectButton = null;
+        isSelectStandSofvi = false;
     }
 }

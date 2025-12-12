@@ -10,7 +10,7 @@ using UnityEngine.EventSystems;
 /// </summary>
 public class TextWindow : MonoBehaviour
 {
-    [Header("設置シーンカメラ（自動で設定されます）")]
+    [Header("設置シーンカメラ")]
     public Camera cam;
 
     [Header("UI全体をまとめているパネル（Canvas内のRectTransform）")]

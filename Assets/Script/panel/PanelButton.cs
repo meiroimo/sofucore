@@ -14,7 +14,8 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
 {
     [Header("ソフビ一覧の各ボタンにソフビデータを入れるスクリプト")]
 
-   public TextWindow TextWindowManegerSc;//パネルイメージ
+   public TextWindow TextWindowManegerSc;//テキストウィンドウクラス
+
 
     public Image PanelImage;//パネルイメージ
 
@@ -26,7 +27,7 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
     public int Number;//ボタン番号
     public ImgStrageScript ImgStrageScriptdata;//イメージ画像データストレージ
 
-    public SelectText SelectTextSc;//セレクトソフビのクラス
+    public SelectText SelectTextSc;//セレクトソフビテキストクラス
 
     public Image frameImage;//アイコンフレームの画像
 
@@ -61,6 +62,11 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
     {
         SelectTextSc.setText(SetSofvidata.SofviData);
         TextWindowManegerSc.OnHoverEnter();
+
+        if (!selectSofviDeta.SofviData.isSelectStandSofvi/*&& selectSofviDeta.SofviData.sofvimodel!=SoftVinilData.SOFVINUMBER.NULL*/)
+        {
+
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)

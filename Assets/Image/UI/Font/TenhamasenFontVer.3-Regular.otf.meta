@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f0f2b75e48412ff428488f81a4c3d94f
+guid: 851e02c01444dfd4a9e5f1ce1032dc07
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Madou Futo Maru Gothic
+  - Tenhamasen Font Ver.3
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

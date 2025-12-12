@@ -5,13 +5,13 @@ using UnityEngine;
 public class GameEventManager : MonoBehaviour
 {
     public EnemySpawner enemySpawner;
-    public EventPopupUI eventPopupUI;
+    public EventAlertUI eventAlertUI;
 
     private List<TemporaryEvent> activeEvents = new List<TemporaryEvent>();
     private Queue<Func<TemporaryEvent>> eventQueue = new Queue<Func<TemporaryEvent>>();
 
     private bool eventRunning = false;
-    private float intervalBetweenEvents = 5f; // イベント間隔
+    private float intervalBetweenEvents = 5f;//イベント間隔
     private float intervalTimer = 0f;
 
     private void Start()
@@ -73,7 +73,7 @@ public class GameEventManager : MonoBehaviour
             apply: () =>
             {
                 enemySpawner.enemyScaleMultiplier = 2f;
-                eventPopupUI.ShowPopup("でっかい敵が出現中！");
+                eventAlertUI.ShowAlert("でっかい敵が出現中！");
             },
             remove: () => enemySpawner.enemyScaleMultiplier = original
         );
@@ -87,7 +87,7 @@ public class GameEventManager : MonoBehaviour
             apply: () =>
             {
                 enemySpawner.enemyScaleMultiplier = 0.5f;
-                eventPopupUI.ShowPopup("ちんまい敵が出現中！");
+                eventAlertUI.ShowAlert("ちんまい敵が出現中！");
             },
             remove: () => enemySpawner.enemyScaleMultiplier = original
         );
@@ -104,7 +104,7 @@ public class GameEventManager : MonoBehaviour
             {
                 enemySpawner.spawnInterval.x *= 0.8f;
                 enemySpawner.spawnInterval.y *= 0.8f;
-                eventPopupUI.ShowPopup("敵がたくさん出現中！");
+                eventAlertUI.ShowAlert("敵がたくさん出現中！");
             },
             remove: () =>
             {
@@ -124,7 +124,7 @@ public class GameEventManager : MonoBehaviour
             {
                 enemySpawner.spawnCountPerWave.x *= 2;
                 enemySpawner.spawnCountPerWave.y *= 2;
-                eventPopupUI.ShowPopup("敵がもーーっとたくさん出現中！");
+                eventAlertUI.ShowAlert("敵がもーーっとたくさん出現中！");
             },
             remove: () =>
             {

@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 5618228168936198336}
   - component: {fileID: 570425764063918223}
   - component: {fileID: 4566935911079746623}
-  - component: {fileID: 7165431047515152905}
+  - component: {fileID: 4865818049771139068}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -213,8 +213,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -387, y: -163}
-  m_SizeDelta: {x: 555.1218, y: 170.09473}
+  m_AnchoredPosition: {x: -330.5644, y: -150}
+  m_SizeDelta: {x: 571.82, y: 170.0947}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &570425764063918223
 CanvasRenderer:
@@ -246,10 +246,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 102
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 106
     m_Alignment: 0
     m_AlignByGeometry: 1
@@ -258,7 +258,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: New Text
---- !u!114 &7165431047515152905
+--- !u!114 &4865818049771139068
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -267,10 +267,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3953808367533315330}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e911abb1cb1c8a343995129baff02362, type: 3}
+  m_Script: {fileID: 11500000, guid: 578878ee88766fc4dac942ccc19b653a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newsText: {fileID: 4566935911079746623}
+  alertText: {fileID: 4566935911079746623}
   displayDuration: 3
-  startOffset: {x: -100, y: -100}
-  endOffset: {x: 100, y: -100}
+  blinkSpeed: 0.05

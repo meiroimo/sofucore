@@ -99,6 +99,8 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
                 sofviSotrage.sofviStrageList[Number] = SeveStorageSofviData;
                 //ƒŠƒXƒg‚Ì‰½”Ô–Ú‚©‚ð‹L˜^
                 sofviSotrage.sofviStrageList[Number].ListNumber = Number;
+                sofviSotrage.sofviStrageList[Number].isSelectStandSofvi = false;
+
                 sofviSotrage.ListUpdate = true;
                 int resetpotionnum = selectSofviDeta.SofviData.selectButton.GetComponent<Setposition3d>().setpotionNumber;
                 Destroy(SetSofviManegerSc.AllSetobject.transform.GetChild(resetpotionnum).gameObject.transform.GetChild(1).gameObject);

@@ -57,6 +57,7 @@ public class Setposition3d : MonoBehaviour
 
     void SofviIns()　//ソフビ生成
     {
+
         setpositionsofviDeta();//selectしたソフビデータを設置場所に反映
                                //３Ðモデルを空箱に生成
         GameObject ins = Instantiate(SetSofviBoxScript.SetSofviModelPrefabs[(int)SetSofviManeger.selectSofviDeta.SofviData.sofvimodel], this.transform.position, Quaternion.identity);
@@ -67,17 +68,26 @@ public class Setposition3d : MonoBehaviour
         checkmodelset = false;//生成するクリック判定をfalse
        // ColloderOff();//設置場所のコライダーオフ再度クリックされないように
         softVinylData.SofviData.checksetpotion = true;//セットされたかの判定をオンに
+        if(!SetSofviManeger.selectSofviDeta.SofviData.isSelectStandSofvi)
+        {
+            //ステータスアップ反映
+            SetSofviManeger.statusup();
+            //ストレージからデータの削除
+            sofviSotrage.sofviStrageList[softVinylData.SofviData.ListNumber] = null;
 
-        //ステータスアップ反映
-        SetSofviManeger.statusup();
-        //ストレージからデータの削除
-        sofviSotrage.sofviStrageList[softVinylData.SofviData.ListNumber] = null;
+            //ボタンのソフビデータもリセット
+            sofviVinylListSc.childrensoftVinyl[softVinylData.SofviData.ListNumber].SofviData.ResetParameter();
+            //セレクトデータのリセット
+            SetSofviManeger.selectSofviDeta.SofviData.ResetParameter();
+        }
+        else
+        {
+            int resetpotionnum = SetSofviManeger.selectSoftVinylData.SofviData.selectButton.GetComponent<Setposition3d>().setpotionNumber;
+            Destroy(SetSofviManeger.AllSetobject.transform.GetChild(resetpotionnum).gameObject.transform.GetChild(1).gameObject);
+            SetSofviManeger.setSoftVinylData[resetpotionnum].SofviData.ResetParameter();
+            SetSofviManeger.statusup();
 
-        //ボタンのソフビデータもリセット
-        sofviVinylListSc.childrensoftVinyl[softVinylData.SofviData.ListNumber].SofviData.ResetParameter();
-        //セレクトデータのリセット
-        SetSofviManeger.selectSofviDeta.SofviData.ResetParameter();
-
+        }
 
 
         //スクショ

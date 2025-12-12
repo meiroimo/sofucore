@@ -14,7 +14,8 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
 {
     [Header("ソフビ一覧の各ボタンにソフビデータを入れるスクリプト")]
 
-   public TextWindow TextWindowManegerSc;//パネルイメージ
+    public SetSofviManeger SetSofviManegerSc;
+    public TextWindow TextWindowManegerSc;//テキストウィンドウクラス
 
     public Image PanelImage;//パネルイメージ
 
@@ -26,7 +27,7 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
     public int Number;//ボタン番号
     public ImgStrageScript ImgStrageScriptdata;//イメージ画像データストレージ
 
-    public SelectText SelectTextSc;//セレクトソフビのクラス
+    public SelectText SelectTextSc;//セレクトソフビテキストクラス
 
     public Image frameImage;//アイコンフレームの画像
 
@@ -61,6 +62,11 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
     {
         SelectTextSc.setText(SetSofvidata.SofviData);
         TextWindowManegerSc.OnHoverEnter();
+
+        if (!selectSofviDeta.SofviData.isSelectStandSofvi/*&& selectSofviDeta.SofviData.sofvimodel!=SoftVinilData.SOFVINUMBER.NULL*/)
+        {
+
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -69,21 +75,44 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
     }
     public void onclickButton()
     {
-        if(!selectPanel && SetSofvidata.SofviData.sofvimodel != SoftVinilData.SOFVINUMBER.NULL)
+        if(!selectPanel && SetSofvidata.SofviData.sofvimodel != SoftVinilData.SOFVINUMBER.NULL&&!selectSofviDeta.SofviData.isSelectStandSofvi)
         {
             setselectSofviData();
             selectPanel = true;
             chengeframecolor(Color.yellow);
-
-            //outline.enabled = true;
         }
-        else
+        else if(selectSofviDeta.SofviData.selectButton == this.gameObject)
         {
-            if (selectSofviDeta.SofviData.selectButton==this.gameObject)
             {
                 Debug.Log("同じの押した");
                 againClick();
             }
+        }
+        else if(SetSofvidata.SofviData.sofvimodel == SoftVinilData.SOFVINUMBER.NULL&& selectSofviDeta.SofviData.isSelectStandSofvi)
+        {
+            Debug.Log("設置したソフビをせんたくしたまま、空のボタンをクリックした");
+            if (sofviSotrage.sofviStrageList[Number] == null || sofviSotrage.sofviStrageList[Number].sofvimodel == SoftVinilData.SOFVINUMBER.NULL)
+            {
+                softVinyl DropSoftViny = selectSofviDeta;
+
+                SoftVinilData SeveStorageSofviData = DropSoftViny.SofviData;
+                sofviSotrage.sofviStrageList[Number] = SeveStorageSofviData;
+                //リストの何番目かを記録
+                sofviSotrage.sofviStrageList[Number].ListNumber = Number;
+                sofviSotrage.ListUpdate = true;
+                int resetpotionnum = selectSofviDeta.SofviData.selectButton.GetComponent<Setposition3d>().setpotionNumber;
+                Destroy(SetSofviManegerSc.AllSetobject.transform.GetChild(resetpotionnum).gameObject.transform.GetChild(1).gameObject);
+                SetSofviManegerSc.setSoftVinylData[resetpotionnum].SofviData = SetSofviManegerSc.setSoftVinylData[resetpotionnum].SofviData.copy();
+                SetSofviManegerSc.setSoftVinylData[resetpotionnum].SofviData.ResetParameter();
+                SetSofviManegerSc.statusup();
+
+                selectSofviDeta.SofviData = selectSofviDeta.SofviData.copy();
+                selectSofviDeta.SofviData.ResetParameter();
+                selectPanel = false;
+                chengeframecolor(Color.white);
+
+            }
+
         }
     }
     public void setImage()
@@ -109,9 +138,6 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
     }
     void againClick()//セレクトデータをリセット
     {
-        //SoftVinilData nulldata = new SoftVinilData();
-        //nulldata.ResetParameter();
-        //selectSofviDeta.SofviData = nulldata;
          selectSofviDeta.SofviData= selectSofviDeta.SofviData.copy();
         selectSofviDeta.SofviData.ResetParameter();
         selectPanel = false;

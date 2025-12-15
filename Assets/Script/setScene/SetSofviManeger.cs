@@ -131,7 +131,7 @@ public class SetSofviManeger : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit) && selectSofviDeta.SofviData.selectButton != hit.collider.gameObject && hit.collider.gameObject.tag == "SetPosition" && hit.collider.GetComponent<softVinyl>().SofviData.checksetpotion == true)//レイが当たったオブジェクトへアクセスかつ設置場所だったら
         {
-            Debug.Log("設置されたのが押されました");
+            //Debug.Log("設置されたのが押されました");
             selectSofviDeta.SofviData = hit.collider.GetComponent<softVinyl>().SofviData;
             selectSofviDeta.SofviData.selectButton = hit.collider.gameObject;
             selectSofviDeta.SofviData.selectCheck = true;
@@ -155,7 +155,7 @@ public class SetSofviManeger : MonoBehaviour
             }
             else if(selectSofviDeta.SofviData.selectButton==hit.collider.gameObject)
             {
-                Debug.Log("設置したソフビをもう一回押した");
+                //Debug.Log("設置したソフビをもう一回押した");
                 selectSofviDeta.SofviData = selectSofviDeta.SofviData.copy();
                 selectSofviDeta.SofviData.ResetParameter();
 

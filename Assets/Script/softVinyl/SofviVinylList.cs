@@ -49,13 +49,12 @@ public class SofviVinylList : MonoBehaviour
             Debug.Log("nullだったよ");
 
         }
+
         //ストレージに入っているデータ分だけ表示されるボタンのデータ更新
         for (int i = 0; i < sofviSotrage.MAXSofviCount; i++)
         {
             if (softVinylData[i] == null) continue;
             childrensoftVinyl[i].SofviData = softVinylData[i];
-
-           
         }
 
     }
@@ -65,7 +64,7 @@ public class SofviVinylList : MonoBehaviour
         if(sofviSotrage.ListUpdate)
         {
             setSofiDataButton();
-            Debug.Log("表示されるソフビのリストを更新");
+          //  Debug.Log("表示されるソフビを更新");
             sofviSotrage.ListUpdate = false;
         }
      

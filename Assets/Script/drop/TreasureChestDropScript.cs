@@ -68,7 +68,7 @@ public class TreasureChestDropScript : MonoBehaviour
                 }
                 droppedItem.GetComponent<softVinyl>().SofviData.rarity = (SoftVinilData.Raritynum)(i+1);//Ž©•ª‚ÌƒŒƒA“x‚ð‹L‰¯
                 SetStatusRandom(droppedItem.GetComponent<softVinyl>().SofviData);
-                Debug.Log((SoftVinilData.Raritynum)(i + 1));
+               // Debug.Log((SoftVinilData.Raritynum)(i + 1));
 
                 droppedItem.GetComponent<softVinyl>().SofviData.sofvimodel = (SoftVinilData.SOFVINUMBER)(i + 1);
 

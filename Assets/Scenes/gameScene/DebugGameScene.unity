@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 5183456d969da4d4f8a8aa2157e4cd0d, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: c8310fd13ebda5b49b45afa59b091142, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5548,7 +5548,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: f4cee3b08c452844eb29a15745e5f7c0, type: 3}
     m_FontSize: 68
     m_FontStyle: 0
     m_BestFit: 0

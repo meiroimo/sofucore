@@ -60,6 +60,7 @@ public class PlayPauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         sofviSotrage.sofviStrageList.Clear();
         SceneManager.LoadScene("TitleScene_Mei");
+        ResultClear.Instance.isGameClear = false;
 
     }
 }

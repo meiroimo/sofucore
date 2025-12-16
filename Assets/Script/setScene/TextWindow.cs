@@ -24,6 +24,12 @@ public class TextWindow : MonoBehaviour
 
     [Header("マウス座標からのオフセット量")]
     private Vector2 offset = new Vector2(-200, -200);
+
+    [Header("余白")]
+    public Vector2 padding = new Vector2(20f, 20f);
+
+    [Header("最大サイズ制限（画面外対策）")]
+    public Vector2 maxSize = new Vector2(400f, 300f);
     // 内部用：テキストの現在表示状態
     private bool isShowing = false;
 
@@ -59,9 +65,24 @@ public class TextWindow : MonoBehaviour
         isShowing = true;
     }
 
-    /// <summary>
-    /// ボタンからカーソルが離れた時に呼ぶ
-    /// </summary>
+    public void UpdateWindowSize()
+    {
+        // Textが必要とするサイズ
+        float preferredW = statusText.preferredWidth;
+        float preferredH = statusText.preferredHeight;
+
+        // padding込みサイズ
+        float width = preferredW + padding.x;
+        float height = preferredH + padding.y;
+
+        // 最大サイズ制限
+        width = Mathf.Min(width, maxSize.x);
+        height = Mathf.Min(height, maxSize.y);
+
+        statusTextRect.sizeDelta = new Vector2(width, height);
+    }    /// <summary>
+         /// ボタンからカーソルが離れた時に呼ぶ
+         /// </summary>
     public void OnHoverExit()
     {
         statusTextRect.gameObject.SetActive(false);

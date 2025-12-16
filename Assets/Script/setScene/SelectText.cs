@@ -22,106 +22,54 @@ public class SelectText : MonoBehaviour
     void Update()
     {
     }
-   public void setText(SoftVinilData buttonlocalsoftVinyldata)//パラメータテキストのセット関数
-    {
-        GameObject textOBJ = transform.GetChild(0).gameObject;
-        switch (buttonlocalsoftVinyldata.buffMainstatus)
-        {
-            case SoftVinilData.BUFFSTATUSNUM.POWER:
-                MainBuffname = "<color=#ff3355>攻撃力 ";
-                break;
-            case SoftVinilData.BUFFSTATUSNUM.SKILL_CHARGE:
-                MainBuffname = "<color=#3377ff>スキルチャージ速度 ";
-                break;
-            case SoftVinilData.BUFFSTATUSNUM.MAXHP:
-                MainBuffname = "<color=#33ff33>体力 ";
-                break;
-            case SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA:
-                MainBuffname = "<color=#ffff00>スタミナ ";
-                break;
-            case SoftVinilData.BUFFSTATUSNUM.SUTAMINA_RECHARGE_SPEED:
-                MainBuffname = "<color=#ffff00>スタミナ回復速度 ";
-                break;
-            case SoftVinilData.BUFFSTATUSNUM.NULL:
-                MainBuffname = "<color=#000000>";
-                break;
-            default:
-                break;
-        }
-        switch (buttonlocalsoftVinyldata.buffSubstatus1)
-        {
-            case SoftVinilData.BUFFSTATUSNUM.POWER:
-                Sub1Buffname = "<color=#ff3355>攻撃力 ";
-                break;
-            case SoftVinilData.BUFFSTATUSNUM.SKILL_CHARGE:
-                Sub1Buffname = "<color=#3377ff>スキルチャージ速度 ";
-                break;
-            case SoftVinilData.BUFFSTATUSNUM.MAXHP:
-                Sub1Buffname = "<color=#33ff33>体力 ";
-                break;
-            case SoftVinilData.BUFFSTATUSNUM.SUTAMINA_RECHARGE_SPEED:
-                Sub1Buffname = "<color=#ffff00>スタミナ回復速度 ";
-                break;
-            case SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA:
-                Sub1Buffname = "<color=#ffff00>スタミナ ";
-                break;
 
-              case SoftVinilData.BUFFSTATUSNUM.NULL:
-                Sub1Buffname = "<color=#000000>";
-                break;
-            default:
-                break;
-        }
-        switch (buttonlocalsoftVinyldata.buffSubstatus2)
+    string GetBuffColoredName(SoftVinilData.BUFFSTATUSNUM status)
+    {
+        switch (status)
         {
             case SoftVinilData.BUFFSTATUSNUM.POWER:
-                Sub2Buffname = "<color=#ff3355>攻撃力 ";
-                break;
+                return "<color=#ff3355>攻撃力</color>";
             case SoftVinilData.BUFFSTATUSNUM.SKILL_CHARGE:
-                Sub2Buffname = "<color=#3377ff>スキルチャージ速度 ";
-                break;
+                return "<color=#3377ff>スキルチャージ速度</color>";
             case SoftVinilData.BUFFSTATUSNUM.MAXHP:
-                Sub2Buffname = "<color=#33ff33>体力 ";
-                break;
-            case SoftVinilData.BUFFSTATUSNUM.SUTAMINA_RECHARGE_SPEED:
-                Sub2Buffname = "<color=#ffff00>スタミナ回復速度 ";
-                break;
+                return "<color=#33ff33>体力</color>";
             case SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA:
-                Sub2Buffname = "<color=#ffff00>スタミナ ";
-                break;
-            case SoftVinilData.BUFFSTATUSNUM.NULL:
-                Sub2Buffname = "<color=#000000>";
-                break;
-            default:
-                break;
-        }
-        switch (buttonlocalsoftVinyldata.buffSubstatus3)
-        {
-            case SoftVinilData.BUFFSTATUSNUM.POWER:
-                Sub3Buffname ="<color=#ff3355>攻撃力 ";
-                break;
-            case SoftVinilData.BUFFSTATUSNUM.SKILL_CHARGE:
-                Sub3Buffname = "<color=#3377ff>スキルチャージ速度 ";
-                break;
-            case SoftVinilData.BUFFSTATUSNUM.MAXHP:
-                Sub3Buffname = "<color=#33ff33>体力 ";
-                break;
+                return "<color=#ffff00>スタミナ</color>";
             case SoftVinilData.BUFFSTATUSNUM.SUTAMINA_RECHARGE_SPEED:
-                Sub3Buffname = "<color=#ffff00>スタミナ回復速度 ";
-                break;
-            case SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA:
-                Sub3Buffname = "<color=#ffff00>スタミナ ";
-                break;
+                return "<color=#ffff00>スタミナ回復速度</color>";
             case SoftVinilData.BUFFSTATUSNUM.NULL:
-                Sub3Buffname = "<color=#000000>";
-                break;
             default:
-                break;
+                return null; // ← 表示しない
         }
-        textOBJ.GetComponent<Text>().supportRichText = true; // ←これが重要！
-        textOBJ.GetComponent<Text>().text = "\r\n" + MainBuffname +"+" + buttonlocalsoftVinyldata.BuffMainParameter +
-        "</color>\r\n\r\n" + Sub1Buffname + "+" + buttonlocalsoftVinyldata.BuffSubParameter1
-        + "</color>\r\n\r\n" + Sub2Buffname + "+" + buttonlocalsoftVinyldata.BuffSubParameter2 +
-        "</color>\r\n\r\n" + Sub3Buffname + "+" + buttonlocalsoftVinyldata.BuffSubParameter3 +"</color>";
+    }
+
+    void AddBuffLine(System.Text.StringBuilder sb, string buffName, int value)
+    {
+        if (string.IsNullOrEmpty(buffName))
+            return; // NULLは完全スキップ
+
+        if (sb.Length > 0)
+            sb.AppendLine(); // 既に行があれば改行
+
+        sb.Append(buffName)
+          .Append("  +")
+          .Append(value);
+    }
+    public void setText(SoftVinilData data)
+    {
+        Text text = transform.GetChild(0).GetComponent<Text>();
+        text.supportRichText = true;
+
+        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+        AddBuffLine(sb, GetBuffColoredName(data.buffMainstatus), data.BuffMainParameter);
+        AddBuffLine(sb, GetBuffColoredName(data.buffSubstatus1), data.BuffSubParameter1);
+        AddBuffLine(sb, GetBuffColoredName(data.buffSubstatus2), data.BuffSubParameter2);
+        AddBuffLine(sb, GetBuffColoredName(data.buffSubstatus3), data.BuffSubParameter3);
+
+        text.text = sb.ToString();
+
+        SetSofviManegerSc.TextWindowManegerSc.UpdateWindowSize();
+        SetSofviManegerSc.TextWindowManegerSc_copy.UpdateWindowSize();
     }
 }

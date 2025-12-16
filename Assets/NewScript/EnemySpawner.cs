@@ -101,6 +101,15 @@ public class EnemySpawner : MonoBehaviour
             Debug.LogWarning("EnemyStatus_Script がプレハブにありません");
         }
 
+        TreasureChestDropScript treasureChestDropScript = enemy.GetComponentInChildren<TreasureChestDropScript>();
+        if(treasureChestDropScript != null)
+        {
+            float d = Difficulty.GetDifficultyPercent();
+            float middleDrop = Mathf.Lerp(40, 90, d);
+            treasureChestDropScript.DropRate = (int)Mathf.Round(middleDrop);
+
+        }
+
         //大きさ変更（イベントで倍率が変わる）
         enemy.transform.localScale *= enemyScaleMultiplier;
 

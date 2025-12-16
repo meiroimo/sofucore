@@ -63,7 +63,8 @@ public class EnemyController : MonoBehaviour
         {
             enemyHealth.OnDeath += HandleDeath;
         }
-        Camera = GameObject.Find("Main Camera");
+        //Camera = GameObject.Find("Main Camera");
+        Camera = GameObject.FindGameObjectWithTag("MainCamera");
         //NavMesh ã‚Éæ‚é‚Ü‚Å‘Ò‚Â
         //yield return new WaitUntil(() => agent.isOnNavMesh);
 

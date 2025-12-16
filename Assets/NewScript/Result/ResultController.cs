@@ -30,11 +30,13 @@ public class ResultController : MonoBehaviour
     {
         Difficulty.ResetDifficulty();
         SceneManager.LoadScene(sceneName[1]);
+        sofviSotrage.sofviStrageList.Clear();
         ResultClear.Instance.isGameClear = false;
     }
 
     public void GotToTitleScene()
     {
+        sofviSotrage.sofviStrageList.Clear();
         SceneManager.LoadScene(sceneName[0]);
         ResultClear.Instance.isGameClear = false;
     }

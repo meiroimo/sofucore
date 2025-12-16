@@ -1702,6 +1702,10 @@ PrefabInstance:
     - target: {fileID: 7337504575301774762, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
       propertyPath: TextWindowManegerSc
       value: 
+      objectReference: {fileID: 537888658}
+    - target: {fileID: 7337504575301774762, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
+      propertyPath: TextWindowManegerSc_copy
+      value: 
       objectReference: {fileID: 1729947629}
     - target: {fileID: 7593073164164442635, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
       propertyPath: sprites.Array.size
@@ -8063,7 +8067,8 @@ MonoBehaviour:
   basePanel: {fileID: 216114845}
   statusTextRect: {fileID: 984806333}
   statusText: {fileID: 450234198}
-  paddingY: 0
+  padding: {x: 20, y: 20}
+  maxSize: {x: 400, y: 300}
 --- !u!4 &1729947630
 Transform:
   m_ObjectHideFlags: 0

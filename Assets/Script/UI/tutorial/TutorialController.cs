@@ -21,7 +21,7 @@ public class TutorialController : MonoBehaviour
 
         imgCount = 0;
         maxTutorialPanelNum = tutorialPanel.Count;
-
+        UpdatePageText();
     }
 
     private void Update()
@@ -79,6 +79,6 @@ public class TutorialController : MonoBehaviour
 
     private void UpdatePageText()
     {
-        pageText.text = $"{imgCount}/{maxTutorialPanelNum}";
+        pageText.text = $"{imgCount+1}/{maxTutorialPanelNum}";
     }
 }

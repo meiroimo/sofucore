@@ -11,6 +11,7 @@ using static UnityEngine.Mesh;
 /// </summary>
 public class SetSofviManeger : MonoBehaviour
 {
+    public ScreenSwitchManager ScreenSwitchManagerSc;//
     [Header("テキストウィンドウクラス")] public TextWindow TextWindowManegerSc;//テキストウィンドウクラス
     [Header("テキストウィンドウクラス")] public TextWindow TextWindowManegerSc_copy;//テキストウィンドウクラス
 
@@ -163,7 +164,7 @@ public class SetSofviManeger : MonoBehaviour
 
             }
         }
-        else
+        else if(ScreenSwitchManagerSc.SetFlg)
         {
             selectsetpotion();
         }

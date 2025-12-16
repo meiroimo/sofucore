@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ScreenSwitchManager : MonoBehaviour
 {
+    public SetSofviManeger SetSofviManegerSc;
     public GameObject UIManagerObject;
     private UIManager UIManegeScript;
     public GameObject CameraManegerObject;
@@ -59,9 +60,15 @@ public class ScreenSwitchManager : MonoBehaviour
             }
             else
             {
-                Time.timeScale = 1f;
+                if(!SetSofviManegerSc.selectSoftVinylData.SofviData.selectCheck)
+                {
+                    Time.timeScale = 1f;
+                    SetSofviManegerSc.selectSoftVinylData.SofviData = SetSofviManegerSc.selectSoftVinylData.SofviData.copy();
+                    SetSofviManegerSc.selectSoftVinylData.SofviData.ResetParameter();
+                    CloseSetScene();
 
-                CloseSetScene();
+
+                }
             }
         }
     }

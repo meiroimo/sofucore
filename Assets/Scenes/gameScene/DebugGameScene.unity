@@ -4469,6 +4469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32740f80d71719641b92d61d791eb82b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScreenSwitchManagerSc: {fileID: 1934855912}
   settingsMenu: {fileID: 63688811}
 --- !u!1 &1104125547 stripped
 GameObject:
@@ -8312,6 +8313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIManagerObject: {fileID: 1091569320}
   CameraManegerObject: {fileID: 459039473}
+  SetFlg: 0
 --- !u!1 &1947764190
 GameObject:
   m_ObjectHideFlags: 0

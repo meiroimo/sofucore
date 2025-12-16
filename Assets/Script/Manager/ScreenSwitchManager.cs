@@ -9,7 +9,7 @@ public class ScreenSwitchManager : MonoBehaviour
     private UIManager UIManegeScript;
     public GameObject CameraManegerObject;
     private CameraManager CameraManegerScript;
-    bool SetFlg = false;//ŠJ‚¢‚Ä‚¢‚é‚©”»’è
+    public bool SetFlg = false;//ŠJ‚¢‚Ä‚¢‚é‚©”»’è
 
     private PlayPauseMenu pauseMenu;
 

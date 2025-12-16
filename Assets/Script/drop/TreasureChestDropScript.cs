@@ -35,7 +35,9 @@ public class TreasureChestDropScript : MonoBehaviour
         new List<int>(){5,50,5,5,50}   //SUPARRARE
     };
 
-   // SoftVinilData sofviData;
+    public int DropRate { get => dropRate; set => dropRate = value; }
+
+    // SoftVinilData sofviData;
 
 
     void Start()

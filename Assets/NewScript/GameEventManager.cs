@@ -62,6 +62,8 @@ public class GameEventManager : MonoBehaviour
         ev.Activate();
         activeEvents.Add(ev);
         eventRunning = true;
+
+        eventQueue.Enqueue(eventFactory);
     }
 
     // --- イベント生成用関数 ---

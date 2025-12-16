@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4733460846954585862}
   - component: {fileID: 8050069771625566282}
+  - component: {fileID: 2515413868834577402}
   m_Layer: 0
   m_Name: playerEffects
   m_TagString: Untagged
@@ -50,6 +51,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerEffect: []
+--- !u!95 &2515413868834577402
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6001233172049105241}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 09f7d85eb5dd3074d8191fbae1ec7033, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &2513596588937254427
 PrefabInstance:
   m_ObjectHideFlags: 0

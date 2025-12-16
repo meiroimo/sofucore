@@ -57,7 +57,7 @@ public class TreasureChestDropScript : MonoBehaviour
 
         tmp = Random.Range(0, 100);
 
-        for (int i = 0; i < rarityRate.Length; i++)
+        for (int i = rarityRate.Length-1; i > -1; i--)
         {
             if (tmp < rarityRate[i])//—Ž‚¿‚éƒŒƒAƒŠƒeƒB”»’è
             {

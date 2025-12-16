@@ -5251,6 +5251,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyEventCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3161860212904780104, guid: 8d9329986dca48b4b8ae1636b9f30e9a, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566935911079746623, guid: 8d9329986dca48b4b8ae1636b9f30e9a, type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566935911079746623, guid: 8d9329986dca48b4b8ae1636b9f30e9a, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5577212574433154917, guid: 8d9329986dca48b4b8ae1636b9f30e9a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 480
+      objectReference: {fileID: 0}
+    - target: {fileID: 5577212574433154917, guid: 8d9329986dca48b4b8ae1636b9f30e9a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 220
+      objectReference: {fileID: 0}
     - target: {fileID: 8361898741102607243, guid: 8d9329986dca48b4b8ae1636b9f30e9a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -9515,6 +9535,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6722016197198424770, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 363ca01704a42a84787b3ee21ff84442, type: 2}
     - target: {fileID: 6908486176802028979, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
       propertyPath: m_Name
       value: Player

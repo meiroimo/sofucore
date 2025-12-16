@@ -10,7 +10,7 @@ public class BossSpawner : MonoBehaviour
     private ChangeResultScene_Script changeResult;
 
     [SerializeField] CSVReader csvReader;//CSVReaderをインスペクターで指定
-    [SerializeField] int bossTypeNo = 1;//CSV上のボスの行番号
+    [SerializeField] int bossTypeNo = 2;//CSV上のボスの行番号
 
     public GameTimer gameTimer;
 

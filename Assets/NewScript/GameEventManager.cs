@@ -73,7 +73,7 @@ public class GameEventManager : MonoBehaviour
             apply: () =>
             {
                 enemySpawner.enemyScaleMultiplier = 2f;
-                eventAlertUI.ShowAlert("でっかい敵が出現中！");
+                eventAlertUI.ShowAlert("でっかい敵が出現！");
             },
             remove: () => enemySpawner.enemyScaleMultiplier = original
         );
@@ -87,7 +87,7 @@ public class GameEventManager : MonoBehaviour
             apply: () =>
             {
                 enemySpawner.enemyScaleMultiplier = 0.5f;
-                eventAlertUI.ShowAlert("ちんまい敵が出現中！");
+                eventAlertUI.ShowAlert("ちんまい敵が出現！");
             },
             remove: () => enemySpawner.enemyScaleMultiplier = original
         );
@@ -104,7 +104,7 @@ public class GameEventManager : MonoBehaviour
             {
                 enemySpawner.spawnInterval.x *= 0.8f;
                 enemySpawner.spawnInterval.y *= 0.8f;
-                eventAlertUI.ShowAlert("敵がたくさん出現中！");
+                eventAlertUI.ShowAlert("出現速度アップ！");
             },
             remove: () =>
             {
@@ -124,7 +124,7 @@ public class GameEventManager : MonoBehaviour
             {
                 enemySpawner.spawnCountPerWave.x *= 2;
                 enemySpawner.spawnCountPerWave.y *= 2;
-                eventAlertUI.ShowAlert("敵がもーーっとたくさん出現中！");
+                eventAlertUI.ShowAlert("出現数アップ！");
             },
             remove: () =>
             {

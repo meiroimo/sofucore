@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayPauseMenu : MonoBehaviour
 {
+    public ScreenSwitchManager ScreenSwitchManagerSc;//画面切り替えスクリプト
     public GameObject settingsMenu;
     private bool isPaused = false;
 
@@ -18,8 +19,8 @@ public class PlayPauseMenu : MonoBehaviour
 
     void Update()
     {
-        // Escキーを押したら切り替え
-        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        // Escキーを押したら切り替え,tabメニューを開いているときは押せない
+        if (Keyboard.current.escapeKey.wasPressedThisFrame&&!ScreenSwitchManagerSc.SetFlg)
         {
             TogglePause();
         }

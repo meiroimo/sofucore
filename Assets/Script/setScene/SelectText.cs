@@ -28,19 +28,19 @@ public class SelectText : MonoBehaviour
         switch (buttonlocalsoftVinyldata.buffMainstatus)
         {
             case SoftVinilData.BUFFSTATUSNUM.POWER:
-                MainBuffname = "<color=#ff3355>攻撃力アップ";
+                MainBuffname = "<color=#ff3355>攻撃力 ";
                 break;
             case SoftVinilData.BUFFSTATUSNUM.SKILL_CHARGE:
-                MainBuffname = "<color=#3377ff>スキルチャージ速度アップ";
+                MainBuffname = "<color=#3377ff>スキルチャージ速度 ";
                 break;
             case SoftVinilData.BUFFSTATUSNUM.MAXHP:
-                MainBuffname = "<color=#33ff33>体力アップ";
+                MainBuffname = "<color=#33ff33>体力 ";
                 break;
             case SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA:
-                MainBuffname = "<color=#ffff00>スタミナアップ";
+                MainBuffname = "<color=#ffff00>スタミナ ";
                 break;
             case SoftVinilData.BUFFSTATUSNUM.SUTAMINA_RECHARGE_SPEED:
-                MainBuffname = "<color=#ffff00>スタミナ回復速度アップ";
+                MainBuffname = "<color=#ffff00>スタミナ回復速度 ";
                 break;
             case SoftVinilData.BUFFSTATUSNUM.NULL:
                 MainBuffname = "<color=#000000>";
@@ -51,19 +51,19 @@ public class SelectText : MonoBehaviour
         switch (buttonlocalsoftVinyldata.buffSubstatus1)
         {
             case SoftVinilData.BUFFSTATUSNUM.POWER:
-                Sub1Buffname = "<color=#ff3355>攻撃力アップ";
+                Sub1Buffname = "<color=#ff3355>攻撃力 ";
                 break;
             case SoftVinilData.BUFFSTATUSNUM.SKILL_CHARGE:
-                Sub1Buffname = "<color=#3377ff>スキルチャージ速度アップ";
+                Sub1Buffname = "<color=#3377ff>スキルチャージ速度 ";
                 break;
             case SoftVinilData.BUFFSTATUSNUM.MAXHP:
-                Sub1Buffname = "<color=#33ff33>体力アップ";
+                Sub1Buffname = "<color=#33ff33>体力 ";
                 break;
             case SoftVinilData.BUFFSTATUSNUM.SUTAMINA_RECHARGE_SPEED:
-                Sub1Buffname = "<color=#ffff00>スタミナ回復速度アップ";
+                Sub1Buffname = "<color=#ffff00>スタミナ回復速度 ";
                 break;
             case SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA:
-                Sub1Buffname = "<color=#ffff00>スタミナアップ";
+                Sub1Buffname = "<color=#ffff00>スタミナ ";
                 break;
 
               case SoftVinilData.BUFFSTATUSNUM.NULL:
@@ -75,19 +75,19 @@ public class SelectText : MonoBehaviour
         switch (buttonlocalsoftVinyldata.buffSubstatus2)
         {
             case SoftVinilData.BUFFSTATUSNUM.POWER:
-                Sub2Buffname = "<color=#ff3355>攻撃力アップ";
+                Sub2Buffname = "<color=#ff3355>攻撃力 ";
                 break;
             case SoftVinilData.BUFFSTATUSNUM.SKILL_CHARGE:
-                Sub2Buffname = "<color=#3377ff>スキルチャージ速度アップ";
+                Sub2Buffname = "<color=#3377ff>スキルチャージ速度 ";
                 break;
             case SoftVinilData.BUFFSTATUSNUM.MAXHP:
-                Sub2Buffname = "<color=#33ff33>体力アップ";
+                Sub2Buffname = "<color=#33ff33>体力 ";
                 break;
             case SoftVinilData.BUFFSTATUSNUM.SUTAMINA_RECHARGE_SPEED:
-                Sub2Buffname = "<color=#ffff00>スタミナ回復速度アップ";
+                Sub2Buffname = "<color=#ffff00>スタミナ回復速度 ";
                 break;
             case SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA:
-                Sub2Buffname = "<color=#ffff00>スタミナアップ";
+                Sub2Buffname = "<color=#ffff00>スタミナ ";
                 break;
             case SoftVinilData.BUFFSTATUSNUM.NULL:
                 Sub2Buffname = "<color=#000000>";
@@ -98,19 +98,19 @@ public class SelectText : MonoBehaviour
         switch (buttonlocalsoftVinyldata.buffSubstatus3)
         {
             case SoftVinilData.BUFFSTATUSNUM.POWER:
-                Sub3Buffname ="<color=#ff3355>攻撃力アップ";
+                Sub3Buffname ="<color=#ff3355>攻撃力 ";
                 break;
             case SoftVinilData.BUFFSTATUSNUM.SKILL_CHARGE:
-                Sub3Buffname = "<color=#3377ff>スキルチャージ速度アップ";
+                Sub3Buffname = "<color=#3377ff>スキルチャージ速度 ";
                 break;
             case SoftVinilData.BUFFSTATUSNUM.MAXHP:
-                Sub3Buffname = "<color=#33ff33>体力アップ";
+                Sub3Buffname = "<color=#33ff33>体力 ";
                 break;
             case SoftVinilData.BUFFSTATUSNUM.SUTAMINA_RECHARGE_SPEED:
-                Sub3Buffname = "<color=#ffff00>スタミナ回復速度アップ";
+                Sub3Buffname = "<color=#ffff00>スタミナ回復速度 ";
                 break;
             case SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA:
-                Sub3Buffname = "<color=#ffff00>スタミナアップ";
+                Sub3Buffname = "<color=#ffff00>スタミナ ";
                 break;
             case SoftVinilData.BUFFSTATUSNUM.NULL:
                 Sub3Buffname = "<color=#000000>";
@@ -119,9 +119,9 @@ public class SelectText : MonoBehaviour
                 break;
         }
         textOBJ.GetComponent<Text>().supportRichText = true; // ←これが重要！
-        textOBJ.GetComponent<Text>().text = "メイン\r\n" + MainBuffname + buttonlocalsoftVinyldata.BuffMainParameter +
-        "</color>\r\nサブ1\r\n" + Sub1Buffname + buttonlocalsoftVinyldata.BuffSubParameter1
-        + "</color>\r\nサブ2\r\n" + Sub2Buffname + buttonlocalsoftVinyldata.BuffSubParameter2 +
-        "</color>\r\nサブ3\r\n" + Sub3Buffname + buttonlocalsoftVinyldata.BuffSubParameter3 +"</color>";
+        textOBJ.GetComponent<Text>().text = "\r\n" + MainBuffname +"+" + buttonlocalsoftVinyldata.BuffMainParameter +
+        "</color>\r\n\r\n" + Sub1Buffname + "+" + buttonlocalsoftVinyldata.BuffSubParameter1
+        + "</color>\r\n\r\n" + Sub2Buffname + "+" + buttonlocalsoftVinyldata.BuffSubParameter2 +
+        "</color>\r\n\r\n" + Sub3Buffname + "+" + buttonlocalsoftVinyldata.BuffSubParameter3 +"</color>";
     }
 }

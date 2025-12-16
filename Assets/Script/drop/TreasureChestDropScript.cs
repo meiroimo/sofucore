@@ -30,9 +30,9 @@ public class TreasureChestDropScript : MonoBehaviour
     List<List<int>> setRarityStatus = new List<List<int>>()
     {
         //POWER,MAXHP,SKILL_CHARGE,SUTAMINA_RECHARGE_SPEED,MAXSUTAMINA,
-        new List<int>(){2,20,2,2,20},  //Normal
-        new List<int>(){6,60,6,6,60},  //RARE
-        new List<int>(){10,100,10,10,100}   //SUPARRARE
+        new List<int>(){2,20,1,2,20},  //Normal
+        new List<int>(){6,60,3,6,60},  //RARE
+        new List<int>(){10,100,5,10,100}   //SUPARRARE
     };
 
     public int DropRate { get => dropRate; set => dropRate = value; }

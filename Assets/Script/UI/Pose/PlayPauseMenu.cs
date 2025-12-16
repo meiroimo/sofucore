@@ -56,7 +56,9 @@ public class PlayPauseMenu : MonoBehaviour
 
     public void PauseLoadTitleScene()
     {
+
         Time.timeScale = 1f;
+        sofviSotrage.sofviStrageList.Clear();
         SceneManager.LoadScene("TitleScene_Mei");
 
     }

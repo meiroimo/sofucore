@@ -53,6 +53,7 @@ public class GameEventManager : MonoBehaviour
 
     private void StartNextEvent()
     {
+        if (ResultClear.Instance.isGameClear) return;
         if (eventQueue.Count == 0) return;
 
         var eventFactory = eventQueue.Dequeue();

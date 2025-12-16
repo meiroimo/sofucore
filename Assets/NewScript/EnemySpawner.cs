@@ -105,7 +105,7 @@ public class EnemySpawner : MonoBehaviour
         if(treasureChestDropScript != null)
         {
             float d = Difficulty.GetDifficultyPercent();
-            float middleDrop = Mathf.Lerp(40, 90, d);
+            float middleDrop = Mathf.Lerp(40, 99, d);
             treasureChestDropScript.DropRate = (int)Mathf.Round(middleDrop);
 
         }

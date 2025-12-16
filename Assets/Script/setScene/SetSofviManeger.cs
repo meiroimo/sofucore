@@ -12,6 +12,8 @@ using static UnityEngine.Mesh;
 public class SetSofviManeger : MonoBehaviour
 {
     [Header("テキストウィンドウクラス")] public TextWindow TextWindowManegerSc;//テキストウィンドウクラス
+    [Header("テキストウィンドウクラス")] public TextWindow TextWindowManegerSc_copy;//テキストウィンドウクラス
+
 
     [Header("セレクトテキストクラス")] public SelectText SelectTextSc;//セレクトソフビテキストクラス
 
@@ -100,7 +102,7 @@ public class SetSofviManeger : MonoBehaviour
                 else if(hit.transform.tag == "SetPosition"&& hit.collider.GetComponent<softVinyl>().SofviData.checksetpotion == true&&selectSofviDeta.SofviData.isSelectStandSofvi)
                 {
                     SelectTextSc.setText(hit.collider.GetComponent<softVinyl>().SofviData);
-                    TextWindowManegerSc.OnHoverEnter();
+                    TextWindowManegerSc_copy.OnHoverEnter();
 
                 }
                 else  //レイがどこの設置場所にもあたっていない場合はすべでのレイの当たった判定をfalse
@@ -108,7 +110,7 @@ public class SetSofviManeger : MonoBehaviour
                     for (int i = 0; i < MAXSETPOSITION; i++)
                     {
                         setposition3Ds[i].rathit = false;
-                        TextWindowManegerSc.OnHoverExit();
+                        TextWindowManegerSc_copy.OnHoverExit();
 
                     }
                 }
@@ -116,11 +118,11 @@ public class SetSofviManeger : MonoBehaviour
             else if (hit.transform.tag == "SetPosition" && hit.collider.GetComponent<softVinyl>().SofviData.checksetpotion == true)//何も選択していない状態で設置されたソフビに重なっていたら
             {
                 SelectTextSc.setText(hit.collider.GetComponent<softVinyl>().SofviData);
-                TextWindowManegerSc.OnHoverEnter();
+                TextWindowManegerSc_copy.OnHoverEnter();
             }
             else
             {
-                TextWindowManegerSc.OnHoverExit();
+                TextWindowManegerSc_copy.OnHoverExit();
             }
         }
         

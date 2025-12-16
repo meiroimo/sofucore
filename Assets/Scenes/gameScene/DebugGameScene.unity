@@ -1583,6 +1583,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 5329374122824052612, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503645927828245318, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 632.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503645927828245318, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.00051165
+      objectReference: {fileID: 0}
     - target: {fileID: 5715430371405900064, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
       propertyPath: m_LocalPosition.y
       value: -16.4
@@ -1610,6 +1622,10 @@ PrefabInstance:
     - target: {fileID: 6547075959586004550, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842898867580887349, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
+      propertyPath: paddingY
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6864413263991870633, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8047,6 +8063,7 @@ MonoBehaviour:
   basePanel: {fileID: 216114845}
   statusTextRect: {fileID: 984806333}
   statusText: {fileID: 450234198}
+  paddingY: 0
 --- !u!4 &1729947630
 Transform:
   m_ObjectHideFlags: 0

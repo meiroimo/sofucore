@@ -4854,7 +4854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48410316737e22c479014bed518f434a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTime: 30
+  spawnTime: 120
   timerText: {fileID: 312383595}
 --- !u!4 &1159825471
 Transform:

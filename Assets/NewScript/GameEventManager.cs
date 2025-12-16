@@ -11,7 +11,7 @@ public class GameEventManager : MonoBehaviour
     private Queue<Func<TemporaryEvent>> eventQueue = new Queue<Func<TemporaryEvent>>();
 
     private bool eventRunning = false;
-    private float intervalBetweenEvents = 5f;//イベント間隔
+    private float intervalBetweenEvents = 12f;//イベント間隔
     private float intervalTimer = 0f;
 
     private void Start()

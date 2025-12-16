@@ -90,7 +90,7 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
         }
         else if(SetSofvidata.SofviData.sofvimodel == SoftVinilData.SOFVINUMBER.NULL&& selectSofviDeta.SofviData.isSelectStandSofvi)
         {
-           // Debug.Log("設置したソフビをせんたくしたまま、空のボタンをクリックした");
+            Debug.Log("設置したソフビをせんたくしたまま、空のボタンをクリックした");
             if (sofviSotrage.sofviStrageList[Number] == null || sofviSotrage.sofviStrageList[Number].sofvimodel == SoftVinilData.SOFVINUMBER.NULL)
             {
                 softVinyl DropSoftViny = selectSofviDeta;

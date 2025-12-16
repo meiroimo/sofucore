@@ -21,15 +21,16 @@ public class TextWindow : MonoBehaviour
 
     [Header("ステータスのテキストコンポーネント")]
     public Text statusText;
-
+    [Header("テキストRect")]
+    public RectTransform textRect;
     [Header("マウス座標からのオフセット量")]
     private Vector2 offset = new Vector2(-200, -200);
 
     [Header("余白")]
     public Vector2 padding = new Vector2(20f, 20f);
 
-    [Header("最大サイズ制限（画面外対策）")]
-    public Vector2 maxSize = new Vector2(400f, 300f);
+    [Header("最大サイズ制限")]
+    public Vector2 maxTextSize ;
     // 内部用：テキストの現在表示状態
     private bool isShowing = false;
 
@@ -67,19 +68,36 @@ public class TextWindow : MonoBehaviour
 
     public void UpdateWindowSize()
     {
-        // Textが必要とするサイズ
-        float preferredW = statusText.preferredWidth;
-        float preferredH = statusText.preferredHeight;
+        // Textが必要とするサイズ取得
+        float textW = statusText.preferredWidth+50;
+        float textH = statusText.preferredHeight;
 
-        // padding込みサイズ
-        float width = preferredW + padding.x;
-        float height = preferredH + padding.y;
+        // Textの最大制限
+        textW = Mathf.Min(textW, maxTextSize.x);
+        textH = Mathf.Min(textH, maxTextSize.y);
 
-        // 最大サイズ制限
-        width = Mathf.Min(width, maxSize.x);
-        height = Mathf.Min(height, maxSize.y);
+        // Textのサイズ更新
+        textRect.sizeDelta = new Vector2(textW, textH);
 
-        statusTextRect.sizeDelta = new Vector2(width, height);
+        // WindowはText＋padding
+        statusTextRect.sizeDelta = new Vector2(
+            textW/2 + padding.x,
+            textH/2 + padding.y
+        );
+
+        //// Textが必要とするサイズ
+        //float preferredW = statusText.preferredWidth;
+        //float preferredH = statusText.preferredHeight;
+
+        //// padding込みサイズ
+        //float width = preferredW + padding.x;
+        //float height = preferredH + padding.y;
+
+        //// 最大サイズ制限
+        //width = Mathf.Min(width, maxSize.x);
+        //height = Mathf.Min(height, maxSize.y);
+
+        //statusTextRect.sizeDelta = new Vector2(width, height);
     }    /// <summary>
          /// ボタンからカーソルが離れた時に呼ぶ
          /// </summary>

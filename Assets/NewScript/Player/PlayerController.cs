@@ -325,6 +325,8 @@ public class PlayerController : MonoBehaviour
     {
         if (pauseMenu.IsPaused) return;
 
+        if (isAvoid) return;
+
         if (lastUsedDevice == InputDeviceType.Gamepad && AttackStickInput.sqrMagnitude > 0.1f) // 右スティック入力がある
         {
             Vector3 stickDir = new Vector3(AttackStickInput.x, 0, AttackStickInput.y);

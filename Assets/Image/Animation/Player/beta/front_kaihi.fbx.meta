@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 904ae5418fc1d74499395b825ade3663
+guid: 5717003c97f5987408ac547926c7e563
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,13 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert2
-    second: {fileID: 2100000, guid: c6ab60042f6706c4d937f664c5c4b9fa, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: standardSurface2
-    second: {fileID: 2100000, guid: 8086dc298a691f44093a7e055cdc099a, type: 2}
+    second: {fileID: 2100000, guid: d46b12d9db54dce44a58bcd3df13ab5a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -46,8 +41,8 @@ ModelImporter:
       name: Take 001
       takeName: Take 001
       internalID: 1827226128182048838
-      firstFrame: 1
-      lastFrame: 20
+      firstFrame: 0
+      lastFrame: 19
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -67,8 +62,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.5874547
-        functionName: StopAttack
+      - time: 0.7727102
+        functionName: StopFront
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

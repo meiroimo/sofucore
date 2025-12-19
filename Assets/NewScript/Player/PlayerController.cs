@@ -304,16 +304,22 @@ public class PlayerController : MonoBehaviour
         if (col.TryGetComponent(out EnemyController enemy))
         {
             _seBox.PlayPlayerSE(PlayerSEBox.SENAME.HIT);
+            Vector3 pos = enemy.transform.position + Vector3.up * 1.5f;
+            DamageNumberController.Instance.SpawnDamage(Attack_Power, pos, Color.white);
             enemy.OnHit(this);
         }
         else if(col.TryGetComponent(out BulletEnemyController bullet))
         {
             _seBox.PlayPlayerSE(PlayerSEBox.SENAME.HIT);
+            Vector3 pos = bullet.transform.position + Vector3.up * 1.5f;
+            DamageNumberController.Instance.SpawnDamage(Attack_Power, pos, Color.white);
             bullet.OnHit(this);
         }
         else if(col.TryGetComponent(out BossController boss))
         {
             _seBox.PlayPlayerSE(PlayerSEBox.SENAME.HIT);
+            Vector3 pos = boss.transform.position + Vector3.up * 1.5f;
+            DamageNumberController.Instance.SpawnDamage(Attack_Power, pos, Color.white);
             boss.OnHit(this);
         }
     }

@@ -236,7 +236,6 @@ public class SetSofviManeger : MonoBehaviour
             }
         }
         PlayerStatus_Script.StatusUp();
-        Debug.Log(PlayerStatus_Script.player_Attack_Power);
         //コントローラースクリプトのの値を更新
 
         PlayerControllerSc.statusupdate();

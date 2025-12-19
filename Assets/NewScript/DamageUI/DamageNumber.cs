@@ -1,14 +1,14 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using TMPro;
 using System.Collections;
 
-//•\¦—p
+//è¡¨ç¤ºç”¨
 public class DamageNumber : MonoBehaviour
 {
-    [Header("ƒAƒjƒ[ƒVƒ‡ƒ“")]
-    public float lifeTime = 1.0f;//•\¦‚³‚ê‚Ä‚¢‚éŠÔ
-    public float startScale = 0.6f;//Å¬
-    public float endScale = 1.2f;//Å‘å
+    [Header("ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³")]
+    public float lifeTime = 1.0f;//è¡¨ç¤ºã•ã‚Œã¦ã„ã‚‹æ™‚é–“
+    public float startScale = 0.6f;//æœ€å°
+    public float endScale = 1.2f;//æœ€å¤§
     public Vector3 moveOffset = new Vector3(0, 1.0f, 0);
 
     private TextMeshProUGUI text;
@@ -35,26 +35,46 @@ public class DamageNumber : MonoBehaviour
     IEnumerator Animate()
     {
         float time = 0f;
+
+        float randomX = Random.Range(-0.3f, 0.3f);
+        float randomY = Random.Range(0.8f, 1.2f);
+        Vector3 randomOffset = new Vector3(randomX, randomY, 0);
         Vector3 startPos = transform.position;
-        Vector3 endPos = startPos + moveOffset;
+        Vector3 endPos = startPos + randomOffset;
+
         Color startColor = text.color;
+
+        float randomLifeTime = lifeTime * Random.Range(0.8f, 1.2f);
+        float currentLifeTime = randomLifeTime;
 
         while (time < lifeTime)
         {
-            float t = time / lifeTime;
+            float t = time / currentLifeTime;
 
-            //Šg‘å
+            //æ‹¡å¤§
             transform.localScale = Vector3.one * Mathf.Lerp(startScale, endScale, t);
 
-            //­‚µã‚ÉˆÚ“®
+            //å°‘ã—ä¸Šã«ç§»å‹•
             transform.position = Vector3.Lerp(startPos, endPos, t);
 
-            //ƒtƒF[ƒhƒAƒEƒg
+            //ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆ
+            float alpha;
+
+            if (t < 0.7f)
+            {
+                alpha = 1f;
+            }
+            else
+            {
+                float fadeT = (t - 0.7f) / 0.3f;
+                alpha = Mathf.Lerp(1f, 0f, fadeT);
+            }
+
             text.color = new Color(
                 startColor.r,
                 startColor.g,
                 startColor.b,
-                Mathf.Lerp(1f, 0f, t)
+                alpha
             );
 
             time += Time.deltaTime;

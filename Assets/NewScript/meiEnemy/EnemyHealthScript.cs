@@ -24,7 +24,6 @@ public class EnemyHealthScript : MonoBehaviour
 
     [SerializeField, Header("ダメージエフェクト")] GameObject damageEffect;
     public Slider HPSlider;//HPスライダー
-    public Text damageTxt;
 
 
     //20250621 kome変更点
@@ -53,9 +52,7 @@ public class EnemyHealthScript : MonoBehaviour
         maxHP = enemyStatus_Script.enemy_MaxHealth;
         currentHP = maxHP;
         damageEffect.SetActive(false);
-        //Debug.Log(currentHP);
         HPSlider.value = 1;
-        damageTxt.text = "";
     }
 
     public void EnemtTakeDamage(int damage)
@@ -105,11 +102,7 @@ public class EnemyHealthScript : MonoBehaviour
 
     IEnumerator　DrawDamage(int damage)
     {
-        damageTxt.text = "" + damage;
         yield return new WaitForSeconds(flashDuration);
-
-        damageTxt.text = "";
-
     }
 
     IEnumerator JudgeDeath()

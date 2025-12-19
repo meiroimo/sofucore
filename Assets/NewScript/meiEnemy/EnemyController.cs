@@ -89,7 +89,7 @@ public class EnemyController : MonoBehaviour
 
     //接触ダメージ用
     private int contactDamage = 2;
-    private float contactDamageInterval = 1.0f;
+    private float contactDamageInterval = 0.1f;
     private bool isTouchingPlayer = false;
     private Coroutine contactDamageCoroutine;
 

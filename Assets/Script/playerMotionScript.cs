@@ -23,15 +23,36 @@ public class playerMotionScript : MonoBehaviour
     {
         animator.SetBool("isAttack", flag);
     }
+    public void StopAttack()
+    {
+        animator.SetBool("isAttack", false);
+
+    }
 
     public void runMotion(bool flag)
     {
         animator.SetBool("isWalk", flag);
     }
 
-    public void avoidanceMotion(bool flag)
+
+    public void TrueBack()
     {
-        animator.SetBool("isAvoidance", flag);
+        animator.SetBool("isBack", true);
+    }
+
+    public void TrueFront()
+    {
+        animator.SetBool("isFront", true);
+    }
+
+    public void StopBack()
+    {
+        animator.SetBool("isBack", false);
+    }
+
+    public void StopFront()
+    {
+        animator.SetBool("isFront", false);
     }
 
     public void ultMotion(bool flag)

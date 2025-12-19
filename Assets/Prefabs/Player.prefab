@@ -989,6 +989,30 @@ PrefabInstance:
       propertyPath: playerEffect.Array.data[4]
       value: 
       objectReference: {fileID: 3786735446446183292}
+    - target: {fileID: 8884491829834631756, guid: d9b2103ef5a932d4d8dd021c12bb826b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8884491829834631756, guid: d9b2103ef5a932d4d8dd021c12bb826b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.4499998
+      objectReference: {fileID: 0}
+    - target: {fileID: 8884491829834631756, guid: d9b2103ef5a932d4d8dd021c12bb826b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.2789804
+      objectReference: {fileID: 0}
+    - target: {fileID: 8884491829834631756, guid: d9b2103ef5a932d4d8dd021c12bb826b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.96029687
+      objectReference: {fileID: 0}
+    - target: {fileID: 8884491829834631756, guid: d9b2103ef5a932d4d8dd021c12bb826b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -212.399
+      objectReference: {fileID: 0}
+    - target: {fileID: 8884491829834631756, guid: d9b2103ef5a932d4d8dd021c12bb826b, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

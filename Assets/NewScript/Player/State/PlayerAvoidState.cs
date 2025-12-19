@@ -25,11 +25,34 @@ public class PlayerAvoidState : PlayerState
 
         player.IsAvoid = true;
         player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.AVOIDANCE);
-        player.PlayerMotionScript.avoidanceMotion(true);
-
+       // player.PlayerMotionScript.TrueBack();
         //入力方向がなければ向いている方向に回避
         Vector2 moveInput = player.MoveInput; // ← 例：新Input Systemでの移動入力
         Vector3 moveDir = new Vector3(moveInput.x, 0, moveInput.y).normalized;
+
+        if(moveDir.x > 0)//右
+        {
+            player.PlayerMotionScript.TrueFront();
+            player.transform.eulerAngles = new Vector3(0, 90, 0);
+            Debug.Log("右");
+        }
+        else if(0 > moveDir.x)
+        {
+            player.PlayerMotionScript.TrueFront();
+            player.transform.eulerAngles = new Vector3(0, -90, 0);
+        }
+        else if(moveDir.z > 0 && moveDir.x == 0)
+        {
+            player.PlayerMotionScript.TrueFront();
+        }
+        else if(moveDir.z < 0 && moveDir.x == 0)
+        {
+            player.PlayerMotionScript.TrueBack();
+        }
+
+
+        //x:-1　左　x:1　右　y:1　前　y:-1　後ろ
+        Debug.Log("値" + moveDir);
 
         //入力があればその方向、なければ前方
         //sqrMagnitude:平方根らしい
@@ -40,6 +63,7 @@ public class PlayerAvoidState : PlayerState
         else
         {
             dodgeDirection = player.transform.forward;
+            player.PlayerMotionScript.TrueFront();
         }
         player.SeBox.PlayPlayerSE(PlayerSEBox.SENAME.AVOID);
         timer = 0f;
@@ -62,7 +86,6 @@ public class PlayerAvoidState : PlayerState
 
     public override void Exit() {
         player.PlayerEffectScript.StopEffect((int)playerEffectScript.EffectName.AVOIDANCE);
-        player.PlayerMotionScript.avoidanceMotion(false);
         player.IsAvoid = false;
     }
 }

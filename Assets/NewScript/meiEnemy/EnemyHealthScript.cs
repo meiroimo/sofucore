@@ -64,7 +64,7 @@ public class EnemyHealthScript : MonoBehaviour
         currentHP -= damage;
 
         Vector3 pos = transform.position + Vector3.up * 1.5f;
-        DamageNumberController.Instance.SpawnDamage(damage, pos, Color.white);
+       // DamageNumberController.Instance.SpawnDamage(damage, pos, Color.white);
 
         damageEffect.SetActive(true);
         Debug.Log($"{gameObject.name} は {damage} ダメージを受けた！ 残りHP: {currentHP}");

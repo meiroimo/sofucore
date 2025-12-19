@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private bool isAvoid = false;
 
     private float attack_Power;
+    private float currentMoveSpeed;
 
     public Camera mainCamera;
     public LayerMask enemyLayer;
@@ -89,6 +90,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 AttackStickInput { get => attackStickInput; set => attackStickInput = value; }
     public bool IsRunning { get => isRunning; }
     public bool IsAvoid { get => isAvoid; set => isAvoid = value; }
+    public float CurrentMoveSpeed { get => currentMoveSpeed; set => currentMoveSpeed = value; }
     #endregion
     //ゲッター・セッター
 

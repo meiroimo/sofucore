@@ -65,6 +65,7 @@ public class ScreenSwitchManager : MonoBehaviour
                     Time.timeScale = 1f;
                     SetSofviManegerSc.selectSoftVinylData.SofviData = SetSofviManegerSc.selectSoftVinylData.SofviData.copy();
                     SetSofviManegerSc.selectSoftVinylData.SofviData.ResetParameter();
+                    SetSofviManegerSc.TextWindowManegerSc.OnHoverExit();
                     CloseSetScene();
 
 

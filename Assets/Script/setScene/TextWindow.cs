@@ -24,10 +24,10 @@ public class TextWindow : MonoBehaviour
     [Header("テキストRect")]
     public RectTransform textRect;
     [Header("マウス座標からのオフセット量")]
-    private Vector2 offset = new Vector2(-200, -200);
+    private Vector2 offset = new Vector2(0, -150);
 
     [Header("余白")]
-    public Vector2 padding = new Vector2(20f, 20f);
+    public Vector2 padding ;
 
     [Header("最大サイズ制限")]
     public Vector2 maxTextSize ;
@@ -41,21 +41,37 @@ public class TextWindow : MonoBehaviour
 
     void Update()
     {
-        // テキストが表示中なら、マウスに追従させる
-        if (isShowing)
-        {
-            Vector2 localPoint;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                basePanel,          // 基準となるパネル
-                Input.mousePosition,// マウスのスクリーン座標
-                null,               // Overlayの場合はカメラ不要
-                out localPoint
-            );
+        if (!isShowing) return;
 
-            // offsetを加えて位置更新
-            statusTextRect.anchoredPosition = localPoint + offset;
-        }
+        Vector2 localPoint;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            basePanel,
+            Input.mousePosition,
+            null,
+            out localPoint
+        );
+
+        // まず通常の位置
+        Vector2 targetPos = localPoint + offset;
+
+        // basePanel のサイズ
+        Rect panelRect = basePanel.rect;
+
+        // ウィンドウの半サイズ
+        Vector2 windowHalfSize = statusTextRect.sizeDelta * 0.5f;
+
+        // Clamp（はみ出し防止）
+        float minX = panelRect.xMin + windowHalfSize.x+100;
+        float maxX = panelRect.xMax - windowHalfSize.x - 100;
+        float minY = panelRect.yMin + windowHalfSize.y + 100;
+        float maxY = panelRect.yMax - windowHalfSize.y - 100;
+
+        targetPos.x = Mathf.Clamp(targetPos.x, minX, maxX);
+        targetPos.y = Mathf.Clamp(targetPos.y, minY, maxY);
+
+        statusTextRect.anchoredPosition = targetPos;
     }
+
 
     /// <summary>
     /// ボタンにカーソルが乗った時に呼ぶ（EventTrigger などで設定）

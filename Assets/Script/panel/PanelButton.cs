@@ -60,11 +60,12 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerEnter(PointerEventData eventData)//マウスが重なったら
     {
-        SelectTextSc.setText(SetSofvidata.SofviData);
         //何もデータがなければ開かない
         if(SetSofvidata.SofviData.buffMainstatus!=SoftVinilData.BUFFSTATUSNUM.NULL)
         {
             TextWindowManegerSc.OnHoverEnter();
+            SelectTextSc.setText(SetSofvidata.SofviData);
+
         }
 
     }

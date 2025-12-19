@@ -165,6 +165,9 @@ public class PlayerController : MonoBehaviour
         attack_Power = playerStatus_Script.player_Attack_Power;
         hpSliderScript.MaxHealthUpdate();
         staminaSliderScript.MaxStaminaUpdate();
+        //Debug.Log("ステータスの更新");
+        //Debug.Log(playerStatus_Script.player_Attack_Power);
+
 
     }
     private void Update()

@@ -1588,12 +1588,28 @@ PrefabInstance:
       value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 5329374122824052612, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5329374122824052612, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
       propertyPath: m_FontData.m_BestFit
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5329374122824052612, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5329374122824052612, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5329374122824052612, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 5329374122824052612, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
       propertyPath: m_FontData.m_Alignment
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5503645927828245318, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1673,11 +1689,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6842898867580887349, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
       propertyPath: padding.x
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6842898867580887349, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
       propertyPath: maxTextSize.x
-      value: 500
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6842898867580887349, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
       propertyPath: maxTextSize.y
@@ -1737,6 +1753,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7115415958732163835, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167079326208149592, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7216677735781379873, guid: 7979aed2c4661634fa27f5ad1041d646, type: 3}
@@ -2070,7 +2090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2078,12 +2098,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 54
+    m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 77
-    m_Alignment: 4
+    m_MinSize: 1
+    m_MaxSize: 100
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -4719,7 +4739,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -8143,8 +8163,8 @@ MonoBehaviour:
   statusTextRect: {fileID: 984806333}
   statusText: {fileID: 450234198}
   textRect: {fileID: 450234197}
-  padding: {x: 20, y: 20}
-  maxTextSize: {x: 500, y: 500}
+  padding: {x: 50, y: 20}
+  maxTextSize: {x: 1000, y: 500}
 --- !u!4 &1729947630
 Transform:
   m_ObjectHideFlags: 0

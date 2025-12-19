@@ -48,10 +48,10 @@ public class PlayerStatus_Script : MonoBehaviour
 
     void Update()
     {
-        StatusUp();
+       // StatusUp();
     }
     // ステータスアップの反映
-    void StatusUp()
+  public   void StatusUp()
     {
         player_MaxHealth                = default_player_MaxHealth              + add_Player_MaxHealth;
         player_Attack_Power             = default_player_Attack_Power           + add_Player_Attack_Power;

@@ -71,5 +71,6 @@ public class SelectText : MonoBehaviour
 
         SetSofviManegerSc.TextWindowManegerSc.UpdateWindowSize();
         SetSofviManegerSc.TextWindowManegerSc_copy.UpdateWindowSize();
+        Debug.Log("ウィンドウサイズを自動調整した");
     }
 }

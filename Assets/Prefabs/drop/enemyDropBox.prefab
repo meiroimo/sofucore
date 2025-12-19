@@ -51,5 +51,7 @@ MonoBehaviour:
     - {fileID: 3925992834239245393, guid: e0c2c4a8b74f31a49bf5728a077284f7, type: 3}
   - objType:
     - {fileID: 3925992834239245393, guid: 4e5ad728ddc253746a6ad001884935c0, type: 3}
+  healOBJ: {fileID: 790009622863811406, guid: ec68ed04fcb3e67478555ab9e899410c, type: 3}
+  healRate: 25
   dropRate: 100
   rarityRate: 5f0000000400000001000000

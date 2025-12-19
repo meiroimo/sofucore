@@ -373,6 +373,15 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+    //‰ñ•œ
+    public void HealHP(int heal)
+    {
+        float currentHP = hpSliderScript.GetNowHealth();
+        currentHP += heal;
+        if (currentHP > playerStatus_Script.player_MaxHealth + playerStatus_Script.add_Player_MaxHealth) currentHP = playerStatus_Script.player_MaxHealth + playerStatus_Script.add_Player_MaxHealth;
+        hpSliderScript.SetNowHealth(currentHP);
+        Debug.Log("‰ñ•œ" + heal);
+    }
 
     IEnumerator DrawDamage(int damage)
     {

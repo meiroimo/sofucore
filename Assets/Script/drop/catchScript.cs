@@ -20,6 +20,7 @@ public class catchScript : MonoBehaviour
     public int[] catchTreasureChest;
     string[] rarityTagName = {"null", "sofvi/Normal", "sofvi/Rare", "sofvi/superRare" };
     public PlayerSEBox PlayerSEBoxCrass;//SEボックス
+    public PlayerController playerController;
     void Start()
     {
         catchSofvi = new int[4];
@@ -34,7 +35,13 @@ public class catchScript : MonoBehaviour
     {
         string objTagName = other.tag;
         //回収対象ではなければreturn
-        if (!objTagName.Contains("box") && !objTagName.Contains("sofvi")) return;
+        if (!objTagName.Contains("box") && !objTagName.Contains("sofvi") && !objTagName.Contains("item")) return;
+
+        if (objTagName.Contains("item"))
+        {
+            healItemScript itemScript = other.GetComponent<healItemScript>();
+            playerController.HealHP(itemScript.heal);//一旦決め打ち
+        }
 
         for (int i = 1; i < rarityTagName.Length; i++)
         {
@@ -76,4 +83,5 @@ public class catchScript : MonoBehaviour
         }
 
     }
+
 }

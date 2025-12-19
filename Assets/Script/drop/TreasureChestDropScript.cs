@@ -13,6 +13,9 @@ public class TreasureChestDropScript : MonoBehaviour
     [SerializeField, Header("ドロップするオブジェクト-dropOBJ<レアリティ<レアリティ内のOBJ>>-")]
     List<RarityOBJ> dropOBJ;
 
+    [SerializeField, Header("回復アイテム")] GameObject healOBJ;
+    [SerializeField, Header("回復アイテム　ドロップ率"), Range(0, 100)] int healRate;
+
     [System.Serializable]
     public class RarityOBJ
     {
@@ -53,7 +56,11 @@ public class TreasureChestDropScript : MonoBehaviour
     {
         int tmp = Random.Range(0, 100);
 
-        if (dropRate < tmp) return;//落ちるか判定
+        if (dropRate < tmp) //落ちるか判定
+        { 
+            DrapHealItem();
+            return;
+        }
 
         tmp = Random.Range(0, 100);
 
@@ -124,4 +131,12 @@ public class TreasureChestDropScript : MonoBehaviour
         sofviData.BuffSubParameter3 = 0;
     }
 
+    void DrapHealItem()
+    {
+        int tmp = Random.Range(0, 100);
+        if (healRate < tmp) return;
+        Vector3 dropPosition = transform.root.position; // 敵の親のワールド座標を取得
+        GameObject healItemOBJ = Instantiate(healOBJ, dropPosition, Quaternion.identity); // ここで位置を指定して生成
+
+    }
 }

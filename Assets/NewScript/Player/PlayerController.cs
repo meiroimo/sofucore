@@ -7,6 +7,7 @@ using UnityEngine.InputSystem.Controls;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static playerEffectScript;
+using static UnityEngine.UI.Image;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,12 +24,9 @@ public class PlayerController : MonoBehaviour
     private bool isAvoid = false;
 
     private float attack_Power;
-    private float attackRadius = 5f;
-    private float attackAngle = 60f;
 
     public Camera mainCamera;
     public LayerMask enemyLayer;
-    public float attackRange = 100f;
     public GameObject effectOBJ;
     public playerEffectScript playerEffect;
 
@@ -245,6 +243,11 @@ public class PlayerController : MonoBehaviour
         Rigid.velocity = velocity;
     }
 
+    private float attackRadius = 5f;//外側
+    private float attackAngle = 120f;//内側
+    private float attackInnerRadius = 1f;
+    float closeHitRadius = 1.5f;
+
     /// <summary>
     /// プレイヤーの攻撃関数
     /// </summary>
@@ -261,34 +264,54 @@ public class PlayerController : MonoBehaviour
 
         foreach (Collider col in hits)
         {
-            Vector3 dirToTarget = (col.transform.position - origin).normalized;
-            dirToTarget.y = 0; // 水平のみで比較
+            Vector3 toTarget = col.transform.position - origin;
+            toTarget.y = 0; //水平のみで比較
 
-            float angle = Vector3.Angle(forward, dirToTarget);
-            if (angle < attackAngle / 2f)
+            float distance = toTarget.magnitude;
+
+            //距離チェック
+            if (distance > attackRadius) continue;
+
+            if(distance < closeHitRadius)
             {
-                EnemyController enemy = col.GetComponent<EnemyController>();
-                if (enemy != null)
-                {
-                    _seBox.PlayPlayerSE(PlayerSEBox.SENAME.HIT);
-                    enemy.OnHit(this);
-                }
-
-                BulletEnemyController bulletenemy = col.GetComponent<BulletEnemyController>();
-                if (bulletenemy != null)
-                {
-                    //Debug.Log($"{col.name} に攻撃が命中しました！");
-                    _seBox.PlayPlayerSE(PlayerSEBox.SENAME.HIT);
-                    bulletenemy.OnHit(this);
-                }
-
-                BossController boss = col.GetComponent<BossController>();
-                if(boss != null)
-                {
-                    _seBox.PlayPlayerSE(PlayerSEBox.SENAME.HIT);
-                    boss.OnHit(this);
-                }
+                HitEnemy(col);
+                continue;
             }
+
+            //内側半径より外か
+            if (distance < attackInnerRadius) continue;
+
+            Vector3 dirToTarget = toTarget.normalized;
+
+            //角度チェック
+            float angle = Vector3.Angle(forward, dirToTarget);
+            if (angle > attackAngle / 2f) continue;
+
+            HitEnemy(col);
+        }
+    }
+
+    /// <summary>
+    /// どの種類の敵に当たったか
+    /// </summary>
+    /// <param name="col"></param>
+    void HitEnemy(Collider col)
+    {
+        //out:付けた引数で指定した変数はメソッド内で必ず結果が入る
+        if (col.TryGetComponent(out EnemyController enemy))
+        {
+            _seBox.PlayPlayerSE(PlayerSEBox.SENAME.HIT);
+            enemy.OnHit(this);
+        }
+        else if(col.TryGetComponent(out BulletEnemyController bullet))
+        {
+            _seBox.PlayPlayerSE(PlayerSEBox.SENAME.HIT);
+            bullet.OnHit(this);
+        }
+        else if(col.TryGetComponent(out BossController boss))
+        {
+            _seBox.PlayPlayerSE(PlayerSEBox.SENAME.HIT);
+            boss.OnHit(this);
         }
     }
 
@@ -488,6 +511,55 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    private void OnDrawGizmosSelected()
+    {
+        DrawAttackCheckGizmos();
+    }
+
+    void DrawAttackCheckGizmos()
+    {
+        Vector3 origin = transform.position;
+        Vector3 forward = transform.forward;
+
+        float halfAngle = attackAngle / 2f;
+        float step = attackAngle / 30f;
+
+        // ===== OverlapSphere の範囲 =====
+        Gizmos.color = new Color(0f, 0f, 1f, 0.15f);
+        Gizmos.DrawSphere(origin, attackRadius);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(origin, closeHitRadius);
 
 
+        // ===== バームクーヘン扇形 =====
+        Gizmos.color = new Color(1f, 0f, 0f, 0.8f);
+
+        Vector3 prevInner = Vector3.zero;
+        Vector3 prevOuter = Vector3.zero;
+
+        for (int i = 0; i <= 30; i++)
+        {
+            float angle = -halfAngle + step * i;
+            Quaternion rot = Quaternion.AngleAxis(angle, Vector3.up);
+            Vector3 dir = rot * forward;
+
+            Vector3 inner = origin + dir * attackInnerRadius;
+            Vector3 outer = origin + dir * attackRadius;
+
+            if (i > 0)
+            {
+                Gizmos.DrawLine(prevInner, inner);
+                Gizmos.DrawLine(prevOuter, outer);
+                Gizmos.DrawLine(prevInner, prevOuter);
+            }
+
+            prevInner = inner;
+            prevOuter = outer;
+        }
+
+        // ===== 正面方向 =====
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(origin, origin + forward * attackRadius);
+    }
 }

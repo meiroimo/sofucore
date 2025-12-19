@@ -10775,6 +10775,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7963749435448190190, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
+      propertyPath: angle
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963749435448190190, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1016606775}
+    - target: {fileID: 7963749435448190190, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
+      propertyPath: radius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963749435448190190, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
+      propertyPath: segments
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8398801253528264856, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
       propertyPath: staminaSlider
       value: 

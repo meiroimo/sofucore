@@ -391,7 +391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8166744685667211542, guid: 36523a4357aabe246b83275d6cf77556, type: 3}
       propertyPath: dropRate
-      value: 40
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8166744685667211542, guid: 36523a4357aabe246b83275d6cf77556, type: 3}
       propertyPath: rarityRate.Array.data[0]

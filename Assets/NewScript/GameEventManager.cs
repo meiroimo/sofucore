@@ -10,6 +10,9 @@ public class GameEventManager : MonoBehaviour
     private List<TemporaryEvent> activeEvents = new List<TemporaryEvent>();
     private Queue<Func<TemporaryEvent>> eventQueue = new Queue<Func<TemporaryEvent>>();
 
+    private List<Func<TemporaryEvent>> eventPool = new List<Func<TemporaryEvent>>();
+
+
     private bool eventRunning = false;
     private float intervalBetweenEvents = 12f;//イベント間隔
     private float intervalTimer = 0f;
@@ -17,8 +20,9 @@ public class GameEventManager : MonoBehaviour
     private void Start()
     {
         // イベントをキューに登録
+        eventQueue.Enqueue(() => CreateSmallEnemyRushEvent(8f));
         eventQueue.Enqueue(() => CreateEnemySizeBoostEvent(10f));
-        eventQueue.Enqueue(() => CreateEnemySizeDeBoostEvent(10f));
+        //eventQueue.Enqueue(() => CreateEnemySizeDeBoostEvent(10f));
         eventQueue.Enqueue(() => CreateSpawnSpeedBoostEvent(8f));
         eventQueue.Enqueue(() => CreateSpawnCountBoostEvent(10f));
     }
@@ -51,6 +55,34 @@ public class GameEventManager : MonoBehaviour
         }
     }
 
+    private int lastEventIndex = -1;
+
+    private void RandomNextEvent()
+    {
+        if (ResultClear.Instance.isGameClear) return;
+        if (eventPool.Count == 0) return;
+
+        int index;
+
+        while (true)
+        {
+            index = UnityEngine.Random.Range(0, eventPool.Count);
+
+            if (index != lastEventIndex || eventPool.Count == 1)
+                break;
+        }
+
+        lastEventIndex = index;
+
+        var eventFactory = eventPool[index];
+        TemporaryEvent ev = eventFactory.Invoke();
+
+        ev.OnEventFinished += () => eventRunning = false;
+        ev.Activate();
+        activeEvents.Add(ev);
+        eventRunning = true;
+    }
+
     private void StartNextEvent()
     {
         if (ResultClear.Instance.isGameClear) return;
@@ -66,6 +98,29 @@ public class GameEventManager : MonoBehaviour
 
         eventQueue.Enqueue(eventFactory);
     }
+
+    private TemporaryEvent CreateSmallEnemyRushEvent(float duration)
+    {
+        return new TemporaryEvent(
+            duration,
+            apply: () =>
+            {
+                Vector3 rushPoint = enemySpawner.GetValidSpawnPosition();
+
+                enemySpawner.StartSmallEnemyRush(
+                    rushPoint,
+                    duration: duration,
+                    interval: 2.0f,
+                    spawnPerWave: 7,
+                    scale: 0.5f
+                );
+
+                eventAlertUI.ShowAlert("敵ラッシュ発生！");
+            },
+            remove: () => { }
+        );
+    }
+
 
     // --- イベント生成用関数 ---
     private TemporaryEvent CreateEnemySizeBoostEvent(float duration)

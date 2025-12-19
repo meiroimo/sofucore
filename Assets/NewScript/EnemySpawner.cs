@@ -129,7 +129,7 @@ public class EnemySpawner : MonoBehaviour
     /// <summary>
     /// 有効なスポーン位置を選ぶ（障害物があれば再抽選）
     /// </summary>
-    Vector3 GetValidSpawnPosition()
+    public Vector3 GetValidSpawnPosition()
     {
         for (int i = 0; i < maxSpawnTries; i++)
         {
@@ -160,6 +160,81 @@ public class EnemySpawner : MonoBehaviour
         //Debug.LogWarning("有効なスポーン位置が見つかりませんでした。");
         return Vector3.zero;
 
+    }
+
+    private Coroutine rushCoroutine;
+    public void StartSmallEnemyRush(
+    Vector3 center,
+    float duration,
+    float interval,
+    int spawnPerWave,
+    float scale)
+    {
+        if (rushCoroutine != null)
+            StopCoroutine(rushCoroutine);
+
+        rushCoroutine = StartCoroutine(
+            SmallEnemyRushRoutine(center, duration, interval, spawnPerWave, scale)
+        );
+    }
+
+    private IEnumerator SmallEnemyRushRoutine( Vector3 center, float duration, float interval, int spawnPerWave, float scale)
+    {
+        float timer = 0f;
+
+        while (timer < duration)
+        {
+            SpawnSmallEnemiesAtPoint(center, spawnPerWave, scale);
+            yield return new WaitForSeconds(interval);
+            timer += interval;
+        }
+
+        rushCoroutine = null;
+    }
+
+    //イベント用（一か所からわらわら出るやつ）
+    public void SpawnSmallEnemiesAtPoint(Vector3 center, int count, float scale)
+    {
+        if (currentEnemyCount >= maxEnemies) return;
+
+        for (int i = 0; i < count; i++)
+        {
+            if (currentEnemyCount >= maxEnemies) break;
+
+            // 少しだけ散らす
+            Vector2 offset2D = UnityEngine.Random.insideUnitCircle * 1.5f;
+            Vector3 spawnPos = center + new Vector3(offset2D.x, 0f, offset2D.y);
+
+            // NavMesh補正
+            NavMeshHit hit;
+            if (!NavMesh.SamplePosition(spawnPos, out hit, 2f, NavMesh.AllAreas))
+                continue;
+
+            GameObject prefab = enemyPrefab[UnityEngine.Random.Range(0, enemyPrefab.Length)];
+            GameObject enemy = Instantiate(prefab, hit.position, Quaternion.identity);
+
+            // ステータス設定
+            EnemyStatus_Script status = enemy.GetComponent<EnemyStatus_Script>();
+            if (status != null)
+            {
+                csvReader.SetEnemyStatusScript(status);
+                csvReader.LoadingEnemyStatus(enemyStatusTypeNo);
+                ApplyDifficultyBuff(status);
+            }
+
+            // 小さくする
+            enemy.transform.localScale *= scale;
+
+            currentEnemyCount++;
+
+            EnemyController controller = enemy.GetComponent<EnemyController>();
+            if (controller != null)
+            {
+                controller.SetPlayer(player);
+                controller.OnDeath += () => currentEnemyCount--;
+                PlayerStatusCache.SaveDefats();
+            }
+        }
     }
 
 

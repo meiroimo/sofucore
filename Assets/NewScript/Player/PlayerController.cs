@@ -482,17 +482,32 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (!collision.collider.GetComponent<EnemyController>()) return;
+        EnemyController enemy = collision.collider.GetComponent<EnemyController>();
+        if (enemy == null) return;
 
         Rigidbody enemyRb = collision.rigidbody;
         if (enemyRb == null) return;
 
         // プレイヤー → 敵 方向
-        Vector3 pushDir = (collision.transform.position - transform.position).normalized;
+        Vector3 pushDir = collision.transform.position - transform.position;
 
-        float pushPower = 10f; // ← 調整可能（強くしたければもっと上げる）
+        pushDir.y = 0f;
+
+        if (pushDir.sqrMagnitude < 0.001f) return;
+
+        pushDir.Normalize();
+
+        float pushPower = 10f;
 
         enemyRb.AddForce(pushDir * pushPower, ForceMode.Acceleration);
+
+        Rigidbody playerRb = GetComponent<Rigidbody>();
+        Vector3 v = playerRb.velocity;
+        if (v.y > 0f)
+        {
+            v.y = 0f;
+            playerRb.velocity = v;
+        }
     }
 
     public void Footprints()

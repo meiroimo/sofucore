@@ -11,6 +11,7 @@ public class PlayerMoveState : PlayerState
 
     public override void Enter()
     {
+        player.CurrentMoveSpeed = player.moveForce;
         player.PlayerMotionScript.runMotion(true);
 
         player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.SMOKE);
@@ -37,7 +38,7 @@ public class PlayerMoveState : PlayerState
         }
 
         player.CallHealStamina();
-        player.MoveCharacter(moveDir, player.moveForce);
+        player.MoveCharacter(moveDir, player.CurrentMoveSpeed);
     }
 
     public override void Exit()

@@ -11,6 +11,7 @@ public class PlayerRunState : PlayerState
     public PlayerRunState(PlayerController player) : base(player) 
     {
         runSpeed = player.moveForce * 1.6f;//í èÌÇÊÇË60%ë¨Ç≠
+        player.CurrentMoveSpeed = runSpeed;
     }
 
     public override void Enter()

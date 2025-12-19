@@ -27,7 +27,7 @@ public class AttackThreeState : PlayerState
         timer += Time.deltaTime;
         Vector2 input = player.MoveInput;
         Vector3 moveDirection = new Vector3(input.x, 0, input.y); // Z•ûŒüˆÚ“®
-        player.MoveCharacter(moveDirection, player.moveForce);
+        player.MoveCharacter(moveDirection, player.CurrentMoveSpeed);
 
 
         // ƒRƒ“ƒ{I—¹‚Å Idle ‚É–ß‚é

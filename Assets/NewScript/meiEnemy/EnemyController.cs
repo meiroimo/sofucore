@@ -87,6 +87,57 @@ public class EnemyController : MonoBehaviour
         currentState?.Enter(this);
     }
 
+    //接触ダメージ用
+    private int contactDamage = 2;
+    private float contactDamageInterval = 1.0f;
+    private bool isTouchingPlayer = false;
+    private Coroutine contactDamageCoroutine;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.CompareTag("Player")) return;
+
+        if (isTouchingPlayer) return;
+
+        isTouchingPlayer = true;
+
+        //触れた瞬間のダメージ
+        PlayerController player = other.GetComponent<PlayerController>();
+        if (player != null)
+        {
+            player.TakeDamage(contactDamage);
+        }
+
+        //継続ダメージ開始
+        contactDamageCoroutine = StartCoroutine(ContactDamageLoop(player));
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (!other.CompareTag("Player")) return;
+
+        isTouchingPlayer = false;
+
+        if (contactDamageCoroutine != null)
+        {
+            StopCoroutine(contactDamageCoroutine);
+            contactDamageCoroutine = null;
+        }
+    }
+
+    private IEnumerator ContactDamageLoop(PlayerController player)
+    {
+        while (isTouchingPlayer)
+        {
+            yield return new WaitForSeconds(contactDamageInterval);
+
+            if (player != null)
+            {
+                player.TakeDamage(contactDamage);
+            }
+        }
+    }
+
     public bool IsPlayerInAttackRange()
     {
         return Vector3.Distance(transform.position, player.position) < 2f;
@@ -99,12 +150,48 @@ public class EnemyController : MonoBehaviour
     public void OnHit(PlayerController _player)
     {
         isHit = true;
+        Knockback(player.transform.position);
         agent.ResetPath();   //移動を即停止 ResetPath:停止
         ChangeState(null);   //状態を一旦解除（もしくは専用のHitStateに切り替え）
         enemyHealth.EnemtTakeDamage((int)_player.Attack_Power);
 
         //一定時間後に移動再開
         StartCoroutine(RecoverFromHit());
+    }
+
+    private float knockbackDistance = 0.5f;
+    private float knockbackTime = 0.1f;
+
+    public void Knockback(Vector3 fromPosition)
+    {
+        if (agent == null) return;
+
+        // ノックバック方向（プレイヤー → 敵）
+        Vector3 dir = (transform.position - fromPosition).normalized;
+        dir.y = 0;
+
+        Vector3 targetPos = transform.position + dir * knockbackDistance;
+
+        StartCoroutine(KnockbackRoutine(targetPos));
+    }
+
+    private IEnumerator KnockbackRoutine(Vector3 targetPos)
+    {
+        agent.isStopped = true;
+
+        Vector3 startPos = transform.position;
+        float elapsed = 0f;
+
+        while (elapsed < knockbackTime)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / knockbackTime;
+
+            transform.position = Vector3.Lerp(startPos, targetPos, t);
+            yield return null;
+        }
+
+        agent.isStopped = false;
     }
 
     /// <summary>
@@ -130,32 +217,5 @@ public class EnemyController : MonoBehaviour
         OnDeath?.Invoke();
     }
 
-    //-------廃棄ゾーン----------//
-
-    void JudgementDrop()
-    {
-        // NavMesh上で経路がなくなったら重力で落とす
-        if (!agent.hasPath && agent.isOnNavMesh)
-        {
-            agent.enabled = false; // NavMesh制御を無効化
-            //Rigidbody rb = GetComponent<Rigidbody>();
-            //rb.isKinematic = false; // 物理を有効に
-        }
-    }
-
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Floor"))
-    //    {
-    //        //Rigidbody rb = GetComponent<Rigidbody>();
-    //        //rb.isKinematic = true; // 物理停止
-    //        agent.enabled = true;  // NavMesh制御に戻す
-
-    //        if (agent.isOnNavMesh)
-    //        {
-    //            agent.SetDestination(player.position);
-    //        }
-    //    }
-    //}
 
 }

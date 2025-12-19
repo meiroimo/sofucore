@@ -70,6 +70,7 @@ public class TreasureChestDropScript : MonoBehaviour
             {
                 GameObject tmpOBJ = dropOBJ[i].objType[0];  //一旦0で決め打ち
                 Vector3 dropPosition = transform.root.position; // 敵の親のワールド座標を取得
+                dropPosition.y = 0.7f;
                 GameObject droppedItem = Instantiate(tmpOBJ, dropPosition, Quaternion.identity); // ここで位置を指定して生成
                 if (droppedItem.GetComponent<softVinyl>().SofviData==null)
                 {
@@ -136,6 +137,7 @@ public class TreasureChestDropScript : MonoBehaviour
         int tmp = Random.Range(0, 100);
         if (healRate < tmp) return;
         Vector3 dropPosition = transform.root.position; // 敵の親のワールド座標を取得
+        dropPosition.y = 0.5f;
         GameObject healItemOBJ = Instantiate(healOBJ, dropPosition, Quaternion.identity); // ここで位置を指定して生成
 
     }

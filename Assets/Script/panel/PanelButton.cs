@@ -23,7 +23,7 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
 
     public softVinyl selectSofviDeta;//選択中のソフビデータ
 
-    private bool selectPanel;//パネルを選択判定 
+    public bool selectPanel;//パネルを選択判定 
     public int Number;//ボタン番号
     public ImgStrageScript ImgStrageScriptdata;//イメージ画像データストレージ
 
@@ -139,14 +139,14 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
             }
         }
     }
-    void againClick()//セレクトデータをリセット
+   public void againClick()//セレクトデータをリセット
     {
          selectSofviDeta.SofviData= selectSofviDeta.SofviData.copy();
         selectSofviDeta.SofviData.ResetParameter();
         selectPanel = false;
         chengeframecolor(Color.white);
     }
-    private void setselectSofviData()//選択ソフビデータに自分のデータを渡す。
+    public void setselectSofviData()//選択ソフビデータに自分のデータを渡す。
     {
         selectSofviDeta.SofviData = SetSofvidata.SofviData;
 

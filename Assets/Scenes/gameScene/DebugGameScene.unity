@@ -9357,9 +9357,9 @@ MonoBehaviour:
   player: {fileID: 1016606775}
   enemyPrefab:
   - {fileID: 6907368253047354171, guid: 0291551f08812734ca78600b7f6b3211, type: 3}
-  spawnInterval: {x: 2, y: 4}
+  spawnInterval: {x: 3, y: 5}
   maxEnemies: 100
-  spawnCountPerWave: {x: 10, y: 3}
+  spawnCountPerWave: {x: 5, y: 3}
   enemyStatusTypeNo: 1
   enemyScaleMultiplier: 1
   spawnRadiusMin: 10

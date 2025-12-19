@@ -108,6 +108,7 @@ public class EnemySpawner : MonoBehaviour
             float originalDropRate = treasureChestDropScript.DropRate;
             float middleDrop = Mathf.Lerp(originalDropRate, 99, d);
             treasureChestDropScript.DropRate = (int)Mathf.Round(middleDrop);
+            Debug.Log(middleDrop);
 
         }
 

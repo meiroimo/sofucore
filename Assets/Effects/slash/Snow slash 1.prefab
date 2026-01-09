@@ -4908,6 +4908,7 @@ GameObject:
   - component: {fileID: 2145314521902459719}
   - component: {fileID: 2629628210209888467}
   - component: {fileID: 9159431108497599183}
+  - component: {fileID: 8256227874619615911}
   m_Layer: 0
   m_Name: Snow slash 1
   m_TagString: Untagged
@@ -6283,15 +6284,15 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 13107
+        atime1: 13801
         atime2: 35522
         atime3: 65535
-        atime4: 0
+        atime4: 65535
         atime5: 0
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: -1
+        m_ColorSpace: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 4
       minGradient:
@@ -9788,6 +9789,26 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &8256227874619615911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060900179291159282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19f1cb8f6c630ec4182ee5aa2722b4a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 2629628210209888467}
+  preColor:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0, g: 0.9357796, b: 1, a: 1}
+  - {r: 0.918239, g: 1, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0.27672958, a: 1}
+  - {r: 1, g: 0, b: 0.044024944, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &5243545912859313696
 GameObject:
   m_ObjectHideFlags: 0

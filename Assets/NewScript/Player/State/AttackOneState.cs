@@ -17,6 +17,7 @@ public class AttackOneState : PlayerState
     {
         player.PlayerMotionScript.attackMotion(true);
         player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.SLASH);
+        player.PlayerEffectScript.ChangeATKEffectColor((int)player.playerStatus_Script.add_Player_Attack_Power);
         player.ReceivedNextAttack = false;
         player.IsAttack = true;
         player.PlayerLAttack(); // çUåÇèàóù

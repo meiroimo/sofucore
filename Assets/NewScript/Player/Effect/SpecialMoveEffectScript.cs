@@ -6,7 +6,7 @@ public class SpecialMoveEffectScript : MonoBehaviour
 {
     [SerializeField] GameObject leftEffect;
     [SerializeField] GameObject rightEffect;
-
+    [SerializeField] GameObject auraEffect;
 
     void Start()
     {
@@ -26,4 +26,8 @@ public class SpecialMoveEffectScript : MonoBehaviour
         rightEffect.SetActive(true);
     }
 
+    public void StopAuraEffect()
+    {
+        auraEffect.SetActive(false);
+    }
 }

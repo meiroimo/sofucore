@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
     private FlowerGuard2 inputActions;
     private PlayerState currentState;
-    private PlayerStatus_Script playerStatus_Script;
+    public PlayerStatus_Script playerStatus_Script;
     private HPSliderScript hpSliderScript;
     private StaminaSliderScript staminaSliderScript;
     private PlayerSkillSlider[] playerSkillSlider;

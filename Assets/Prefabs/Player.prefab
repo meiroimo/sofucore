@@ -416,6 +416,7 @@ MonoBehaviour:
     m_Bits: 64
   effectOBJ: {fileID: 9105310504024531527}
   playerEffect: {fileID: 4801876933201552212}
+  playerStatus_Script: {fileID: 0}
   attackCone: {fileID: 0}
   PlayerEffectScript: {fileID: 4801876933201552212}
   PlayerMotionScript: {fileID: 7697936701177354853}
@@ -1225,6 +1226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftEffect: {fileID: 781716963097785145}
   rightEffect: {fileID: 410614609679839367}
+  auraEffect: {fileID: 4182826479261709226}
 --- !u!4 &5571399865135038387 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 904ae5418fc1d74499395b825ade3663, type: 3}

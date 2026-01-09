@@ -73,7 +73,7 @@ public class PlayerSkillAttackState : PlayerState
     {
         //Debug.Log("Exited LightAttack State");
 
-        player.PlayerEffectScript.StopEffect((int)playerEffectScript.EffectName.AURA);
+        //player.PlayerEffectScript.StopEffect((int)playerEffectScript.EffectName.AURA);
         player.PlayerEffectScript.StopEffect((int)playerEffectScript.EffectName.SLASH);
         player.PlayerMotionScript.ultMotion(false);
 

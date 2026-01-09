@@ -5,7 +5,7 @@ using UnityEngine;
 public class playerEffectScript : MonoBehaviour
 {
     [SerializeField, Header("エフェクトオブジェクト")] GameObject[] playerEffect;
-
+    [SerializeField] ATKEffectColorScript effectColorScript;
     public enum EffectName
     {
         AVOIDANCE = 0,
@@ -37,11 +37,17 @@ public class playerEffectScript : MonoBehaviour
     public void PlayEffect(int effectNo)
     {
         playerEffect[effectNo].SetActive(true);
-
     }
 
     public void StopEffect(int effectNo)
     {
         playerEffect[effectNo].SetActive(false);
+    }
+
+    public void ChangeATKEffectColor(int addAtk)
+    {
+        int effectColor = addAtk / 10;
+        if (effectColor > 5) effectColor = 5;
+        effectColorScript.ATKChangeColor(effectColor);
     }
 }

@@ -10,6 +10,12 @@ using UnityEngine.EventSystems;
 /// </summary>
 public class TextWindow : MonoBehaviour
 {
+    [Header("削除ボタンRectTransform")]
+    public RectTransform deleteButtonRect;
+
+    [Header("削除ボタンのオフセット")]
+    public Vector2 deleteButtonOffset = new Vector2(0, -150);
+
     [Header("設置シーンカメラ")]
     public Camera cam;
 
@@ -43,7 +49,30 @@ public class TextWindow : MonoBehaviour
     {
         if (!isShowing) return;
 
+        // ステータステキスト
+        statusTextRect.anchoredPosition =
+            CalcMouseUIPosition(statusTextRect, offset);
+
+    }
+     
+    public void deleteButton_potion_set()
+    {
+        // 削除ボタン
+        deleteButtonRect.anchoredPosition =
+            CalcMouseUIPosition(deleteButtonRect, deleteButtonOffset);
+
+    }
+
+    /// <summary>
+    /// マウス位置からオフセットしたUI座標を計算（はみ出し防止付き）
+    /// </summary>
+    Vector2 CalcMouseUIPosition(
+        RectTransform targetRect,
+        Vector2 offset
+    )
+    {
         Vector2 localPoint;
+
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             basePanel,
             Input.mousePosition,
@@ -51,25 +80,20 @@ public class TextWindow : MonoBehaviour
             out localPoint
         );
 
-        // まず通常の位置
         Vector2 targetPos = localPoint + offset;
 
-        // basePanel のサイズ
         Rect panelRect = basePanel.rect;
+        Vector2 halfSize = targetRect.sizeDelta * 0.5f;
 
-        // ウィンドウの半サイズ
-        Vector2 windowHalfSize = statusTextRect.sizeDelta * 0.5f;
-
-        // Clamp（はみ出し防止）
-        float minX = panelRect.xMin + windowHalfSize.x+100;
-        float maxX = panelRect.xMax - windowHalfSize.x - 100;
-        float minY = panelRect.yMin + windowHalfSize.y + 100;
-        float maxY = panelRect.yMax - windowHalfSize.y - 100;
+        float minX = panelRect.xMin + halfSize.x;
+        float maxX = panelRect.xMax - halfSize.x;
+        float minY = panelRect.yMin + halfSize.y;
+        float maxY = panelRect.yMax - halfSize.y;
 
         targetPos.x = Mathf.Clamp(targetPos.x, minX, maxX);
         targetPos.y = Mathf.Clamp(targetPos.y, minY, maxY);
 
-        statusTextRect.anchoredPosition = targetPos;
+        return targetPos;
     }
 
 

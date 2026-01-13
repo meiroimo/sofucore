@@ -3,18 +3,20 @@ using UnityEngine.EventSystems;
 
 public class ButtonClickEx : MonoBehaviour, IPointerClickHandler
 {
-    public GameObject SofviDeleteButton;
+    public TextWindow TextWindowSc;//テキストマネージャーのスクリプト
+    public GameObject SofviDeleteButton;//削除ボタンオブジェクト
+    public Deletbutton DeletbuttonSc;//削除ボタンスクリプト
     public PanelButton PanelButtonSc;
-
     public void OnPointerClick(PointerEventData eventData)
     {
+        
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             Debug.Log("左クリック");
             PanelButtonSc.onclickButton();
         }
         //右クリック、空ボタンはクリック判定は取らない
-        else if (eventData.button == PointerEventData.InputButton.Right&& PanelButtonSc.SetSofvidata.SofviData.buffMainstatus != SoftVinilData.BUFFSTATUSNUM.NULL)
+        else if (!DeletbuttonSc.is_deleteset && eventData.button == PointerEventData.InputButton.Right&& PanelButtonSc.SetSofvidata.SofviData.buffMainstatus != SoftVinilData.BUFFSTATUSNUM.NULL)
         {
             if(PanelButtonSc.selectSofviDeta.SofviData.selectCheck)//選択中だった場合
             {
@@ -24,9 +26,7 @@ public class ButtonClickEx : MonoBehaviour, IPointerClickHandler
                 PanelButtonSc.selectPanel = true;
                 PanelButtonSc.chengeframecolor(Color.yellow);
                 Debug.Log("右クリック");
-                SofviDeleteButton.SetActive(true);//削除ボタンを表示
-
-
+                SetdeleteButton();//削除ボタンを表示
             }
             else//選択中ではなかった場合
             {
@@ -34,12 +34,25 @@ public class ButtonClickEx : MonoBehaviour, IPointerClickHandler
                 PanelButtonSc.setselectSofviData();
                 PanelButtonSc.selectPanel = true;
                 PanelButtonSc.chengeframecolor(Color.yellow);
-                SofviDeleteButton.SetActive(true);//削除ボタンを表示
-
+                SetdeleteButton();//削除ボタンを表示
 
             }
 
 
         }
+        else if(eventData.button == PointerEventData.InputButton.Right && DeletbuttonSc.is_deleteset)
+        {
+            SofviDeleteButton.SetActive(false);//削除ボタンを非表示
+            DeletbuttonSc.is_deleteset = false;
+        }
+    }
+
+    //削除ボタンを表示
+    public void SetdeleteButton()
+    {
+        DeletbuttonSc.is_deleteset = true;
+        TextWindowSc.deleteButton_potion_set();//削除ボタンを位置調整
+        SofviDeleteButton.SetActive(true);//削除ボタンを表示
+
     }
 }

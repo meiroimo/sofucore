@@ -11,7 +11,7 @@ using static UnityEngine.Mesh;
 /// </summary>
 public class SetSofviManeger : MonoBehaviour
 {
-    public ScreenSwitchManager ScreenSwitchManagerSc;//
+    public ScreenSwitchManager ScreenSwitchManagerSc;//設置UI開いているかチェック
     [Header("テキストウィンドウクラス")] public TextWindow TextWindowManegerSc;//テキストウィンドウクラス
     [Header("テキストウィンドウクラス")] public TextWindow TextWindowManegerSc_copy;//テキストウィンドウクラス
 
@@ -46,6 +46,14 @@ public class SetSofviManeger : MonoBehaviour
         if (Input.GetMouseButtonDown(0))//左クリックされたら
         {
             setSofuvi();
+        }
+        if(Input.GetMouseButtonDown(1))//右クリックなら
+        {
+            if (ScreenSwitchManagerSc.SetFlg&& !selectSofviDeta.SofviData.selectCheck)//選択中じゃなくて設置しているものをクリック
+            {
+                selectsetpotion();//設置したソフビを選択する
+
+            }
         }
         SofviPreview();
     }
@@ -128,19 +136,18 @@ public class SetSofviManeger : MonoBehaviour
         }
         
     }
-    void selectsetpotion()
+    void selectsetpotion()//設置したソフビを選択する
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);//レイ飛ばす
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit) && selectSofviDeta.SofviData.selectButton != hit.collider.gameObject && hit.collider.gameObject.tag == "SetPosition" && hit.collider.GetComponent<softVinyl>().SofviData.checksetpotion == true)//レイが当たったオブジェクトへアクセスかつ設置場所だったら
         {
-            //Debug.Log("設置されたのが押されました");
+            Debug.Log("設置されたのが押されました");
             selectSofviDeta.SofviData = hit.collider.GetComponent<softVinyl>().SofviData;
             selectSofviDeta.SofviData.selectButton = hit.collider.gameObject;
             selectSofviDeta.SofviData.selectCheck = true;
             selectSofviDeta.SofviData.isSelectStandSofvi = true;
         }
-
     }
 
     void setSofuvi()
@@ -164,7 +171,7 @@ public class SetSofviManeger : MonoBehaviour
 
             }
         }
-        else if(ScreenSwitchManagerSc.SetFlg)
+        else if(ScreenSwitchManagerSc.SetFlg)//選択中じゃなくて設置しているものをクリック
         {
             selectsetpotion();
         }

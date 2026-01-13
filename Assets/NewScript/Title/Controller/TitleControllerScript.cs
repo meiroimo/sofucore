@@ -42,7 +42,7 @@ public class TitleControllerScript : MonoBehaviour
         if (Mouse.current?.leftButton.wasPressedThisFrame == true)
         {
             startOBJ.SetActive(false);
-            StartCoroutine(SelectFirstButtonNextFrame(firstButton));
+            //StartCoroutine(SelectFirstButtonNextFrame(firstButton));
             return;
         }
 
@@ -52,16 +52,9 @@ public class TitleControllerScript : MonoBehaviour
             Gamepad.current?.buttonSouth.wasPressedThisFrame == true) //AÉ{É^Éì(PSÇ»ÇÁÅ~)
         {
             startOBJ.SetActive(false);
-            StartCoroutine(SelectFirstButtonNextFrame(firstButton));
+            //StartCoroutine(SelectFirstButtonNextFrame(firstButton));
             return;
         }
-
-
-        //if (Input.GetMouseButtonDown((int)MouseClick.LEFT))
-        //{
-        //    startOBJ.SetActive(false);
-        //}
-
     }
 
     /// <summary>

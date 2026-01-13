@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: -9195205369469400226}
   m_Layer: 6
   m_Name: 3DBossEnemy
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,7 +117,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 0
   damageEffect: {fileID: 149224671756272210}
-  dropScript: {fileID: 4983293848211477177}
   HPSlider: {fileID: 5723716968939034811}
   damageTxt: {fileID: 1252251131183858360}
 --- !u!195 &2961307633609609807
@@ -606,17 +605,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 884176eab3493a84b9e21da30c5d78d6, type: 3}
---- !u!114 &4983293848211477177 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8166744685667211542, guid: 884176eab3493a84b9e21da30c5d78d6, type: 3}
-  m_PrefabInstance: {fileID: 3782509525895482287}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64e09020c0c836c4facccc8ecb904097, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &5877412969932608549 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7345071561173589898, guid: 884176eab3493a84b9e21da30c5d78d6, type: 3}

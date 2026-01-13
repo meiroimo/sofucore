@@ -16,6 +16,7 @@ public class BossDefeatedState : BossState
         PlayerStatusCache.LastStatusSave(boss.Playerstatus);
         //ここにやられた時のアニメーション
 
+        DestroyAllEnemies();
         // スロー演出（任意）
         //Time.timeScale = 0.3f;
 
@@ -39,5 +40,15 @@ public class BossDefeatedState : BossState
     public override void Exit(BossController boss)
     {
         Time.timeScale = 1f;
+    }
+
+    private void DestroyAllEnemies()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        foreach (GameObject enemy in enemies)
+        {
+            GameObject.Destroy(enemy);
+        }
     }
 }

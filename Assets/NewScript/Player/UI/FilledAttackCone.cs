@@ -8,10 +8,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class FilledAttackCone : MonoBehaviour
 {
-    [Header("距離")]
-    public float radius = 5f;
-    [Header("範囲")]
-    public float angle = 60f;
+    public PlayerController playerController;
 
     private float innerRadius = 1.0f;
     private float outerRadius = 5.0f;
@@ -72,8 +69,8 @@ public class FilledAttackCone : MonoBehaviour
         int[] triangles = new int[segments * 6];
 
         //扇形の角度計算
-        float halfAngle = angle / 2f;
-        float step = angle / segments;
+        float halfAngle = playerController.AttackAngle / 2f;
+        float step = playerController.AttackAngle / segments;
 
         //頂点を並べる
         for(int i = 0;i <= segments;i++)
@@ -85,7 +82,7 @@ public class FilledAttackCone : MonoBehaviour
 
             //内側・外側の点を作る
             Vector3 inner = rot * Vector3.forward * innerRadius;
-            Vector3 outer = rot * Vector3.forward * outerRadius;
+            Vector3 outer = rot * Vector3.forward * playerController.AttackRadius;//outerRadius;
 
             inner.y = yOffset;
             outer.y = yOffset;

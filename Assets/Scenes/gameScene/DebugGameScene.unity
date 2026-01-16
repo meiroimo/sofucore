@@ -3767,6 +3767,10 @@ PrefabInstance:
       propertyPath: segments
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 7963749435448190190, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 1016606785}
     - target: {fileID: 8398801253528264856, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
       propertyPath: staminaSlider
       value: 

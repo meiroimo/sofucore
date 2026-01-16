@@ -91,6 +91,8 @@ public class PlayerController : MonoBehaviour
     public bool IsRunning { get => isRunning; }
     public bool IsAvoid { get => isAvoid; set => isAvoid = value; }
     public float CurrentMoveSpeed { get => currentMoveSpeed; set => currentMoveSpeed = value; }
+    public float AttackRadius { get => attackRadius; set => attackRadius = value; }
+    public float AttackAngle { get => attackAngle; set => attackAngle = value; }
     #endregion
     //ゲッター・セッター
 

@@ -10,7 +10,8 @@ public class PlayerStatus_Script : MonoBehaviour
     [Tooltip("スタミナ回復速度(毎秒)")]  public float player_stamina_recovery_speed;
     [Tooltip("攻撃力")]                  public float player_Attack_Power;
     [Tooltip("スキルポイント")]          public float player_Skill_Point;
-    [Tooltip("スキルチャージ(毎秒)")]          public float player_Skill_Charge;
+    [Tooltip("スキルチャージ(毎秒)")]    public float player_Skill_Charge;
+    [Tooltip("攻撃範囲")]                public float player_Attack_Range;
     //使ってない
    
     [Header("初期ステータス"), 
@@ -20,7 +21,8 @@ public class PlayerStatus_Script : MonoBehaviour
 
     [Tooltip("初期攻撃力")]                  public float default_player_Attack_Power;
     [Tooltip("初期スキルポイント")]          public float default_player_Skill_Point;
-    [Tooltip("初期スキルチャージ(毎秒)")]          public float default_player_Skill_Charge;
+    [Tooltip("初期スキルチャージ(毎秒)")]    public float default_player_Skill_Charge;
+    [Tooltip("初期攻撃範囲")]                public float default_player_Attack_Range;
     //使ってない
     [Header("追加ステータス"), 
      Tooltip("追加最大体力")]                public float add_Player_MaxHealth = 0;
@@ -29,7 +31,9 @@ public class PlayerStatus_Script : MonoBehaviour
 
     [Tooltip("追加攻撃力")]                  public float add_Player_Attack_Power = 0;
     [Tooltip("追加スキルポイント")]          public float add_Player_Skill_Point = 0;
-    [Tooltip("追加スキルチャージ(毎秒)")]          public float add_Player_Skill_Charge = 0;
+    [Tooltip("追加スキルチャージ(毎秒)")]    public float add_Player_Skill_Charge = 0;
+    [Tooltip("追加攻撃範囲")]                public float add_player_Attack_Range = 0;
+
     //使ってない
     [HideInInspector] public int enemyDeathCount;//倒したモンスターの数を保持
 
@@ -59,6 +63,7 @@ public class PlayerStatus_Script : MonoBehaviour
         player_MaxSutamina              = default_player_MaxSutamina            + add_Player_MaxSutamina;
         player_Skill_Point              = default_player_Skill_Point            + add_Player_Skill_Point;
         player_Skill_Charge             = default_player_Skill_Charge           + add_Player_Skill_Charge;
+        player_Attack_Range             = default_player_Attack_Range           + add_player_Attack_Range;
         //使ってない
       
     }

@@ -11,6 +11,7 @@ public class PlayerStatus_Script : MonoBehaviour
     [Tooltip("攻撃力")]                  public float player_Attack_Power;
     [Tooltip("スキルポイント")]          public float player_Skill_Point;
     [Tooltip("スキルチャージ(毎秒)")]          public float player_Skill_Charge;
+    [Tooltip()]
     //使ってない
    
     [Header("初期ステータス"), 

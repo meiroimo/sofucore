@@ -28,6 +28,10 @@ public class EnemySpawner : MonoBehaviour
     public float checkRadius = 1.0f; // 出現位置周囲の判定半径
     public int maxSpawnTries = 10; // 再抽選回数（障害物がある場合）
 
+    [Header("敵のステータス倍率")]
+    public float enemyMoveSpeedRate = 1.0f;
+    public float enemyAttackRate = 1.0f;
+
     private int currentEnemyCount = 0;
     private CSVReader csvReader;
 
@@ -114,6 +118,7 @@ public class EnemySpawner : MonoBehaviour
 
         //大きさ変更（イベントで倍率が変わる）
         enemy.transform.localScale *= enemyScaleMultiplier;
+        //ステータス倍率
 
         //敵数カウント
         currentEnemyCount++;
@@ -263,10 +268,11 @@ public class EnemySpawner : MonoBehaviour
         float middleSpeed = Mathf.Lerp(status.enemy_Speed, enemy_Final_Speed, d);
 
         status.enemy_MaxHealth = Mathf.Round(middleHP);
-        status.enemy_Attack_Power = Mathf.Round(middleAtk);
+        status.enemy_Attack_Power = Mathf.Round(middleAtk * enemyAttackRate);
         status.enemy_Defense = Mathf.Round(middleDef);
-        status.enemy_Speed = Mathf.Round(middleSpeed);
+        status.enemy_Speed = Mathf.Round(middleSpeed * enemyMoveSpeedRate);
 
-        //Debug.LogWarning(status.enemy_MaxHealth);
+        Debug.LogWarning(enemyMoveSpeedRate);
     }
+
 }

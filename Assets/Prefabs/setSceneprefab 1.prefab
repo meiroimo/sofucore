@@ -263,8 +263,8 @@ RectTransform:
   - {fileID: 2480927028918713462}
   - {fileID: 1518521132268077567}
   - {fileID: 1021421223790586455}
-  - {fileID: 4790020229903901394}
   - {fileID: 7184850370081249082}
+  - {fileID: 4790020229903901394}
   m_Father: {fileID: 1289461512411127483}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3471,6 +3471,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf007da5b2d5bfd49ac7ec72ebf9e2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SofviDeleteButton: {fileID: 6095069190328890143}
+  DeletbuttonSc: {fileID: 8642738755725294439}
   ScreenSwitchManagerSc: {fileID: 0}
   TextWindowManegerSc: {fileID: 5566121150895058444}
   TextWindowManegerSc_copy: {fileID: 8412172676676119201}
@@ -4158,7 +4160,7 @@ GameObject:
   - component: {fileID: 2523498746296437511}
   - component: {fileID: 898952939822865511}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4268,7 +4270,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8642738755725294439}
         m_TargetAssemblyTypeName: Deletbutton, Assembly-CSharp
-        m_MethodName: Closethiswindow
+        m_MethodName: ClosethisButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5151,7 +5153,7 @@ GameObject:
   - component: {fileID: 5649059808669378849}
   - component: {fileID: 8928818724165910155}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: delete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5273,7 +5275,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 8642738755725294439}
         m_TargetAssemblyTypeName: Deletbutton, Assembly-CSharp
-        m_MethodName: Closethiswindow
+        m_MethodName: ClosethisButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

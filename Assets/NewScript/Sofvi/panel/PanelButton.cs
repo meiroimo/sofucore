@@ -96,8 +96,7 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
                 setselectSofviData();
                 selectPanel = true;
                 chengeframecolor(Color.yellow);
-                SofviDeleteButton.SetActive(false);
-                DeletbuttonSc.is_deleteset = false;
+                DeletbuttonSc.ClosethisButton();
 
             }
         }   
@@ -111,6 +110,8 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
         else if(SetSofvidata.SofviData.sofvimodel == SoftVinilData.SOFVINUMBER.NULL&& selectSofviDeta.SofviData.isSelectStandSofvi)
         {
             Debug.Log("設置したソフビをせんたくしたまま、空のボタンをクリックした");
+            DeletbuttonSc.ClosethisButton();//削除ボタンを閉じる
+
             if (sofviSotrage.sofviStrageList[Number] == null || sofviSotrage.sofviStrageList[Number].sofvimodel == SoftVinilData.SOFVINUMBER.NULL)
             {
                 softVinyl DropSoftViny = selectSofviDeta;
@@ -160,7 +161,7 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
     }
    public void againClick()//セレクトデータをリセット
     {
-        SofviDeleteButton.SetActive(false);//削除ボタンの非表示
+        DeletbuttonSc.ClosethisButton();//削除ボタンを閉じる
          selectSofviDeta.SofviData= selectSofviDeta.SofviData.copy();
         selectSofviDeta.SofviData.ResetParameter();
         selectPanel = false;

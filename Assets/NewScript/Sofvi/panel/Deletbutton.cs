@@ -17,9 +17,17 @@ public class Deletbutton : MonoBehaviour
 
         sofviManager.DeleteSelectedSofvi();
     }
-    public void Closethiswindow()
+    public void ClosethisButton()
     {
         this.gameObject.SetActive(false);
+        is_deleteset = false;
+    }
+
+    public void OpenButton()
+    {
+        this.gameObject.SetActive(true);
+        is_deleteset = true;
+
     }
 
     // Start is called before the first frame update

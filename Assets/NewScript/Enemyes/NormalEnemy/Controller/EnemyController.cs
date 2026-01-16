@@ -150,10 +150,10 @@ public class EnemyController : MonoBehaviour
     /// ƒvƒŒƒCƒ„[‚ÉUŒ‚‚³‚ê‚½‚Ìˆ—
     /// </summary>
     /// <param name="_player"></param>
-    public void OnHit(PlayerController _player)
+    public void OnHit(PlayerController _player, bool isSkill = false)
     {
         isHit = true;
-        Knockback(player.transform.position);
+        Knockback(player.transform.position, isSkill);
         agent.ResetPath();   //ˆÚ“®‚ğ‘¦’â~ ResetPath:’â~
         ChangeState(null);   //ó‘Ô‚ğˆê’U‰ğœi‚à‚µ‚­‚Íê—p‚ÌHitState‚ÉØ‚è‘Ö‚¦j
         enemyHealth.EnemtTakeDamage((int)_player.Attack_Power);
@@ -166,7 +166,7 @@ public class EnemyController : MonoBehaviour
     private float knockbackDistance = 0.5f;
     private float knockbackTime = 0.1f;
 
-    public void Knockback(Vector3 fromPosition)
+    public void Knockback(Vector3 fromPosition, bool isSkill)
     {
         if (agent == null) return;
 
@@ -174,7 +174,17 @@ public class EnemyController : MonoBehaviour
         Vector3 dir = (transform.position - fromPosition).normalized;
         dir.y = 0;
 
-        Vector3 targetPos = transform.position + dir * knockbackDistance;
+        float saveknockback = knockbackDistance;
+        Vector3 targetPos;
+        if (isSkill)
+        {
+            saveknockback *= 2.5f;
+            targetPos = transform.position + dir * saveknockback;
+        }
+        else
+        {
+            targetPos = transform.position + dir * saveknockback;
+        }
 
         StartCoroutine(KnockbackRoutine(targetPos));
     }

@@ -84,7 +84,7 @@ public class PlayerSkillAttackState : PlayerState
     private void DoClawAttack()
     {
         attackCount++;// âÒêîÉJÉEÉìÉg
-        player.PlayerLAttack();
+        player.PlayerLAttack(true);
     }
 
     private void SkillAttackDir()
@@ -138,7 +138,7 @@ public class PlayerSkillAttackState : PlayerState
                 EnemyController enemy = col.GetComponent<EnemyController>();
                 if (enemy != null)
                 {
-                    enemy.OnHit(player);
+                    enemy.OnHit(player, true);
                     return;
                 }
                 BossController boss = col.GetComponent<BossController>();

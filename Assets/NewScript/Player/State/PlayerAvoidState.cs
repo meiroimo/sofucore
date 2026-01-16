@@ -9,7 +9,7 @@ using UnityEngine;
 public class PlayerAvoidState : PlayerState
 {
     private Vector3 dodgeDirection;
-    private float dodgeSpeed = 15f;
+    private float dodgeSpeed = 25f;
     private float dodgeDuration = 0.3f;
     private float timer = 0f;
 
@@ -17,7 +17,7 @@ public class PlayerAvoidState : PlayerState
 
     public override void Enter()
     {
-        if (!player.TakeAvoid(30))
+        if (!player.TakeAvoid(300))
         {
             player.ChangeState(new PlayerIdleState(player));
             return;

@@ -14,7 +14,6 @@ public class PlayerMoveState : PlayerState
         player.CurrentMoveSpeed = player.moveForce;
         player.PlayerMotionScript.runMotion(true);
 
-        player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.SMOKE);
         player.SeBox.PlayPlayerSE(PlayerSEBox.SENAME.MOVE);
     }
 
@@ -44,7 +43,6 @@ public class PlayerMoveState : PlayerState
     public override void Exit()
     {
         player.PlayerMotionScript.runMotion(false);
-        player.PlayerEffectScript.StopEffect((int)playerEffectScript.EffectName.SMOKE);
         player.SeBox.StopPlayerSE();
     }
 

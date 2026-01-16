@@ -45,21 +45,13 @@ public class setWindow : MonoBehaviour
 
                 setpositionOBJ[i,j] = renOBJ[i].transform.GetChild(j).gameObject;//孫objの取得
                // Debug.Log(setpositionOBJ[i, j]);
-
             }
-
 
         }
 
-
     }
-
 
     void Update()
-    {
-        
-    }
-    public void selectSofviSet()//選んでいるソフビのデータをセットする
     {
         
     }

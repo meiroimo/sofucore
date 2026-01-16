@@ -14,6 +14,9 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
 {
     [Header("ソフビ一覧の各ボタンにソフビデータを入れるスクリプト")]
 
+    public GameObject SofviDeleteButton;//削除ボタンのオブジェクト
+    public Deletbutton DeletbuttonSc;//削除ボタンスクリプト
+
     public SetSofviManeger SetSofviManegerSc;
     public TextWindow TextWindowManegerSc;//テキストウィンドウクラス
 
@@ -76,22 +79,39 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
     }
     public void onclickButton()
     {
+        //選択されていなくて、自分にデータがセットされてて、セレクトされている設置ソフビがない場合
         if(!selectPanel && SetSofvidata.SofviData.sofvimodel != SoftVinilData.SOFVINUMBER.NULL&&!selectSofviDeta.SofviData.isSelectStandSofvi)
         {
-            setselectSofviData();
-            selectPanel = true;
-            chengeframecolor(Color.yellow);
-        }
+
+            //選択中じゃなかったら
+            if( !selectSofviDeta.SofviData.selectCheck)
+            {
+                setselectSofviData();
+                selectPanel = true;
+                chengeframecolor(Color.yellow);
+            }
+            //選択中だったら
+            else
+            {
+                setselectSofviData();
+                selectPanel = true;
+                chengeframecolor(Color.yellow);
+                DeletbuttonSc.ClosethisButton();
+
+            }
+        }   
+        //選択したボタンと同じボタンを押した
         else if(selectSofviDeta.SofviData.selectButton == this.gameObject)
         {
-            {
-                Debug.Log("同じの押した");
-                againClick();
-            }
+            Debug.Log("同じの押した");
+            againClick();
         }
+        //自分が空ボタンで設置中のソフビを選択している
         else if(SetSofvidata.SofviData.sofvimodel == SoftVinilData.SOFVINUMBER.NULL&& selectSofviDeta.SofviData.isSelectStandSofvi)
         {
             Debug.Log("設置したソフビをせんたくしたまま、空のボタンをクリックした");
+            DeletbuttonSc.ClosethisButton();//削除ボタンを閉じる
+
             if (sofviSotrage.sofviStrageList[Number] == null || sofviSotrage.sofviStrageList[Number].sofvimodel == SoftVinilData.SOFVINUMBER.NULL)
             {
                 softVinyl DropSoftViny = selectSofviDeta;
@@ -141,6 +161,7 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
     }
    public void againClick()//セレクトデータをリセット
     {
+        DeletbuttonSc.ClosethisButton();//削除ボタンを閉じる
          selectSofviDeta.SofviData= selectSofviDeta.SofviData.copy();
         selectSofviDeta.SofviData.ResetParameter();
         selectPanel = false;

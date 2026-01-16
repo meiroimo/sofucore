@@ -8,16 +8,5 @@ using System.Numerics;
 /// </summary>
 public class SofviDeleteButton : MonoBehaviour
 {
-    [SerializeField] private SetSofviManeger sofviManager;
-
-    public void OnDeleteClick()
-    {
-        if (sofviManager == null)
-        {
-            Debug.LogError("SetSofviManeger‚ªƒAƒTƒCƒ“‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ");
-            return;
-        }
-
-        sofviManager.DeleteSelectedSofvi();
-    }
+   
 }

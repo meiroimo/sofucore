@@ -101,10 +101,16 @@ public class GameEventManager : MonoBehaviour
 
     private TemporaryEvent CreateSmallEnemyRushEvent(float duration)
     {
+        float oriAttakRate = enemySpawner.enemyAttackRate;
+        float oriMoveSpeedRate = enemySpawner.enemyMoveSpeedRate;
+
         return new TemporaryEvent(
             duration,
             apply: () =>
             {
+                enemySpawner.enemyAttackRate = 0.7f;
+                enemySpawner.enemyMoveSpeedRate = 1.5f;
+
                 Vector3 rushPoint = enemySpawner.GetValidSpawnPosition();
 
                 enemySpawner.StartSmallEnemyRush(
@@ -117,7 +123,11 @@ public class GameEventManager : MonoBehaviour
 
                 eventAlertUI.ShowAlert("敵ラッシュ発生！");
             },
-            remove: () => { }
+            remove: () => {
+                enemySpawner.enemyAttackRate = oriAttakRate;
+                enemySpawner.enemyMoveSpeedRate = oriMoveSpeedRate;
+
+            }
         );
     }
 
@@ -126,14 +136,22 @@ public class GameEventManager : MonoBehaviour
     private TemporaryEvent CreateEnemySizeBoostEvent(float duration)
     {
         float original = enemySpawner.enemyScaleMultiplier;
+        float oriAttakRate = enemySpawner.enemyAttackRate;
+        float oriMoveSpeedRate = enemySpawner.enemyMoveSpeedRate;
         return new TemporaryEvent(
             duration,
             apply: () =>
             {
+                enemySpawner.enemyAttackRate = 1.5f;
+                enemySpawner.enemyMoveSpeedRate = 0.7f;
                 enemySpawner.enemyScaleMultiplier = 2f;
                 eventAlertUI.ShowAlert("でっかい敵が出現！");
             },
-            remove: () => enemySpawner.enemyScaleMultiplier = original
+            remove: () => { 
+                enemySpawner.enemyScaleMultiplier = original;
+                enemySpawner.enemyAttackRate = oriAttakRate;
+                enemySpawner.enemyMoveSpeedRate = oriMoveSpeedRate;
+            }
         );
     }
 

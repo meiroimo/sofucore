@@ -93,11 +93,14 @@ public class TreasureChestDropScript : MonoBehaviour
 
         //メインステ
         sofviData.buffMainstatus = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.POWER, (float)SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA);
+        //sofviData.buffMainstatus = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.POWER, (float)SoftVinilData.BUFFSTATUSNUM.SKILL_POWER_MULTIPLIER);
+
         //メインステ　追加値
         sofviData.BuffMainParameter = setRarityStatus[(int)sofviData.rarity - 1][(int)sofviData.buffMainstatus - 1];
 
         //サブステ１
         sofviData.buffSubstatus1 = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.POWER, (float)SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA);
+        //sofviData.buffSubstatus1 = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.POWER, (float)SoftVinilData.BUFFSTATUSNUM.SKILL_POWER_MULTIPLIER);
         //サブステ１　追加値
         sofviData.BuffSubParameter1 = setRarityStatus[(int)sofviData.rarity - 1][(int)sofviData.buffSubstatus1 - 1];
 
@@ -105,6 +108,7 @@ public class TreasureChestDropScript : MonoBehaviour
 
         //サブステ2
         sofviData.buffSubstatus2 = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.POWER, (float)SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA);
+        //sofviData.buffSubstatus2 = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.POWER, (float)SoftVinilData.BUFFSTATUSNUM.SKILL_POWER_MULTIPLIER);
         //サブステ2 　追加値
         sofviData.BuffSubParameter2 = setRarityStatus[(int)sofviData.rarity - 1][(int)sofviData.buffSubstatus2 - 1];
 
@@ -112,6 +116,7 @@ public class TreasureChestDropScript : MonoBehaviour
 
         //サブステ3
         sofviData.buffSubstatus3 = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.POWER, (float)SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA);
+        //sofviData.buffSubstatus3 = (SoftVinilData.BUFFSTATUSNUM)Random.Range((float)SoftVinilData.BUFFSTATUSNUM.POWER, (float)SoftVinilData.BUFFSTATUSNUM.SKILL_POWER_MULTIPLIER);
         //サブステ3 　追加値
         sofviData.BuffSubParameter3 = setRarityStatus[(int)sofviData.rarity - 1][(int)sofviData.buffSubstatus3 - 1];
 

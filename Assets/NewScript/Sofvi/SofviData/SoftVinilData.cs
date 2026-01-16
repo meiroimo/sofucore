@@ -44,6 +44,9 @@ public class SoftVinilData
         SKILL_CHARGE,
         SUTAMINA_RECHARGE_SPEED,
         MAXSUTAMINA,
+        ATTACK_RANGE,
+        AVOIDANCE_DISTANCE,
+        SKILL_POWER_MULTIPLIER,
     }
     public enum Raritynum
     {

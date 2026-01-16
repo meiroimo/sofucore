@@ -10,17 +10,17 @@ public class PlayerRunState : PlayerState
 
     public PlayerRunState(PlayerController player) : base(player) 
     {
-        runSpeed = player.moveForce * 1.6f;//’Êí‚æ‚è60%‘¬‚­
+        runSpeed = player.moveForce * 2.0f;
         player.CurrentMoveSpeed = runSpeed;
     }
 
     public override void Enter()
     {
-        if (!player.TakeAvoid(5))
-        {
-            player.ChangeState(new PlayerMoveState(player));
-            return;
-        }
+        //if (!player.TakeAvoid(100))
+        //{
+        //    player.ChangeState(new PlayerMoveState(player));
+        //    return;
+        //}
         player.PlayerMotionScript.runMotion(true);
         player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.SMOKE);
         player.SeBox.PlayPlayerSE(PlayerSEBox.SENAME.MOVE);
@@ -34,7 +34,7 @@ public class PlayerRunState : PlayerState
         if (Time.time > nextStaminaDecreaseTime)
         {
             nextStaminaDecreaseTime = Time.time + staminaDecrease;
-            if (!player.TakeAvoid(5))
+            if (!player.TakeAvoid(100))
             {
                 player.ChangeState(new PlayerMoveState(player));
                 return;

@@ -256,7 +256,7 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// プレイヤーの攻撃関数
     /// </summary>
-    public void PlayerLAttack()
+    public void PlayerLAttack(bool isSkill = false)
     {
         PlayerCurrentDirection();
 
@@ -279,7 +279,7 @@ public class PlayerController : MonoBehaviour
 
             if(distance < closeHitRadius)
             {
-                HitEnemy(col);
+                HitEnemy(col, isSkill);
                 continue;
             }
 
@@ -292,7 +292,7 @@ public class PlayerController : MonoBehaviour
             float angle = Vector3.Angle(forward, dirToTarget);
             if (angle > attackAngle / 2f) continue;
 
-            HitEnemy(col);
+            HitEnemy(col, isSkill);
         }
     }
 
@@ -300,7 +300,7 @@ public class PlayerController : MonoBehaviour
     /// どの種類の敵に当たったか
     /// </summary>
     /// <param name="col"></param>
-    void HitEnemy(Collider col)
+    void HitEnemy(Collider col, bool isSkill)
     {
         //out:付けた引数で指定した変数はメソッド内で必ず結果が入る
         if (col.TryGetComponent(out EnemyController enemy))
@@ -308,7 +308,7 @@ public class PlayerController : MonoBehaviour
             _seBox.PlayPlayerSE(PlayerSEBox.SENAME.HIT);
             Vector3 pos = enemy.transform.position + Vector3.up * 1.5f;
             DamageNumberController.Instance.SpawnDamage(Attack_Power, pos, new Color(255,216,0));
-            enemy.OnHit(this);
+            enemy.OnHit(this, isSkill);
         }
         else if(col.TryGetComponent(out BulletEnemyController bullet))
         {

@@ -17,7 +17,7 @@ public class StaminaSliderScript : MonoBehaviour
 
     private float nextStaminaDecreaseTime;
     private float staminaDecrease = 1;
-
+    float staminaHeal;
 
     public void Init()
     {
@@ -27,6 +27,8 @@ public class StaminaSliderScript : MonoBehaviour
         nowStamina = maxStamina;
         SetStaminaUI();
         setStaminaText();
+        staminaHeal = maxStamina / 10.0f / 60.0f;
+
         //InvokeRepeating("ƒƒ\ƒbƒh–¼", ŠJŽn‚Ü‚Å‚Ì’x‰„ŽžŠÔ, ŒJ‚è•Ô‚µŠÔŠu);
         //InvokeRepeating(nameof(HealStamina), 1.0f, 1.0f);
 
@@ -85,12 +87,13 @@ public class StaminaSliderScript : MonoBehaviour
         {
             nextStaminaDecreaseTime = Time.time + staminaDecrease;
             float currentStamina = GetNowStamina();
-            currentStamina += playerStatus_Script.player_stamina_recovery_speed;
+            currentStamina += staminaHeal;
             if (currentStamina > maxStamina)
             {
                 currentStamina = maxStamina;
             }
             SetNowStamina(currentStamina);
         }
+
     }
 }

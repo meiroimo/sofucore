@@ -3063,6 +3063,8 @@ MonoBehaviour:
     m_Bits: 128
   checkRadius: 1
   maxSpawnTries: 10
+  enemyMoveSpeedRate: 1
+  enemyAttackRate: 1
   isDropRate_max: 0
   isNomalDropRate_max: 0
   isRareDropRate_max: 0
@@ -3101,6 +3103,7 @@ MonoBehaviour:
   bossSpawnPoint: {fileID: 432022728}
   csvReader: {fileID: 353583777}
   bossTypeNo: 2
+  bossWarningUI: {fileID: 0}
   gameTimer: {fileID: 1159825470}
 --- !u!114 &1814842751
 MonoBehaviour:
@@ -3694,6 +3697,10 @@ PrefabInstance:
       propertyPath: segments
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 7963749435448190190, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 1016606785}
     - target: {fileID: 8398801253528264856, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
       propertyPath: staminaSlider
       value: 
@@ -3908,6 +3915,10 @@ PrefabInstance:
       propertyPath: EnemySpawnerSc
       value: 
       objectReference: {fileID: 1814842748}
+    - target: {fileID: 3101760350300569669, guid: 2353460912ea6a84392aa33975dd759d, type: 3}
+      propertyPath: m_IsOn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3784380963106095245, guid: 2353460912ea6a84392aa33975dd759d, type: 3}
       propertyPath: m_Group
       value: 

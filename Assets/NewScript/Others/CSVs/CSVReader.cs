@@ -50,7 +50,10 @@ public class CSVReader : MonoBehaviour
         D_MAX_SUTAMINA,
         D_ATTACK_POWER,
         D_SKILL_CHARGE,
-        D_SUTAMINA_RECHARGE
+        D_SUTAMINA_RECHARGE,
+        D_ATTACK_RANGE,
+        D_AVOIDANCE_DISTANCE,
+        D_SKILL_POWER_MULTIPLIER
     }
 
     /// <summary>
@@ -109,7 +112,12 @@ public class CSVReader : MonoBehaviour
         playerStatus_Script.default_player_Attack_Power = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_ATTACK_POWER]);
         playerStatus_Script.default_player_Skill_Charge = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_SKILL_CHARGE]);
         playerStatus_Script.default_player_stamina_recovery_speed = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_SUTAMINA_RECHARGE]);
+        playerStatus_Script.default_player_Attack_Range = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_ATTACK_RANGE]);
+        playerStatus_Script.default_player_Avoidance_Distance = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_AVOIDANCE_DISTANCE]);
+        playerStatus_Script.default_player_Skill_Power_Multiplier = float.Parse(playerStatusDatas[playerNo][(int)CSVPlayerStatus.D_SKILL_POWER_MULTIPLIER]);
+
     }
+
 
 
     public void LoadingEnemyStatus(int typeNo)

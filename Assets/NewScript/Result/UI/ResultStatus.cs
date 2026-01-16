@@ -34,9 +34,9 @@ public class ResultStatus : MonoBehaviour
             "攻撃力: ",
             "体力: ",
             "スピード: ",
-            "スタミナ: ",
+            "回避距離: ",
             "攻撃範囲: ",
-            "スキルチャージ: ",
+            "スキル威力倍率: ",
             "倒した敵の数",
             "入手したソフビの数"
             // 必要に応じて他のステータス名もここに追加
@@ -47,9 +47,9 @@ public class ResultStatus : MonoBehaviour
             PlayerStatusCache.lastattackPower,
             PlayerStatusCache.lastmaxHealth,
             PlayerStatusCache.lastspeed,
-            PlayerStatusCache.lastMaxSutamina,
+            PlayerStatusCache.lastAvoidance_Distance,
             PlayerStatusCache.lastAttack_Range,
-            PlayerStatusCache.lastSkill_Charge,
+            PlayerStatusCache.lastSkill_Power_Multiplier,
             PlayerStatusCache.enemy_Defats,
             PlayerStatusCache.catchSofviCount
             // 必要に応じて他のデータも追加
@@ -61,13 +61,13 @@ public class ResultStatus : MonoBehaviour
             "",
             "",
             "",
-            "%",
-            "s",
+            "",
+            "",
             "体",
             "個"
         };
 
-        for (int i = 0; i < statusTexts.Length && i < labels.Length; i++)
+        for (int i = 0; i < statusTexts.Length && i < values.Length; i++)
         {
             //statusTexts[i].text = labels[i] + values[i].ToString("F0") + unit[i];
             statusTexts[i].text = values[i].ToString("F0") + unit[i];

@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [Header("移動速度")]
     public float moveForce = 10f;//移動速度
     public float rotationSpeed = 10f;
+    private float attackPowerSpeedMultiplier = 1.2f;//スキル攻撃倍率
 
     private float comboInputWindow = 0.6f; //次の攻撃を受け付ける猶予時間
     private bool receivedNextAttack = false;
@@ -93,6 +94,7 @@ public class PlayerController : MonoBehaviour
     public float CurrentMoveSpeed { get => currentMoveSpeed; set => currentMoveSpeed = value; }
     public float AttackRadius { get => attackRadius; set => attackRadius = value; }
     public float AttackAngle { get => attackAngle; set => attackAngle = value; }
+    public float AttackPowerSpeedMultiplier { get => attackPowerSpeedMultiplier; set => attackPowerSpeedMultiplier = value; }
     #endregion
     //ゲッター・セッター
 

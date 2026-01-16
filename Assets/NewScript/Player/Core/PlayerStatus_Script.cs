@@ -13,6 +13,7 @@ public class PlayerStatus_Script : MonoBehaviour
     [Tooltip("スキルチャージ(毎秒)")]    public float player_Skill_Charge;
     [Tooltip("攻撃範囲")]                public float player_Attack_Range;
     [Tooltip("回避距離")]                public float player_Avoidance_Distance;
+    [Tooltip("スキル威力倍率")]          public float player_Skill_Power_Multiplier;
     //使ってない
    
     [Header("初期ステータス"), 
@@ -25,6 +26,7 @@ public class PlayerStatus_Script : MonoBehaviour
     [Tooltip("初期スキルチャージ(毎秒)")]    public float default_player_Skill_Charge;
     [Tooltip("初期攻撃範囲")]                public float default_player_Attack_Range;
     [Tooltip("初期回避距離")]                public float default_player_Avoidance_Distance;
+    [Tooltip("初期スキル威力倍率")]          public float default_player_Skill_Power_Multiplier;
 
     //使ってない
     [Header("追加ステータス"), 
@@ -37,6 +39,7 @@ public class PlayerStatus_Script : MonoBehaviour
     [Tooltip("追加スキルチャージ(毎秒)")]    public float add_Player_Skill_Charge = 0;
     [Tooltip("追加攻撃範囲")]                public float add_player_Attack_Range = 0;
     [Tooltip("追加回避距離")]                public float add_player_Avoidance_Distance = 0;
+    [Tooltip("追加スキル威力倍率")]          public float add_player_Skill_Power_Multiplier = 0;
 
 
     //使ってない
@@ -70,6 +73,7 @@ public class PlayerStatus_Script : MonoBehaviour
         player_Skill_Charge             = default_player_Skill_Charge           + add_Player_Skill_Charge;
         player_Attack_Range             = default_player_Attack_Range           + add_player_Attack_Range;
         player_Avoidance_Distance       = default_player_Avoidance_Distance     + add_player_Avoidance_Distance;
+        player_Skill_Power_Multiplier   = default_player_Skill_Power_Multiplier + add_player_Skill_Power_Multiplier;
         //使ってない
       
     }

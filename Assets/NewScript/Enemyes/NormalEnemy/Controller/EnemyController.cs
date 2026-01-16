@@ -156,7 +156,14 @@ public class EnemyController : MonoBehaviour
         Knockback(player.transform.position, isSkill);
         agent.ResetPath();   //ˆÚ“®‚ğ‘¦’â~ ResetPath:’â~
         ChangeState(null);   //ó‘Ô‚ğˆê’U‰ğœi‚à‚µ‚­‚Íê—p‚ÌHitState‚ÉØ‚è‘Ö‚¦j
-        enemyHealth.EnemtTakeDamage((int)_player.Attack_Power);
+        if(isSkill)
+        {
+            enemyHealth.EnemtTakeDamage((int)_player.Attack_Power * (int)_player.AttackPowerSpeedMultiplier);
+        }
+        else
+        {
+            enemyHealth.EnemtTakeDamage((int)_player.Attack_Power);
+        }
         Debug.Log((int)_player.Attack_Power);
 
         //ˆê’èŠÔŒã‚ÉˆÚ“®ÄŠJ

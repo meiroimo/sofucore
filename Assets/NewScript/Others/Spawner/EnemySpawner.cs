@@ -35,6 +35,17 @@ public class EnemySpawner : MonoBehaviour
     private int currentEnemyCount = 0;
     private CSVReader csvReader;
 
+    [SerializeField, Header("デバック用")]
+    public bool isDropRate_max;
+    public bool isNomalDropRate_max;
+    public bool isRareDropRate_max;
+    public bool isSuparRareDropRate_max;
+    int defaultParamertar_drop;
+    int defaultParamertar_dropNomal;
+    int defaultParamertar_dropRare;
+    int defaultParamertar_dropSuperRare;
+
+
     void Start()
     {
         // CSVReaderを探す
@@ -46,6 +57,7 @@ public class EnemySpawner : MonoBehaviour
         }
         csvReader.SetFinalEnemyStatusScript(this);
         csvReader.LoadingEnemyFinalStatus(2);
+
     }
 
     private void Update()
@@ -56,7 +68,45 @@ public class EnemySpawner : MonoBehaviour
             nextSpawnTime = Time.time + secondsBetweenSpawnsTime;
             SpawnEnemyWave();
         }
+
     }
+
+    public void DebugMode(TreasureChestDropScript　dropSc)
+    {
+        if (isDropRate_max && dropSc.DropRate != 100)
+        {
+            dropSc.DropRate = 100;
+            Debug.Log("ドロップ率最大" + dropSc.DropRate);
+        }
+        if (isNomalDropRate_max && dropSc.RarityRate_nomal != 100 && !isRareDropRate_max && !isSuparRareDropRate_max)
+        {
+          
+            dropSc.RarityRate_nomal = 100;
+            dropSc.RarityRate_rare = 0; 
+            dropSc.RarityRate_suparrare = 0;
+
+            Debug.Log("ノーマルのみドロップ");
+
+        }
+        if (isRareDropRate_max && dropSc.RarityRate_rare != 100 && !isNomalDropRate_max && !isSuparRareDropRate_max)
+        {
+            dropSc.RarityRate_nomal = 0;
+            dropSc.RarityRate_rare = 100;
+            dropSc.RarityRate_suparrare = 0;
+            Debug.Log("レアのみドロップ");
+
+        }
+        if (isSuparRareDropRate_max && dropSc.RarityRate_suparrare != 100 && !isRareDropRate_max && !isNomalDropRate_max)
+        {
+            dropSc.RarityRate_nomal = 0;
+            dropSc.RarityRate_rare = 0;
+            dropSc.RarityRate_suparrare = 100;
+            Debug.Log("スーパーレアのみドロップ");
+        }
+
+
+    }
+
 
     /// <summary>
     /// 一度に複数の敵を出す（ウェーブ生成）
@@ -113,6 +163,7 @@ public class EnemySpawner : MonoBehaviour
             float middleDrop = Mathf.Lerp(originalDropRate, 99, d);
             treasureChestDropScript.DropRate = (int)Mathf.Round(middleDrop);
             Debug.Log(middleDrop);
+             DebugMode(treasureChestDropScript);//デバック用
 
         }
 

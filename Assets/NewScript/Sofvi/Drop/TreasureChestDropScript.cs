@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 using static SoftVinilData;
@@ -26,7 +27,7 @@ public class TreasureChestDropScript : MonoBehaviour
     int dropRate;
 
     [SerializeField, Header("レアリティ割合 %で入力　レアリティ高い順で入れる")]
-    int[] rarityRate;
+     int[] rarityRate;
 
 
     //追加する値　ステータスの順番は softVinylのBUFFSTATUSNUM enumの順でいれる
@@ -40,16 +41,25 @@ public class TreasureChestDropScript : MonoBehaviour
 
     public int DropRate { get => dropRate; set => dropRate = value; }
 
+
+    public int RarityRate_nomal { get => rarityRate[0]; set => rarityRate[0] = value; }
+    public int RarityRate_rare { get => rarityRate[1]; set => rarityRate[1] = value; }
+    public int RarityRate_suparrare { get => rarityRate[2]; set => rarityRate[2] = value; }
+
+
+
+
+
     // SoftVinilData sofviData;
 
 
     void Start()
     {
+
     }
 
     void Update()
     {
-        
     }
 
     public void Drop()
@@ -57,7 +67,7 @@ public class TreasureChestDropScript : MonoBehaviour
         int tmp = Random.Range(0, 100);
 
         if (dropRate < tmp) //落ちるか判定
-        { 
+        {
             DrapHealItem();
             return;
         }
@@ -78,7 +88,7 @@ public class TreasureChestDropScript : MonoBehaviour
                 }
                 droppedItem.GetComponent<softVinyl>().SofviData.rarity = (SoftVinilData.Raritynum)(i+1);//自分のレア度を記憶
                 SetStatusRandom(droppedItem.GetComponent<softVinyl>().SofviData);
-               // Debug.Log((SoftVinilData.Raritynum)(i + 1));
+                Debug.Log("");
 
                 droppedItem.GetComponent<softVinyl>().SofviData.sofvimodel = (SoftVinilData.SOFVINUMBER)(i + 1);
 
@@ -146,4 +156,5 @@ public class TreasureChestDropScript : MonoBehaviour
         GameObject healItemOBJ = Instantiate(healOBJ, dropPosition, Quaternion.identity); // ここで位置を指定して生成
 
     }
+
 }

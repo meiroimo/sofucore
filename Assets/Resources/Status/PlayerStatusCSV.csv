@@ -1,2 +1,2 @@
-,name,default_HitPoint,default_Stamina,default_Attack,default_skillcharge,default_Stamina_Recharge_Speed,default_Attack_Range
-1,ƒlƒR‰öb,500,500,10,10,3,120
+,name,default_HitPoint,default_Stamina,default_Attack,default_skillcharge,default_Stamina_Recharge_Speed,default_Attack_Range,default_Avoidance_Distance
+1,ƒlƒR‰öb,500,500,10,10,3,120,25

@@ -27,7 +27,7 @@ public class PlayerSkillSlider : MonoBehaviour
         Debug.Log("èâä˙íl" +  playerStatus_Script.default_player_Skill_Point);
         maxSkillPoint =100;
         nowSkillPoint = maxSkillPoint;
-        skillChargePoint = playerStatus_Script.default_player_Skill_Charge;
+        skillChargePoint = 10;
 
         isSkillCharge = false;
         setNowPoint(1);
@@ -38,7 +38,7 @@ public class PlayerSkillSlider : MonoBehaviour
 
     void Update()
     {
-        skillChargePoint = playerStatus_Script.player_Skill_Charge;
+        skillChargePoint = 10;
         if (!isSkillCharge) return;
         skillPointUICharge();
     }

@@ -37,6 +37,12 @@ public class SelectText : MonoBehaviour
                 return "<color=#ffff00>スタミナ</color>";
             case SoftVinilData.BUFFSTATUSNUM.SUTAMINA_RECHARGE_SPEED:
                 return "<color=#ffff00>スタミナ回復速度</color>";
+            //case SoftVinilData.BUFFSTATUSNUM.ATTACK_RANGE:
+            //    return "<color=#ffff00>攻撃範囲</color>";
+            //case SoftVinilData.BUFFSTATUSNUM.AVOIDANCE_DISTANCE:
+            //    return "<color=#ffff00>回避距離</color>";
+            //case SoftVinilData.BUFFSTATUSNUM.SKILL_POWER_MULTIPLIER:
+            //    return "<color=#ffff00>スキル威力倍率</color>";
             case SoftVinilData.BUFFSTATUSNUM.NULL:
             default:
                 return null; // ← 表示しない

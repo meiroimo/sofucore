@@ -220,9 +220,18 @@ public class SetSofviManeger : MonoBehaviour
 
             case SoftVinilData.BUFFSTATUSNUM.SUTAMINA_RECHARGE_SPEED:
                 PlayerStatus_Script.add_player_stamina_recovery_speed += value; break;
+
             case SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA:
                 PlayerStatus_Script.add_Player_MaxSutamina += value; break;
 
+            //case SoftVinilData.BUFFSTATUSNUM.ATTACK_RANGE:
+            //    PlayerStatus_Script.add_Player_MaxSutamina += value; break;
+
+            //case SoftVinilData.BUFFSTATUSNUM.AVOIDANCE_DISTANCE:
+            //    PlayerStatus_Script.add_Player_MaxSutamina += value; break;
+
+            //case SoftVinilData.BUFFSTATUSNUM.SKILL_POWER_MULTIPLIER:
+            //    PlayerStatus_Script.add_Player_MaxSutamina += value; break;
         }
     }
 
@@ -235,6 +244,9 @@ public class SetSofviManeger : MonoBehaviour
         PlayerStatus_Script.add_player_stamina_recovery_speed = 0;
         PlayerStatus_Script.add_Player_MaxSutamina = 0;
         PlayerStatus_Script.add_Player_Skill_Charge = 0;
+        PlayerStatus_Script.add_player_Skill_Power_Multiplier = 0;
+        PlayerStatus_Script.add_player_Attack_Range = 0;
+        PlayerStatus_Script.add_player_Avoidance_Distance = 0;
 
         for (int i = 0; i < MAXSETPOSITION; i++)
         {

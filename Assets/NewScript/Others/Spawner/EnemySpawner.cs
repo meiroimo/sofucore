@@ -272,7 +272,6 @@ public class EnemySpawner : MonoBehaviour
         status.enemy_Defense = Mathf.Round(middleDef);
         status.enemy_Speed = Mathf.Round(middleSpeed * enemyMoveSpeedRate);
 
-        Debug.LogWarning(enemyMoveSpeedRate);
     }
 
 }

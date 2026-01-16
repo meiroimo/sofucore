@@ -27,8 +27,7 @@ public class StaminaSliderScript : MonoBehaviour
         nowStamina = maxStamina;
         SetStaminaUI();
         setStaminaText();
-        staminaHeal = maxStamina / 10.0f / 60.0f;
-
+        staminaHeal = maxStamina / 10.0f;
         //InvokeRepeating("メソッド名", 開始までの遅延時間, 繰り返し間隔);
         //InvokeRepeating(nameof(HealStamina), 1.0f, 1.0f);
 

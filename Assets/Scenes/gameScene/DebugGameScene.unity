@@ -503,6 +503,10 @@ PrefabInstance:
       propertyPath: canvasGroup
       value: 
       objectReference: {fileID: 374587704}
+    - target: {fileID: 7221409909361184986, guid: 49cb2dac7c42c4144ba96e4352536b64, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1466,6 +1470,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 954538031}
   m_CullTransparentMesh: 1
+--- !u!114 &955024672 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3636981032709216596, guid: 2353460912ea6a84392aa33975dd759d, type: 3}
+  m_PrefabInstance: {fileID: 1436818921101604880}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1015764696
 GameObject:
   m_ObjectHideFlags: 0
@@ -3754,6 +3769,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1170330622}
     - target: {fileID: 5016928155971242367, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
+      propertyPath: debugText
+      value: 
+      objectReference: {fileID: 955024672}
+    - target: {fileID: 5016928155971242367, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
       propertyPath: statusLoad
       value: 
       objectReference: {fileID: 353583777}
@@ -3828,6 +3847,10 @@ PrefabInstance:
     - target: {fileID: 7963749435448190190, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
       propertyPath: segments
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963749435448190190, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
+      propertyPath: sideLength
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7963749435448190190, guid: f8e3db48b16ca8a44b2b6608f6e31c16, type: 3}
       propertyPath: playerController
@@ -4047,9 +4070,25 @@ PrefabInstance:
       propertyPath: EnemySpawnerSc
       value: 
       objectReference: {fileID: 1814842748}
+    - target: {fileID: 2931913323290068228, guid: 2353460912ea6a84392aa33975dd759d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3101760350300569669, guid: 2353460912ea6a84392aa33975dd759d, type: 3}
       propertyPath: m_IsOn
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636981032709216596, guid: 2353460912ea6a84392aa33975dd759d, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636981032709216596, guid: 2353460912ea6a84392aa33975dd759d, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636981032709216596, guid: 2353460912ea6a84392aa33975dd759d, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3784380963106095245, guid: 2353460912ea6a84392aa33975dd759d, type: 3}
       propertyPath: m_Group

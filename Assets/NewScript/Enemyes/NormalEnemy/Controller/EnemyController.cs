@@ -159,6 +159,7 @@ public class EnemyController : MonoBehaviour
         if(isSkill)
         {
             enemyHealth.EnemtTakeDamage((int)_player.Attack_Power * (int)_player.AttackPowerSpeedMultiplier);
+
         }
         else
         {

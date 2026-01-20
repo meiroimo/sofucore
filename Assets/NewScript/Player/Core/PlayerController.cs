@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public float moveForce = 10f;//ˆÚ“®‘¬“x
     public float rotationSpeed = 10f;
     private float attackPowerSpeedMultiplier = 1.2f;//ƒXƒLƒ‹UŒ‚”{—¦
+    public float player_Avoidance_Distance = 25.0f;//‰ñ”ğ‹——£
+
 
     private float comboInputWindow = 0.6f; //Ÿ‚ÌUŒ‚‚ğó‚¯•t‚¯‚é—P—\ŠÔ
     private bool receivedNextAttack = false;
@@ -168,9 +170,18 @@ public class PlayerController : MonoBehaviour
 
     public void statusupdate()
     {
-        attack_Power = playerStatus_Script.player_Attack_Power;
         hpSliderScript.MaxHealthUpdate();
         staminaSliderScript.MaxStaminaUpdate();
+
+        attack_Power = playerStatus_Script.player_Attack_Power;
+        player_Avoidance_Distance = playerStatus_Script.player_Avoidance_Distance;
+        AttackPowerSpeedMultiplier = playerStatus_Script.player_Skill_Power_Multiplier;
+        //UŒ‚”ÍˆÍ‚Ì”¼Œa‚Ì‹­‰»@UŒ‚”ÍˆÍ‚¢‚¶‚é
+        //AttackAngle = playerStatus_Script.player_Attack_Range;
+        //UŒ‚”ÍˆÍ‚Ì’·‚³‚Ì‹­‰»
+        AttackRadius = (playerStatus_Script.player_Attack_Range/100)*4.16f;
+
+        //  AttackRadius = AttackRadius;
         //Debug.Log("ƒXƒe[ƒ^ƒX‚ÌXV");
         //Debug.Log(playerStatus_Script.player_Attack_Power);
 
@@ -252,7 +263,7 @@ public class PlayerController : MonoBehaviour
         Rigid.velocity = velocity;
     }
 
-    private float attackRadius = 5f;//ŠO‘¤
+    private float attackRadius = 5.0f;//ŠO‘¤  
     private float attackAngle = 120f;//“à‘¤
     private float attackInnerRadius = 1f;
     float closeHitRadius = 1.5f;
@@ -311,7 +322,8 @@ public class PlayerController : MonoBehaviour
         {
             _seBox.PlayPlayerSE(PlayerSEBox.SENAME.HIT);
             Vector3 pos = enemy.transform.position + Vector3.up * 1.5f;
-            DamageNumberController.Instance.SpawnDamage(Attack_Power, pos, new Color(255,216,0));
+            if(isSkill) DamageNumberController.Instance.SpawnDamage(Attack_Power* AttackPowerSpeedMultiplier, pos, new Color(255, 216, 0));
+            else DamageNumberController.Instance.SpawnDamage(Attack_Power, pos, new Color(255,216,0));
             enemy.OnHit(this, isSkill);
         }
         else if(col.TryGetComponent(out BulletEnemyController bullet))

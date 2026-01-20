@@ -29,21 +29,24 @@ public class SelectText : MonoBehaviour
         {
             case SoftVinilData.BUFFSTATUSNUM.POWER:
                 return "<color=#ff3355>攻撃力</color>";
-            case SoftVinilData.BUFFSTATUSNUM.SKILL_CHARGE:
-                return "<color=#3377ff>スキルチャージ速度</color>";
             case SoftVinilData.BUFFSTATUSNUM.MAXHP:
                 return "<color=#33ff33>体力</color>";
+            case SoftVinilData.BUFFSTATUSNUM.ATTACK_RANGE:
+                return "<color=#ffff00>攻撃範囲</color>";
+            case SoftVinilData.BUFFSTATUSNUM.AVOIDANCE_DISTANCE:
+                return "<color=#ffff00>回避距離</color>";
+            case SoftVinilData.BUFFSTATUSNUM.SKILL_POWER_MULTIPLIER:
+                return "<color=#ffff00>スキル威力倍率</color>";
+            case SoftVinilData.BUFFSTATUSNUM.NULL:
+            //使ってないステータス
+            case SoftVinilData.BUFFSTATUSNUM.SKILL_CHARGE:
+                return "<color=#3377ff>スキルチャージ速度</color>";
             case SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA:
                 return "<color=#ffff00>スタミナ</color>";
             case SoftVinilData.BUFFSTATUSNUM.SUTAMINA_RECHARGE_SPEED:
                 return "<color=#ffff00>スタミナ回復速度</color>";
-            //case SoftVinilData.BUFFSTATUSNUM.ATTACK_RANGE:
-            //    return "<color=#ffff00>攻撃範囲</color>";
-            //case SoftVinilData.BUFFSTATUSNUM.AVOIDANCE_DISTANCE:
-            //    return "<color=#ffff00>回避距離</color>";
-            //case SoftVinilData.BUFFSTATUSNUM.SKILL_POWER_MULTIPLIER:
-            //    return "<color=#ffff00>スキル威力倍率</color>";
-            case SoftVinilData.BUFFSTATUSNUM.NULL:
+
+
             default:
                 return null; // ← 表示しない
         }

@@ -42,7 +42,7 @@ public class BossWarningUI : MonoBehaviour
         canvasGroup.alpha = 0f;
         warningUI.transform.localScale = startScale;
 
-        // ① フェードイン＋拡大
+        //フェードイン＋拡大
         float t = 0f;
         while (t < fadeInTime)
         {
@@ -56,10 +56,10 @@ public class BossWarningUI : MonoBehaviour
             yield return null;
         }
 
-        // ② 表示キープ
+        //表示キープ
         yield return new WaitForSeconds(stayTime);
 
-        // ③ フェードアウト
+        //フェードアウト
         t = 0f;
         while (t < fadeOutTime)
         {
@@ -70,7 +70,7 @@ public class BossWarningUI : MonoBehaviour
             yield return null;
         }
 
-        // ④ 完全に消す
+        //完全に消す
         warningUI.SetActive(false);
     }
 }

@@ -499,6 +499,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6570325608875268528, guid: 49cb2dac7c42c4144ba96e4352536b64, type: 3}
+      propertyPath: canvasGroup
+      value: 
+      objectReference: {fileID: 374587704}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -559,17 +563,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &374587703 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7445586740945078704, guid: 49cb2dac7c42c4144ba96e4352536b64, type: 3}
-  m_PrefabInstance: {fileID: 314150436}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 314150437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd3eeb719fee3954493c51840c55b23e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!225 &374587704
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1255,6 +1248,17 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 439055926229e8c4d909b927cabceab0, type: 2}
   m_BuildHeightMesh: 0
+--- !u!114 &740119506 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6570325608875268528, guid: 49cb2dac7c42c4144ba96e4352536b64, type: 3}
+  m_PrefabInstance: {fileID: 314150436}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd3eeb719fee3954493c51840c55b23e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &761783955 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6581994499314108105, guid: 0291551f08812734ca78600b7f6b3211, type: 3}
@@ -1960,7 +1964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48410316737e22c479014bed518f434a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTime: 12
+  spawnTime: 120
   timerText: {fileID: 312383595}
 --- !u!4 &1159825471
 Transform:
@@ -3231,7 +3235,7 @@ MonoBehaviour:
   bossSpawnPoint: {fileID: 432022728}
   csvReader: {fileID: 353583777}
   bossTypeNo: 2
-  bossWarningUI: {fileID: 374587703}
+  bossWarningUI: {fileID: 740119506}
   gameTimer: {fileID: 1159825470}
 --- !u!114 &1814842751
 MonoBehaviour:

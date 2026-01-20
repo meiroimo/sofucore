@@ -17,6 +17,7 @@ public class EnemyHealthScript : MonoBehaviour
     private Color originalColor;
     private Material enemyMaterial;
 
+    public EnemySEBox enemySEBox;
     // 死亡イベント（他スクリプトと連携できる）
     public event System.Action OnDeath;
 
@@ -76,6 +77,7 @@ public class EnemyHealthScript : MonoBehaviour
     private void Die()
     {
         Debug.Log($"{gameObject.name} は倒された！");
+        enemySEBox.PlayEnemyDethSE();
         OnDeath?.Invoke(); // 死亡イベントを発火（スコア加算やエフェクト再生など）
 
         //rena追加

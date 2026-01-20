@@ -20,7 +20,7 @@ public class PlayerSkillSlider : MonoBehaviour
 
     public void Init()
     {
-        Application.targetFrameRate = 30;
+        Application.targetFrameRate = 60;
 
         playerStatus_Script = GetComponent<PlayerStatus_Script>();
         seBox = GetComponent<PlayerSEBox>();

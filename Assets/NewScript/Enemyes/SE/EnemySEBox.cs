@@ -7,6 +7,9 @@ public class EnemySEBox : MonoBehaviour
     [Header("エネミーSEの入れ物")]
     public AudioClip[] Enemy_audioClips;
 
+    [Header("敵の死んだときのSE")]
+    public AudioClip[] Enemy_Deth_audioClips;
+
     public enum SENAME
     {
         ATTACK,
@@ -26,6 +29,14 @@ public class EnemySEBox : MonoBehaviour
         }
 
         EnemyAudioSource.PlayOneShot(Enemy_audioClips[index]);
+    }
+
+    public void PlayEnemyDethSE()
+    {
+        int tmp = Random.Range(0, Enemy_Deth_audioClips.Length);
+
+        EnemyAudioSource.PlayOneShot(Enemy_Deth_audioClips[tmp]);
+
     }
 
     public void StopEnemySE()

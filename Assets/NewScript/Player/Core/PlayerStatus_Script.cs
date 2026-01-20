@@ -6,16 +6,18 @@ public class PlayerStatus_Script : MonoBehaviour
 {
     [Header("ステータス"),
      Tooltip("最大体力")]                public float player_MaxHealth;
-    [Tooltip("スタミナ")]                public float player_MaxSutamina;
-    [Tooltip("スタミナ回復速度(毎秒)")]  public float player_stamina_recovery_speed;
     [Tooltip("攻撃力")]                  public float player_Attack_Power;
     [Tooltip("スキルポイント")]          public float player_Skill_Point;
-    [Tooltip("スキルチャージ(毎秒)")]    public float player_Skill_Charge;
+
     [Tooltip("攻撃範囲")]                public float player_Attack_Range;
     [Tooltip("回避距離")]                public float player_Avoidance_Distance;
     [Tooltip("スキル威力倍率")]          public float player_Skill_Power_Multiplier;
     //使ってない
-   
+    [Tooltip("スタミナ")] public float player_MaxSutamina;
+    [Tooltip("スタミナ回復速度(毎秒)")] public float player_stamina_recovery_speed;
+    [Tooltip("スキルチャージ(毎秒)")] public float player_Skill_Charge;
+
+
     [Header("初期ステータス"), 
      Tooltip("初期最大体力")]                public float default_player_MaxHealth;
     [Tooltip("初期スタミナ")]                public float default_player_MaxSutamina;

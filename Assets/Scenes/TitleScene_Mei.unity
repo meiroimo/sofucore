@@ -2396,9 +2396,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa810e932790214f985fde73ade2299, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallingPrefab: {fileID: 2128228563903435281, guid: e438d5b560e32a2459e6d81bbc863c88, type: 3}
-  spawnInterval: 1
-  spawnY: 8
+  fallingPrefabs:
+  - {fileID: 2128228563903435281, guid: e438d5b560e32a2459e6d81bbc863c88, type: 3}
+  - {fileID: 2128228563903435281, guid: dadd90ec6118a7e41bc5638acec1d5f9, type: 3}
+  - {fileID: 2128228563903435281, guid: decf6a785dc922f4eae4e65bbbfa02cf, type: 3}
+  spawnY: 9
   spawnXMin: -8
   spawnXMax: 8
   spawnIntervalMin: 0.5

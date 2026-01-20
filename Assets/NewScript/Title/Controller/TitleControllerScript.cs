@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using static TitleChangePanelScript;
 
 public class TitleControllerScript : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class TitleControllerScript : MonoBehaviour
     [SerializeField] private Button settingButton;//設定ボタン
     [SerializeField] private Button explanationButton;//遊び方ボタン
 
+    private TitleChangePanelScript changePanelScript;
+
     enum MouseClick
     {
         LEFT = 0,   //左クリック
@@ -25,6 +28,7 @@ public class TitleControllerScript : MonoBehaviour
     void Start()
     {
         if (!startOBJ.activeSelf) startOBJ.SetActive(true);//タイトル画面を付ける
+        changePanelScript = GetComponent<TitleChangePanelScript>();
 
     }
 
@@ -41,7 +45,8 @@ public class TitleControllerScript : MonoBehaviour
         // マウス左クリック
         if (Mouse.current?.leftButton.wasPressedThisFrame == true)
         {
-            startOBJ.SetActive(false);
+            changePanelScript.ChangeButtonPanel(1);
+            //startOBJ.SetActive(false);
             //StartCoroutine(SelectFirstButtonNextFrame(firstButton));
             return;
         }
@@ -51,7 +56,7 @@ public class TitleControllerScript : MonoBehaviour
             Keyboard.current?.spaceKey.wasPressedThisFrame == true ||
             Gamepad.current?.buttonSouth.wasPressedThisFrame == true) //Aボタン(PSなら×)
         {
-            startOBJ.SetActive(false);
+            changePanelScript.ChangeButtonPanel(1);
             //StartCoroutine(SelectFirstButtonNextFrame(firstButton));
             return;
         }

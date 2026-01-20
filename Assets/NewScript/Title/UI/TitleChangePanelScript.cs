@@ -7,8 +7,10 @@ public class TitleChangePanelScript : MonoBehaviour
 {
     [SerializeField, Header("それぞれのパネル")] GameObject[] changePanel;
 
+
     public enum PanelName
     {
+        START_PANEL,
         SELECT_PANEL,       //セレクト画面
         GAME_HOW_TO_PANEL,  //遊び方画面
         SETTING_PANEL,      //設定画面
@@ -17,8 +19,8 @@ public class TitleChangePanelScript : MonoBehaviour
 
     void Start()
     {
-        //セレクト画面を付けておく
-        ChangeButtonPanel((int)PanelName.SELECT_PANEL); 
+        
+        ChangeButtonPanel((int)PanelName.START_PANEL); 
     }
 
     //引数の値のパネルを付け、それ以外を消す

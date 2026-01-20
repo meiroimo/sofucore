@@ -40,12 +40,16 @@ public class SelectText : MonoBehaviour
             case SoftVinilData.BUFFSTATUSNUM.NULL:
             //使ってないステータス
             case SoftVinilData.BUFFSTATUSNUM.SKILL_CHARGE:
-                return "<color=#3377ff>スキルチャージ速度</color>";
-            case SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA:
-                return "<color=#ffff00>スタミナ</color>";
-            case SoftVinilData.BUFFSTATUSNUM.SUTAMINA_RECHARGE_SPEED:
-                return "<color=#ffff00>スタミナ回復速度</color>";
+                //return "<color=#3377ff>スキルチャージ速度</color>";
+                return null; // ← 表示しない
 
+            case SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA:
+                //return "<color=#ffff00>スタミナ</color>";
+                return null; // ← 表示しない
+
+            case SoftVinilData.BUFFSTATUSNUM.SUTAMINA_RECHARGE_SPEED:
+                //return "<color=#ffff00>スタミナ回復速度</color>";
+                return null; // ← 表示しない
 
             default:
                 return null; // ← 表示しない

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4924223112988946726}
   - component: {fileID: 4712954812806306046}
   m_Layer: 0
-  m_Name: FallingModel
+  m_Name: FallingModel 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 70824c5fc5aa00e44a459d9ac0be6feb, type: 2}
+  - {fileID: 2100000, guid: 0e7959ebf02aefe4187ab3a1ed7ac392, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

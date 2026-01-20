@@ -70,16 +70,20 @@ public class catchScript : MonoBehaviour
                             sofviSotrage.sofviStrageList[j] = SeveStorageSofviData;
                             //リストの何番目かを記録
                             sofviSotrage.sofviStrageList[j].ListNumber = j;
+
+                            catchSofvi[i]++;
+                            PlayerStatusCache.SaveCatchSofviCount();
+
+                            //カウントしたら消す
+                            Destroy(other.gameObject);
+
                             break;
                         }
                     }
                 }
-                catchSofvi[i]++;
-                PlayerStatusCache.SaveCatchSofviCount();
+                
             }
 
-            //カウントしたら消す
-            Destroy(other.gameObject);
         }
 
     }

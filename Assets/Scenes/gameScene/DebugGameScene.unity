@@ -419,6 +419,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossWarningUICanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5142913283729581613, guid: 49cb2dac7c42c4144ba96e4352536b64, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6196601607731407248, guid: 49cb2dac7c42c4144ba96e4352536b64, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -503,6 +507,10 @@ PrefabInstance:
       propertyPath: canvasGroup
       value: 
       objectReference: {fileID: 374587704}
+    - target: {fileID: 7221409909361184986, guid: 49cb2dac7c42c4144ba96e4352536b64, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4423,6 +4431,34 @@ PrefabInstance:
     - target: {fileID: 955213598520282569, guid: bc36d4f6187b0e746a2616415a281788, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021421223790586455, guid: bc36d4f6187b0e746a2616415a281788, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021421223790586455, guid: bc36d4f6187b0e746a2616415a281788, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021421223790586455, guid: bc36d4f6187b0e746a2616415a281788, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021421223790586455, guid: bc36d4f6187b0e746a2616415a281788, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021421223790586455, guid: bc36d4f6187b0e746a2616415a281788, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 275.76184
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021421223790586455, guid: bc36d4f6187b0e746a2616415a281788, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1188
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021421223790586455, guid: bc36d4f6187b0e746a2616415a281788, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 942
       objectReference: {fileID: 0}
     - target: {fileID: 1102737334587737383, guid: bc36d4f6187b0e746a2616415a281788, type: 3}
       propertyPath: m_AnchorMax.y

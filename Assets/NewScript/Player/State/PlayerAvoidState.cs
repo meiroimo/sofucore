@@ -17,7 +17,7 @@ public class PlayerAvoidState : PlayerState
 
     public override void Enter()
     {
-        if (!player.TakeAvoid(3))
+        if (!player.TakeAvoid(300))
         {
             player.ChangeState(new PlayerIdleState(player));
             return;

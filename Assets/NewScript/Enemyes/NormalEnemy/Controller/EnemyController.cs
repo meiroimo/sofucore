@@ -76,9 +76,11 @@ public class EnemyController : MonoBehaviour
 
     }
 
+
+
     void Update()
     {
-        Canvas.transform.LookAt(Camera.transform);
+        if(Camera != null) Canvas.transform.forward = Camera.transform.forward;
         currentState?.Update(this);
         //JudgementDrop();
     }
@@ -89,6 +91,8 @@ public class EnemyController : MonoBehaviour
         currentState = newState;
         currentState?.Enter(this);
     }
+
+
 
     //接触ダメージ用
     private int contactDamage = 2;

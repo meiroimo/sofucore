@@ -21,7 +21,7 @@ public class PlayerRunState : PlayerState
         //    player.ChangeState(new PlayerMoveState(player));
         //    return;
         //}
-        player.PlayerMotionScript.runMotion(true);
+        player.PlayerMotionScript.runMotion();
         player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.SMOKE);
         player.SeBox.PlayPlayerSE(PlayerSEBox.SENAME.MOVE);
     }
@@ -59,7 +59,7 @@ public class PlayerRunState : PlayerState
 
     public override void Exit()
     {
-        player.PlayerMotionScript.runMotion(false);
+        player.PlayerMotionScript.idleMotion();
         player.PlayerEffectScript.StopEffect((int)playerEffectScript.EffectName.SMOKE);
         player.SeBox.StopPlayerSE();
     }

@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     private PlayerSEBox _seBox;
     public playerMotionScript PlayerMotionScript;
     public GameObject footprintsOBJ;
-
+    public SpecialMoveEffectScript specialMoveEffectScript;
     private UIManager uIManager;
     private PlayPauseMenu pauseMenu;
 
@@ -133,7 +133,6 @@ public class PlayerController : MonoBehaviour
         inputActions.Player.Move.canceled += ctx => MoveInput = Vector2.zero;
         inputActions.Player.AttackDirection.performed += ctx => AttackStickInput = ctx.ReadValue<Vector2>();
         inputActions.Player.AttackDirection.canceled += ctx => AttackStickInput = Vector2.zero;
-        inputActions.Player.Avoid.performed += ctx => OnAvoid();
         //inputActions.Player.NomalAttack.performed += cxt => OnLightAttack();
         inputActions.Player.NomalAttack.performed += ctx =>
         {
@@ -145,6 +144,8 @@ public class PlayerController : MonoBehaviour
         inputActions.Player.BarettaAttack.performed += cxt => OnSkillAttack();
         inputActions.Player.Run.performed += ctx => isRunning = true;
         inputActions.Player.Run.canceled += ctx => isRunning = false;
+        inputActions.Player.Avoid.performed += ctx => OnAvoid();
+
         #endregion
         //InputSystem
 
@@ -186,7 +187,7 @@ public class PlayerController : MonoBehaviour
 
         if (hpSliderScript.GetNowHealth() <= 0)
         {
-            PlayerMotionScript.dethMotion(true);
+            PlayerMotionScript.dethMotion();
         }
     }
 
@@ -444,8 +445,9 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void OnLightAttack()
     {
+        return;
         if (!uIManager.SetUIFlg || pauseMenu.IsPaused) return;
-
+        if (isAvoid) return;
         // Idle’†–”‚ÍMove‚È‚çAttackOne‚Ö
         if (currentState is PlayerIdleState)
         {

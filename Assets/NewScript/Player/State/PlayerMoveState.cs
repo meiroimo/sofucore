@@ -12,7 +12,8 @@ public class PlayerMoveState : PlayerState
     public override void Enter()
     {
         player.CurrentMoveSpeed = player.moveForce;
-        player.PlayerMotionScript.runMotion(true);
+        player.PlayerMotionScript.runMotion();
+        player.PlayerMotionScript.isRunMotion(true);
 
         player.SeBox.PlayPlayerSE(PlayerSEBox.SENAME.MOVE);
     }
@@ -42,7 +43,8 @@ public class PlayerMoveState : PlayerState
 
     public override void Exit()
     {
-        player.PlayerMotionScript.runMotion(false);
+        player.PlayerMotionScript.idleMotion();
+        player.PlayerMotionScript.isRunMotion(false);
         player.SeBox.StopPlayerSE();
     }
 

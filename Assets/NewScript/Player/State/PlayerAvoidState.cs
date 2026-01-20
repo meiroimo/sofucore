@@ -50,10 +50,6 @@ public class PlayerAvoidState : PlayerState
             player.PlayerMotionScript.TrueBack();
         }
 
-
-        //x:-1　左　x:1　右　y:1　前　y:-1　後ろ
-        Debug.Log("値" + moveDir);
-
         //入力があればその方向、なければ前方
         //sqrMagnitude:平方根らしい
         if (moveDir.sqrMagnitude > 0.01f)
@@ -67,12 +63,15 @@ public class PlayerAvoidState : PlayerState
         }
         player.SeBox.PlayPlayerSE(PlayerSEBox.SENAME.AVOID);
         timer = 0f;
+
     }
 
     public override void Update()
     {
         timer += Time.deltaTime;
         player.MoveInstant(dodgeDirection * dodgeSpeed);
+        Debug.LogWarning(timer);
+
 
         if (timer < dodgeDuration)
         {
@@ -85,6 +84,7 @@ public class PlayerAvoidState : PlayerState
     }
 
     public override void Exit() {
+
         player.PlayerEffectScript.StopEffect((int)playerEffectScript.EffectName.AVOIDANCE);
         player.IsAvoid = false;
     }

@@ -15,7 +15,8 @@ public class AttackOneState : PlayerState
 
     public override void Enter()
     {
-        player.PlayerMotionScript.attackMotion(true);
+        if(player.IsAvoid)player.ChangeState(new PlayerAvoidState(player));
+        player.PlayerMotionScript.attackMotion();
         player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.SLASH);
         player.PlayerEffectScript.ChangeATKEffectColor((int)player.playerStatus_Script.add_Player_Attack_Power);
         player.ReceivedNextAttack = false;
@@ -49,7 +50,7 @@ public class AttackOneState : PlayerState
     public override void Exit()
     {
         player.IsAttack = false;
-        player.PlayerMotionScript.attackMotion(false);
+        player.PlayerMotionScript.idleMotion();
 
         player.PlayerEffectScript.StopEffect((int)playerEffectScript.EffectName.SLASH);
 

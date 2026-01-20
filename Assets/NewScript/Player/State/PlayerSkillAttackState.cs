@@ -31,7 +31,7 @@ public class PlayerSkillAttackState : PlayerState
         player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.AURA);
         attackCount = 0;
         timer = 0f;
-        player.PlayerMotionScript.ultMotion(true);
+        player.PlayerMotionScript.ultMotion();
 
     }
 
@@ -74,8 +74,9 @@ public class PlayerSkillAttackState : PlayerState
         //Debug.Log("Exited LightAttack State");
 
         //player.PlayerEffectScript.StopEffect((int)playerEffectScript.EffectName.AURA);
+        player.specialMoveEffectScript.StopAuraEffect();
         player.PlayerEffectScript.StopEffect((int)playerEffectScript.EffectName.SLASH);
-        player.PlayerMotionScript.ultMotion(false);
+        player.PlayerMotionScript.idleMotion();
 
 
     }

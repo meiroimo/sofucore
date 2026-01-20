@@ -12,51 +12,51 @@ public class playerMotionScript : MonoBehaviour
 
     void Update()
     {
-        
-    }
-    public void dethMotion(bool flag)
-    {
-        animator.SetBool("isDeth", flag);
-    }
-
-    public void attackMotion(bool flag)
-    {
-        animator.SetBool("isAttack", flag);
-    }
-    public void StopAttack()
-    {
-        animator.SetBool("isAttack", false);
 
     }
+    public void dethMotion()
+    {
+        animator.Play("deth");
+    }
 
-    public void runMotion(bool flag)
+    public void attackMotion()
+    {
+        animator.Play("attak");
+    }
+
+    public void runMotion()
+    {
+        animator.Play("walk");
+
+    }
+    public void isRunMotion(bool flag)
     {
         animator.SetBool("isWalk", flag);
+
     }
 
 
     public void TrueBack()
     {
-        animator.SetBool("isBack", true);
+        animator.SetBool("isWalk", false);
+        animator.Play("avoidance_back",0,0);
     }
 
     public void TrueFront()
     {
-        animator.SetBool("isFront", true);
+        animator.SetBool("isWalk", false);
+
+        animator.Play("avoidance_front",0,0);
     }
 
-    public void StopBack()
+    public void ultMotion()
     {
-        animator.SetBool("isBack", false);
+        animator.Play("ult");
     }
 
-    public void StopFront()
+    public void idleMotion()
     {
-        animator.SetBool("isFront", false);
-    }
+        animator.Play("Idol");
 
-    public void ultMotion(bool flag)
-    {
-        animator.SetBool("isUlt", flag);
     }
 }

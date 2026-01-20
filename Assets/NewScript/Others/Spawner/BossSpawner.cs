@@ -42,7 +42,7 @@ public class BossSpawner : MonoBehaviour
             bossWarningUI.Show();
         }
 
-        yield return new WaitForSeconds(bossWarningUI.displayTime);
+        yield return new WaitForSeconds(bossWarningUI.DisplayTime);
 
         GameObject boss = Instantiate(bossPrefab, bossSpawnPoint.position, bossSpawnPoint.rotation);
 

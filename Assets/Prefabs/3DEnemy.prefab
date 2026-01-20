@@ -183,10 +183,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 0
   enemyRenderer: {fileID: 2326972640027880198}
+  enemySEBox: {fileID: 1796146075026801919}
   dropScript: {fileID: 6581994499314108105}
   damageEffect: {fileID: 2521587283091839040}
   HPSlider: {fileID: 4685760299750107908}
-  damageTxt: {fileID: 2236445887612891399}
   softVinyldata: {fileID: 0}
 --- !u!114 &1796146075026801919
 MonoBehaviour:
@@ -203,6 +203,11 @@ MonoBehaviour:
   Enemy_audioClips:
   - {fileID: 8300000, guid: ded059219cd735c419d34754e3132b1e, type: 3}
   - {fileID: 8300000, guid: 79a7b9360af5c5d43875a269ba487364, type: 3}
+  Enemy_Deth_audioClips:
+  - {fileID: 8300000, guid: 6c9f3371a1ecbea4ba4b32ed611d92f1, type: 3}
+  - {fileID: 8300000, guid: 8bbdda34e57bddb49ba4b6e3c88d47d0, type: 3}
+  - {fileID: 8300000, guid: 3fd89d01e3feadc439799be81e8606bb, type: 3}
+  - {fileID: 8300000, guid: 947c55c80766cc54780195a805bd8746, type: 3}
   EnemyAudioSource: {fileID: -2857209347671981484}
 --- !u!54 &-5765141888682880806
 Rigidbody:
@@ -1033,17 +1038,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8326171260468417251, guid: a0abda9c315627d48abb1986b2439102, type: 3}
   m_PrefabInstance: {fileID: 8870329281284370253}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2236445887612891399 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7210490415382781514, guid: a0abda9c315627d48abb1986b2439102, type: 3}
-  m_PrefabInstance: {fileID: 8870329281284370253}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4685760299750107908 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4187951079302415433, guid: a0abda9c315627d48abb1986b2439102, type: 3}

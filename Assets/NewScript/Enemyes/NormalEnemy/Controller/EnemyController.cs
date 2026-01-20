@@ -80,7 +80,7 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        if(Camera != null) Canvas.transform.LookAt(Camera.transform);
+        if(Camera != null) Canvas.transform.forward = Camera.transform.forward;
         currentState?.Update(this);
         //JudgementDrop();
     }

@@ -215,6 +215,16 @@ public class SetSofviManeger : MonoBehaviour
             case SoftVinilData.BUFFSTATUSNUM.MAXHP:
                 PlayerStatus_Script.add_Player_MaxHealth += value; break;
 
+
+            case SoftVinilData.BUFFSTATUSNUM.ATTACK_RANGE:
+                PlayerStatus_Script.add_player_Attack_Range += value; break;
+
+            case SoftVinilData.BUFFSTATUSNUM.AVOIDANCE_DISTANCE:
+                PlayerStatus_Script.add_player_Avoidance_Distance += value; break;
+
+            case SoftVinilData.BUFFSTATUSNUM.SKILL_POWER_MULTIPLIER:
+                PlayerStatus_Script.add_player_Skill_Power_Multiplier += value; break;
+            //使ってないステータス
             case SoftVinilData.BUFFSTATUSNUM.SKILL_CHARGE:
                 PlayerStatus_Script.add_Player_Skill_Charge += value; break;
 
@@ -224,14 +234,6 @@ public class SetSofviManeger : MonoBehaviour
             case SoftVinilData.BUFFSTATUSNUM.MAXSUTAMINA:
                 PlayerStatus_Script.add_Player_MaxSutamina += value; break;
 
-            //case SoftVinilData.BUFFSTATUSNUM.ATTACK_RANGE:
-            //    PlayerStatus_Script.add_Player_MaxSutamina += value; break;
-
-            //case SoftVinilData.BUFFSTATUSNUM.AVOIDANCE_DISTANCE:
-            //    PlayerStatus_Script.add_Player_MaxSutamina += value; break;
-
-            //case SoftVinilData.BUFFSTATUSNUM.SKILL_POWER_MULTIPLIER:
-            //    PlayerStatus_Script.add_Player_MaxSutamina += value; break;
         }
     }
 
@@ -241,12 +243,14 @@ public class SetSofviManeger : MonoBehaviour
         // ステータスをリセット
         PlayerStatus_Script.add_Player_Attack_Power = 0;
         PlayerStatus_Script.add_Player_MaxHealth = 0;
-        PlayerStatus_Script.add_player_stamina_recovery_speed = 0;
-        PlayerStatus_Script.add_Player_MaxSutamina = 0;
-        PlayerStatus_Script.add_Player_Skill_Charge = 0;
         PlayerStatus_Script.add_player_Skill_Power_Multiplier = 0;
         PlayerStatus_Script.add_player_Attack_Range = 0;
         PlayerStatus_Script.add_player_Avoidance_Distance = 0;
+        //使ってないステータス
+        PlayerStatus_Script.add_player_stamina_recovery_speed = 0;
+        PlayerStatus_Script.add_Player_MaxSutamina = 0;
+        PlayerStatus_Script.add_Player_Skill_Charge = 0;
+
 
         for (int i = 0; i < MAXSETPOSITION; i++)
         {

@@ -14,6 +14,10 @@ public class FilledAttackCone : MonoBehaviour
     private float outerRadius = 5.0f;
     private int segments = 30;
 
+    [Header("円周ではない辺の長さ")]
+    [SerializeField]
+    private float sideLength = 4.0f;
+
     [Header("表示位置(Y軸)")]
     public float yOffset = 0.05f;
     public Transform player; // プレイヤー位置（扇の起点）
@@ -32,6 +36,8 @@ public class FilledAttackCone : MonoBehaviour
 
     private void Update()
     {
+        meshFilter.mesh = GenerateConeMesh();
+
         // 攻撃方向があるときだけ表示・向き更新
         if (inputDirection.sqrMagnitude > 0.01f)
         {

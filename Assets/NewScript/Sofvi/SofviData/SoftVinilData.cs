@@ -41,12 +41,13 @@ public class SoftVinilData
         NULL = 0,
         POWER,
         MAXHP,
-        SKILL_CHARGE,
-        SUTAMINA_RECHARGE_SPEED,
-        MAXSUTAMINA,
         ATTACK_RANGE,
         AVOIDANCE_DISTANCE,
         SKILL_POWER_MULTIPLIER,
+        //使用してないステータス
+        SKILL_CHARGE,
+        SUTAMINA_RECHARGE_SPEED,
+        MAXSUTAMINA,
     }
     public enum Raritynum
     {

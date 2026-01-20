@@ -96,7 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ead5c8a6196b80545a017684603f0393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
+  radius: 5
+  angle: 60
   yOffset: 0.05
   player: {fileID: 0}
 --- !u!1 &3395398609826447640
@@ -420,7 +421,6 @@ MonoBehaviour:
   PlayerEffectScript: {fileID: 4801876933201552212}
   PlayerMotionScript: {fileID: 7697936701177354853}
   footprintsOBJ: {fileID: 6351596230871839408, guid: a3c94913c8823194eafdf8ae53ded6ee, type: 3}
-  specialMoveEffectScript: {fileID: 8066502172370373933}
   canvas: {fileID: 3395398609826447640}
   damageTxt: {fileID: 821673611413965849}
 --- !u!114 &6990655156876945735
@@ -466,13 +466,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player_MaxHealth: 0
-  player_Attack_Power: 0
-  player_Skill_Point: 0
-  player_Attack_Range: 0
-  player_Avoidance_Distance: 0
-  player_Skill_Power_Multiplier: 0
   player_MaxSutamina: 0
   player_stamina_recovery_speed: 0
+  player_Attack_Power: 0
+  player_Skill_Point: 0
   player_Skill_Charge: 0
   default_player_MaxHealth: 0
   default_player_MaxSutamina: 0
@@ -480,18 +477,12 @@ MonoBehaviour:
   default_player_Attack_Power: 0
   default_player_Skill_Point: 0
   default_player_Skill_Charge: 0
-  default_player_Attack_Range: 0
-  default_player_Avoidance_Distance: 0
-  default_player_Skill_Power_Multiplier: 0
   add_Player_MaxHealth: 0
   add_Player_MaxSutamina: 0
   add_player_stamina_recovery_speed: 0
   add_Player_Attack_Power: 0
   add_Player_Skill_Point: 0
   add_Player_Skill_Charge: 0
-  add_player_Attack_Range: 0
-  add_player_Avoidance_Distance: 0
-  add_player_Skill_Power_Multiplier: 0
   enemyDeathCount: 0
   statusLoad: {fileID: 0}
 --- !u!114 &8398801253528264856

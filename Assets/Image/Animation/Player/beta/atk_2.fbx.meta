@@ -68,7 +68,7 @@ ModelImporter:
       curves: []
       events:
       - time: 0.5874547
-        functionName: idleMotion
+        functionName: StopAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

@@ -14,9 +14,7 @@ public class AttackThreeState : PlayerState
 
     public override void Enter()
     {
-        if (player.IsAvoid) player.ChangeState(new PlayerAvoidState(player));
-
-        player.PlayerMotionScript.attackMotion();
+        player.PlayerMotionScript.attackMotion(true);
 
         player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.SLASH);
         player.IsAttack = true;
@@ -42,7 +40,7 @@ public class AttackThreeState : PlayerState
     public override void Exit()
     {
         player.IsAttack = false;
-        player.PlayerMotionScript.idleMotion();
+        player.PlayerMotionScript.attackMotion(false);
         player.PlayerEffectScript.StopEffect((int)playerEffectScript.EffectName.SLASH);
 
     }

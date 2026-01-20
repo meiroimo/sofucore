@@ -76,7 +76,7 @@ public class PlayerStatus_Script : MonoBehaviour
     void Update()
     {
         // StatusUp();
-        debugText.text = "追加ステータスの確認\r\n攻撃範囲"+ (player_Attack_Range/100)*4.16 /*player_Attack_Range*/ + "　\r\nスキル威力"+ player_Skill_Power_Multiplier + "\r\n回避距離"+ player_Avoidance_Distance;
+        debugText.text = "追加ステータスの確認\r\n攻撃範囲"+ (float)(player_Attack_Range/100)*4.16f /*player_Attack_Range*/ + "　\r\nスキル威力"+ player_Skill_Power_Multiplier + "\r\n回避距離"+ player_Avoidance_Distance;
     }
     // ステータスアップの反映
   public   void StatusUp()
@@ -84,9 +84,9 @@ public class PlayerStatus_Script : MonoBehaviour
         player_MaxHealth                = default_player_MaxHealth              + add_Player_MaxHealth;
         player_Attack_Power             = default_player_Attack_Power           + add_Player_Attack_Power;
         //追加したステータス
-        player_Attack_Range             = default_player_Attack_Range           + add_player_Attack_Range;
-        player_Avoidance_Distance       = default_player_Avoidance_Distance     + add_player_Avoidance_Distance;
-        player_Skill_Power_Multiplier   = default_player_Skill_Power_Multiplier + (add_player_Skill_Power_Multiplier*0.01f);
+        player_Attack_Range             = default_player_Attack_Range           + (default_player_Attack_Range*add_player_Attack_Range*0.01f);//％に変更
+        player_Avoidance_Distance       = default_player_Avoidance_Distance     + (default_player_Avoidance_Distance * add_player_Avoidance_Distance*0.01f);//％に変更
+        player_Skill_Power_Multiplier   = default_player_Skill_Power_Multiplier + (add_player_Skill_Power_Multiplier*0.01f);//％に変更
         //使ってない
         player_stamina_recovery_speed = default_player_stamina_recovery_speed + add_player_stamina_recovery_speed;
         player_MaxSutamina = default_player_MaxSutamina + add_Player_MaxSutamina;

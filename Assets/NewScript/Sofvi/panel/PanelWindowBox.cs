@@ -51,7 +51,7 @@ public class PanelWindowBox : MonoBehaviour
     void Update()
     {
         MousePointPos = Input.mousePosition;//画面上のマウスの位置を取得
-        ImageRectTrs.position = new Vector2(MousePointPos.x+50, MousePointPos.y+50);//レンダーモードがoberlayだとそのままマウスの位置を代入する事ができる
+        ImageRectTrs.position = new Vector2(MousePointPos.x-50, MousePointPos.y-50);//レンダーモードがoberlayだとそのままマウスの位置を代入する事ができる
       //  popupTextRectTrs.anchoredPosition = new Vector2(MousePos.x, MousePos.y);
 
         debugText.text = "\n" + ofsetx+ "\n" + ofsety;

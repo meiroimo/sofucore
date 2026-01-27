@@ -16,8 +16,6 @@ public class TextWindow : MonoBehaviour
     [Header("削除ボタンのオフセット")]
     public Vector2 deleteButtonOffset = new Vector2(0, -150);
 
-    [Header("設置シーンカメラ")]
-    public Camera cam;
 
     [Header("UI全体をまとめているパネル（Canvas内のRectTransform）")]
     public RectTransform basePanel;
@@ -220,19 +218,6 @@ public class TextWindow : MonoBehaviour
             textH/2 + padding.y
         );
 
-        //// Textが必要とするサイズ
-        //float preferredW = statusText.preferredWidth;
-        //float preferredH = statusText.preferredHeight;
-
-        //// padding込みサイズ
-        //float width = preferredW + padding.x;
-        //float height = preferredH + padding.y;
-
-        //// 最大サイズ制限
-        //width = Mathf.Min(width, maxSize.x);
-        //height = Mathf.Min(height, maxSize.y);
-
-        //statusTextRect.sizeDelta = new Vector2(width, height);
     }    /// <summary>
          /// ボタンからカーソルが離れた時に呼ぶ
          /// </summary>

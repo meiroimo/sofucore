@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public float moveForce = 10f;//移動速度
     public float rotationSpeed = 10f;
     private float attackPowerSpeedMultiplier = 1.2f;//スキル攻撃倍率
-    public float player_Avoidance_Distance = 25.0f;//回避距離
+    public float player_Avoidance_Distance;//回避距離
 
 
     private float comboInputWindow = 0.6f; //次の攻撃を受け付ける猶予時間
@@ -164,6 +164,7 @@ public class PlayerController : MonoBehaviour
     {
         moveForce = 5;
         attack_Power = playerStatus_Script.player_Attack_Power;
+        player_Avoidance_Distance = playerStatus_Script.player_Avoidance_Distance;
 
         ChangeState(new PlayerIdleState(this));
     }
@@ -207,6 +208,8 @@ public class PlayerController : MonoBehaviour
         currentState?.Exit();
         currentState = newState;
         currentState.Enter();
+        Debug.LogWarning(currentState);
+
     }
 
     /// <summary>
@@ -258,7 +261,7 @@ public class PlayerController : MonoBehaviour
     /// 回避用の移動処理
     /// </summary>
     /// <param name="velocity"></param>
-    public void MoveInstant(Vector2 velocity)
+    public void MoveInstant(Vector3 velocity)
     {
         Rigid.velocity = velocity;
     }
@@ -440,10 +443,9 @@ public class PlayerController : MonoBehaviour
     {
         if (!uIManager.SetUIFlg || pauseMenu.IsPaused) return;
 
-        //if (CanDodge()) // 任意：クールタイム等
-        {
-            ChangeState(new PlayerAvoidState(this));
-        }
+        if (isAvoid) return;
+
+       　ChangeState(new PlayerAvoidState(this));
     }
 
     public void CallHealStamina()

@@ -28,6 +28,7 @@ public class PlayerRunState : PlayerState
 
     public override void Update()
     {
+        if (player.IsAvoid) return;
         Vector2 moveInput = player.MoveInput;
         Vector3 moveDir = new Vector3(moveInput.x, 0, moveInput.y);
 

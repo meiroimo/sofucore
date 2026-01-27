@@ -14,6 +14,7 @@ public class PlayerIdleState : PlayerState
 
     public override void Update()
     {
+        if (player.IsAvoid) return;
         player.CallHealStamina();
         //magnitude:ƒxƒNƒgƒ‹‚Ì’·‚³
         if (player.MoveInput.magnitude > 0.1f)

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 /// <summary>
 /// プレイヤーの回避状態
@@ -9,8 +10,8 @@ using UnityEngine;
 public class PlayerAvoidState : PlayerState
 {
     private Vector3 dodgeDirection;
-    private float dodgeSpeed = 25f;
-    private float dodgeDuration = 0.3f;
+    private float dodgeSpeed = 5f;
+    private float dodgeDuration = 0.5f;
     private float timer = 0f;
 
     public PlayerAvoidState(PlayerController player) : base(player) { }
@@ -20,6 +21,7 @@ public class PlayerAvoidState : PlayerState
         if (!player.TakeAvoid(300))
         {
             player.ChangeState(new PlayerIdleState(player));
+            Debug.LogWarning("スタミナが足りない！");
             return;
         }
 
@@ -67,21 +69,20 @@ public class PlayerAvoidState : PlayerState
         }
         player.SeBox.PlayPlayerSE(PlayerSEBox.SENAME.AVOID);
         timer = 0f;
+
     }
 
     public override void Update()
     {
         timer += Time.deltaTime;
-        dodgeSpeed = player.player_Avoidance_Distance;
-        player.MoveInstant(dodgeDirection * dodgeSpeed);
 
-        if (timer < dodgeDuration)
+        float moveSpeed = player.player_Avoidance_Distance / dodgeDuration;
+        Debug.LogWarning(player.player_Avoidance_Distance);
+        player.MoveInstant(dodgeDirection * moveSpeed);
+
+        if (timer >= dodgeDuration)
         {
-            player.MoveInDirection(dodgeDirection, dodgeSpeed);
-        }
-        else
-        {
-            player.ChangeState(new PlayerIdleState(player)); 
+            player.ChangeState(new PlayerIdleState(player));
         }
     }
 

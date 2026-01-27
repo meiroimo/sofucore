@@ -36,7 +36,7 @@ public class TreasureChestDropScript : MonoBehaviour
         //POWER,MAXHP,ATTACK_RANGE,AVOIDANCE_DISTANCE,SKILL_POWER_MULTIPLIER,
         new List<int>(){3,20,10,10,15},  //Normal
         new List<int>(){9,60,12,20,30},  //RARE
-        new List<int>(){15,100,15,40,45}   //SUPARRARE
+        new List<int>(){15,100,15,30,45}   //SUPARRARE
     };
 
     public int DropRate { get => dropRate; set => dropRate = value; }

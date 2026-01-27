@@ -60,11 +60,11 @@ public class ScreenSwitchManager : MonoBehaviour
             }
             else
             {
-                if(!SetSofviManegerSc.selectSoftVinylData.SofviData.selectCheck)
+                if(!SetSofviManegerSc.selectSofviDeta.SofviData.selectCheck)
                 {
                     Time.timeScale = 1f;
-                    SetSofviManegerSc.selectSoftVinylData.SofviData = SetSofviManegerSc.selectSoftVinylData.SofviData.copy();
-                    SetSofviManegerSc.selectSoftVinylData.SofviData.ResetParameter();
+                    SetSofviManegerSc.selectSofviDeta.SofviData = SetSofviManegerSc.selectSofviDeta.SofviData.copy();
+                    SetSofviManegerSc.selectSofviDeta.SofviData.ResetParameter();
                     SetSofviManegerSc.TextWindowManegerSc.OnHoverExit();
                     CloseSetScene();
 

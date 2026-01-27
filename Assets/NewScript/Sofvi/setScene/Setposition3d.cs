@@ -81,7 +81,7 @@ public class Setposition3d : MonoBehaviour
         }
         else
         {
-            int resetpotionnum = SetSofviManeger.selectSoftVinylData.SofviData.selectButton.GetComponent<Setposition3d>().setpotionNumber;
+            int resetpotionnum = SetSofviManeger.selectSofviDeta.SofviData.selectButton.GetComponent<Setposition3d>().setpotionNumber;
             Destroy(SetSofviManeger.AllSetobject.transform.GetChild(resetpotionnum).gameObject.transform.GetChild(1).gameObject);
             SetSofviManeger.setSoftVinylData[resetpotionnum].SofviData.ResetParameter();
             SetSofviManeger.statusup();
@@ -140,9 +140,9 @@ public class Setposition3d : MonoBehaviour
     //セレクト中のソフビデータを設置ソフビデータにセットする関数
     public void setpositionsofviDeta()
     {
-        if (SetSofviManeger.selectSoftVinylData.SofviData.selectCheck)
+        if (SetSofviManeger.selectSofviDeta.SofviData.selectCheck)
         {
-            softVinylData.SofviData = SetSofviManeger.selectSoftVinylData.SofviData.copy();
+            softVinylData.SofviData = SetSofviManeger.selectSofviDeta.SofviData.copy();
             softVinylData.SofviData.checksetpotion = false;
 
            // Debug.Log(softVinylData.SofviData.buffMainstatus);

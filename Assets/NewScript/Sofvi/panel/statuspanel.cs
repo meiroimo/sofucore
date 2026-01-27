@@ -35,8 +35,8 @@ public class statuspanel : MonoBehaviour
     void settext()
     {
         statusText.text =
-      "HP:" + PleyerStatus.player_MaxHealth + "攻撃力:" + PleyerStatus.player_Attack_Power + "スタミナ:" + PleyerStatus.player_MaxSutamina + "\n"
-      + "スキルチャージ(毎秒):" + PleyerStatus.player_Skill_Charge+"スタミナ回復(毎秒)"+ PleyerStatus.player_stamina_recovery_speed;
+      "HP:" + PleyerStatus.player_MaxHealth + "　攻撃力:" + PleyerStatus.player_Attack_Power + "　攻撃範囲(％):+" + PleyerStatus.add_player_Attack_Range + "％\n"
+      + "スキル倍率(％):+" + PleyerStatus.add_player_Skill_Power_Multiplier+ "％　回避距離(％):+" + PleyerStatus.add_player_Avoidance_Distance+ "％";
 
     }
   

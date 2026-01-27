@@ -14,9 +14,6 @@ public class FilledAttackCone : MonoBehaviour
     private float outerRadius = 5.0f;
     private int segments = 30;
 
-    [Header("‰~Žü‚Å‚Í‚È‚¢•Ó‚Ì’·‚³")]
-    [SerializeField]
-    private float sideLength = 4.0f;
 
     [Header("•\Ž¦ˆÊ’u(YŽ²)")]
     public float yOffset = 0.05f;

@@ -1950,14 +1950,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3e161278a9862f343997c3f89786d5ac, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2727,12 +2727,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deleteButtonRect: {fileID: 0}
   deleteButtonOffset: {x: 0, y: -150}
-  cam: {fileID: 1328696965740936174}
   basePanel: {fileID: 2667041944867841731}
   statusTextRect: {fileID: 7184850370081249082}
   statusText: {fileID: 8044584072997932113}
   textRect: {fileID: 2931755954304543384}
-  padding: {x: 50, y: 20}
+  padding: {x: 0, y: 20}
   maxTextSize: {x: 1000, y: 500}
 --- !u!1 &3592768369133010070
 GameObject:
@@ -3215,7 +3214,7 @@ GameObject:
   - component: {fileID: 4767937512657411975}
   - component: {fileID: 4199183168626762815}
   - component: {fileID: 7066951441197394246}
-  - component: {fileID: 3510565150858690451}
+  - component: {fileID: 7454456413503420768}
   m_Layer: 5
   m_Name: ComparisonText
   m_TagString: Untagged
@@ -3264,14 +3263,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3e161278a9862f343997c3f89786d5ac, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3288,7 +3287,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3924744173874493131}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
@@ -3296,7 +3295,7 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 0.905777, b: 0, a: 0.5}
   m_EffectDistance: {x: 2, y: 2}
   m_UseGraphicAlpha: 1
---- !u!114 &3510565150858690451
+--- !u!114 &7454456413503420768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3305,7 +3304,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3924744173874493131}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53488ef2f17e35042bf44bad35cbd2fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 4fc180cf34a69bd4cad7acbcba0512b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SetSofviManegerSc: {fileID: 7106416729627542068}
@@ -3587,17 +3586,18 @@ MonoBehaviour:
   ScreenSwitchManagerSc: {fileID: 0}
   TextWindowManegerSc: {fileID: 5566121150895058444}
   TextWindowManegerSc_copy: {fileID: 8412172676676119201}
+  ComTextmgSc: {fileID: 54865952500859988}
   SelectTextSc: {fileID: 4094044036564567489}
+  ComTextSc: {fileID: 7454456413503420768}
   setSoftVinylData:
   - {fileID: 0}
   setposition3Ds: []
-  selectSoftVinylData: {fileID: 8266165985135091823}
-  PlayerStatus_Script: {fileID: 0}
-  AllSetobject: {fileID: 2758035730505543830}
-  cam: {fileID: 1328696965740936174}
   selectSofviOBJ: {fileID: 649366482230530880}
   selectSofviDeta: {fileID: 0}
+  PlayerStatus_Script: {fileID: 0}
   PlayerControllerSc: {fileID: 0}
+  AllSetobject: {fileID: 2758035730505543830}
+  cam: {fileID: 1328696965740936174}
 --- !u!1 &4593779638137950945
 GameObject:
   m_ObjectHideFlags: 0
@@ -3659,14 +3659,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3e161278a9862f343997c3f89786d5ac, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3683,7 +3683,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4593779638137950945}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
@@ -4907,7 +4907,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4790020229903901394
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4950,14 +4950,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3e161278a9862f343997c3f89786d5ac, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4974,7 +4974,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6095069190328890143}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
@@ -5263,6 +5263,7 @@ GameObject:
   - component: {fileID: 7627696970138133632}
   - component: {fileID: 5649059808669378849}
   - component: {fileID: 8928818724165910155}
+  - component: {fileID: 5905265003222470115}
   m_Layer: 5
   m_Name: delete
   m_TagString: Untagged
@@ -5396,6 +5397,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5905265003222470115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6359066463637166481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 0.93159175, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &6509839796388031434
 GameObject:
   m_ObjectHideFlags: 0
@@ -5554,6 +5570,58 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: New Text
+--- !u!1 &6617196671998357233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1968413507222092653}
+  - component: {fileID: 54865952500859988}
+  m_Layer: 0
+  m_Name: ComparrsionTextWindowManeger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1968413507222092653
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6617196671998357233}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 927.5572, y: 711.9964, z: 20.89}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1416843979784931157}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &54865952500859988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6617196671998357233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b24b281c0f2e222448cbd03e3c121a6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basePanel: {fileID: 2667041944867841731}
+  ShowstatusTextRect: {fileID: 7184850370081249082}
+  statusTextRect: {fileID: 1516243548404559141}
+  statusText: {fileID: 5513241732280421181}
+  textRect: {fileID: 4824433659029461719}
+  offset: {x: 0, y: 0}
+  padding: {x: 0, y: 20}
+  maxTextSize: {x: 1000, y: 500}
 --- !u!1 &6672696238016525580
 GameObject:
   m_ObjectHideFlags: 0
@@ -5600,12 +5668,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deleteButtonRect: {fileID: 4790020229903901394}
   deleteButtonOffset: {x: 0, y: -150}
-  cam: {fileID: 1328696965740936174}
   basePanel: {fileID: 2667041944867841731}
   statusTextRect: {fileID: 1021421223790586455}
   statusText: {fileID: 2511395611315226286}
   textRect: {fileID: 4824433659029461719}
-  padding: {x: 50, y: 0}
+  padding: {x: 0, y: 20}
   maxTextSize: {x: 1000, y: 500}
 --- !u!1 &6736564482316999684
 GameObject:
@@ -6119,7 +6186,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: f4cee3b08c452844eb29a15745e5f7c0, type: 3}
     m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 0
@@ -6569,6 +6636,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6906516483472754023}
+  - {fileID: 1968413507222092653}
   - {fileID: 7212349568471070776}
   - {fileID: 183631828777588030}
   - {fileID: 7404135594304873783}

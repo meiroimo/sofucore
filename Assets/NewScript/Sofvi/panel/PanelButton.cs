@@ -14,6 +14,11 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
 {
     [Header("ソフビ一覧の各ボタンにソフビデータを入れるスクリプト")]
 
+    [Header("比較用テキストウィンドウ")]
+    public ComparrisonTextWindow ComTextmgSc;
+    public ComparsionText ComTextSc;
+
+
     public GameObject SofviDeleteButton;//削除ボタンのオブジェクト
     public Deletbutton DeletbuttonSc;//削除ボタンスクリプト
 
@@ -68,6 +73,12 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
         {
             TextWindowManegerSc.OnHoverEnter();
             SelectTextSc.setText(SetSofvidata.SofviData);
+            if (selectSofviDeta.SofviData.selectCheck)//選択中だったら
+            {
+                ComTextSc.setText(selectSofviDeta.SofviData);//選択中のステータスを表示
+                ComTextmgSc.OnHoverEnter();
+
+            }
 
         }
 
@@ -76,6 +87,8 @@ public class PanelButton : MonoBehaviour,IPointerEnterHandler, IPointerExitHandl
     public void OnPointerExit(PointerEventData eventData)
     {
         TextWindowManegerSc.OnHoverExit();
+        ComTextmgSc.OnHoverExit();
+
     }
     public void onclickButton()
     {

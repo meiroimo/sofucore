@@ -74,7 +74,7 @@ public class SelectText : MonoBehaviour
         text.supportRichText = true;
         System.Text.StringBuilder sb = new System.Text.StringBuilder();
         // ★ 追加：一行目に固定テキスト
-        sb.AppendLine("ソフビステータス");
+        sb.AppendLine("　　ソフビステータス　　");
         AddBuffLine(sb, GetBuffColoredName(data.buffMainstatus), data.BuffMainParameter);
         AddBuffLine(sb, GetBuffColoredName(data.buffSubstatus1), data.BuffSubParameter1);
         AddBuffLine(sb, GetBuffColoredName(data.buffSubstatus2), data.BuffSubParameter2);

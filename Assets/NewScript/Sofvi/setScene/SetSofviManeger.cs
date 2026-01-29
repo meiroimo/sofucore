@@ -25,10 +25,16 @@ public class SetSofviManeger : MonoBehaviour
 
     [Header("比較用テキストウィンドウ")]
     public ComparrisonTextWindow ComTextmgSc;
+    public ComparsionText ComTextSc;
+
+    [Header("比較用テキストウィンドウcopy")]
+    public ComparrisonTextWindow ComTextmgSc_Copy;
+    public ComparsionText ComTextSc_Copy;
+
+
 
     [Header("テキスト設定クラス")]
     public SelectText SelectTextSc;
-    public ComparsionText ComTextSc;
 
     //==============================
     // データ関連

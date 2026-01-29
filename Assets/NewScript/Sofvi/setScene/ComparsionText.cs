@@ -65,7 +65,7 @@ public class ComparsionText : MonoBehaviour
         text.supportRichText = true;
         System.Text.StringBuilder sb = new System.Text.StringBuilder();
         // ★ 追加：一行目に固定テキスト
-        sb.AppendLine("選択中ソフビステータス");
+        sb.AppendLine("選択中　ソフビステータス");
         AddBuffLine(sb, GetBuffColoredName(data.buffMainstatus), data.BuffMainParameter);
         AddBuffLine(sb, GetBuffColoredName(data.buffSubstatus1), data.BuffSubParameter1);
         AddBuffLine(sb, GetBuffColoredName(data.buffSubstatus2), data.BuffSubParameter2);
@@ -74,6 +74,8 @@ public class ComparsionText : MonoBehaviour
         text.text = sb.ToString();
 
         SetSofviManegerSc.ComTextmgSc.UpdateWindowSize();
+        SetSofviManegerSc.ComTextmgSc_Copy.UpdateWindowSize();
+
 
         Debug.Log("ウィンドウサイズを自動調整した");
     }

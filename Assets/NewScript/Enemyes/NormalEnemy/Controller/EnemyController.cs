@@ -71,7 +71,7 @@ public class EnemyController : MonoBehaviour
         ChangeState(new EnemyChaseState());
         attackEffect.SetActive(false);
 
-        if (transform.localScale.x > 1.0f) Canvas.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        if (transform.localScale.x > 1.0f) Canvas.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
         if (1.0f > transform.localScale.x) Canvas.transform.localScale = new Vector3(2.0f, 2.0f, 2.0f);
 
     }

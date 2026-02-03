@@ -36,15 +36,6 @@ public class PlayerRunState : PlayerState
         Vector2 moveInput = player.MoveInput;
         Vector3 moveDir = new Vector3(moveInput.x, 0, moveInput.y);
 
-        //if (Time.time > nextStaminaDecreaseTime)
-        //{
-        //    nextStaminaDecreaseTime = Time.time + staminaDecrease;
-        //    if (!player.TakeAvoid(100))
-        //    {
-        //        player.ChangeState(new PlayerMoveState(player));
-        //        return;
-        //    }
-        //}
 
         if (moveDir.sqrMagnitude < 0.01f)
         {

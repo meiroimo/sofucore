@@ -82,17 +82,28 @@ public class StaminaSliderScript : MonoBehaviour
 
     public void HealStamina()
     {
-        if (Time.time > nextStaminaDecreaseTime)
+        if (nowStamina >= maxStamina) return;
+
+        nowStamina += staminaHeal * Time.deltaTime;
+
+        if(nowStamina > maxStamina)
         {
-            nextStaminaDecreaseTime = Time.time + staminaDecrease;
-            float currentStamina = GetNowStamina();
-            currentStamina += staminaHeal;
-            if (currentStamina > maxStamina)
-            {
-                currentStamina = maxStamina;
-            }
-            SetNowStamina(currentStamina);
+            nowStamina = maxStamina;
         }
+
+        SetNowStamina(nowStamina);
+
+        //if (Time.time > nextStaminaDecreaseTime)
+        //{
+        //    nextStaminaDecreaseTime = Time.time + staminaDecrease;
+        //    float currentStamina = GetNowStamina();
+        //    currentStamina += staminaHeal;
+        //    if (currentStamina > maxStamina)
+        //    {
+        //        currentStamina = maxStamina;
+        //    }
+        //    SetNowStamina(currentStamina);
+        //}
 
     }
 }

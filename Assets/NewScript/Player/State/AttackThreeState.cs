@@ -28,6 +28,7 @@ public class AttackThreeState : PlayerState
         Vector2 input = player.MoveInput;
         Vector3 moveDirection = new Vector3(input.x, 0, input.y); // Z•ûŒüˆÚ“®
         player.MoveCharacter(moveDirection, player.CurrentMoveSpeed);
+        player.CallHealStamina();
 
 
         // ƒRƒ“ƒ{I—¹‚Å Idle ‚É–ß‚é

@@ -12,7 +12,8 @@ public class softVinyl : MonoBehaviour
 {
    // [Header("ソフビデータ")] public SofviDataScriptable SofviDataScriptable;
     [Header("ソフビデータ")] public SoftVinilData SofviData;
-
+    [HideInInspector]
+    public bool isCaught = false;
     void Start()
     {
         if (SofviData == null)

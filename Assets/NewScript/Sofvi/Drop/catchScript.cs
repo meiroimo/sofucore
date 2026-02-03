@@ -33,6 +33,9 @@ public class catchScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        softVinyl sofvi = other.GetComponent<softVinyl>();
+        if (sofvi != null && sofvi.isCaught) return;
+
         string objTagName = other.tag;
         //âÒé˚ëŒè€Ç≈ÇÕÇ»ÇØÇÍÇŒreturn
         if (!objTagName.Contains("box") && !objTagName.Contains("sofvi") && !objTagName.Contains("item")) return;
@@ -65,6 +68,7 @@ public class catchScript : MonoBehaviour
                         if (sofviSotrage.sofviStrageList[j]==null || sofviSotrage.sofviStrageList[j].sofvimodel == SoftVinilData.SOFVINUMBER.NULL)
                         {
                             softVinyl DropSoftViny = other.GetComponent<softVinyl>();
+                            DropSoftViny.isCaught = true;
 
                             SoftVinilData SeveStorageSofviData = DropSoftViny.SofviData;
                             sofviSotrage.sofviStrageList[j] = SeveStorageSofviData;

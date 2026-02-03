@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerRunState : PlayerState
 {
     private float runSpeed;
-    private float nextStaminaDecreaseTime;
-    private float staminaDecrease = 1;
+    private float staminaInterval = 1.0f;//‰½•b‚²‚Æ‚ÉÁ”ï‚·‚é‚©
+    private float staminaCost = 100f;//1‰ñ‚ÌÁ”ï—Ê
+    private float timer;
 
     public PlayerRunState(PlayerController player) : base(player) 
     {
@@ -16,11 +17,14 @@ public class PlayerRunState : PlayerState
 
     public override void Enter()
     {
-        //if (!player.TakeAvoid(100))
-        //{
-        //    player.ChangeState(new PlayerMoveState(player));
-        //    return;
-        //}
+        if (!player.TakeAvoid(staminaCost))
+        {
+            player.ChangeState(new PlayerMoveState(player));
+            return;
+        }
+        player.CurrentMoveSpeed = runSpeed;
+        timer = 0f;
+
         player.PlayerMotionScript.runMotion(true);
         player.PlayerEffectScript.PlayEffect((int)playerEffectScript.EffectName.SMOKE);
         player.SeBox.PlayPlayerSE(PlayerSEBox.SENAME.MOVE);
@@ -32,15 +36,15 @@ public class PlayerRunState : PlayerState
         Vector2 moveInput = player.MoveInput;
         Vector3 moveDir = new Vector3(moveInput.x, 0, moveInput.y);
 
-        if (Time.time > nextStaminaDecreaseTime)
-        {
-            nextStaminaDecreaseTime = Time.time + staminaDecrease;
-            if (!player.TakeAvoid(100))
-            {
-                player.ChangeState(new PlayerMoveState(player));
-                return;
-            }
-        }
+        //if (Time.time > nextStaminaDecreaseTime)
+        //{
+        //    nextStaminaDecreaseTime = Time.time + staminaDecrease;
+        //    if (!player.TakeAvoid(100))
+        //    {
+        //        player.ChangeState(new PlayerMoveState(player));
+        //        return;
+        //    }
+        //}
 
         if (moveDir.sqrMagnitude < 0.01f)
         {
@@ -53,6 +57,17 @@ public class PlayerRunState : PlayerState
         {
             player.ChangeState(new PlayerMoveState(player));
             return;
+        }
+
+        timer += Time.deltaTime;
+        if (timer >= staminaInterval)
+        {
+            timer = 0f;
+            if (!player.TakeAvoid(staminaCost))
+            {
+                player.ChangeState(new PlayerMoveState(player));
+                return;
+            }
         }
 
         player.MoveCharacter(moveDir, runSpeed);

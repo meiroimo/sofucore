@@ -190,7 +190,7 @@ public class EnemyController : MonoBehaviour
         Vector3 targetPos;
         if (isSkill)
         {
-            saveknockback *= 2.5f;
+            saveknockback = 0.05f;
             targetPos = transform.position + dir * saveknockback;
         }
         else

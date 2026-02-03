@@ -31,7 +31,7 @@ public class PlayerMoveState : PlayerState
         }
 
         // ShiftƒL[‰Ÿ‰º‚Å‘–‚è‚ÉˆÚs
-        if (player.IsRunning && player.TakeAvoid(5))
+        if (player.IsRunning)
         {
             player.ChangeState(new PlayerRunState(player));
             return;

@@ -3888,7 +3888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aa9bcb4a0ec0634eb6eba7e2a1187c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageBGM: {fileID: 8300000, guid: 91d2454f71b79cd409dd2240e03c5811, type: 3}
+  stageBGM: {fileID: 8300000, guid: a35bbb5c42a483f42abfbeeb374361a3, type: 3}
   testBGM: {fileID: 0}
 --- !u!1 &1044898687
 GameObject:

@@ -196,7 +196,7 @@ public class EnemySpawner : MonoBehaviour
             float distance = Random.Range(spawnRadiusMin, spawnRadiusMax);
 
             //プレイヤーの周囲に候補位置を設定（XZ平面）
-            Vector3 candidate = player.position + new Vector3(randomDir.x * distance, 0f, randomDir.y * distance);
+            Vector3 candidate = player.position + new Vector3(randomDir.x * distance, 0.5f, randomDir.y * distance);
 
             //NavMesh上の最近点を取得
             NavMeshHit hit;

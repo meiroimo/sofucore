@@ -18,7 +18,7 @@ public class PlayerAvoidState : PlayerState
 
     public override void Enter()
     {
-        if (!player.TakeAvoid(300))
+        if (!player.TakeAvoid(150))
         {
             player.ChangeState(new PlayerIdleState(player));
             Debug.LogWarning("スタミナが足りない！");

@@ -765,6 +765,22 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 25.99
       objectReference: {fileID: 0}
+    - target: {fileID: 5741437986624427187, guid: a0abda9c315627d48abb1986b2439102, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741437986624427187, guid: a0abda9c315627d48abb1986b2439102, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741437986624427187, guid: a0abda9c315627d48abb1986b2439102, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741437986624427187, guid: a0abda9c315627d48abb1986b2439102, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8326171260468417251, guid: a0abda9c315627d48abb1986b2439102, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
